@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
+  m_Name: Tent
+  m_EditorClassIdentifier: 
+  buildingName: Tent
+  toolType: Lantern
+  toolTypeIndex: 1
+  _sprite: {fileID: 21300000, guid: 0cd41c92ee362944885354db19128dda, type: 3}
+  itemNameList:
+  - Wood
+  itemAmountList: 01000000
+  _scale: {x: 1, y: 1, z: 1}
+  _relativeLocation: {x: 0, y: 0, z: 0}
