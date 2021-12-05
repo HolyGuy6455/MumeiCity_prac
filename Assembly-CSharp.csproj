@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingPreset.cs" />
      <Compile Include="Assets\Script\UI\InventorySlot.cs" />
+     <Compile Include="Assets\Script\PersonCommonAI.cs" />
      <Compile Include="Assets\Script\UI\BuildingManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\UI\InventoryManager.cs" />
@@ -62,7 +63,7 @@
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\PersonCommonAI.cs" />
+     <Compile Include="Assets\Script\FootPrint.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
