@@ -29,14 +29,7 @@ public class Hittable : MonoBehaviour, IEntityDestroyEvent
             animator.SetBool("isDead",true);
             return;
         }
-        animator.SetBool("isHit",true);
-        hitBoxCollider.enabled = false;
-    }
-
-    public void HitEnd(){
-        // Debug.Log("HitEnd!!");
-        animator.SetBool("isHit",false);
-        hitBoxCollider.enabled = true;
+        animator.SetTrigger("Hit");
     }
 
     public void Dead(){

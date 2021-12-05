@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpPower = 7.0f;
     public Rigidbody rigidBody;
     public Animator animator;
-    Vector3 movement;
+    public Vector3 movement;
     public Transform shadow;
     private bool isJump = false;
     RaycastHit hit;
