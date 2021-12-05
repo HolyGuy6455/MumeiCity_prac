@@ -22,7 +22,7 @@ public class ItemDroper : MonoBehaviour
         GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
         ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
         itemPickup.item = itemData;
-        itemPickup.player = GameManager.Instance.PlayerTransform;
+        // itemPickup.player = GameManager.Instance.PlayerTransform;
         itemPickup.IconSpriteUpdate();
         itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100.0f, 100.0f),200,Random.Range(-100.0f, 100.0f)));
     }

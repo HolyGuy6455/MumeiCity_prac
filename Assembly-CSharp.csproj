@@ -66,6 +66,7 @@
      <Compile Include="Assets\Script\PlayerMovement.cs" />
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\InteractCollision.cs" />
+     <Compile Include="Assets\Script\UI\InteractUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

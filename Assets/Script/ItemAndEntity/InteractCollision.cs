@@ -15,4 +15,20 @@ public class InteractCollision : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other) {
+        if(other.tag != "Interactable"){
+            return;
+        }
+        // Debug.Log("TriggerEnter "+other.gameObject);
+        GameManager.Instance.AddInteractable(other.GetComponent<Interactable>());
+        // other.gameObject.GetComponentInParent<Hittable>().Hit();
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.tag != "Interactable"){
+            return;
+        }
+        GameManager.Instance.RemoveInteractable(other.GetComponent<Interactable>());
+    }
 }

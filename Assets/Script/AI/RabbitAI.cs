@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class RabbitAI : MonoBehaviour
 {
-    [SerializeField]
-    Transform playerTransform;
-    [SerializeField]
-    Rigidbody rigidbody;
-    [SerializeField]
-    Animator animator;
+    [SerializeField] Transform playerTransform;
+    [SerializeField] new Rigidbody rigidbody;
+    [SerializeField] Animator animator;
     public float noticeDistance = 3.0f;
     public float jumpPower = 3.0f;
     bool isNoticed = false;
@@ -36,6 +33,11 @@ public class RabbitAI : MonoBehaviour
     public void Jump(){
         Vector3 movement = (this.transform.position-playerTransform.position).normalized;
         this.rigidbody.AddForce(new Vector3(movement.x,1,movement.z)*jumpPower,ForceMode.Impulse);
+        if(movement.x <= -0.01f){
+            transform.localScale = new Vector3(-1f,1f,1f);
+        }else if(movement.x >= 0.01f){
+            transform.localScale = new Vector3(1f,1f,1f);
+        }
     }
 
     public bool IsGrounded() {

@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2102534913}
   m_Layer: 0
   m_Name: ItemPickup
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -128,7 +128,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcd229351cffe040a92a389909febea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 1
   isInteractable: 0
   player: {fileID: 0}
   item: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}

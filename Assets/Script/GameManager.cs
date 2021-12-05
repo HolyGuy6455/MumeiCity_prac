@@ -4,8 +4,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public delegate void UpdateUI();
-    public LinkedList<Interactable> interactableList = new LinkedList<Interactable>();
-    
     private static GameManager singleton_instance = null;
     public Transform PlayerTransform;
     /*
@@ -22,6 +20,10 @@ public class GameManager : MonoBehaviour
     public BuildingManager buildingManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
+    [SerializeField] Interactable _interactableClosest;
+    public Interactable interactableClosest{get{return _interactableClosest;}}
+    public LinkedList<Interactable> interactableList = new LinkedList<Interactable>();
+    [SerializeField] InteractUI interactUI;
     public enum GameTab
     {
         NORMAL,
@@ -106,7 +108,22 @@ public class GameManager : MonoBehaviour
             }
             GameTabChanged();
         }
-
+        if(interactableList.Count != 0){
+            interactUI.gameObject.SetActive(true);
+            float distanceMin = float.MaxValue;
+            foreach (Interactable interactable in interactableList)
+            {
+                float distance = Vector3.Distance(interactable.transform.position,PlayerTransform.position);
+                if(distance < distanceMin){
+                    distanceMin = distance;
+                    _interactableClosest = interactable;
+                }
+            }
+            interactUI.MoveUIPositionFromTransform(_interactableClosest.transform);
+        }else{
+            interactUI.gameObject.SetActive(false);
+            _interactableClosest = null;
+        }
     }
 
     public Tool GetToolNowHold(){
@@ -142,12 +159,5 @@ public class GameManager : MonoBehaviour
 
     public void RemoveInteractable(Interactable interactable){
         interactableList.Remove(interactable);
-    }
-
-    public Interactable GetFirstInteractable(){
-        if(interactableList.Count < 1){
-            return null;
-        }
-        return interactableList.First.Value;
     }
 }

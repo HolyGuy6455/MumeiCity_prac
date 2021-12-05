@@ -5,7 +5,7 @@ public class Interactable : MonoBehaviour
 
     // public float radius = 3f;
     public bool isInteractable = false;
-    public Transform player;
+    // public Transform player;
 
     // private void OnDrawGizmosSelected() {
     //     Gizmos.color = Color.yellow;
@@ -15,7 +15,7 @@ public class Interactable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameManager.Instance.PlayerTransform;
+        // player = GameManager.Instance.PlayerTransform;
     }
 
     // Update is called once per frame
