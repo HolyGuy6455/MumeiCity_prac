@@ -74,45 +74,6 @@ TextureImporter:
   - first:
       213: -7779748599449005202
     second: cozy_modified_snowy_road_23
-  - first:
-      213: -3963994897667942429
-    second: cozy_modified_snowy_road_24
-  - first:
-      213: 4184882549356002523
-    second: cozy_modified_snowy_road_25
-  - first:
-      213: -660669155998188795
-    second: cozy_modified_snowy_road_26
-  - first:
-      213: 5138217204450658161
-    second: cozy_modified_snowy_road_27
-  - first:
-      213: 6096814202721399975
-    second: cozy_modified_snowy_road_28
-  - first:
-      213: 5829742502657734608
-    second: cozy_modified_snowy_road_29
-  - first:
-      213: 3356258360274915587
-    second: cozy_modified_snowy_road_30
-  - first:
-      213: -5062149533115899528
-    second: cozy_modified_snowy_road_31
-  - first:
-      213: 7399487699379402812
-    second: cozy_modified_snowy_road_32
-  - first:
-      213: 6886641391626932168
-    second: cozy_modified_snowy_road_33
-  - first:
-      213: -4064913256334481074
-    second: cozy_modified_snowy_road_34
-  - first:
-      213: -6977099395610999796
-    second: cozy_modified_snowy_road_35
-  - first:
-      213: -4688245549759033650
-    second: cozy_modified_snowy_road_36
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -373,8 +334,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_8
       rect:
         serializedVersion: 2
-        x: 128
-        y: 32
+        x: 0
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -394,8 +355,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_9
       rect:
         serializedVersion: 2
-        x: 144
-        y: 32
+        x: 16
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -415,8 +376,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_10
       rect:
         serializedVersion: 2
-        x: 160
-        y: 32
+        x: 32
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -436,8 +397,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_11
       rect:
         serializedVersion: 2
-        x: 176
-        y: 32
+        x: 48
+        y: 16
         width: 16
         height: 16
       alignment: 0
@@ -457,7 +418,7 @@ TextureImporter:
       name: cozy_modified_snowy_road_12
       rect:
         serializedVersion: 2
-        x: 0
+        x: 64
         y: 16
         width: 16
         height: 16
@@ -478,7 +439,7 @@ TextureImporter:
       name: cozy_modified_snowy_road_13
       rect:
         serializedVersion: 2
-        x: 16
+        x: 80
         y: 16
         width: 16
         height: 16
@@ -499,7 +460,7 @@ TextureImporter:
       name: cozy_modified_snowy_road_14
       rect:
         serializedVersion: 2
-        x: 32
+        x: 96
         y: 16
         width: 16
         height: 16
@@ -520,7 +481,7 @@ TextureImporter:
       name: cozy_modified_snowy_road_15
       rect:
         serializedVersion: 2
-        x: 48
+        x: 112
         y: 16
         width: 16
         height: 16
@@ -541,8 +502,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_16
       rect:
         serializedVersion: 2
-        x: 64
-        y: 16
+        x: 0
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -562,8 +523,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_17
       rect:
         serializedVersion: 2
-        x: 96
-        y: 16
+        x: 16
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -583,8 +544,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_18
       rect:
         serializedVersion: 2
-        x: 112
-        y: 16
+        x: 32
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -604,8 +565,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_19
       rect:
         serializedVersion: 2
-        x: 128
-        y: 16
+        x: 48
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -625,8 +586,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_20
       rect:
         serializedVersion: 2
-        x: 144
-        y: 16
+        x: 64
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -646,8 +607,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_21
       rect:
         serializedVersion: 2
-        x: 160
-        y: 16
+        x: 80
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -667,8 +628,8 @@ TextureImporter:
       name: cozy_modified_snowy_road_22
       rect:
         serializedVersion: 2
-        x: 176
-        y: 16
+        x: 96
+        y: 0
         width: 16
         height: 16
       alignment: 0
@@ -688,174 +649,6 @@ TextureImporter:
       name: cozy_modified_snowy_road_23
       rect:
         serializedVersion: 2
-        x: 192
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e63dfff1ed7c80490800000000000000
-      internalID: -7779748599449005202
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_24
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3e79a0984af0df8c0800000000000000
-      internalID: -3963994897667942429
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_25
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdc78159180b31a30800000000000000
-      internalID: 4184882549356002523
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_26
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 50bbbaa27e4d4d6f0800000000000000
-      internalID: -660669155998188795
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_27
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1770512f25d9e4740800000000000000
-      internalID: 5138217204450658161
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_28
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7a4f3ce073c3c9450800000000000000
-      internalID: 6096814202721399975
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_29
-      rect:
-        serializedVersion: 2
-        x: 80
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d739ea3be767e050800000000000000
-      internalID: 5829742502657734608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_30
-      rect:
-        serializedVersion: 2
-        x: 96
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3011f9a4233d39e20800000000000000
-      internalID: 3356258360274915587
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_31
-      rect:
-        serializedVersion: 2
         x: 112
         y: 0
         width: 16
@@ -867,113 +660,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 871a7bee1d1afb9b0800000000000000
-      internalID: -5062149533115899528
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_32
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c38b161cbd240b660800000000000000
-      internalID: 7399487699379402812
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_33
-      rect:
-        serializedVersion: 2
-        x: 144
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8cfcc63dbd3429f50800000000000000
-      internalID: 6886641391626932168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_34
-      rect:
-        serializedVersion: 2
-        x: 160
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e4928612ee68697c0800000000000000
-      internalID: -4064913256334481074
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_35
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c048302e01d5c2f90800000000000000
-      internalID: -6977099395610999796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cozy_modified_snowy_road_36
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ece8eca038100feb0800000000000000
-      internalID: -4688245549759033650
+      spriteID: e63dfff1ed7c80490800000000000000
+      internalID: -7779748599449005202
       vertices: []
       indices: 
       edges: []

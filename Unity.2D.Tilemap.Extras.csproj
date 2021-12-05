@@ -36,18 +36,18 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RandomTile\RandomTile.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\GridInformation\GridInformation.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\TerrainTile\TerrainTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RuleTile\RuleTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Brushes\TintTextureGenerator.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\PipelineTile\PipelineTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Brushes\TintTextureGenerator.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RuleOverrideTile\RuleOverrideTile.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RandomTile\RandomTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\IsometricRuleTile\IsometricRuleTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\HexagonalRuleTile\HexagonalRuleTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RuleTile\RuleTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\RuleOverrideTile\AdvancedRuleOverrideTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\AnimatedTile\AnimatedTile.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Tiles\WeightedRandomTile\WeightedRandomTile.cs" />
      <None Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Unity.2D.Tilemap.Extras.asmdef" />
      <None Include="Assets\Packages\com.unity.2d.tilemap.extras\Runtime\Brushes\TintedTilemap.shader" />
     <Reference Include="UnityEngine">
@@ -280,6 +280,9 @@
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>

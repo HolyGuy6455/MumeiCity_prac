@@ -6,7 +6,7 @@ using Pathfinding;
 public class PersonCommonAI : MonoBehaviour
 {
     [SerializeField]
-    AIDestinationSetter aIDestination;
+    AIDestinationSetter aIDestination; 
     [SerializeField]
     Animator animator;
     [SerializeField]

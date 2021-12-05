@@ -37,27 +37,27 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\CoordinateBrush\CoordinateBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\PopulateRuleOverrideTileWizard.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\PrefabRandomBrush\PrefabRandomBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\BasePrefabBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\RandomBrush\RandomBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\GameObjectBrush\GameObjectBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\GroupBrush\GroupBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Menu\CustomRuleTileMenu.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrushSmooth\TintTextureGeneratorEditor.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrushSmooth\TintBrushSmooth.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleTile\RuleTileEditor.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\HexagonalRuleTile\HexagonalRuleTileEditor.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\PrefabBrush\PrefabBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\RuleOverrideTileEditor.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Menu\MenuItemOrder.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\BrushMenuItem.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrush\TintBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\AdvancedRuleOverrideTileEditor.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\TerrainTileMenu.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\LineBrush\LineBrush.cs" />
-     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\RandomTileMenu.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\PipelineTileMenu.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Menu\CustomRuleTileMenu.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleTile\RuleTileEditor.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\PrefabRandomBrush\PrefabRandomBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\GameObjectBrush\GameObjectBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\PrefabBrush\PrefabBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\RandomBrush\RandomBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\PopulateRuleOverrideTileWizard.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\RuleOverrideTileEditor.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\BrushMenuItem.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\TerrainTileMenu.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrushSmooth\TintBrushSmooth.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\GroupBrush\GroupBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\PrefabBrushes\BasePrefabBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Menu\MenuItemOrder.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrush\TintBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\HexagonalRuleTile\HexagonalRuleTileEditor.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\RuleOverrideTile\AdvancedRuleOverrideTileEditor.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\RandomTileMenu.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\LineBrush\LineBrush.cs" />
+     <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Brushes\TintBrushSmooth\TintTextureGeneratorEditor.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\IsometricRuleTile\IsometricRuleTileEditor.cs" />
      <Compile Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Tiles\Menu\WeightedRandomTileMenu.cs" />
      <None Include="Assets\Packages\com.unity.2d.tilemap.extras\Editor\Unity.2D.Tilemap.Extras.Editor.asmdef" />
@@ -291,6 +291,9 @@
     </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="log4netPlastic">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.collab-proxy@1.7.1/Lib/Editor/PlasticSCM/log4netPlastic.dll</HintPath>
