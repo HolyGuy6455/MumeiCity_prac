@@ -4,10 +4,8 @@ using UnityEngine;
 public class ItemPreset : ScriptableObject {
     public string itemName = "new item";
     public Sprite icon = null;
-    public bool isDefaultItem = false;
-    public int amount = 1;
 
-    public virtual void Use(){
+    public virtual void Use(ItemData itemData){
         Debug.Log("Using "+ itemName); 
     }
 }

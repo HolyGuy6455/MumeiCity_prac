@@ -5,8 +5,10 @@ using UnityEngine;
 public class ItemDroper : MonoBehaviour
 {
     public IEntityDestroyEvent whenDestroy;
-    public GameObject itemPickupPrefab;
-    public ItemPreset itemData;
+    [SerializeField] GameObject itemPickupPrefab;
+    [SerializeField] ItemPreset itemPreset;
+    [SerializeField] int minAmount = 0;
+    [SerializeField] int maxAmount = 1;
     [SerializeField] float range = 5.0f;
     [SerializeField] float jumpPower = 7.0f;
     void Start()
@@ -23,7 +25,7 @@ public class ItemDroper : MonoBehaviour
 
         GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
         ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-        itemPickup.item = itemData;
+        itemPickup.item = ItemData.create(itemPreset);
         // itemPickup.player = GameManager.Instance.PlayerTransform;
         itemPickup.IconSpriteUpdate();
         itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);

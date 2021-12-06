@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickup : Interactable
 {
-    public ItemPreset item;
+    public ItemData item;
 
     public override void Interact()
     {
@@ -18,11 +18,11 @@ public class ItemPickup : Interactable
     public void IconSpriteUpdate(){
         if(item == null)
             return;
-        this.GetComponentInChildren<SpriteRenderer>().sprite = item.icon;
+        this.GetComponentInChildren<SpriteRenderer>().sprite = item.itemPreset.icon;
     }
 
     void PickUp(){
-        Debug.Log("Picking up " + this.item.itemName);
+        // Debug.Log("Picking up " + this.item.itemName);
         bool isItDone = GameManager.Instance.inventoryManager.AddItem(item);
         if(isItDone){
             Destroy(gameObject);

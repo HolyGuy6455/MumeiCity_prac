@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public BuildingManager buildingManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
+    public Animator pauseAnimator;
+    bool gameIsPause = false;
     [SerializeField] Interactable _interactableClosest;
     public Interactable interactableClosest{get{return _interactableClosest;}}
     public LinkedList<Interactable> interactableList = new LinkedList<Interactable>();
@@ -100,13 +102,21 @@ public class GameManager : MonoBehaviour
         }
         
         if(Input.GetButtonDown("Building")){
-            // GameManager.Instance.BuildTent();
             if(presentGameTab != GameTab.BUILDING){
                 presentGameTab = GameTab.BUILDING;
             }else{
                 presentGameTab = GameTab.NORMAL;
             }
             GameTabChanged();
+        }
+        if(Input.GetButtonDown("Menu")){
+            gameIsPause = !gameIsPause;
+            pauseAnimator.SetBool("isVisible",gameIsPause);
+            Time.timeScale = gameIsPause? 0:1;
+            playerMovement.enabled = !gameIsPause;
+        }
+        if(Input.GetButtonDown("View")){
+            Debug.Log("View");
         }
         if(interactableList.Count != 0){
             // interactUI.gameObject.SetActive(true);

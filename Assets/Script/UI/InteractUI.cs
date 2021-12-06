@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractUI : MonoBehaviour
 {
     [SerializeField] RectTransform UIRectTransform;
-    [SerializeField] Camera camera;
+    [SerializeField] new Camera camera;
     [SerializeField] Animator animator;
     public bool visible{
         get{

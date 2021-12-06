@@ -8,13 +8,13 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public Button removeButton;
     public Text amount;
-    ItemPreset item;
+    ItemData item;
     
 
-    public void AddItem(ItemPreset item){
+    public void AddItem(ItemData item){
         this.item = item;
 
-        icon.sprite = item.icon;
+        icon.sprite = GameManager.Instance.inventoryManager.GetItemPresetFromCode(item.code).icon;
         icon.enabled = true;
         removeButton.interactable = true;
         amount.text = item.amount.ToString();

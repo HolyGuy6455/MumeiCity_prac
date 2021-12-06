@@ -18,7 +18,6 @@ public class AstarScript : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.P)){
             astarPath.Scan();
-            Time.timeScale = (Time.timeScale == 0)? 1:0;
         }
     }
 }
