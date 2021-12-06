@@ -8,5 +8,5 @@ using System;
 public class BuildingData {
     public int locationX;
     public int locationY;
-    public byte buildingCode;
+    public byte code;
 }

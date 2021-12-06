@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickup : Interactable
 {
-    public ItemData item;
+    public ItemPreset item;
 
     public override void Interact()
     {

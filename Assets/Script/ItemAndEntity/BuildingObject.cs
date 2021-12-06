@@ -25,7 +25,7 @@ public class BuildingObject : MonoBehaviour
     }
 
     public void Initialize(BuildingData buildingData){
-        BuildingPreset buildingPreset = GameManager.Instance.buildingManager.GetBuildingPreset(buildingData.buildingCode);
+        BuildingPreset buildingPreset = GameManager.Instance.buildingManager.GetBuildingPreset(buildingData.code);
         this.buildingData = buildingData;
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;

@@ -39,9 +39,16 @@ public class PersonCommonAI : MonoBehaviour
         if(this.target != null){
             float distance = Vector3.Distance(this.transform.position, this.target.transform.position);
             animator.SetFloat("DistanceToTheGoal",distance);
+            float movementX = this.target.transform.position.x - this.transform.position.x;
+            if(movementX <= -0.01f){
+                transform.localScale = new Vector3(-1f,1f,1f);
+            }else if(movementX >= 0.01f){
+                transform.localScale = new Vector3(1f,1f,1f);
+            }
         }else{
             animator.SetFloat("DistanceToTheGoal",0);
         }
+        
     }
 
     void LoseMyTarget() {

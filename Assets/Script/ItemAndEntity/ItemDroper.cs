@@ -6,7 +6,9 @@ public class ItemDroper : MonoBehaviour
 {
     public IEntityDestroyEvent whenDestroy;
     public GameObject itemPickupPrefab;
-    public ItemData itemData;
+    public ItemPreset itemData;
+    [SerializeField] float range = 5.0f;
+    [SerializeField] float jumpPower = 7.0f;
     void Start()
     {
         whenDestroy = this.GetComponent<IEntityDestroyEvent>();
@@ -24,6 +26,6 @@ public class ItemDroper : MonoBehaviour
         itemPickup.item = itemData;
         // itemPickup.player = GameManager.Instance.PlayerTransform;
         itemPickup.IconSpriteUpdate();
-        itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-100.0f, 100.0f),200,Random.Range(-100.0f, 100.0f)));
+        itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);
     }
 }

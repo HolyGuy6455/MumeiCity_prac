@@ -34,9 +34,9 @@ public class RabbitAI : MonoBehaviour
         Vector3 movement = (this.transform.position-playerTransform.position).normalized;
         this.rigidbody.AddForce(new Vector3(movement.x,1,movement.z)*jumpPower,ForceMode.Impulse);
         if(movement.x <= -0.01f){
-            transform.localScale = new Vector3(-1f,1f,1f);
-        }else if(movement.x >= 0.01f){
             transform.localScale = new Vector3(1f,1f,1f);
+        }else if(movement.x >= 0.01f){
+            transform.localScale = new Vector3(-1f,1f,1f);
         }
     }
 

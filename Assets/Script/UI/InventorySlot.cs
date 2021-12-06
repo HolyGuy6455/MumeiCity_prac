@@ -8,10 +8,10 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public Button removeButton;
     public Text amount;
-    ItemData item;
+    ItemPreset item;
     
 
-    public void AddItem(ItemData item){
+    public void AddItem(ItemPreset item){
         this.item = item;
 
         icon.sprite = item.icon;

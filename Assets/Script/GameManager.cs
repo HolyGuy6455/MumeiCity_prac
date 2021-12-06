@@ -109,7 +109,7 @@ public class GameManager : MonoBehaviour
             GameTabChanged();
         }
         if(interactableList.Count != 0){
-            interactUI.gameObject.SetActive(true);
+            // interactUI.gameObject.SetActive(true);
             float distanceMin = float.MaxValue;
             foreach (Interactable interactable in interactableList)
             {
@@ -120,9 +120,11 @@ public class GameManager : MonoBehaviour
                 }
             }
             interactUI.MoveUIPositionFromTransform(_interactableClosest.transform);
+            interactUI.visible = true;
         }else{
-            interactUI.gameObject.SetActive(false);
+            // interactUI.gameObject.SetActive(false);
             _interactableClosest = null;
+            interactUI.visible = false;
         }
     }
 

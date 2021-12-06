@@ -198,7 +198,7 @@ public class BuildingManager : MonoBehaviour {
         BuildingData buildingData = new BuildingData();
         buildingData.locationX = ((int)location.x);
         buildingData.locationY = ((int)location.y);
-        buildingData.buildingCode = GetBuildingCode(buildingPreset);
+        buildingData.code = GetBuildingCode(buildingPreset);
         BuiltObject.Initialize(buildingData);
 
         return true;

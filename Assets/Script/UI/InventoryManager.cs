@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class InventoryManager : MonoBehaviour {
     
     public GameManager.UpdateUI onItemChangedCallback;
-    public List<ItemData> items = new List<ItemData>();
+    public List<ItemPreset> items = new List<ItemPreset>();
     public int itemSpace = 20;
     public GameObject inventoryUI;
 
@@ -45,7 +45,7 @@ public class InventoryManager : MonoBehaviour {
         return true;
     }
     
-    public bool AddItem(ItemData item){
+    public bool AddItem(ItemPreset item){
         if(item.isDefaultItem){
             return false;
         }
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour {
             return false;
         }
 
-        ItemData added = null;
+        ItemPreset added = null;
         for (int i = 0; i < items.Count; i++){
             if(items[i] != null && items[i].itemName == item.itemName){
                 added = items[i];
@@ -73,8 +73,8 @@ public class InventoryManager : MonoBehaviour {
         return true;
     }
 
-    public void RemoveItem(ItemData item){
-        ItemData removed = null;
+    public void RemoveItem(ItemPreset item){
+        ItemPreset removed = null;
         for (int i = 0; i < items.Count; i++)
         {
             if(items[i].itemName == item.itemName){

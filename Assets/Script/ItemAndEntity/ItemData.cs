@@ -1,13 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using System;
 
-[CreateAssetMenu(fileName = "Item", menuName = "MumeiCity/Item", order = 0)]
-public class ItemData : ScriptableObject {
-    public string itemName = "new item";
-    public Sprite icon = null;
-    public bool isDefaultItem = false;
-    public int amount = 1;
-
-    public virtual void Use(){
-        Debug.Log("Using "+ itemName);
-    }
+[Serializable]
+public class ItemData
+{
+    public byte code;
+    int amount;
+    float positionX;
+    float positionY;
 }
