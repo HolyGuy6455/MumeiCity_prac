@@ -16,7 +16,7 @@ public class BuildingManager : MonoBehaviour {
     [SerializeField]
     private HashSet<GameObject> _wholeBuildingSet = new HashSet<GameObject>();
     public HashSet<GameObject> wholeBuildingSet{get{return _wholeBuildingSet;}}
-    public GameObject buildingsParents;
+    public GameObject buildingsParent;
 
     private void Start() {
         buildingDictionary = new Dictionary<Tool, List<BuildingPreset>>();
@@ -49,7 +49,7 @@ public class BuildingManager : MonoBehaviour {
                 Debug.Log(buildingPreset.toolTypeIndex);
             }
         }
-        foreach (Transform childTransform in buildingsParents.transform)
+        foreach (Transform childTransform in buildingsParent.transform)
         {
             _wholeBuildingSet.Add(childTransform.gameObject);
         }
@@ -166,10 +166,15 @@ public class BuildingManager : MonoBehaviour {
     }
 
     public bool Build(){
+        // 장애물이 있으면 못지어요
         if(constructionArea.isThereObstacle()){
             return false;
         }
-
+        // 무슨 건물 지을지 결정 안했으면 못지어요
+        if(this.buildingPreset == null){
+            return false;
+        }
+        // 재료가 충분한지 확인
         InventoryManager inventoryManager = GameManager.Instance.inventoryManager;
         List<(string,int)> materialList = buildingPreset.GetMaterials();
         bool doWeHaveMaterialEnough = true;
@@ -180,27 +185,48 @@ public class BuildingManager : MonoBehaviour {
                 break;
             }
         }
+        // 재료가 없으면 못지어요
         if(doWeHaveMaterialEnough == false){
             return false;
         }
+        // 재료가 있다면 재료를 소모한다
         foreach ((string itemName, int itemAmount) material in materialList){
             inventoryManager.ConsumeItem(material.itemName,material.itemAmount);
         }
-
+        // 현재 플레이어 위치를 기준으로 건설을 한다
         Transform PlayerTransform = GameManager.Instance.PlayerTransform;
         Vector3 location = new Vector3();
         location.x = Mathf.Round(PlayerTransform.position.x+buildingPreset.relativeLocation.x);
         location.y = Mathf.Round(PlayerTransform.position.y+buildingPreset.relativeLocation.y);
         location.z = Mathf.Round(PlayerTransform.position.z+buildingPreset.relativeLocation.z);
         GameObject Built =  Instantiate(Building,location,Quaternion.identity);
-
+        Built.transform.SetParent(buildingsParent.transform);
+        // 해당 건물이 가질 Building Data를 생성한다
         BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
         BuildingData buildingData = new BuildingData();
-        buildingData.locationX = ((int)location.x);
-        buildingData.locationY = ((int)location.y);
+        buildingData.positionX = ((int)location.x);
+        buildingData.positionY = ((int)location.y);
+        buildingData.positionZ = ((int)location.z);
         buildingData.code = GetBuildingCode(buildingPreset);
         BuiltObject.Initialize(buildingData);
 
         return true;
+    }
+
+    public void LoadBuilding(List<BuildingData> buildingDatas){
+        foreach (BuildingData data in buildingDatas){
+            // 데이터로부터 프리셋과 위치를 읽어온다
+            BuildingPreset buildingPreset = data.buildingPreset;
+            Vector3 location = new Vector3();
+            location.x = data.positionX;
+            location.y = data.positionY;
+            location.z = data.positionZ;
+            // 건물을 생성하고 데이터로 초기화한다
+            GameObject Built =  Instantiate(Building,location,Quaternion.identity);
+            BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
+            Built.transform.SetParent(buildingsParent.transform);
+            BuiltObject.Initialize(data);
+        }
+
     }
 }

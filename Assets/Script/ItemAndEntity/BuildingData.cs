@@ -6,7 +6,14 @@ using System;
  */
 [Serializable]
 public class BuildingData {
-    public int locationX;
-    public int locationY;
+    public int positionX;
+    public int positionY;
+    public int positionZ;
     public byte code;
+
+    public BuildingPreset buildingPreset{
+        get{
+            return GameManager.Instance.buildingManager.GetBuildingPreset(code);
+            }
+        }
 }
