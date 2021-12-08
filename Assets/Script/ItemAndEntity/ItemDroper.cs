@@ -6,9 +6,7 @@ public class ItemDroper : MonoBehaviour
 {
     public IEntityDestroyEvent whenDestroy;
     [SerializeField] GameObject itemPickupPrefab;
-    [SerializeField] ItemPreset itemPreset;
-    [SerializeField] int minAmount = 0;
-    [SerializeField] int maxAmount = 1;
+    [SerializeField] List<ItemDropAmount> itemDropAmounts;
     [SerializeField] float range = 5.0f;
     [SerializeField] float jumpPower = 7.0f;
     void Start()
@@ -23,11 +21,21 @@ public class ItemDroper : MonoBehaviour
         location.x = this.transform.position.x;
         location.z = this.transform.position.z;
 
-        GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
-        ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-        itemPickup.item = ItemData.create(itemPreset);
-        itemPickup.IconSpriteUpdate();
-        itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);
-        itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
+        foreach (ItemDropAmount item in itemDropAmounts){
+            GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
+            ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
+            byte itemcode = GameManager.Instance.inventoryManager.GetCodeFromItemName(item.name);
+            ItemPreset preset = GameManager.Instance.inventoryManager.GetItemPresetFromCode(itemcode);
+            itemPickup.item = ItemData.create(preset);
+            itemPickup.IconSpriteUpdate();
+            itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);
+            itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
+        }
     }
+}
+
+[System.Serializable]
+public class ItemDropAmount{
+    public string name;
+    public float chance;
 }
