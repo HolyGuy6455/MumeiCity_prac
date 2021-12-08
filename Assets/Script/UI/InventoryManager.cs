@@ -8,6 +8,7 @@ public class InventoryManager : MonoBehaviour {
     public int itemSpace = 20;
     public GameObject inventoryUI;
     [SerializeField] private List<ItemPreset> itemPresetList = new List<ItemPreset>();
+    
 
     public ItemPreset GetItemPresetFromCode(byte code){
         int index = (int)code;

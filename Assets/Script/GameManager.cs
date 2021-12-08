@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     public Animator pauseAnimator;
     bool gameIsPause = false;
     [SerializeField] Interactable _interactableClosest;
+    public GameObject itemPickupParent;
     public Interactable interactableClosest{get{return _interactableClosest;}}
     public LinkedList<Interactable> interactableList = new LinkedList<Interactable>();
     [SerializeField] InteractUI interactUI;

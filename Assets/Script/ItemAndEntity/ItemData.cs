@@ -10,6 +10,7 @@ public class ItemData
     public int amount;
     public float positionX;
     public float positionY;
+    public float positionZ;
     public ItemPreset itemPreset{
         get{
             return GameManager.Instance.inventoryManager.GetItemPresetFromCode(code);

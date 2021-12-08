@@ -6,7 +6,7 @@ using System.Collections.Generic;
  */
 public class BuildingManager : MonoBehaviour {
     public GameManager.UpdateUI onToolChangedCallback;
-    public GameObject Building;
+    public GameObject building;
     public List<BuildingPreset> dictionaryAxe = new List<BuildingPreset>();
     public List<BuildingPreset> dictionaryLantern = new List<BuildingPreset>();
     public List<BuildingPreset> dictionaryShovel = new List<BuildingPreset>();
@@ -199,7 +199,7 @@ public class BuildingManager : MonoBehaviour {
         location.x = Mathf.Round(PlayerTransform.position.x+buildingPreset.relativeLocation.x);
         location.y = Mathf.Round(PlayerTransform.position.y+buildingPreset.relativeLocation.y);
         location.z = Mathf.Round(PlayerTransform.position.z+buildingPreset.relativeLocation.z);
-        GameObject Built =  Instantiate(Building,location,Quaternion.identity);
+        GameObject Built =  Instantiate(building,location,Quaternion.identity);
         Built.transform.SetParent(buildingsParent.transform);
         // 해당 건물이 가질 Building Data를 생성한다
         BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
@@ -214,19 +214,7 @@ public class BuildingManager : MonoBehaviour {
     }
 
     public void LoadBuilding(List<BuildingData> buildingDatas){
-        foreach (BuildingData data in buildingDatas){
-            // 데이터로부터 프리셋과 위치를 읽어온다
-            BuildingPreset buildingPreset = data.buildingPreset;
-            Vector3 location = new Vector3();
-            location.x = data.positionX;
-            location.y = data.positionY;
-            location.z = data.positionZ;
-            // 건물을 생성하고 데이터로 초기화한다
-            GameObject Built =  Instantiate(Building,location,Quaternion.identity);
-            BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
-            Built.transform.SetParent(buildingsParent.transform);
-            BuiltObject.Initialize(data);
-        }
+        
 
     }
 }
