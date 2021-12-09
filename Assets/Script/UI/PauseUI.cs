@@ -89,6 +89,13 @@ public class PauseUI : MonoBehaviour{
             BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
             BuiltObject.Initialize(data);
+            // DropItem을 설정
+            if(buildingPreset.dropAmounts.Count > 0){
+                ItemDroper itemDroper = Built.AddComponent<ItemDroper>();
+                foreach (ItemDropAmount dropItem in buildingPreset.dropAmounts){
+                    itemDroper.Add(dropItem);
+                }
+            }
         }
 
         // 맵에 남아있는 아이템을 전부 없앤다

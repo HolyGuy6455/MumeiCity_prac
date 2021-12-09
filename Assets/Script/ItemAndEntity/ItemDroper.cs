@@ -5,14 +5,17 @@ using UnityEngine;
 public class ItemDroper : MonoBehaviour
 {
     public IEntityDestroyEvent whenDestroy;
-    [SerializeField] GameObject itemPickupPrefab;
-    [SerializeField] List<ItemDropAmount> itemDropAmounts;
+    [SerializeField] List<ItemDropAmount> itemDropAmounts = new List<ItemDropAmount>();
     [SerializeField] float range = 5.0f;
     [SerializeField] float jumpPower = 7.0f;
     void Start()
     {
         whenDestroy = this.GetComponent<IEntityDestroyEvent>();
         whenDestroy.EntityDestroyEventHandler += DropItem;
+    }
+
+    public void Add(ItemDropAmount itemDropAmount){
+        this.itemDropAmounts.Add(itemDropAmount);
     }
 
     void DropItem(){
@@ -22,7 +25,7 @@ public class ItemDroper : MonoBehaviour
         location.z = this.transform.position.z;
 
         foreach (ItemDropAmount item in itemDropAmounts){
-            GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
+            GameObject itemObject = Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             byte itemcode = GameManager.Instance.itemManager.GetCodeFromItemName(item.name);
             ItemPreset preset = GameManager.Instance.itemManager.GetItemPresetFromCode(itemcode);

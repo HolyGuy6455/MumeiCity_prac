@@ -210,11 +210,15 @@ public class BuildingManager : MonoBehaviour {
         buildingData.code = GetBuildingCode(buildingPreset);
         BuiltObject.Initialize(buildingData);
 
+        // DropItem을 설정
+        if(buildingPreset.dropAmounts.Count > 0){
+            ItemDroper itemDroper = Built.AddComponent<ItemDroper>();
+            foreach (ItemDropAmount dropItem in buildingPreset.dropAmounts){
+                itemDroper.Add(dropItem);
+            }
+        }
+
         return true;
     }
 
-    public void LoadBuilding(List<BuildingData> buildingDatas){
-        
-
-    }
 }
