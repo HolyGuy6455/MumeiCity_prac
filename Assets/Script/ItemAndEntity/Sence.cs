@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class Sence : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] List<GameObject> _whatTheySee = new List<GameObject>();
+    public List<GameObject> whatTheySee{
+        get{
+            return _whatTheySee.FindAll(value => value != null);
+            }
+        }
+    int groundLayerMask;
+
+    private void Start() {
+        groundLayerMask = LayerMask.NameToLayer("Ground");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void OnTriggerEnter(Collider other) {
+        if(other.gameObject.layer == groundLayerMask){
+            return;
+        }
+        if(_whatTheySee.Contains(other.gameObject)){
+            return;
+        }
+        _whatTheySee.Add(other.gameObject);
+        _whatTheySee = whatTheySee.FindAll(value => value != null);
     }
+
+    private void OnTriggerExit(Collider other) {
+        if(other.gameObject.layer == groundLayerMask){
+            return;
+        }
+        _whatTheySee.Remove(other.gameObject);
+        _whatTheySee = whatTheySee.FindAll(value => value != null);
+    }
+
+    
 }

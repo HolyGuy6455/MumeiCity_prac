@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] Interactable _interactableClosest;
     public GameObject itemPickupParent;
     public Interactable interactableClosest{get{return _interactableClosest;}}
-    public LinkedList<Interactable> interactableList = new LinkedList<Interactable>();
+    public List<Interactable> interactableList = new List<Interactable>();
     [SerializeField] InteractUI interactUI;
     public enum GameTab
     {
@@ -168,7 +168,10 @@ public class GameManager : MonoBehaviour
     }
 
     public void AddInteractable(Interactable interactable){
-        interactableList.AddLast(interactable);
+        if(interactableList.Contains(interactable)){
+            return;
+        }
+        interactableList.Add(interactable);
     }
 
 

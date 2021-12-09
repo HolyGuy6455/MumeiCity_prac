@@ -131,10 +131,11 @@ public class PauseUI : MonoBehaviour{
             // 데이터로부터 위치를 읽어온다
             Vector3 location = new Vector3();
             location = data.position;
-            // 아이템 데이터로 픽업아이템을 생성한다
+            // 데이터로 시민을 생성한다
             GameObject itemObject = Instantiate(GameManager.Instance.peopleManager.normalPerson,location,Quaternion.identity);
             PersonCommonAI personCommonAI = itemObject.GetComponent<PersonCommonAI>();
             personCommonAI.personData = data;
+            personCommonAI.UpdateItemView();
             itemObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
         }
 

@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Apple
   icon: {fileID: 21300000, guid: 9526892e1e676d14a94f46a537a5de58, type: 3}
-  isDefaultItem: 0
-  amount: 5
+  info: yeah. it is apple.

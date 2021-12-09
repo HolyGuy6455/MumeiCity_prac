@@ -6,15 +6,8 @@ public class PeopleManager : MonoBehaviour
 {
     public GameObject theMotherOfWholePeople;
     public GameObject normalPerson;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public List<string> thinks;
+    public int getThinkCode(string think){
+        return think.IndexOf(think);
     }
 }
