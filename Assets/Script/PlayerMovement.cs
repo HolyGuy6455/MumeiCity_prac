@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetButtonDown("Fire2")){
             Interactable interactable = GameManager.Instance.interactableClosest;
             if(interactable != null){
-                Debug.Log(interactable);
+                // Debug.Log(interactable);
                 interactable.Interact();
             }
         }

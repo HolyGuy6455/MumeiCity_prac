@@ -7,7 +7,6 @@ using UnityEngine;
  */
 public class BuildingObject : MonoBehaviour
 {
-    // public BuildingPreset buildingPreset;
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
@@ -27,6 +26,9 @@ public class BuildingObject : MonoBehaviour
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = GameManager.Instance.buildingManager.GetBuildingPreset(buildingData.code);
         this.buildingData = buildingData;
+        Debug.Log("Scale!");
+        Debug.Log(this.transform.localScale);
+        Debug.Log(buildingPreset.scale);
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
     }

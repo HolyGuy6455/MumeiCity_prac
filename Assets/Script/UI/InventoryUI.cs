@@ -9,7 +9,7 @@ public class InventoryUI : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-        GameManager.Instance.inventoryManager.onItemChangedCallback += UpdateUI;
+        GameManager.Instance.inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsParents.GetComponentsInChildren<InventorySlot>();
     }
@@ -18,8 +18,8 @@ public class InventoryUI : MonoBehaviour
         GameManager gameManager = GameManager.Instance;
         for (int i = 0; i < slots.Length; i++)
         {
-            if(i < gameManager.inventoryManager.items.Count){
-                slots[i].AddItem(gameManager.inventoryManager.items[i]);
+            if(i < gameManager.inventory.items.Count){
+                slots[i].AddItem(gameManager.inventory.items[i]);
             }else{
                 slots[i].ClearSlot();
             }

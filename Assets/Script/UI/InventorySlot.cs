@@ -14,7 +14,7 @@ public class InventorySlot : MonoBehaviour
     public void AddItem(ItemData item){
         this.item = item;
 
-        icon.sprite = GameManager.Instance.inventoryManager.GetItemPresetFromCode(item.code).icon;
+        icon.sprite = GameManager.Instance.itemManager.GetItemPresetFromCode(item.code).icon;
         icon.enabled = true;
         removeButton.interactable = true;
         amount.text = item.amount.ToString();
@@ -30,7 +30,7 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void OnRemoveButton(){
-        GameManager.Instance.inventoryManager.RemoveItem(item);
+        GameManager.Instance.inventory.RemoveItem(item);
     }
 
     public void UseItem(){

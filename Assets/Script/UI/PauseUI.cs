@@ -8,6 +8,7 @@ public class PauseUI : MonoBehaviour{
     [SerializeField] string _fileName = "01.save";
     [SerializeField] GameObject itemPickupPrefab;
     class SaveForm {
+        public Vector3 playerPosition = new Vector3();
         public List<BuildingData> buildingDatas = new List<BuildingData>();
         public List<ItemData> itemPickupDatas = new List<ItemData>();
     }
@@ -15,6 +16,8 @@ public class PauseUI : MonoBehaviour{
 
     public void SaveTheGame(){
         SaveForm saveForm = new SaveForm();
+
+        saveForm.playerPosition = GameManager.Instance.PlayerTransform.position;
 
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
         foreach (Transform childTransform in buildingsParent.transform){
@@ -64,15 +67,16 @@ public class PauseUI : MonoBehaviour{
         catch (IOException e){
             Debug.Log("The file could not be opened:" + e.Message);
         }
+        // string에서 데이터를 읽어들임
+        SaveForm saveForm = JsonUtility.FromJson<SaveForm>(savefile);
 
-        // 일단 있는 건물들을 전부 없앤다
+        GameManager.Instance.PlayerTransform.position = saveForm.playerPosition;
+
+        // 맵에 남아있는 건물들을 전부 없앤다
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
         foreach (Transform childTransform in buildingsParent.transform){
             Destroy(childTransform.gameObject);
         }
-        // string에서 데이터를 읽어들임
-        SaveForm saveForm = JsonUtility.FromJson<SaveForm>(savefile);
-
         foreach (BuildingData data in saveForm.buildingDatas){
             // 데이터로부터 프리셋과 위치를 읽어온다
             BuildingPreset buildingPreset = data.buildingPreset;
@@ -81,7 +85,7 @@ public class PauseUI : MonoBehaviour{
             location.y = data.positionY;
             location.z = data.positionZ;
             // 건물을 생성하고 데이터로 초기화한다
-            GameObject Built =  Instantiate(GameManager.Instance.buildingManager.building,location,Quaternion.identity);
+            GameObject Built =  Instantiate(GameManager.Instance.buildingManager.constructure,location,Quaternion.identity);
             BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
             BuiltObject.Initialize(data);
@@ -103,7 +107,6 @@ public class PauseUI : MonoBehaviour{
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             itemPickup.item = data;
             itemPickup.IconSpriteUpdate();
-            itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(0,7,0),ForceMode.Impulse);
             itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
         }
 

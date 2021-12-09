@@ -23,7 +23,7 @@ public class ItemPickup : Interactable
 
     void PickUp(){
         // Debug.Log("Picking up " + this.item.itemName);
-        bool isItDone = GameManager.Instance.inventoryManager.AddItem(item);
+        bool isItDone = GameManager.Instance.inventory.AddItem(item);
         if(isItDone){
             Destroy(gameObject);
         }

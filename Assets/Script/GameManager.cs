@@ -16,8 +16,9 @@ public class GameManager : MonoBehaviour
     private int selectedTool = 0;
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
-    public InventoryManager inventoryManager;
+    public Inventory inventory;
     public BuildingManager buildingManager;
+    public ItemManager itemManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
     public Animator pauseAnimator;

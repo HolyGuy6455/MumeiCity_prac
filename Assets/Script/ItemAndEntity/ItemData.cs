@@ -13,7 +13,7 @@ public class ItemData
     public float positionZ;
     public ItemPreset itemPreset{
         get{
-            return GameManager.Instance.inventoryManager.GetItemPresetFromCode(code);
+            return GameManager.Instance.itemManager.GetItemPresetFromCode(code);
             }
         }
 
@@ -23,7 +23,7 @@ public class ItemData
 
     public static ItemData create(ItemPreset preset){
         ItemData result = new ItemData();
-        result.code = GameManager.Instance.inventoryManager.GetCodeFromItemPreset(preset);
+        result.code = GameManager.Instance.itemManager.GetCodeFromItemPreset(preset);
         result.amount = 1;
         return result;
     }
