@@ -37,7 +37,7 @@ public class Hittable : MonoBehaviour, IEntityDestroyEvent
             EntityDestroyEventHandler();
 
         // 임시 코드
-        GameManager.Instance.buildingManager.wholeBuildingSet.Remove(this.transform.gameObject);
+        // GameManager.Instance.buildingManager.wholeBuildingSet.Remove(this.transform.gameObject);
         Destroy(this.gameObject);
     }
 }

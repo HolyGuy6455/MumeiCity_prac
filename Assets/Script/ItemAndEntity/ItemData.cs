@@ -8,9 +8,7 @@ public class ItemData
 {
     public byte code;
     public int amount;
-    public float positionX;
-    public float positionY;
-    public float positionZ;
+    public Vector3 position;
     public ItemPreset itemPreset{
         get{
             return GameManager.Instance.itemManager.GetItemPresetFromCode(code);

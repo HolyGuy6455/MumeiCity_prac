@@ -13,9 +13,6 @@ public class BuildingManager : MonoBehaviour {
     public Dictionary<Tool, List<BuildingPreset>> buildingDictionary;
     public ConstructionArea constructionArea;
     public BuildingPreset buildingPreset;
-    [SerializeField]
-    private HashSet<GameObject> _wholeBuildingSet = new HashSet<GameObject>();
-    public HashSet<GameObject> wholeBuildingSet{get{return _wholeBuildingSet;}}
     public GameObject buildingsParent;
 
     private void Start() {
@@ -49,10 +46,15 @@ public class BuildingManager : MonoBehaviour {
                 Debug.Log(buildingPreset.toolTypeIndex);
             }
         }
-        foreach (Transform childTransform in buildingsParent.transform)
-        {
-            _wholeBuildingSet.Add(childTransform.gameObject);
+    }
+
+    public List<GameObject> wholeBuildingSet(){
+        List<GameObject> result = new List<GameObject>();
+        foreach (Transform childTransform in buildingsParent.transform){
+            BuildingObject buildingObject = childTransform.GetComponent<BuildingObject>();
+            result.Add(childTransform.gameObject);
         }
+        return result;
     }
 
     public byte GetBuildingCode(BuildingPreset buildingPreset){
@@ -168,10 +170,12 @@ public class BuildingManager : MonoBehaviour {
     public bool Build(){
         // 장애물이 있으면 못지어요
         if(constructionArea.isThereObstacle()){
+            Debug.Log("There is Obstacles");
             return false;
         }
         // 무슨 건물 지을지 결정 안했으면 못지어요
         if(this.buildingPreset == null){
+            Debug.Log("buildingPreset is null");
             return false;
         }
         // 재료가 충분한지 확인
@@ -194,11 +198,12 @@ public class BuildingManager : MonoBehaviour {
             inventoryManager.ConsumeItem(material.name,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다
-        Transform PlayerTransform = GameManager.Instance.PlayerTransform;
         Vector3 location = new Vector3();
-        location.x = Mathf.Round(PlayerTransform.position.x+buildingPreset.relativeLocation.x);
-        location.y = Mathf.Round(PlayerTransform.position.y+buildingPreset.relativeLocation.y);
-        location.z = Mathf.Round(PlayerTransform.position.z+buildingPreset.relativeLocation.z);
+        location.x = Mathf.Round(constructionArea.transform.position.x);
+        location.y = Mathf.Round(constructionArea.transform.position.y);
+        location.z = Mathf.Round(constructionArea.transform.position.z);
+
+        Debug.Log("Build Position "+location);
         GameObject Built =  Instantiate(constructure,location,Quaternion.identity);
         Built.transform.SetParent(buildingsParent.transform);
         // 해당 건물이 가질 Building Data를 생성한다

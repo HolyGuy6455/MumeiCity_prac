@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public Inventory inventory;
     public BuildingManager buildingManager;
     public ItemManager itemManager;
+    public PeopleManager peopleManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
     public Animator pauseAnimator;

@@ -11,30 +11,36 @@ public class PauseUI : MonoBehaviour{
         public Vector3 playerPosition = new Vector3();
         public List<BuildingData> buildingDatas = new List<BuildingData>();
         public List<ItemData> itemPickupDatas = new List<ItemData>();
+        public List<PersonData> personDatas = new List<PersonData>();
     }
 
 
     public void SaveTheGame(){
         SaveForm saveForm = new SaveForm();
-
+        // 플레이어 위치 저장하기
         saveForm.playerPosition = GameManager.Instance.PlayerTransform.position;
-
+        // 건물 설정 저장하기
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
         foreach (Transform childTransform in buildingsParent.transform){
             BuildingData buildingData = childTransform.GetComponent<BuildingObject>().buildingData;
             saveForm.buildingDatas.Add(buildingData);
         }
-
+        // 아이템 위치 저장하기
         GameObject itemPickupParent = GameManager.Instance.itemPickupParent;
         foreach (Transform childTransform in itemPickupParent.transform){
             ItemData itemData = childTransform.GetComponent<ItemPickup>().item;
-            itemData.positionX = childTransform.position.x;
-            itemData.positionY = childTransform.position.y;
-            itemData.positionZ = childTransform.position.z;
+            itemData.position = childTransform.position;
             saveForm.itemPickupDatas.Add(itemData);
         }
-        savefile = JsonUtility.ToJson(saveForm,true);
+        GameObject peopleParent = GameManager.Instance.peopleManager.theMotherOfWholePeople;
+        foreach (Transform childTransform in peopleParent.transform){
+            PersonData personData = childTransform.GetComponent<PersonCommonAI>().personData;
+            personData.position = childTransform.position;
+            saveForm.personDatas.Add(personData);
+        }
 
+        // 실제 파일로 저장
+        savefile = JsonUtility.ToJson(saveForm,true);
         try{
             // C:\Users\사용자\AppData\LocalLow\DefaultCompany
             string path = Application.persistentDataPath + "/" + _fileName;
@@ -74,6 +80,7 @@ public class PauseUI : MonoBehaviour{
 
         // 맵에 남아있는 건물들을 전부 없앤다
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
+        List<GameObject> wholeBuildingSet = GameManager.Instance.buildingManager.wholeBuildingSet();
         foreach (Transform childTransform in buildingsParent.transform){
             Destroy(childTransform.gameObject);
         }
@@ -89,6 +96,7 @@ public class PauseUI : MonoBehaviour{
             BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
             BuiltObject.Initialize(data);
+            wholeBuildingSet.Add(Built);
             // DropItem을 설정
             if(buildingPreset.dropAmounts.Count > 0){
                 ItemDroper itemDroper = Built.AddComponent<ItemDroper>();
@@ -106,15 +114,28 @@ public class PauseUI : MonoBehaviour{
         foreach (ItemData data in saveForm.itemPickupDatas){
             // 데이터로부터 위치를 읽어온다
             Vector3 location = new Vector3();
-            location.x = data.positionX;
-            location.y = data.positionY;
-            location.z = data.positionZ;
+            location = data.position;
             // 아이템 데이터로 픽업아이템을 생성한다
             GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             itemPickup.item = data;
             itemPickup.IconSpriteUpdate();
             itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
+        }
+
+        foreach (Transform childTransform in GameManager.Instance.peopleManager.theMotherOfWholePeople.transform){
+            Destroy(childTransform.gameObject);
+        }
+
+        foreach (PersonData data in saveForm.personDatas){
+            // 데이터로부터 위치를 읽어온다
+            Vector3 location = new Vector3();
+            location = data.position;
+            // 아이템 데이터로 픽업아이템을 생성한다
+            GameObject itemObject = Instantiate(GameManager.Instance.peopleManager.normalPerson,location,Quaternion.identity);
+            PersonCommonAI personCommonAI = itemObject.GetComponent<PersonCommonAI>();
+            personCommonAI.personData = data;
+            itemObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
         }
 
     }
