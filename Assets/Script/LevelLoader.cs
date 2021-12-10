@@ -12,7 +12,6 @@ public class LevelLoader : MonoBehaviour
 
     public void LoadLevel(int sceneIndex){
         StartCoroutine(LoadAsynchronously(sceneIndex));
-        
     }
 
     IEnumerator LoadAsynchronously(int sceneIndex){
@@ -30,16 +29,4 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
