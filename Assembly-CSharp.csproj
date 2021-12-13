@@ -38,32 +38,30 @@
   <ItemGroup>
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\HitBoxCollision.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\InteractCollision.cs" />
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\PeopleManager.cs" />
+     <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\ItemPreset.cs" />
+     <Compile Include="Assets\Script\Data\ItemPreset.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ConstructionArea.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\ItemPickupData.cs" />
+     <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
      <Compile Include="Assets\Script\TilemapStart.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\PersonData.cs" />
+     <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
      <Compile Include="Assets\Script\Tool.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\BuildingData.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
+     <Compile Include="Assets\Script\Data\BuildingData.cs" />
      <Compile Include="Assets\Script\FootPrint.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\BuildingPreset.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\BuildingManager.cs" />
+     <Compile Include="Assets\Script\Data\BuildingPreset.cs" />
+     <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
      <Compile Include="Assets\Script\UI\InventorySlot.cs" />
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\AI\PersonCommonAI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\UI\Inventory.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\ItemManager.cs" />
-     <Compile Include="Assets\Script\GameManager.cs" />
+     <Compile Include="Assets\Script\Manager\ItemManager.cs" />
+     <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\UI\HealthBar.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
      <Compile Include="Assets\Script\UI\BuildingUI.cs" />
@@ -72,8 +70,8 @@
      <Compile Include="Assets\Script\AstarScript.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
-     <Compile Include="Assets\Script\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\ItemSlotData.cs" />
+     <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

@@ -18,17 +18,17 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
     public Inventory inventory;
-    public BuildingManager buildingManager;
-    public ItemManager itemManager;
-    public PeopleManager peopleManager;
+    [HideInInspector] public BuildingManager buildingManager;
+    [HideInInspector] public ItemManager itemManager;
+    [HideInInspector] public PeopleManager peopleManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
     public Animator pauseAnimator;
     bool gameIsPause = false;
-    [SerializeField] Interactable _interactableClosest;
     public GameObject itemPickupParent;
-    public Interactable interactableClosest{get{return _interactableClosest;}}
-    public List<Interactable> interactableList = new List<Interactable>();
+    // [SerializeField] Interactable _interactableClosest;
+    // public Interactable interactableClosest{get{return _interactableClosest;}}
+    // public List<Interactable> interactableList = new List<Interactable>();
     [SerializeField] InteractUI interactUI;
     public enum GameTab
     {
@@ -133,24 +133,24 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("View")){
             Debug.Log("View");
         }
-        if(interactableList.Count != 0){
-            // interactUI.gameObject.SetActive(true);
-            float distanceMin = float.MaxValue;
-            foreach (Interactable interactable in interactableList)
-            {
-                float distance = Vector3.Distance(interactable.transform.position,PlayerTransform.position);
-                if(distance < distanceMin){
-                    distanceMin = distance;
-                    _interactableClosest = interactable;
-                }
-            }
-            interactUI.MoveUIPositionFromTransform(_interactableClosest.transform);
-            interactUI.visible = true;
-        }else{
-            // interactUI.gameObject.SetActive(false);
-            _interactableClosest = null;
-            interactUI.visible = false;
-        }
+        // if(interactableList.Count != 0){
+        //     // interactUI.gameObject.SetActive(true);
+        //     float distanceMin = float.MaxValue;
+        //     foreach (Interactable interactable in interactableList)
+        //     {
+        //         float distance = Vector3.Distance(interactable.transform.position,PlayerTransform.position);
+        //         if(distance < distanceMin){
+        //             distanceMin = distance;
+        //             _interactableClosest = interactable;
+        //         }
+        //     }
+        //     interactUI.MoveUIPositionFromTransform(_interactableClosest.transform);
+        //     interactUI.visible = true;
+        // }else{
+        //     // interactUI.gameObject.SetActive(false);
+        //     _interactableClosest = null;
+        //     interactUI.visible = false;
+        // }
     }
 
     public Tool GetToolNowHold(){
@@ -179,15 +179,15 @@ public class GameManager : MonoBehaviour
         singleton_instance = this;
     }
 
-    public void AddInteractable(Interactable interactable){
-        if(interactableList.Contains(interactable)){
-            return;
-        }
-        interactableList.Add(interactable);
-    }
+    // public void AddInteractable(Interactable interactable){
+    //     if(interactableList.Contains(interactable)){
+    //         return;
+    //     }
+    //     interactableList.Add(interactable);
+    // }
 
 
-    public void RemoveInteractable(Interactable interactable){
-        interactableList.Remove(interactable);
-    }
+    // public void RemoveInteractable(Interactable interactable){
+    //     interactableList.Remove(interactable);
+    // }
 }

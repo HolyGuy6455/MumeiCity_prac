@@ -10,7 +10,6 @@ public class BuildingObject : MonoBehaviour
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
-    public BoxCollider boxCollider;
 
     void Start()
     {

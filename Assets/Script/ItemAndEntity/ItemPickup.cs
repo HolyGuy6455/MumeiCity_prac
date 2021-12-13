@@ -1,15 +1,8 @@
 using UnityEngine;
 
-public class ItemPickup : Interactable
+public class ItemPickup : MonoBehaviour
 {
     public ItemPickupData item;
-
-    public override void Interact()
-    {
-        base.Interact();
-
-        this.PickUp();
-    }
 
     void Start() {
         IconSpriteUpdate();
