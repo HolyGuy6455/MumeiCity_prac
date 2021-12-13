@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
     
     public GameManager.UpdateUI onItemChangedCallback;
-    public List<ItemData> items = new List<ItemData>();
+    public List<ItemSlotData> items = new List<ItemSlotData>();
     public int itemSpace = 20;
     public GameObject inventoryUI;
     
@@ -45,26 +45,22 @@ public class Inventory : MonoBehaviour {
         return true;
     }
     
-    public bool AddItem(ItemData item){
-        // if(item.isDefaultItem){
-        //     return false;
-        // }
+    public bool AddItem(ItemSlotData addedItemData){
         if(items.Count >= itemSpace){
             Debug.Log("not enough slot");
             return false;
         }
 
-        ItemData added = null;
+        ItemSlotData added = null;
         for (int i = 0; i < items.Count; i++){
-            if(items[i] != null && items[i].code == item.code){
+            if(items[i] != null && items[i].code == addedItemData.code){
                 added = items[i];
-                added.amount++;
+                added.amount += addedItemData.amount;
                 break;
             }
         }
         if(added == null){
-            item.amount = 1;
-            items.Add(item);
+            items.Add(addedItemData);
         }
 
         if(onItemChangedCallback != null){
@@ -73,24 +69,24 @@ public class Inventory : MonoBehaviour {
         return true;
     }
 
-    public void RemoveItem(ItemData item){
-        ItemData removed = null;
-        for (int i = 0; i < items.Count; i++)
-        {
-            if(items[i].code == item.code){
-                items[i].amount--;
-                if(items[i].amount == 0){
-                    removed = items[i];
-                    break;
-                }
-            }
-        }
-        if(removed != null)
-            items.Remove(removed);
+    // public void RemoveItem(ItemSlotData item){
+    //     ItemSlotData removed = null;
+    //     for (int i = 0; i < items.Count; i++)
+    //     {
+    //         if(items[i].code == item.code){
+    //             items[i].amount--;
+    //             if(items[i].amount == 0){
+    //                 removed = items[i];
+    //                 break;
+    //             }
+    //         }
+    //     }
+    //     if(removed != null)
+    //         items.Remove(removed);
 
         
-        if(onItemChangedCallback != null){
-            onItemChangedCallback.Invoke();
-        }
-    }
+    //     if(onItemChangedCallback != null){
+    //         onItemChangedCallback.Invoke();
+    //     }
+    // }
 }

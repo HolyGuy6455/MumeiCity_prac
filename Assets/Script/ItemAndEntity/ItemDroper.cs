@@ -29,7 +29,7 @@ public class ItemDroper : MonoBehaviour
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             byte itemcode = GameManager.Instance.itemManager.GetCodeFromItemName(item.name);
             ItemPreset preset = GameManager.Instance.itemManager.GetItemPresetFromCode(itemcode);
-            itemPickup.item = ItemData.create(preset);
+            itemPickup.item = ItemPickupData.create(preset);
             itemPickup.IconSpriteUpdate();
             itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);
             itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);

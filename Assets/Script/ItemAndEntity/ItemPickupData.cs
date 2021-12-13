@@ -4,10 +4,9 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class ItemData
+public class ItemPickupData
 {
     public byte code;
-    public int amount;
     public Vector3 position;
     public ItemPreset itemPreset{
         get{
@@ -15,14 +14,9 @@ public class ItemData
             }
         }
 
-    public void Use(){
-        itemPreset.Use(this);
-    }
-
-    public static ItemData create(ItemPreset preset){
-        ItemData result = new ItemData();
+    public static ItemPickupData create(ItemPreset preset){
+        ItemPickupData result = new ItemPickupData();
         result.code = GameManager.Instance.itemManager.GetCodeFromItemPreset(preset);
-        result.amount = 1;
         return result;
     }
 }

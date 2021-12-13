@@ -2925,6 +2925,7 @@ MonoBehaviour:
   constructure: {fileID: 3822184446771861040, guid: 046850d01e7aaf541ab2593a16fd899a, type: 3}
   dictionaryAxe:
   - {fileID: 11400000, guid: 9f0d843bcc0ae4a42a7bf6a2260e5eb5, type: 2}
+  - {fileID: 11400000, guid: 9975f6c2c9298614eaae30ee3e3e9394, type: 2}
   dictionaryLantern:
   - {fileID: 11400000, guid: 964b60c937bdf7b46b3fc0704c0876b5, type: 2}
   - {fileID: 11400000, guid: 2dab68202eb7de247969ae6202aa5ed5, type: 2}
@@ -29312,13 +29313,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1342202581, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: fcad7cd9b99285841bf3f2eb528deef8, type: 3}
-    - target: {fileID: 1402587170, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 1402587171, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.611
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402587171, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.156
       objectReference: {fileID: 0}
     - target: {fileID: 8371264234526702352, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
       propertyPath: m_Name

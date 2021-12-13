@@ -8,10 +8,10 @@ public class InventorySlot : MonoBehaviour
     public Image icon;
     public Button removeButton;
     public Text amount;
-    ItemData item;
+    ItemSlotData item;
     
 
-    public void AddItem(ItemData item){
+    public void AddItem(ItemSlotData item){
         this.item = item;
 
         icon.sprite = GameManager.Instance.itemManager.GetItemPresetFromCode(item.code).icon;
@@ -30,12 +30,12 @@ public class InventorySlot : MonoBehaviour
     }
 
     public void OnRemoveButton(){
-        GameManager.Instance.inventory.RemoveItem(item);
+        // GameManager.Instance.inventory.RemoveItem(item);
     }
 
     public void UseItem(){
         if(item != null){
-            item.Use();
+            // item.Use();
         }
     }
 }

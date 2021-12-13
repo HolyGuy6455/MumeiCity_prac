@@ -6,7 +6,7 @@ public class ItemPreset : ScriptableObject {
     public Sprite icon = null;
     [TextArea] public string info;
 
-    public virtual void Use(ItemData itemData){
-        Debug.Log("Using "+ itemName); 
-    }
+    // public virtual void Use(ItemSlotData itemData){
+    //     Debug.Log("Using "+ itemName); 
+    // }
 }

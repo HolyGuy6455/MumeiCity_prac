@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickup : Interactable
 {
-    public ItemData item;
+    public ItemPickupData item;
 
     public override void Interact()
     {
@@ -22,10 +22,13 @@ public class ItemPickup : Interactable
     }
 
     void PickUp(){
-        // Debug.Log("Picking up " + this.item.itemName);
-        bool isItDone = GameManager.Instance.inventory.AddItem(item);
+        bool isItDone = GameManager.Instance.inventory.AddItem(this.ProcessToItemSlotData());
         if(isItDone){
             Destroy(gameObject);
         }
+    }
+
+    public ItemSlotData ProcessToItemSlotData(){
+        return ItemSlotData.Create(item.itemPreset);
     }
 }

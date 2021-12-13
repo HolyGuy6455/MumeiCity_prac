@@ -1,16 +1,28 @@
 fileFormatVersion: 2
-guid: 5100bebe7afaa8b488031d580b74938d
+guid: 96d315f4828e2c144a41bf409b2e9753
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 104391479226930884
-    second: mumei_Sheet_0
+      213: -8068297163636882321
+    second: mumei_Sheet 1_0
   - first:
-      213: 8834226784525004959
-    second: mumei_Sheet_1
+      213: 658842594160552371
+    second: mumei_Sheet 1_1
   - first:
-      213: 2352544708806120410
-    second: mumei_Sheet_2
+      213: 2256302306461006844
+    second: mumei_Sheet 1_2
+  - first:
+      213: -3722177551647577961
+    second: mumei_Sheet 1_3
+  - first:
+      213: 2819487613121444495
+    second: mumei_Sheet 1_4
+  - first:
+      213: -231872913042580421
+    second: mumei_Sheet 1_5
+  - first:
+      213: 8956946578813505836
+    second: mumei_Sheet 1_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,7 +112,70 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mumei_Sheet_0
+      name: mumei_Sheet 1_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f64c1233a76a70090800000000000000
+      internalID: -8068297163636882321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_Sheet 1_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b926d349dda42900800000000000000
+      internalID: 658842594160552371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_Sheet 1_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfbb08a4efeff4f10800000000000000
+      internalID: 2256302306461006844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_Sheet 1_3
       rect:
         serializedVersion: 2
         x: 0
@@ -114,14 +189,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c616ec4f7fd27100800000000000000
-      internalID: 104391479226930884
+      spriteID: 798ec1bdc3b285cc0800000000000000
+      internalID: -3722177551647577961
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mumei_Sheet_1
+      name: mumei_Sheet 1_4
       rect:
         serializedVersion: 2
         x: 128
@@ -135,14 +210,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f90badc647a799a70800000000000000
-      internalID: 8834226784525004959
+      spriteID: f8ab7bcbb05d02720800000000000000
+      internalID: 2819487613121444495
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mumei_Sheet_2
+      name: mumei_Sheet 1_5
       rect:
         serializedVersion: 2
         x: 256
@@ -156,8 +231,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad31d96c2fae5a020800000000000000
-      internalID: 2352544708806120410
+      spriteID: b3cdf0960d838ccf0800000000000000
+      internalID: -231872913042580421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_Sheet 1_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c21545e15777d4c70800000000000000
+      internalID: 8956946578813505836
       vertices: []
       indices: 
       edges: []

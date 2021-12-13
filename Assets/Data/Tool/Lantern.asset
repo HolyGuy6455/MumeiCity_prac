@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179540869237c25479e5c2b215210ac0, type: 3}
   m_Name: Lantern
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 4c2ce084be5e7e24f8e1a794bb43554d, type: 3}
+  icon: {fileID: -7041057737641970282, guid: 901b44042b52a5d468bf92faf46506f6, type: 3}
   ToolName: Lantern

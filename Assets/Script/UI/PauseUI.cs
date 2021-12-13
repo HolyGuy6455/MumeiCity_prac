@@ -10,7 +10,7 @@ public class PauseUI : MonoBehaviour{
     class SaveForm {
         public Vector3 playerPosition = new Vector3();
         public List<BuildingData> buildingDatas = new List<BuildingData>();
-        public List<ItemData> itemPickupDatas = new List<ItemData>();
+        public List<ItemPickupData> itemPickupDatas = new List<ItemPickupData>();
         public List<PersonData> personDatas = new List<PersonData>();
     }
 
@@ -28,9 +28,9 @@ public class PauseUI : MonoBehaviour{
         // 아이템 위치 저장하기
         GameObject itemPickupParent = GameManager.Instance.itemPickupParent;
         foreach (Transform childTransform in itemPickupParent.transform){
-            ItemData itemData = childTransform.GetComponent<ItemPickup>().item;
-            itemData.position = childTransform.position;
-            saveForm.itemPickupDatas.Add(itemData);
+            ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().item;
+            itemPickupData.position = childTransform.position;
+            saveForm.itemPickupDatas.Add(itemPickupData);
         }
         GameObject peopleParent = GameManager.Instance.peopleManager.theMotherOfWholePeople;
         foreach (Transform childTransform in peopleParent.transform){
@@ -111,7 +111,7 @@ public class PauseUI : MonoBehaviour{
             Destroy(childTransform.gameObject);
         }
 
-        foreach (ItemData data in saveForm.itemPickupDatas){
+        foreach (ItemPickupData data in saveForm.itemPickupDatas){
             // 데이터로부터 위치를 읽어온다
             Vector3 location = new Vector3();
             location = data.position;

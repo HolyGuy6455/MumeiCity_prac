@@ -112,7 +112,7 @@ public class PersonCommonAI : MonoBehaviour
             Debug.Log("Fail to Pick up the Item");
             return;
         }
-        this.personData.items.Add(itemPickup.item);
+        this.personData.items.Add(itemPickup.ProcessToItemSlotData());
         Destroy(target);
         LoseMyTarget();
         UpdateItemView();

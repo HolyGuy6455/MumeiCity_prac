@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 179540869237c25479e5c2b215210ac0, type: 3}
   m_Name: Axe
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 02b43f5578ef3bf429e620d3454a967c, type: 3}
+  icon: {fileID: 3769792241542153046, guid: 901b44042b52a5d468bf92faf46506f6, type: 3}
   ToolName: Axe
