@@ -2844,6 +2844,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b4311ca96a37bb44b34b8d32c98e544, type: 2}
   - {fileID: 11400000, guid: d2ea7f0a7bd25e946ad5283bd597e6e6, type: 2}
   - {fileID: 11400000, guid: 04daf907e4f6ac248949671b79b6b410, type: 2}
+  - {fileID: 11400000, guid: 5d0b1df331e4bb24391ceb9795ac3c34, type: 2}
+  - {fileID: 11400000, guid: 76ac6bcd5b60f5048b1fc594562e19c2, type: 2}
+  - {fileID: 11400000, guid: 71d0ea2f0b37c2145b48b02adbae52a2, type: 2}
+  - {fileID: 11400000, guid: b15b12a3eed6cf94b8d7f368ae10fa90, type: 2}
+  - {fileID: 11400000, guid: e38b756b758c8a247a6262fb978133c6, type: 2}
   ToolView: {fileID: 1402587172}
   playerMovement: {fileID: 1750695403}
   inventory: {fileID: 842351768}
@@ -2930,6 +2935,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 964b60c937bdf7b46b3fc0704c0876b5, type: 2}
   - {fileID: 11400000, guid: 2dab68202eb7de247969ae6202aa5ed5, type: 2}
   dictionaryShovel: []
+  dictionaryPickaxe: []
+  dictionaryBucket: []
+  dictionaryHammer: []
+  dictionaryKnife: []
+  dictionarySkillet: []
   constructionArea: {fileID: 270268997}
   buildingPreset: {fileID: 0}
   buildingsParent: {fileID: 325282680}
@@ -28707,6 +28717,10 @@ PrefabInstance:
     - target: {fileID: 909571268637782958, guid: 0834897046fa2c94c9c8139b31ef77d5, type: 3}
       propertyPath: m_Name
       value: Prey
+      objectReference: {fileID: 0}
+    - target: {fileID: 909571268637782958, guid: 0834897046fa2c94c9c8139b31ef77d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 909571268637782959, guid: 0834897046fa2c94c9c8139b31ef77d5, type: 3}
       propertyPath: m_RootOrder

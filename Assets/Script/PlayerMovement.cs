@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour
         movement.z = Input.GetAxisRaw("Vertical");
 
         animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
         if(Input.GetButtonDown("Jump")/* && IsGrounded()*/){
@@ -62,6 +62,12 @@ public class PlayerMovement : MonoBehaviour
             spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
         }else if(movement.x >= 0.01f){
             spriteObject.transform.localScale = new Vector3(1f,1f,1f);
+        }
+
+        if(movement.z <= -0.01f){
+            animator.SetFloat("Backward",0);
+        }else if(movement.z >= 0.01f){
+            animator.SetFloat("Backward",1);
         }
     }
 

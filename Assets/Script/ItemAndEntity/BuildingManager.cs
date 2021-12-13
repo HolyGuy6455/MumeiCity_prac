@@ -10,6 +10,11 @@ public class BuildingManager : MonoBehaviour {
     public List<BuildingPreset> dictionaryAxe = new List<BuildingPreset>();
     public List<BuildingPreset> dictionaryLantern = new List<BuildingPreset>();
     public List<BuildingPreset> dictionaryShovel = new List<BuildingPreset>();
+    public List<BuildingPreset> dictionaryPickaxe = new List<BuildingPreset>();
+    public List<BuildingPreset> dictionaryBucket = new List<BuildingPreset>();
+    public List<BuildingPreset> dictionaryHammer = new List<BuildingPreset>();
+    public List<BuildingPreset> dictionaryKnife = new List<BuildingPreset>();
+    public List<BuildingPreset> dictionarySkillet = new List<BuildingPreset>();
     public Dictionary<Tool, List<BuildingPreset>> buildingDictionary;
     public ConstructionArea constructionArea;
     public BuildingPreset buildingPreset;
@@ -30,6 +35,21 @@ public class BuildingManager : MonoBehaviour {
                     break;
                 case "Shovel":
                     buildingDictionary.Add(tool, dictionaryShovel);
+                    break;
+                case "Pickaxe":
+                    buildingDictionary.Add(tool, dictionaryPickaxe);
+                    break;
+                case "Hammer":
+                    buildingDictionary.Add(tool, dictionaryHammer);
+                    break;
+                case "Bucket":
+                    buildingDictionary.Add(tool, dictionaryBucket);
+                    break;
+                case "Knife":
+                    buildingDictionary.Add(tool, dictionaryKnife);
+                    break;
+                case "Skillet":
+                    buildingDictionary.Add(tool, dictionarySkillet);
                     break;
                 default:
                     break;
