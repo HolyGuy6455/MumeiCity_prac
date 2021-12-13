@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     RaycastHit hit;
     bool isRaycastHit;
     int groundLayerMask;
+    [SerializeField] GameObject spriteObject;
 
     void Start()
     {
@@ -52,13 +53,15 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        animator.SetBool("IsJumping",!IsGrounded());
+
         // Debug.Log("IsGrounded : " + IsGrounded());
         // rigidBody.useGravity = !IsGrounded();
 
         if(movement.x <= -0.01f){
-            transform.localScale = new Vector3(-1f,1f,1f);
+            spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
         }else if(movement.x >= 0.01f){
-            transform.localScale = new Vector3(1f,1f,1f);
+            spriteObject.transform.localScale = new Vector3(1f,1f,1f);
         }
     }
 
@@ -81,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate() {
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
-        shadow.position = hit.point;
+        shadow.position = hit.point + new Vector3(0,0,-0.2f);
 
         bool HorizontalRayCast = Physics.Raycast(rigidBody.position + new Vector3(0,0.5f,0), new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
         bool VerticalRayCast = Physics.Raycast(rigidBody.position + new Vector3(0,0.5f,0), new Vector3(0,0,movement.z), 0.5f, groundLayerMask);
