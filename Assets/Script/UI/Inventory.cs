@@ -3,16 +3,27 @@ using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
     
-    public GameManager.UpdateUI onItemChangedCallback;
-    public List<ItemSlotData> items = new List<ItemSlotData>();
-    public int itemSpace = 20;
-    public GameObject inventoryUI;
+    // public GameManager.UpdateUI onItemChangedCallback;
+    // public List<ItemSlotData> items = new List<ItemSlotData>(); 
+    
+    // ItemSlotData[] slots;
+    // public GameObject inventoryUI;
+    [SerializeField] Transform itemsParents;
+    public ItemSlotData itemInHand;
+    InventorySlot[] slots;
+    // public int itemSpace = 20;
+
+    private void Start() {
+        // items = new ItemSlotData[itemSpace];
+        slots = itemsParents.GetComponentsInChildren<InventorySlot>();
+    }
     
     public int GetItemAmount(string itemName){
         int result = 0;
-        for (int i = 0; i < items.Count; i++){
-            if(items[i] != null && items[i].code == GameManager.Instance.itemManager.GetCodeFromItemName(itemName)){
-                result += items[i].amount;
+        byte findingCode = GameManager.Instance.itemManager.GetCodeFromItemName(itemName);
+        for (int i = 0; i < slots.Length; i++){
+            if(slots[i] != null && slots[i].data.code == findingCode){
+                result += slots[i].data.amount;
             }
         }
         return result;
@@ -22,71 +33,45 @@ public class Inventory : MonoBehaviour {
         if(GetItemAmount(itemName) < amount)
             return false;
 
-        for (int i = 0; i < items.Count; i++){
-            if(items[i] != null && items[i].code == GameManager.Instance.itemManager.GetCodeFromItemName(itemName)){
-                if(items[i].amount >= amount){
-                    items[i].amount -= amount;
+        byte findingCode = GameManager.Instance.itemManager.GetCodeFromItemName(itemName);
+
+        for (int i = 0; i < slots.Length; i++){
+            if(slots[i] != null && slots[i].data.code == findingCode){
+                if(slots[i].data.amount > amount){
+                    slots[i].data.amount -= amount;
                     amount = 0;
-                }else if(items[i].amount == amount){
-                    amount = 0;
-                    items.Remove(items[i]);
                 }else{
-                    amount -= items[i].amount;
-                    items.Remove(items[i]);
+                    amount -= slots[i].data.amount;
+                    slots[i].data = null;
                 }
                 
             }
-        }
-
-        if(onItemChangedCallback != null){
-            onItemChangedCallback.Invoke();
         }
         
         return true;
     }
     
     public bool AddItem(ItemSlotData addedItemData){
-        if(items.Count >= itemSpace){
-            Debug.Log("not enough slot");
-            return false;
-        }
+        bool result = false;
 
-        ItemSlotData added = null;
-        for (int i = 0; i < items.Count; i++){
-            if(items[i] != null && items[i].code == addedItemData.code){
-                added = items[i];
+        for (int i = 0; i < slots.Length; i++){
+            if(slots[i].data != null && slots[i].data.code == addedItemData.code){
+                ItemSlotData added = slots[i].data;
                 added.amount += addedItemData.amount;
+                result = true;
                 break;
             }
         }
-        if(added == null){
-            items.Add(addedItemData);
+
+        if(result == false){
+            for (int i = 0; i < slots.Length; i++){
+                if(slots[i].data == null){
+                    slots[i].data = addedItemData;
+                    result = true;
+                }
+            }
         }
 
-        if(onItemChangedCallback != null){
-            onItemChangedCallback.Invoke();
-        }
-        return true;
+        return result;
     }
-
-    // public void RemoveItem(ItemSlotData item){
-    //     ItemSlotData removed = null;
-    //     for (int i = 0; i < items.Count; i++)
-    //     {
-    //         if(items[i].code == item.code){
-    //             items[i].amount--;
-    //             if(items[i].amount == 0){
-    //                 removed = items[i];
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     if(removed != null)
-    //         items.Remove(removed);
-
-        
-    //     if(onItemChangedCallback != null){
-    //         onItemChangedCallback.Invoke();
-    //     }
-    // }
 }

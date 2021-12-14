@@ -69,7 +69,6 @@
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\IEntityDestroyEvent.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
-     <Compile Include="Assets\Script\UI\InventoryUI.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
