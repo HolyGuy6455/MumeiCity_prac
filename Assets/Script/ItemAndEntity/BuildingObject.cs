@@ -32,4 +32,8 @@ public class BuildingObject : MonoBehaviour
         spriteRenderer.sprite = buildingPreset.sprite;
     }
 
+    public void ShowWindow(){
+        Debug.Log("Show Window : "+ this);
+    }
+
 }

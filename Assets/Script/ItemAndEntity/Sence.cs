@@ -8,7 +8,8 @@ public class Sence : MonoBehaviour
     [SerializeField] List<GameObject> _whatTheySee = new List<GameObject>();
     public List<GameObject> whatTheySee{
         get{
-            return _whatTheySee.FindAll(value => value != null);
+            Clean();
+            return _whatTheySee.FindAll(_filter);
             }
         }
     int groundLayerMask;
@@ -19,8 +20,16 @@ public class Sence : MonoBehaviour
         groundLayerMask = LayerMask.NameToLayer("Ground");
     }
 
-    public void resetFilter(){
+    public void ResetFilter(){
         _filter = null;
+    }
+
+    public void Clean(){
+        _whatTheySee = _whatTheySee.FindAll(value => value != null);
+    }
+
+    public void CleanReservation(){
+        Invoke("Clean",0.1f);
     }
 
     public GameObject FindNearest(Vector3 position){
@@ -57,7 +66,7 @@ public class Sence : MonoBehaviour
             return;
         }
         _whatTheySee.Add(other.gameObject);
-        _whatTheySee = whatTheySee.FindAll(value => value != null);
+        Clean();
     }
 
     private void OnTriggerExit(Collider other) {
@@ -65,7 +74,7 @@ public class Sence : MonoBehaviour
             return;
         }
         _whatTheySee.Remove(other.gameObject);
-        _whatTheySee = whatTheySee.FindAll(value => value != null);
+        Clean();
     }
 
     

@@ -19,13 +19,6 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
-
-        // sence.filter = delegate(GameObject gameObject){
-        //     if(gameObject.tag != "Interactable"){
-        //         return false;
-        //     }
-        //     return true;
-        // };
     }
 
     void Update()
@@ -41,13 +34,13 @@ public class PlayerMovement : MonoBehaviour
             isJump = true;
         }
 
-        // if(Input.GetButtonDown("Fire2")){
-        //     Interactable interactable = GameManager.Instance.interactableClosest;
-        //     if(interactable != null){
-        //         // Debug.Log(interactable);
-        //         interactable.Interact();
-        //     }
-        // }
+        if(Input.GetButtonDown("Fire2")){
+            Interactable interactable = GameManager.Instance.nearestInteractable;
+            if(interactable != null){
+                Debug.Log(interactable);
+                interactable.Interact();
+            }
+        }
 
         if(Input.GetKeyDown(KeyCode.C)){
             GameManager.Instance.buildingManager.Build();

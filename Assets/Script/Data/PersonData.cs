@@ -6,4 +6,5 @@ using UnityEngine;
 public class PersonData{
     public Vector3 position = new Vector3();
     public List<ItemSlotData> items = new List<ItemSlotData>();
+    public int stamina;
 }

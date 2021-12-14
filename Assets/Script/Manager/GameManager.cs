@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,11 +20,13 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public BuildingManager buildingManager;
     [HideInInspector] public ItemManager itemManager;
     [HideInInspector] public PeopleManager peopleManager;
+    [HideInInspector] public CameraManager cameraManager;
     public Animator inventoryAnimator;
     public Animator buildingAnimator;
     public Animator pauseAnimator;
     bool gameIsPause = false;
     public GameObject itemPickupParent;
+    public Interactable nearestInteractable;
     // [SerializeField] Interactable _interactableClosest;
     // public Interactable interactableClosest{get{return _interactableClosest;}}
     // public List<Interactable> interactableList = new List<Interactable>();
@@ -38,23 +39,83 @@ public class GameManager : MonoBehaviour
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;
-
-    [SerializeField] float zoom = 6.0f;
-    [SerializeField] float zoomMin = 4.0f;
-    [SerializeField] float zoomMax = 12.0f;
-    [SerializeField] float zoomSpeed = 1.0f;
-    [SerializeField] float zoomAmount = 1.0f;
-    [SerializeField] CinemachineVirtualCamera virtualCamera;
-
+    [SerializeField] Sence _sence;
+    public Sence sence{get{return _sence;}}
     public static GameManager Instance{
         get{
             return singleton_instance;
         }
     }
 
+    private void Start() {
+        buildingManager = this.GetComponent<BuildingManager>();
+        itemManager = this.GetComponent<ItemManager>();
+        peopleManager = this.GetComponent<PeopleManager>();
+        cameraManager = this.GetComponent<CameraManager>();
+
+        _sence.filter = delegate(GameObject gameObject){
+            if(gameObject == null){
+                return false;
+            }
+            if(gameObject.tag != "Interactable"){
+                return false;
+            }
+            Interactable interactable =  gameObject.GetComponent<Interactable>();
+            return interactable != null;
+        };
+    }
+
     private void OnValidate () {
         if(presentGameTab != pastGameTab){
             GameTabChanged();
+        }
+    }
+
+    private void Update() {
+        cameraManager.CameraZoom();
+
+        if(Input.GetButtonDown("Inventory")){
+            if(presentGameTab != GameTab.ITEM){
+                presentGameTab = GameTab.ITEM;
+            }else{
+                presentGameTab = GameTab.NORMAL;
+            }
+            GameTabChanged();
+        }
+
+        if(Input.GetButtonDown("ChangeTool")){
+            SelectToolNext();
+            if(buildingManager.onToolChangedCallback != null){
+                buildingManager.onToolChangedCallback.Invoke();
+            }
+        }
+        
+        if(Input.GetButtonDown("Building")){
+            if(presentGameTab != GameTab.BUILDING){
+                presentGameTab = GameTab.BUILDING;
+            }else{
+                presentGameTab = GameTab.NORMAL;
+            }
+            GameTabChanged();
+        }
+        if(Input.GetButtonDown("Menu")){
+            gameIsPause = !gameIsPause;
+            pauseAnimator.SetBool("isVisible",gameIsPause);
+            Time.timeScale = gameIsPause? 0:1;
+            playerMovement.enabled = !gameIsPause;
+        }
+        if(Input.GetButtonDown("View")){
+            Debug.Log("View");
+        }
+
+        GameObject nearestInteractableObject = _sence.FindNearest(PlayerTransform.position);
+        if(nearestInteractableObject != null){
+            interactUI.MoveUIPositionFromTransform(nearestInteractableObject.transform);
+            interactUI.visible = true;
+            nearestInteractable = nearestInteractableObject.GetComponent<Interactable>();
+            interactUI.UpdateIcon(nearestInteractable.interactType);
+        }else{
+            interactUI.visible = false;
         }
     }
 
@@ -93,64 +154,6 @@ public class GameManager : MonoBehaviour
         if(!buildingShow){
             buildingManager.constructionArea.SetBuildingData(null);
         }
-    }
-
-    private void Update() {
-        zoom -= Input.GetAxisRaw("Mouse ScrollWheel")*zoomAmount;
-        zoom = (zoom<zoomMin)?zoomMin:(zoom>zoomMax)?zoomMax:zoom;
-        virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, zoom, Time.deltaTime*zoomSpeed);
-        
-        if(Input.GetButtonDown("Inventory")){
-            if(presentGameTab != GameTab.ITEM){
-                presentGameTab = GameTab.ITEM;
-            }else{
-                presentGameTab = GameTab.NORMAL;
-            }
-            GameTabChanged();
-        }
-
-        if(Input.GetButtonDown("ChangeTool")){
-            SelectToolNext();
-            if(buildingManager.onToolChangedCallback != null){
-                buildingManager.onToolChangedCallback.Invoke();
-            }
-        }
-        
-        if(Input.GetButtonDown("Building")){
-            if(presentGameTab != GameTab.BUILDING){
-                presentGameTab = GameTab.BUILDING;
-            }else{
-                presentGameTab = GameTab.NORMAL;
-            }
-            GameTabChanged();
-        }
-        if(Input.GetButtonDown("Menu")){
-            gameIsPause = !gameIsPause;
-            pauseAnimator.SetBool("isVisible",gameIsPause);
-            Time.timeScale = gameIsPause? 0:1;
-            playerMovement.enabled = !gameIsPause;
-        }
-        if(Input.GetButtonDown("View")){
-            Debug.Log("View");
-        }
-        // if(interactableList.Count != 0){
-        //     // interactUI.gameObject.SetActive(true);
-        //     float distanceMin = float.MaxValue;
-        //     foreach (Interactable interactable in interactableList)
-        //     {
-        //         float distance = Vector3.Distance(interactable.transform.position,PlayerTransform.position);
-        //         if(distance < distanceMin){
-        //             distanceMin = distance;
-        //             _interactableClosest = interactable;
-        //         }
-        //     }
-        //     interactUI.MoveUIPositionFromTransform(_interactableClosest.transform);
-        //     interactUI.visible = true;
-        // }else{
-        //     // interactUI.gameObject.SetActive(false);
-        //     _interactableClosest = null;
-        //     interactUI.visible = false;
-        // }
     }
 
     public Tool GetToolNowHold(){

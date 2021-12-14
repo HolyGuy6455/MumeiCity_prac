@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 9106877917175383324}
   - component: {fileID: 2102534911}
   - component: {fileID: 2102534913}
+  - component: {fileID: 1222026832}
   m_Layer: 0
   m_Name: ItemPickup
   m_TagString: Interactable
@@ -128,9 +129,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcd229351cffe040a92a389909febea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isInteractable: 0
-  player: {fileID: 0}
-  item: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
+  item:
+    code: 0
+    position: {x: 0, y: 0, z: 0}
 --- !u!54 &2102534911
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,3 +161,30 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.01, y: 0.01, z: 0.01}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1222026832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9106877917175383327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef798977ef76e4c4c971e243e7d80a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 9106877917175383324}
+        m_TargetAssemblyTypeName: ItemPickup, Assembly-CSharp
+        m_MethodName: PickUp
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

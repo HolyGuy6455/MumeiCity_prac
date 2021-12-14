@@ -14,27 +14,6 @@ public class PersonCommonAI : MonoBehaviour
     [SerializeField] List<GameObject> pocketItemSlots;
     public PersonData personData = new PersonData();
 
-    private GameObject findNearest(List<GameObject> pool){
-        if(pool.Count == 0){
-            return null;
-        }
-        GameObject result = null;
-        float minDistance = float.MaxValue;
-        foreach (GameObject target in pool){
-            if(result == null){
-                result = target;
-                minDistance = Vector3.Distance(this.transform.position,target.transform.position);
-                continue;
-            }
-            float distance = Vector3.Distance(this.transform.position,target.transform.position);
-            if(distance < minDistance){
-                result = target;
-                minDistance = distance;
-            }
-        }
-        return result;
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -46,30 +25,27 @@ public class PersonCommonAI : MonoBehaviour
             ///////////////////////////////////////////////////////////////////////////
             // 주워올 아이템이 있는지 확인
             if(personData.items.Count < 6){
-                List<GameObject> itemsForPickup = sence.whatTheySee.FindAll(
-                    delegate(GameObject value){
-                        ItemPickup itemPickup = value.GetComponent<ItemPickup>();
-                        if(itemPickup == null){
-                            return false;
-                        }
-                        return true;
+                sence.filter = delegate(GameObject value){
+                    ItemPickup itemPickup = value.GetComponent<ItemPickup>();
+                    if(itemPickup == null){
+                        return false;
                     }
-                );
+                    return true;
+                };
 
-                GameObject nearestItem = findNearest(itemsForPickup);
+                GameObject nearestItem = sence.FindNearest(this.transform.position);
 
                 if(nearestItem != null){
                     animator.SetInteger("ThinkCode",1);
                     this.target = nearestItem;
                     aIDestination.target = this.target.transform;
-                    // this.target.GetComponent<Hittable>().EntityDestroyEventHandler += LoseMyTarget;
                     animator.SetBool("HasAGoal",true);
                     return;
                 }
             }
             ///////////////////////////////////////////////////////////////////////////
             // 베어낼 나무가 있는지 확인
-            List<GameObject> treesForLogging= GameManager.Instance.buildingManager.wholeBuildingSet().FindAll(
+            sence.filter =
                 delegate(GameObject value){
                     BuildingObject buildingObject = value.GetComponent<BuildingObject>();
                     if(buildingObject == null){
@@ -77,9 +53,8 @@ public class PersonCommonAI : MonoBehaviour
                     }
                     BuildingPreset preset = buildingObject.buildingData.buildingPreset;
                     return preset.hasAttribute("Log");
-                }
-            );
-            GameObject nearestTree = findNearest(treesForLogging);
+                };
+            GameObject nearestTree = sence.FindNearest(this.transform.position);
             if(nearestTree != null){
                 animator.SetInteger("ThinkCode",2);
                 this.target = nearestTree;

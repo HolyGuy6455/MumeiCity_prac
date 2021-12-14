@@ -52,6 +52,7 @@
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
      <Compile Include="Assets\Script\Tool.cs" />
      <Compile Include="Assets\Script\Data\BuildingData.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\FootPrint.cs" />
      <Compile Include="Assets\Script\Data\BuildingPreset.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
+     <Compile Include="Assets\Script\Manager\CameraManager.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

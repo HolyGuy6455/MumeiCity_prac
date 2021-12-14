@@ -13,10 +13,6 @@ public class ItemSlotData{
             }
         }
 
-    // public void Use(){
-    //     itemPreset.Use(this);
-    // }
-
     public static ItemSlotData Create(ItemPreset preset){
         ItemSlotData result = new ItemSlotData();
         result.code = GameManager.Instance.itemManager.GetCodeFromItemPreset(preset);

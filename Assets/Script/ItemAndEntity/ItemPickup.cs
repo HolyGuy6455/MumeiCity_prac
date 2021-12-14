@@ -14,8 +14,9 @@ public class ItemPickup : MonoBehaviour
         this.GetComponentInChildren<SpriteRenderer>().sprite = item.itemPreset.icon;
     }
 
-    void PickUp(){
+    public void PickUp(){
         bool isItDone = GameManager.Instance.inventory.AddItem(this.ProcessToItemSlotData());
+        GameManager.Instance.sence.CleanReservation();
         if(isItDone){
             Destroy(gameObject);
         }
