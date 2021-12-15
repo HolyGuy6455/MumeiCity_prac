@@ -11,7 +11,7 @@ public class ItemPickup : MonoBehaviour
     public void IconSpriteUpdate(){
         if(item == null)
             return;
-        this.GetComponentInChildren<SpriteRenderer>().sprite = item.itemPreset.icon;
+        this.GetComponentInChildren<SpriteRenderer>().sprite = item.itemPreset.itemSprite;
     }
 
     public void PickUp(){

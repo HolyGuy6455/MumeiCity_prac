@@ -104,7 +104,7 @@ public class PersonCommonAI : MonoBehaviour
         for (int i = 0; i < length; i++){
             pocketItemSlots[i].SetActive(true);
             pocketItemSlots[i].transform.localPosition = new Vector3(((float)-length+1)/4 + ((float)i)/2,0.5f,0);
-            pocketItemSlots[i].GetComponent<SpriteRenderer>().sprite = this.personData.items[i].itemPreset.icon;
+            pocketItemSlots[i].GetComponent<SpriteRenderer>().sprite = this.personData.items[i].itemPreset.itemSprite;
         }
         for (int i = length; i < pocketItemSlots.Count; i++){
             pocketItemSlots[i].SetActive(false);
