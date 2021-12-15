@@ -27,8 +27,8 @@ public class ItemDroper : MonoBehaviour
         foreach (ItemDropAmount item in itemDropAmounts){
             GameObject itemObject = Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            byte itemcode = GameManager.Instance.itemManager.GetCodeFromItemName(item.name);
-            ItemPreset preset = GameManager.Instance.itemManager.GetItemPresetFromCode(itemcode);
+            byte itemcode = ItemManager.GetCodeFromItemName(item.name);
+            ItemPreset preset = ItemManager.GetItemPresetFromCode(itemcode);
             itemPickup.item = ItemPickupData.create(preset);
             itemPickup.IconSpriteUpdate();
             itemPickup.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-range, range),jumpPower,Random.Range(-range, range)),ForceMode.Impulse);

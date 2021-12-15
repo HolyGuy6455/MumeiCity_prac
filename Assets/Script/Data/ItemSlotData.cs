@@ -7,25 +7,24 @@ using System;
 public class ItemSlotData{
     public byte code;
     public int amount;
+    public GameManager.UpdateUI _updateUI;
 
     public ItemPreset itemPreset{
         get{
-            return GameManager.Instance.itemManager.GetItemPresetFromCode(code);
+            return ItemManager.GetItemPresetFromCode(code);
             }
         }
 
     public static ItemSlotData Create(ItemPreset preset){
         ItemSlotData result = new ItemSlotData();
-        result.code = GameManager.Instance.itemManager.GetCodeFromItemPreset(preset);
+        result.code = ItemManager.GetCodeFromItemPreset(preset);
         result.amount = 1;
         return result;
     }
 
-    // 편의상 넣은것
-    public ItemSlotData CopyEmpty(){
-        ItemSlotData result = new ItemSlotData();
-        result.code = this.code;
-        result.amount = 0;
-        return result;
+    public void UpdateUI(){
+        if(_updateUI != null){
+            _updateUI.Invoke();
+        }
     }
 }

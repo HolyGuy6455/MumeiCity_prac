@@ -9,7 +9,17 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerClickH
     public InventorySlotEvent onClickCallback;
     public Image icon;
     [UnityEngine.Serialization.FormerlySerializedAs("amount")] public Text amountText;
-    public ItemSlotData data = null;
+    ItemSlotData _data;
+    public ItemSlotData data{
+        get{
+            return _data;
+        }
+        set{
+            _data._updateUI -= UpdateUI;
+            _data = value;
+            _data._updateUI += UpdateUI;
+        }
+    }
 
     public void UpdateUI(){
         if(data == null || data.code == 0){
@@ -17,7 +27,7 @@ public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerClickH
             icon.enabled = false;
             amountText.text = "";
         }else{
-            icon.sprite = GameManager.Instance.itemManager.GetItemPresetFromCode(data.code).itemSprite;
+            icon.sprite = ItemManager.GetItemPresetFromCode(data.code).itemSprite;
             icon.enabled = true;
             amountText.text = data.amount.ToString();
         }

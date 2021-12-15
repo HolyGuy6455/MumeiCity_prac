@@ -5,12 +5,14 @@ public class ItemManager : MonoBehaviour {
     [SerializeField] private List<ItemPreset> itemPresetList = new List<ItemPreset>();
     public GameObject itemPickupPrefab;
 
-    public ItemPreset GetItemPresetFromCode(byte code){
+    public static ItemPreset GetItemPresetFromCode(byte code){
         int index = (int)code;
-        return itemPresetList[index];
+        ItemManager mySelf = GameManager.Instance.itemManager;
+        return mySelf.itemPresetList[index];
     }
 
-    public byte GetCodeFromItemPreset(ItemPreset preset){
+    public static byte GetCodeFromItemPreset(ItemPreset preset){
+        List<ItemPreset> itemPresetList = GameManager.Instance.itemManager.itemPresetList;
         for (int i = 0; i < itemPresetList.Count; i++){
             if(itemPresetList[i] == preset){
                 return (byte)i;
@@ -18,7 +20,8 @@ public class ItemManager : MonoBehaviour {
         }
         return (byte)(0);
     }
-    public byte GetCodeFromItemName(string name){
+    public static byte GetCodeFromItemName(string name){
+        List<ItemPreset> itemPresetList = GameManager.Instance.itemManager.itemPresetList;
         for (int i = 0; i < itemPresetList.Count; i++){
             if(itemPresetList[i].itemName == name){
                 return (byte)i;

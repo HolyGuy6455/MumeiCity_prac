@@ -10,13 +10,13 @@ public class ItemPickupData
     public Vector3 position;
     public ItemPreset itemPreset{
         get{
-            return GameManager.Instance.itemManager.GetItemPresetFromCode(code);
+            return ItemManager.GetItemPresetFromCode(code);
             }
         }
 
     public static ItemPickupData create(ItemPreset preset){
         ItemPickupData result = new ItemPickupData();
-        result.code = GameManager.Instance.itemManager.GetCodeFromItemPreset(preset);
+        result.code = ItemManager.GetCodeFromItemPreset(preset);
         return result;
     }
 }

@@ -73,6 +73,7 @@
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Manager\CameraManager.cs" />
+     <Compile Include="Assets\Script\UI\InventoryUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
