@@ -9,6 +9,7 @@ public class PauseUI : MonoBehaviour{
     [SerializeField] GameObject itemPickupPrefab;
     class SaveForm {
         public Vector3 playerPosition = new Vector3();
+        public ItemSlotData[] itemData;
         public List<BuildingData> buildingDatas = new List<BuildingData>();
         public List<ItemPickupData> itemPickupDatas = new List<ItemPickupData>();
         public List<PersonData> personDatas = new List<PersonData>();
@@ -17,8 +18,11 @@ public class PauseUI : MonoBehaviour{
 
     public void SaveTheGame(){
         SaveForm saveForm = new SaveForm();
+
         // 플레이어 위치 저장하기
         saveForm.playerPosition = GameManager.Instance.PlayerTransform.position;
+        // 플레이어 아이템 저장하기
+        saveForm.itemData = GameManager.Instance.inventory.itemData;
         // 건물 설정 저장하기
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
         foreach (Transform childTransform in buildingsParent.transform){
@@ -76,7 +80,10 @@ public class PauseUI : MonoBehaviour{
         // string에서 데이터를 읽어들임
         SaveForm saveForm = JsonUtility.FromJson<SaveForm>(savefile);
 
+        // 플레이어의 위치를 불러온다
         GameManager.Instance.PlayerTransform.position = saveForm.playerPosition;
+        // 플레이어 아이템을 불러온다
+        GameManager.Instance.inventory.itemData = saveForm.itemData;
 
         // 맵에 남아있는 건물들을 전부 없앤다
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;

@@ -6,6 +6,7 @@ public class Inventory : MonoBehaviour {
     
     public ItemSlotData itemHeldInHand;
     [SerializeField] Image itemHeldInHandImage;
+    [SerializeField] Text itemHeldInHandAmount;
     public ItemSlotData[] itemData;
     int itemSpace = 20;
 
@@ -91,6 +92,7 @@ public class Inventory : MonoBehaviour {
             ItemSlotData.Swap(itemHeldInHand,inventorySlot.data);
         }
         itemHeldInHandImage.sprite = itemHeldInHand.itemPreset.itemSprite;
+        itemHeldInHandAmount.text = (itemHeldInHand.code==0) ? "" : itemHeldInHand.amount.ToString();
     }
 
     // private void OnFocusSlot(InventorySlot inventorySlot, PointerEventData eventData){
