@@ -6,43 +6,29 @@ public class Inventory : MonoBehaviour {
     
     public ItemSlotData itemHeldInHand;
     [SerializeField] Image itemHeldInHandImage;
-    ItemSlotData[] slots;
+    public ItemSlotData[] itemData;
     int itemSpace = 20;
 
     [SerializeField] List<ItemSlotData> dataView;
 
     private void Start() {
-        itemHeldInHand = null;
-        slots = new ItemSlotData[itemSpace];
+        itemHeldInHand = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+        itemData = new ItemSlotData[itemSpace];
         for (int i = 0; i < itemSpace; i++){
-            slots[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+            itemData[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
         }
-        // slots = itemsParents.GetComponentsInChildren<InventorySlot>();
-        // foreach (InventorySlot slot in slots){
-        //     slot.onFocusCallback += OnFocusSlot;
-        //     slot.onClickCallback += OnClickSlot;
-        //     slot.data = null;
-        // }
     }
 
     private void Update() {
         itemHeldInHandImage.transform.position = Input.mousePosition;
     }
 
-    private void updatedSlot(){
-        // dataView = new List<ItemSlotData>();
-        // foreach (InventorySlot slot in slots){
-        //     if(slot.data != null)
-        //         dataView.Add(slot.data);
-        // }
-    }
-    
     public int GetItemAmount(string itemName){
         int result = 0;
         byte findingCode = ItemManager.GetCodeFromItemName(itemName);
-        for (int i = 0; i < slots.Length; i++){
-            if(slots[i].code == findingCode){
-                result += slots[i].amount;
+        for (int i = 0; i < itemData.Length; i++){
+            if(itemData[i].code == findingCode){
+                result += itemData[i].amount;
             }
         }
         return result;
@@ -54,45 +40,57 @@ public class Inventory : MonoBehaviour {
 
         byte findingCode = ItemManager.GetCodeFromItemName(itemName);
 
-        for (int i = 0; i < slots.Length; i++){
-            if(slots[i] != null && slots[i].code == findingCode){
-                if(slots[i].amount > amount){
-                    slots[i].amount -= amount;
+        for (int i = 0; i < itemData.Length; i++){
+            if(itemData[i] != null && itemData[i].code == findingCode){
+                if(itemData[i].amount > amount){
+                    itemData[i].amount -= amount;
                     amount = 0;
                 }else{
-                    amount -= slots[i].amount;
-                    slots[i].amount = 0;
+                    amount -= itemData[i].amount;
+                    itemData[i].amount = 0;
                 }
                 
             }
         }
-        updatedSlot();
         return true;
     }
     
     public bool AddItem(ItemSlotData addedItemData){
         bool result = false;
 
-        for (int i = 0; i < slots.Length; i++){
-            if(slots[i] != null && slots[i].code == addedItemData.code){
-                ItemSlotData added = slots[i];
-                added.amount += addedItemData.amount;
+        if(addedItemData.code == 0){
+            return false;
+        }
+
+        for (int i = 0; i < itemData.Length; i++){
+            if(itemData[i].code == addedItemData.code){
+                itemData[i].amount += addedItemData.amount;
                 result = true;
                 break;
             }
         }
 
         if(result == false){
-            for (int i = 0; i < slots.Length; i++){
-                if(slots[i] == null){
-                    slots[i] = addedItemData;
+            for (int i = 0; i < itemData.Length; i++){
+                if(itemData[i].code == 0){
+                    itemData[i] = addedItemData;
                     result = true;
                     break;
                 }
             }
         }
-        updatedSlot();
         return result;
+    }
+
+    public void ClickLeft(ItemSlot inventorySlot){
+        if(itemHeldInHand.code != 0 && inventorySlot.data.code != 0 &&itemHeldInHand.code == inventorySlot.data.code){
+            itemHeldInHand.amount += inventorySlot.data.amount;
+            inventorySlot.data.code = 0;
+            inventorySlot.data.amount = 0;
+        }else{
+            ItemSlotData.Swap(itemHeldInHand,inventorySlot.data);
+        }
+        itemHeldInHandImage.sprite = itemHeldInHand.itemPreset.itemSprite;
     }
 
     // private void OnFocusSlot(InventorySlot inventorySlot, PointerEventData eventData){

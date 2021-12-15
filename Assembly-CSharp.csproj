@@ -56,7 +56,7 @@
      <Compile Include="Assets\Script\FootPrint.cs" />
      <Compile Include="Assets\Script\Data\BuildingPreset.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
-     <Compile Include="Assets\Script\UI\InventorySlot.cs" />
+     <Compile Include="Assets\Script\UI\ItemSlot.cs" />
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\AI\PersonCommonAI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />

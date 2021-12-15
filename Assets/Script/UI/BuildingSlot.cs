@@ -7,7 +7,6 @@ using Unity​Engine.EventSystems;
 public class BuildingSlot : MonoBehaviour
 {
     public Image icon;
-    public Button removeButton;
     public BuildingPreset buildingPreset;
     
 
@@ -15,14 +14,12 @@ public class BuildingSlot : MonoBehaviour
         this.buildingPreset = buildingPreset;
         icon.sprite = buildingPreset.sprite;
         icon.enabled = true;
-        removeButton.interactable = false;
     }
 
     public void ClearSlot(){
         this.buildingPreset = null;
         icon.sprite = null;
         icon.enabled = false;
-        removeButton.interactable = false;
     }
 
     public void OnRemoveButton(){

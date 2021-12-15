@@ -2,14 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class InventorySlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
+public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
 {
-    public delegate void InventorySlotEvent(InventorySlot inventorySlot, PointerEventData eventData);
+    public delegate void InventorySlotEvent(ItemSlot inventorySlot, PointerEventData eventData);
     public InventorySlotEvent onFocusCallback;
     public InventorySlotEvent onClickCallback;
     public Image icon;
     [UnityEngine.Serialization.FormerlySerializedAs("amount")] public Text amountText;
-    ItemSlotData _data;
+    [SerializeField] ItemSlotData _data;
     public ItemSlotData data{
         get{
             return _data;
