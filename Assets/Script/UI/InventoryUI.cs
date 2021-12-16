@@ -16,7 +16,7 @@ public class InventoryUI : MonoBehaviour{
         }
     }
 
-    void LoadItemSlotData(){
+    public void LoadItemSlotData(){
         ItemSlotData[] itemSlotData = GameManager.Instance.inventory.itemData;
         for (int i = 0; i < slots.Length; i++){
             slots[i].data = itemSlotData[i];
@@ -34,11 +34,7 @@ public class InventoryUI : MonoBehaviour{
     }
 
     private void OnClickSlot(ItemSlot inventorySlot, PointerEventData eventData){
-        for (int i = 0; i < slots.Length; i++){
-            if(slots[i] == inventorySlot){
-                GameManager.Instance.inventory.ClickLeft(inventorySlot);
-                inventorySlot.data.UpdateUI();
-            }
-        }
+        GameManager.Instance.inventory.ClickLeft(inventorySlot);
+        inventorySlot.UpdateUI();
     }
 }

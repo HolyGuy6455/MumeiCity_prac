@@ -7,26 +7,26 @@ using System.Collections.Generic;
 public class BuildingManager : MonoBehaviour {
     public GameManager.UpdateUI onToolChangedCallback;
     public GameObject constructure;
-    public List<BuildingPreset> dictionaryAxe = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryLantern = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryShovel = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryPickaxe = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryBucket = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryHammer = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionaryKnife = new List<BuildingPreset>();
-    public List<BuildingPreset> dictionarySkillet = new List<BuildingPreset>();
-    public Dictionary<Tool, List<BuildingPreset>> buildingDictionary;
+    [SerializeField] List<BuildingPreset> dictionaryAxe = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryLantern = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryShovel = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryPickaxe = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryBucket = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryHammer = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryKnife = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionarySkillet = new List<BuildingPreset>();
+    public Dictionary<Tool, List<BuildingPreset>> buildingDictionary; 
+    public Dictionary<string, BuildingPreset> presetDictionary;
     public ConstructionArea constructionArea;
-    public BuildingPreset buildingPreset;
+    [SerializeField] BuildingPreset buildingPreset;
     public GameObject buildingsParent;
 
     private void Start() {
         buildingDictionary = new Dictionary<Tool, List<BuildingPreset>>();
+        presetDictionary = new Dictionary<string, BuildingPreset>();
         List<Tool> tools = GameManager.Instance.tools;
-        foreach (Tool tool in tools)
-        {
-            switch (tool.ToolName)
-            {
+        foreach (Tool tool in tools){
+            switch (tool.ToolName){
                 case "Axe":
                     buildingDictionary.Add(tool, dictionaryAxe);
                     break;
@@ -57,13 +57,10 @@ public class BuildingManager : MonoBehaviour {
         }
         foreach (var buildingDictionaryKeyAndValue in buildingDictionary){
             int index = 0;
-            foreach (BuildingPreset buildingPreset in buildingDictionaryKeyAndValue.Value)
-            {
+            foreach (BuildingPreset buildingPreset in buildingDictionaryKeyAndValue.Value){
                 buildingPreset.toolType = buildingDictionaryKeyAndValue.Key.name;
                 buildingPreset.toolTypeIndex = index++;
-                Debug.Log(buildingPreset.name);
-                Debug.Log(buildingPreset.toolType);
-                Debug.Log(buildingPreset.toolTypeIndex);
+                presetDictionary[buildingPreset.name] = buildingPreset;
             }
         }
     }
@@ -77,7 +74,7 @@ public class BuildingManager : MonoBehaviour {
         return result;
     }
 
-    public byte GetBuildingCode(BuildingPreset buildingPreset){
+    public static byte GetBuildingCode(BuildingPreset buildingPreset){
         byte result = 0;
         switch (buildingPreset.toolType)
         {
@@ -113,7 +110,7 @@ public class BuildingManager : MonoBehaviour {
         return result;
     }
 
-    public BuildingPreset GetBuildingPreset(byte buildingCode){
+    public static BuildingPreset GetBuildingPreset(byte buildingCode){
         string result = "None";
         switch (buildingCode>>5)
         {
@@ -148,7 +145,8 @@ public class BuildingManager : MonoBehaviour {
         return GetBuildingPreset(result,(int)(buildingCode&31));
     }
 
-    public BuildingPreset GetBuildingPreset(string ToolType, int index){
+    public static BuildingPreset GetBuildingPreset(string ToolType, int index){
+        BuildingManager buildingManager = GameManager.Instance.buildingManager;
         BuildingPreset result = null;
         switch (ToolType)
         {
@@ -159,13 +157,13 @@ public class BuildingManager : MonoBehaviour {
             //     result = 1;
             //     break;
             case "Lantern":
-                result = dictionaryLantern[index];
+                result = buildingManager.dictionaryLantern[index];
                 break;
             case "Axe":
-                result = dictionaryAxe[index];
+                result = buildingManager.dictionaryAxe[index];
                 break;
             case "Shovel":
-                result = dictionaryShovel[index];
+                result = buildingManager.dictionaryShovel[index];
                 break;
             // case "Frying Pan":
             //     result = 5;
@@ -233,6 +231,11 @@ public class BuildingManager : MonoBehaviour {
         buildingData.positionY = ((int)location.y);
         buildingData.positionZ = ((int)location.z);
         buildingData.code = GetBuildingCode(buildingPreset);
+        const int itemSpace = 4;
+        buildingData.items = new ItemSlotData[itemSpace];
+        for (int i = 0; i < itemSpace; i++){
+            buildingData.items[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+        }
         BuiltObject.Initialize(buildingData);
 
         // DropItem을 설정

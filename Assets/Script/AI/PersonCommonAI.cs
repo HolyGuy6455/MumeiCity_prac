@@ -26,6 +26,9 @@ public class PersonCommonAI : MonoBehaviour
             // 주워올 아이템이 있는지 확인
             if(personData.items.Count < 6){
                 sence.filter = delegate(GameObject value){
+                    if(value == null){
+                        return false;
+                    }
                     ItemPickup itemPickup = value.GetComponent<ItemPickup>();
                     if(itemPickup == null){
                         return false;
@@ -47,12 +50,15 @@ public class PersonCommonAI : MonoBehaviour
             // 베어낼 나무가 있는지 확인
             sence.filter =
                 delegate(GameObject value){
+                    if(value == null){
+                        return false;
+                    }
                     BuildingObject buildingObject = value.GetComponent<BuildingObject>();
                     if(buildingObject == null){
                         return false;
                     }
                     BuildingPreset preset = buildingObject.buildingData.buildingPreset;
-                    return preset.hasAttribute("Log");
+                    return preset.attributes.Contains("Log");
                 };
             GameObject nearestTree = sence.FindNearest(this.transform.position);
             if(nearestTree != null){

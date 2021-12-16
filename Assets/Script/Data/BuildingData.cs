@@ -1,4 +1,3 @@
-using UnityEngine;
 using System;
 
 /*
@@ -10,10 +9,11 @@ public class BuildingData {
     public int positionY;
     public int positionZ;
     public byte code;
+    public ItemSlotData[] items;
 
     public BuildingPreset buildingPreset{
         get{
-            return GameManager.Instance.buildingManager.GetBuildingPreset(code);
+            return BuildingManager.GetBuildingPreset(code);
             }
         }
 }

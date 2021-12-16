@@ -11,29 +11,31 @@ public class BuildingObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Initialize(BuildingData buildingData){
-        BuildingPreset buildingPreset = GameManager.Instance.buildingManager.GetBuildingPreset(buildingData.code);
+        BuildingPreset buildingPreset = BuildingManager.GetBuildingPreset(buildingData.code);
         this.buildingData = buildingData;
-        Debug.Log("Scale!");
-        Debug.Log(this.transform.localScale);
-        Debug.Log(buildingPreset.scale);
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
+        if( !buildingData.buildingPreset.interactable ){
+            this.GetComponentInChildren<Interactable>().gameObject.SetActive(false);
+        }
     }
 
     public void ShowWindow(){
-        Debug.Log("Show Window : "+ this);
+        GameManager.Instance.interactingBuilding = this.buildingData;
+        GameManager.GameTab gameTab = GameManager.GameTab.NORMAL;
+        BuildingManager buildingManager = GameManager.Instance.buildingManager;
+        byte code_forester = buildingManager.presetDictionary["Forester"].code;
+        byte code_tent = buildingManager.presetDictionary["Tent"].code;
+
+        // switch문은 들어가는 인자가 반드시 상수여야한단다.....
+        if(buildingData.code == code_forester){
+            gameTab = GameManager.GameTab.FORESTER;
+        }else if(buildingData.code == code_tent){
+            gameTab = GameManager.GameTab.TENT;
+        }
+
+        GameManager.Instance.ChangeGameTab(gameTab);
     }
 
 }

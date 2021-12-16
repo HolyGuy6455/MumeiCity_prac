@@ -7,22 +7,20 @@ using System;
  */
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
-    [SerializeField] private string buildingName = "new item";
-    [SerializeField] private Vector3 _scale;
-    [SerializeField] private Vector3 _relativeLocation;
-    [SerializeField] private Sprite _sprite = null;
-    [SerializeField] private List<string> _attributes = new List<string>();
-    public Vector3 scale{get{return _scale;}}
-    public Vector3 relativeLocation{get{return _relativeLocation;}}
-    public Sprite sprite{get{return _sprite;}}
-    public List<string> attributes{get{return _attributes;}}
+    public string buildingName;
+    public Vector3 scale;
+    public Vector3 relativeLocation;
+    public Sprite sprite;
+    public List<string> attributes;
+    public bool interactable;
     public string toolType;
     public int toolTypeIndex;
     public List<BuildingMaterial> materialList = new List<BuildingMaterial>();
     public List<ItemDropAmount> dropAmounts = new List<ItemDropAmount>();
-
-    public bool hasAttribute(string attribute){
-        return _attributes.Contains(attribute);
+    public byte code{
+        get{
+            return BuildingManager.GetBuildingCode(this);
+        }
     }
 
 }

@@ -60,7 +60,7 @@
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\AI\PersonCommonAI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
-     <Compile Include="Assets\Script\UI\Inventory.cs" />
+     <Compile Include="Assets\Script\Manager\Inventory.cs" />
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\UI\HealthBar.cs" />
@@ -74,6 +74,8 @@
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Manager\CameraManager.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
+     <Compile Include="Assets\Script\UI\TaskUIBundle.cs" />
+     <Compile Include="Assets\Script\UI\ForesterUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

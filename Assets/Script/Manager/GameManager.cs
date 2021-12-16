@@ -21,21 +21,20 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public ItemManager itemManager;
     [HideInInspector] public PeopleManager peopleManager;
     [HideInInspector] public CameraManager cameraManager;
-    public Animator inventoryAnimator;
-    public Animator buildingAnimator;
+    [SerializeField] private Animator taskUI;
     public Animator pauseAnimator;
     bool gameIsPause = false;
     public GameObject itemPickupParent;
     public Interactable nearestInteractable;
-    // [SerializeField] Interactable _interactableClosest;
-    // public Interactable interactableClosest{get{return _interactableClosest;}}
-    // public List<Interactable> interactableList = new List<Interactable>();
+    public BuildingData interactingBuilding;
     [SerializeField] InteractUI interactUI;
     public enum GameTab
     {
         NORMAL,
         ITEM,
-        BUILDING
+        BUILDING,
+        FORESTER,
+        TENT
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;
@@ -67,7 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void OnValidate () {
         if(presentGameTab != pastGameTab){
-            GameTabChanged();
+            ChangeGameTab(presentGameTab);
         }
     }
 
@@ -75,12 +74,7 @@ public class GameManager : MonoBehaviour
         cameraManager.CameraZoom();
 
         if(Input.GetButtonDown("Inventory")){
-            if(presentGameTab != GameTab.ITEM){
-                presentGameTab = GameTab.ITEM;
-            }else{
-                presentGameTab = GameTab.NORMAL;
-            }
-            GameTabChanged();
+            ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
         }
 
         if(Input.GetButtonDown("ChangeTool")){
@@ -91,18 +85,17 @@ public class GameManager : MonoBehaviour
         }
         
         if(Input.GetButtonDown("Building")){
-            if(presentGameTab != GameTab.BUILDING){
-                presentGameTab = GameTab.BUILDING;
-            }else{
-                presentGameTab = GameTab.NORMAL;
-            }
-            GameTabChanged();
+            ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
         }
         if(Input.GetButtonDown("Menu")){
-            gameIsPause = !gameIsPause;
-            pauseAnimator.SetBool("isVisible",gameIsPause);
-            Time.timeScale = gameIsPause? 0:1;
-            playerMovement.enabled = !gameIsPause;
+            if(presentGameTab != GameTab.NORMAL){
+                ChangeGameTab(GameTab.NORMAL);
+            }else{
+                gameIsPause = !gameIsPause;
+                pauseAnimator.SetBool("isVisible",gameIsPause);
+                Time.timeScale = gameIsPause? 0:1;
+                playerMovement.enabled = !gameIsPause;
+            }
         }
         if(Input.GetButtonDown("View")){
             Debug.Log("View");
@@ -115,13 +108,14 @@ public class GameManager : MonoBehaviour
             nearestInteractable = nearestInteractableObject.GetComponent<Interactable>();
             interactUI.UpdateIcon(nearestInteractable.interactType);
         }else{
+            nearestInteractable = null;
             interactUI.visible = false;
         }
     }
 
-    private void GameTabChanged(){
+    public void ChangeGameTab(GameTab gameTab){
+        presentGameTab = gameTab;
         bool playerMovementEnabled = false;
-        bool inventoryShow = false;
         bool buildingShow = false;
         
         pastGameTab = presentGameTab;
@@ -130,13 +124,15 @@ public class GameManager : MonoBehaviour
         {
             case GameTab.NORMAL:
                 playerMovementEnabled = true;
+                taskUI.SetInteger("SelectedUI",0);
                 break;
 
             case GameTab.ITEM:
-                inventoryShow = true;
+                taskUI.SetInteger("SelectedUI",1);
                 break;
 
             case GameTab.BUILDING:
+                taskUI.SetInteger("SelectedUI",2);
                 playerMovementEnabled = true;
                 buildingShow = true;
                 if(buildingManager.onToolChangedCallback != null){
@@ -144,13 +140,19 @@ public class GameManager : MonoBehaviour
                 }
                 break;
 
+            case GameTab.FORESTER:
+                taskUI.SetInteger("SelectedUI",3);
+                break;
+
+            case GameTab.TENT:
+                taskUI.SetInteger("SelectedUI",4);
+                break;
+
             default:
                 break;
         }
 
-        playerMovement.enabled = playerMovementEnabled;
-        inventoryAnimator.SetBool("Show",inventoryShow);
-        buildingAnimator.SetBool("Show",buildingShow);
+        playerMovement.stop = !playerMovementEnabled;
         if(!buildingShow){
             buildingManager.constructionArea.SetBuildingData(null);
         }

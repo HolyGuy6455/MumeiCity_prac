@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     RaycastHit hit;
     bool isRaycastHit;
     int groundLayerMask;
+    public bool stop;
     [SerializeField] GameObject spriteObject;
     // [SerializeField] Sence sence;
 
@@ -23,6 +24,16 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(stop){
+            movement.x = 0;
+            movement.z = 0;
+
+            animator.SetFloat("Horizontal", movement.x);
+            animator.SetFloat("Vertical", movement.z);
+            animator.SetFloat("Speed", movement.sqrMagnitude);
+            animator.SetBool("IsJumping",!IsGrounded());
+            return;
+        }
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.z = Input.GetAxisRaw("Vertical");
 

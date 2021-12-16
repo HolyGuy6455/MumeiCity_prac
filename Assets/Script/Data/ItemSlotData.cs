@@ -7,7 +7,6 @@ using System;
 public class ItemSlotData{
     public byte code;
     public int amount;
-    public GameManager.UpdateUI _updateUI;
 
     public ItemPreset itemPreset{
         get{
@@ -33,14 +32,5 @@ public class ItemSlotData{
         data1.amount = data2.amount;
         data2.code = temp_code;
         data2.amount = temp_amount;
-        data1.UpdateUI();
-        data2.UpdateUI();
-    }
-
-
-    public void UpdateUI(){
-        if(_updateUI != null){
-            _updateUI.Invoke();
-        }
     }
 }

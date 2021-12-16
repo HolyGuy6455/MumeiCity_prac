@@ -9,17 +9,7 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public InventorySlotEvent onClickCallback;
     public Image icon;
     [UnityEngine.Serialization.FormerlySerializedAs("amount")] public Text amountText;
-    [SerializeField] ItemSlotData _data;
-    public ItemSlotData data{
-        get{
-            return _data;
-        }
-        set{
-            _data._updateUI -= UpdateUI;
-            _data = value;
-            _data._updateUI += UpdateUI;
-        }
-    }
+    public ItemSlotData data;
 
     public void UpdateUI(){
         if(data == null || data.code == 0){
