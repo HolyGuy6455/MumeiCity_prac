@@ -12,15 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
-  buildingName: Spruce
-  _scale: {x: 1, y: 1, z: 1}
-  _relativeLocation: {x: 0, y: 0, z: 1}
-  _sprite: {fileID: 9163872656599509061, guid: 83b77d3925d8bf04e89c77b85dccdda4, type: 3}
-  _attributes:
+  buildingName: Tree
+  scale: {x: 1, y: 1, z: 1}
+  relativeLocation: {x: 0, y: 0, z: 1}
+  sprite: {fileID: 9163872656599509061, guid: 83b77d3925d8bf04e89c77b85dccdda4, type: 3}
+  attributes:
   - Log
+  interactable: 0
+  workplace: 0
   toolType: Axe
   toolTypeIndex: 0
-  materialList: []
+  materialList:
+  - name: Pinecone
+    amount: 1
   dropAmounts:
   - name: Wood
-    chance: 1
+    chance: 1.3
+  - name: Pinecone
+    chance: 1.3

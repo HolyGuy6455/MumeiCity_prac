@@ -12,7 +12,16 @@ public class PersonCommonAI : MonoBehaviour
     [SerializeField] GameObject target;
     [SerializeField] Sence sence;
     [SerializeField] List<GameObject> pocketItemSlots;
+    [SerializeField] BuildingObject workplace;
     public PersonData personData = new PersonData();
+    
+    /*
+     ThinkCode 각각 무엇을 의미하는지 적어두기
+     1 : 아이템을 줍는다
+     2 : 나무를 벤다
+     3 : 아이템을 저장하러 직장으로 복귀
+
+     */
 
     // Update is called once per frame
     void Update()
@@ -22,9 +31,19 @@ public class PersonCommonAI : MonoBehaviour
             return;
         }
         if(this.target == null){
+            Debug.Log("Searching Target");
             ///////////////////////////////////////////////////////////////////////////
-            // 주워올 아이템이 있는지 확인
-            if(personData.items.Count < 6){
+            if(personData.items.Count >= 6){
+                // 주머니가 꽉 차있다면 직장으로 돌아간다
+                Debug.Log("Going Put In");
+                animator.SetInteger("ThinkCode",3);
+                CheckWorkplace();
+                this.target = workplace.gameObject;
+                aIDestination.target = workplace.gameObject.transform;
+                animator.SetBool("HasAGoal",true);
+                return;
+            }else{
+                // 주머니가 꽉 차있지 않다면 주변 아이템을 줍는다
                 sence.filter = delegate(GameObject value){
                     if(value == null){
                         return false;
@@ -37,8 +56,10 @@ public class PersonCommonAI : MonoBehaviour
                 };
 
                 GameObject nearestItem = sence.FindNearest(this.transform.position);
+                Debug.Log("nearestItem : " + nearestItem);
 
                 if(nearestItem != null){
+                    Debug.Log("Going Pick Up");
                     animator.SetInteger("ThinkCode",1);
                     this.target = nearestItem;
                     aIDestination.target = this.target.transform;
@@ -62,6 +83,7 @@ public class PersonCommonAI : MonoBehaviour
                 };
             GameObject nearestTree = sence.FindNearest(this.transform.position);
             if(nearestTree != null){
+                Debug.Log("Going Chop Chop");
                 animator.SetInteger("ThinkCode",2);
                 this.target = nearestTree;
                 aIDestination.target = this.target.transform;
@@ -80,7 +102,12 @@ public class PersonCommonAI : MonoBehaviour
                 spriteTransform.localScale = new Vector3(1f,1f,1f);
             }
         }
-        
+    }
+
+    void CheckWorkplace(){
+        if(workplace == null || workplace.buildingData.id != personData.workplaceID){
+            workplace = GameManager.Instance.buildingManager.FindBuildingObjectWithID(this.personData.workplaceID);
+        }
     }
 
     void PickupItem(){
@@ -99,13 +126,28 @@ public class PersonCommonAI : MonoBehaviour
         UpdateItemView();
     }
 
+    void PutInItem(){
+        this.personData.items = this.personData.items.FindAll(x => x.code != 0);
+
+        if(this.personData.items.Count > 0){
+            ItemSlotData itemSlotData = this.personData.items[0];
+            workplace.buildingData.AddItem(itemSlotData);
+            UpdateItemView();
+        }else{
+            LoseMyTarget();
+        }
+    }
+
     void LoseMyTarget() {
         target = null;
         aIDestination.target = this.transform;
         animator.SetBool("HasAGoal",false);
+        animator.SetInteger("ThinkCode",0);
     }
 
     public void UpdateItemView(){
+        this.personData.items = this.personData.items.FindAll(x => x.code != 0);
+
         int length = this.personData.items.Count;
         for (int i = 0; i < length; i++){
             pocketItemSlots[i].SetActive(true);

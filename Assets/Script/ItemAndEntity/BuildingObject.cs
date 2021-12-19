@@ -11,6 +11,17 @@ public class BuildingObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
 
+    private void Update() {
+        if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
+            List<PersonCommonAI> people = GameManager.Instance.peopleManager.wholePeopleList();
+            people = people.FindAll(person=> (person != null)&&((person as PersonCommonAI).personData.workplaceID == 0) );
+            if(people.Count > 0){
+                people[0].personData.workplaceID = this.buildingData.id;
+                this.buildingData.workerID = people[0].personData.id;
+            }
+        }
+    }
+
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = BuildingManager.GetBuildingPreset(buildingData.code);
         this.buildingData = buildingData;

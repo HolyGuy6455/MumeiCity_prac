@@ -13,6 +13,8 @@ public class PauseUI : MonoBehaviour{
         public List<BuildingData> buildingDatas = new List<BuildingData>();
         public List<ItemPickupData> itemPickupDatas = new List<ItemPickupData>();
         public List<PersonData> personDatas = new List<PersonData>();
+        public int lastBuildingID;
+        public int lastPersonID;
     }
 
 
@@ -23,6 +25,9 @@ public class PauseUI : MonoBehaviour{
         saveForm.playerPosition = GameManager.Instance.PlayerTransform.position;
         // 플레이어 아이템 저장하기
         saveForm.itemData = GameManager.Instance.inventory.itemData;
+        // 건물, 사람의 할당되지 않은 마지막 ID 저장하기
+        saveForm.lastBuildingID = GameManager.Instance.buildingManager.lastID;
+        saveForm.lastPersonID = GameManager.Instance.peopleManager.lastID;
         // 건물 설정 저장하기
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
         foreach (Transform childTransform in buildingsParent.transform){
@@ -85,9 +90,12 @@ public class PauseUI : MonoBehaviour{
         // 플레이어 아이템을 불러온다
         GameManager.Instance.inventory.itemData = saveForm.itemData;
 
+        // 할당되지 않은 건물, 사람 마지막 ID 읽어온다
+        GameManager.Instance.buildingManager.lastID = saveForm.lastBuildingID;
+        GameManager.Instance.peopleManager.lastID = saveForm.lastPersonID;
+
         // 맵에 남아있는 건물들을 전부 없앤다
         GameObject buildingsParent = GameManager.Instance.buildingManager.buildingsParent;
-        List<GameObject> wholeBuildingSet = GameManager.Instance.buildingManager.wholeBuildingSet();
         foreach (Transform childTransform in buildingsParent.transform){
             Destroy(childTransform.gameObject);
         }
@@ -103,7 +111,6 @@ public class PauseUI : MonoBehaviour{
             BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
             BuiltObject.Initialize(data);
-            wholeBuildingSet.Add(Built);
             // DropItem을 설정
             if(buildingPreset.dropAmounts.Count > 0){
                 ItemDroper itemDroper = Built.AddComponent<ItemDroper>();

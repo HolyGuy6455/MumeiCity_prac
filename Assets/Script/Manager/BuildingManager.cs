@@ -20,6 +20,7 @@ public class BuildingManager : MonoBehaviour {
     public ConstructionArea constructionArea;
     [SerializeField] BuildingPreset buildingPreset;
     public GameObject buildingsParent;
+    public int lastID = 1;
 
     private void Start() {
         buildingDictionary = new Dictionary<Tool, List<BuildingPreset>>();
@@ -63,13 +64,30 @@ public class BuildingManager : MonoBehaviour {
                 presetDictionary[buildingPreset.name] = buildingPreset;
             }
         }
+
+        List<BuildingObject> buildingList = wholeBuildingList();
+        foreach (BuildingObject buildingObject in buildingList){
+            buildingObject.buildingData.id = lastID++;
+        }
     }
 
-    public List<GameObject> wholeBuildingSet(){
-        List<GameObject> result = new List<GameObject>();
+    public BuildingObject FindBuildingObjectWithID(int findingID){
+        BuildingObject result = null;
+        List<BuildingObject> buildingObjects = wholeBuildingList();
+        foreach (BuildingObject buildingObject in buildingObjects){
+            if(buildingObject.buildingData.id == findingID){
+                result = buildingObject;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public List<BuildingObject> wholeBuildingList(){
+        List<BuildingObject> result = new List<BuildingObject>();
         foreach (Transform childTransform in buildingsParent.transform){
             BuildingObject buildingObject = childTransform.GetComponent<BuildingObject>();
-            result.Add(childTransform.gameObject);
+            result.Add(buildingObject);
         }
         return result;
     }
@@ -222,8 +240,9 @@ public class BuildingManager : MonoBehaviour {
         location.z = Mathf.Round(constructionArea.transform.position.z);
 
         Debug.Log("Build Position "+location);
-        GameObject Built =  Instantiate(constructure,location,Quaternion.identity);
+        GameObject Built = Instantiate(constructure,location,Quaternion.identity);
         Built.transform.SetParent(buildingsParent.transform);
+
         // 해당 건물이 가질 Building Data를 생성한다
         BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
         BuildingData buildingData = new BuildingData();
@@ -231,10 +250,21 @@ public class BuildingManager : MonoBehaviour {
         buildingData.positionY = ((int)location.y);
         buildingData.positionZ = ((int)location.z);
         buildingData.code = GetBuildingCode(buildingPreset);
+        buildingData.id = lastID++;
         const int itemSpace = 4;
         buildingData.items = new ItemSlotData[itemSpace];
         for (int i = 0; i < itemSpace; i++){
             buildingData.items[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+        }
+        switch (buildingPreset.name){
+            case "Forester":
+                buildingData.mediocrityData = new ForesterData();
+                break;
+            case "Tent":
+                buildingData.mediocrityData = new HouseData(4);
+                break;
+            default:
+                break;
         }
         BuiltObject.Initialize(buildingData);
 

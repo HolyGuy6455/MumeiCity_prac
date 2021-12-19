@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Wood
   m_EditorClassIdentifier: 
   itemName: Wood
-  icon: {fileID: 21300000, guid: 6b4a3d9211752d944ad7b495bcf39129, type: 3}
+  itemSprite: {fileID: 21300000, guid: 19be1aa4549907d4a89492790cd11161, type: 3}
   info: A log that is big, thick, hard, and smells good.

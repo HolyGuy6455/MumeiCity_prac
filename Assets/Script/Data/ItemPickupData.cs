@@ -4,8 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class ItemPickupData
-{
+public class ItemPickupData : MediocrityData{
     public byte code;
     public Vector3 position;
     public ItemPreset itemPreset{

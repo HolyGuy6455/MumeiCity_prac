@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class ItemSlotData{
+public class ItemSlotData : MediocrityData{
     public byte code;
     public int amount;
 

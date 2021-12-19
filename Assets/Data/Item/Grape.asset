@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Grape
   m_EditorClassIdentifier: 
   itemName: Grape
-  icon: {fileID: 21300000, guid: 316976bdcba73704c8ef0b27690f04b1, type: 3}
-  isDefaultItem: 0
-  amount: 1
+  itemSprite: {fileID: 21300000, guid: 316976bdcba73704c8ef0b27690f04b1, type: 3}
+  info: 

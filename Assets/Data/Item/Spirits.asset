@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2932deca9741afb49bcbc34c0399bcad, type: 3}
   m_Name: Spirits
   m_EditorClassIdentifier: 
-  itemName: new item
-  itemSprite: {fileID: 0}
-  info: 
+  itemName: Spirits
+  itemSprite: {fileID: 21300000, guid: e1f584fed62c15441b3833540eaa9b32, type: 3}
+  info: It's true alcohol kills people. But how many are born because of it?

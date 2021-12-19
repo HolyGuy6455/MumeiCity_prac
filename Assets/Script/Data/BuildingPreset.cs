@@ -13,6 +13,7 @@ public class BuildingPreset : ScriptableObject {
     public Sprite sprite;
     public List<string> attributes;
     public bool interactable;
+    public bool workplace;
     public string toolType;
     public int toolTypeIndex;
     public List<BuildingMaterial> materialList = new List<BuildingMaterial>();
