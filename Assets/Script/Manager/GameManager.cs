@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public ItemManager itemManager;
     [HideInInspector] public PeopleManager peopleManager;
     [HideInInspector] public CameraManager cameraManager;
+    [HideInInspector] public TimeManager timeManager;
     [SerializeField] private Animator taskUI;
     public Animator pauseAnimator;
     bool gameIsPause = false;
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
         itemManager = this.GetComponent<ItemManager>();
         peopleManager = this.GetComponent<PeopleManager>();
         cameraManager = this.GetComponent<CameraManager>();
+        timeManager = this.GetComponent<TimeManager>();
 
         _sence.filter = delegate(GameObject gameObject){
             if(gameObject == null){

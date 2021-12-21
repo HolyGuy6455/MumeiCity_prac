@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 5307706181535192615
     second: mumei_emotion_7
+  - first:
+      213: 6159072766694676706
+    second: mumei_emotion_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -202,8 +205,8 @@ TextureImporter:
       name: mumei_emotion_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 144
+        y: 36
         width: 36
         height: 36
       alignment: 0
@@ -223,7 +226,7 @@ TextureImporter:
       name: mumei_emotion_5
       rect:
         serializedVersion: 2
-        x: 36
+        x: 0
         y: 0
         width: 36
         height: 36
@@ -244,7 +247,7 @@ TextureImporter:
       name: mumei_emotion_6
       rect:
         serializedVersion: 2
-        x: 72
+        x: 36
         y: 0
         width: 36
         height: 36
@@ -265,7 +268,7 @@ TextureImporter:
       name: mumei_emotion_7
       rect:
         serializedVersion: 2
-        x: 108
+        x: 72
         y: 0
         width: 36
         height: 36
@@ -278,6 +281,27 @@ TextureImporter:
       bones: []
       spriteID: 726dc8296a2c8a940800000000000000
       internalID: 5307706181535192615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_emotion_8
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e85e949c0c697550800000000000000
+      internalID: 6159072766694676706
       vertices: []
       indices: 
       edges: []

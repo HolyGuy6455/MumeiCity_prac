@@ -30,7 +30,11 @@ public class PersonCommonAI : MonoBehaviour
             LoseMyTarget();
             return;
         }
-        if(this.target == null){
+        TimeManager.TimeSlot timeSlot = GameManager.Instance.timeManager._timeSlot;
+        if(timeSlot == TimeManager.TimeSlot.EVENING || timeSlot == TimeManager.TimeSlot.NIGHT){
+            LoseMyTarget();
+            return;
+        }else if(this.target == null){
             Debug.Log("Searching Target");
             ///////////////////////////////////////////////////////////////////////////
             if(personData.items.Count >= 6){

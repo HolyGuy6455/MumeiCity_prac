@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     int groundLayerMask;
     public bool stop;
     [SerializeField] GameObject spriteObject;
+
     // [SerializeField] Sence sence;
 
     void Start()
@@ -54,6 +55,20 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.C)){
             GameManager.Instance.buildingManager.Build();
+        }
+
+        Tool toolNowHold = GameManager.Instance.GetToolNowHold();
+        switch (toolNowHold.name)
+        {
+            case "Axe":
+                if(Input.GetButtonDown("Fire1")){
+                    animator.SetBool("Choping",true);
+                }else if(Input.GetButtonUp("Fire1")){
+                    animator.SetBool("Choping",false);
+                }
+                break;
+            default:
+                break;
         }
 
         if(GameManager.Instance.GetToolNowHold().name == "Axe"){

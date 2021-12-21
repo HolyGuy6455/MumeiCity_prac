@@ -79,7 +79,9 @@
      <Compile Include="Assets\Script\UI\BuildingUI.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Emotion.cs" />
+     <Compile Include="Assets\Script\Manager\TimeManager.cs" />
+     <Compile Include="Assets\Script\EmotionScript.cs" />
+     <Compile Include="Assets\Script\PlayerLight.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

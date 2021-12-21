@@ -10,6 +10,14 @@ public class BuildingObject : MonoBehaviour
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
+    public GameObject shadowObject;
+
+    private void Start() {
+        Vector3 shadowPostion = new Vector3();
+        shadowPostion.x = this.transform.position.x;
+        shadowPostion.y = (this.transform.position.y+this.transform.position.z);
+        shadowObject.transform.position = shadowPostion;
+    }
 
     private void Update() {
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
