@@ -15,6 +15,8 @@ public class TimeManager : MonoBehaviour{
     float blendValue;
     public float _blendValue{get{return blendValue;}}
     public int _timeInDay{get{return timeInDay;}}
+    public int _timeValue{get{return timeValue;}set{timeValue=value;}}
+    bool dayTime;
     public enum TimeSlot{
         NONE,
         MORNING,
@@ -35,6 +37,7 @@ public class TimeManager : MonoBehaviour{
             }
         }
     }
+    public bool isDayTime(){return dayTime;}
 
     void Start(){
         StartCoroutine("CountTime", 1);
@@ -43,7 +46,6 @@ public class TimeManager : MonoBehaviour{
     void Update(){
         elapsedDate = timeValue/lengthOfDay;
         timeInDay = timeValue%lengthOfDay;
-        blendValue = 0.0f;
         switch (_timeSlot){
             case TimeSlot.MORNING:
                 blendValue = ((float)(morning-timeInDay))/((float)(morning));
@@ -59,6 +61,16 @@ public class TimeManager : MonoBehaviour{
                 break;
             default:
                 break;
+        }
+        bool newDayTime = (blendValue<0.5);
+        if(dayTime != newDayTime){
+            dayTime = newDayTime;
+            if(dayTime){
+                // 출근시간
+                GameManager.Instance.peopleManager.ResetHouseInfomation();
+            }else{
+                // 퇴근시간
+            }
         }
         daylightAnimator.SetFloat("Blend",blendValue);
     }

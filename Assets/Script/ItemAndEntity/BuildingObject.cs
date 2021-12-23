@@ -17,11 +17,17 @@ public class BuildingObject : MonoBehaviour
         shadowPostion.x = this.transform.position.x;
         shadowPostion.y = (this.transform.position.y+this.transform.position.z);
         shadowObject.transform.position = shadowPostion;
+
+        buildingData.positionX = ((int)Mathf.Round(this.transform.position.x));
+        buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
+        buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
+
+        Initialize(this.buildingData);
     }
 
     private void Update() {
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
-            List<PersonCommonAI> people = GameManager.Instance.peopleManager.wholePeopleList();
+            List<PersonCommonAI> people = GameManager.Instance.peopleManager.GetWholePeopleList();
             people = people.FindAll(person=> (person != null)&&((person as PersonCommonAI).personData.workplaceID == 0) );
             if(people.Count > 0){
                 people[0].personData.workplaceID = this.buildingData.id;

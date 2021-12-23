@@ -29,6 +29,6 @@ public class PlayerLight : MonoBehaviour{
         }
         light2D.pointLightInnerRadius = opacity*innerRadiusMax;
         light2D.pointLightOuterRadius = opacity*outerRadiusMax;
-        light2D.intensity = opacity;
+        // light2D.intensity = opacity;
     }
 }

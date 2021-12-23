@@ -73,8 +73,8 @@ public class BuildingManager : MonoBehaviour {
 
     public BuildingObject FindBuildingObjectWithID(int findingID){
         BuildingObject result = null;
-        List<BuildingObject> buildingObjects = wholeBuildingList();
-        foreach (BuildingObject buildingObject in buildingObjects){
+        List<BuildingObject> buildingList = wholeBuildingList();
+        foreach (BuildingObject buildingObject in buildingList){
             if(buildingObject.buildingData.id == findingID){
                 result = buildingObject;
                 break;

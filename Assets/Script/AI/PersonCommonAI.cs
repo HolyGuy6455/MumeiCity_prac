@@ -20,25 +20,35 @@ public class PersonCommonAI : MonoBehaviour
      1 : 아이템을 줍는다
      2 : 나무를 벤다
      3 : 아이템을 저장하러 직장으로 복귀
+     4 : 퇴근
 
      */
 
     // Update is called once per frame
-    void Update()
-    {
-        if(GameManager.Instance.GetToolNowHold().name == "Axe"){
+    void Update(){
+        // 조만간 인공지능은 행동트리 기반으로 바꿀것
+        // 그때까지는 그냥 생코딩 인공지능으로 버티자....
+        if(GameManager.Instance.GetToolNowHold().name == "Shovel"){
             LoseMyTarget();
             return;
         }
-        TimeManager.TimeSlot timeSlot = GameManager.Instance.timeManager._timeSlot;
-        if(timeSlot == TimeManager.TimeSlot.EVENING || timeSlot == TimeManager.TimeSlot.NIGHT){
-            LoseMyTarget();
-            return;
-        }else if(this.target == null){
+
+        if(this.personData.sleep){
+            if(GameManager.Instance.timeManager.isDayTime()){
+                this.personData.sleep = false;
+                animator.SetBool("Sleep",false);
+                Debug.Log("Good Morning!");
+            }else{
+                return;
+            }
+        }
+        TimeManager timeManager = GameManager.Instance.timeManager;
+        if(this.target == null){
             Debug.Log("Searching Target");
             ///////////////////////////////////////////////////////////////////////////
-            if(personData.items.Count >= 6){
+            if(personData.items.Count >= 6 || (!timeManager.isDayTime() && personData.items.Count > 0)){
                 // 주머니가 꽉 차있다면 직장으로 돌아간다
+                // 일과시간이 끝났는데 주머니에 뭐가 있어도 직장에 아이템 넣으러 간다
                 Debug.Log("Going Put In");
                 animator.SetInteger("ThinkCode",3);
                 CheckWorkplace();
@@ -70,6 +80,16 @@ public class PersonCommonAI : MonoBehaviour
                     animator.SetBool("HasAGoal",true);
                     return;
                 }
+            }
+            if(!timeManager.isDayTime() && this.personData.homeID != 0){
+                // 일과시간이 끝났다
+                Debug.Log("Going to Sleep");
+                animator.SetInteger("ThinkCode",4);
+                BuildingObject home = GameManager.Instance.buildingManager.FindBuildingObjectWithID(this.personData.homeID);
+                this.target = home.gameObject;
+                aIDestination.target = this.target.transform;
+                animator.SetBool("HasAGoal",true);
+                return;
             }
             ///////////////////////////////////////////////////////////////////////////
             // 베어낼 나무가 있는지 확인
@@ -142,11 +162,18 @@ public class PersonCommonAI : MonoBehaviour
         }
     }
 
+    public void Sleep(){
+        LoseMyTarget();
+        this.personData.sleep = true;
+        animator.SetBool("Sleep",true);
+        Debug.Log("Good Night!");
+    }
+
     void LoseMyTarget() {
         target = null;
         aIDestination.target = this.transform;
         animator.SetBool("HasAGoal",false);
-        animator.SetInteger("ThinkCode",0);
+        // animator.SetInteger("ThinkCode",0);
     }
 
     public void UpdateItemView(){

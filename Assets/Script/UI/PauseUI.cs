@@ -8,6 +8,7 @@ public class PauseUI : MonoBehaviour{
     [SerializeField] string _fileName = "01.save";
     [SerializeField] GameObject itemPickupPrefab;
     class SaveForm {
+        public int timeValue;
         public Vector3 playerPosition = new Vector3();
         public ItemSlotData[] itemData;
         public List<BuildingData> buildingDatas = new List<BuildingData>();
@@ -15,12 +16,15 @@ public class PauseUI : MonoBehaviour{
         public List<PersonData> personDatas = new List<PersonData>();
         public int lastBuildingID;
         public int lastPersonID;
+        
     }
 
 
     public void SaveTheGame(){
         SaveForm saveForm = new SaveForm();
 
+        // 시간을 저장
+        saveForm.timeValue = GameManager.Instance.timeManager._timeValue;
         // 플레이어 위치 저장하기
         saveForm.playerPosition = GameManager.Instance.PlayerTransform.position;
         // 플레이어 아이템 저장하기
@@ -85,6 +89,8 @@ public class PauseUI : MonoBehaviour{
         // string에서 데이터를 읽어들임
         SaveForm saveForm = JsonUtility.FromJson<SaveForm>(savefile);
 
+        // 시간을 불러온다
+        GameManager.Instance.timeManager._timeValue = saveForm.timeValue;
         // 플레이어의 위치를 불러온다
         GameManager.Instance.PlayerTransform.position = saveForm.playerPosition;
         // 플레이어 아이템을 불러온다

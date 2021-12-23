@@ -10,4 +10,5 @@ public class PersonData : MediocrityData {
     public int stamina;
     public int workplaceID;
     public int homeID;
+    public bool sleep;
 }
