@@ -26,6 +26,11 @@ public class BuildingObject : MonoBehaviour
     }
 
     private void Update() {
+        // Debug.Log("Log Party!!");
+        // Debug.Log(buildingData);
+        // Debug.Log(buildingData.buildingPreset);
+        // Debug.Log(buildingData.workerID);
+
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
             List<PersonCommonAI> people = GameManager.Instance.peopleManager.GetWholePeopleList();
             people = people.FindAll(person=> (person != null)&&((person as PersonCommonAI).personData.workplaceID == 0) );

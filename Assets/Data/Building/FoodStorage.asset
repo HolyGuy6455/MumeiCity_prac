@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: FoodStorage
   m_EditorClassIdentifier: 
-  buildingName: 
-  scale: {x: 0, y: 0, z: 0}
-  relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: 0}
+  buildingName: Food Storage
+  scale: {x: 2, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 0, z: 2}
+  sprite: {fileID: 21300000, guid: 68c9d36558d11dd418de55794765dab0, type: 3}
   attributes: []
   interactable: 0
   workplace: 0
-  toolType: 
+  toolType: Skillet
   toolTypeIndex: 0
   materialList: []
   dropAmounts: []

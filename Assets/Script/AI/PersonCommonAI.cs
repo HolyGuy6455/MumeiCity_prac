@@ -13,6 +13,7 @@ public class PersonCommonAI : MonoBehaviour
     [SerializeField] Sence sence;
     [SerializeField] List<GameObject> pocketItemSlots;
     [SerializeField] BuildingObject workplace;
+    [SerializeField] TimeEventQueueTicket sleepEvent;
     public PersonData personData = new PersonData();
     
     /*
@@ -39,6 +40,11 @@ public class PersonCommonAI : MonoBehaviour
                 animator.SetBool("Sleep",false);
                 Debug.Log("Good Morning!");
             }else{
+                if(sleepEvent == null || !sleepEvent.isThisValid()){
+                    string ticketName = "person"+this.personData.id+"_sleep";
+                    sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,SleepAndRecharging);
+                    // Debug.Log("Waiting until "+this.personData.id+" fall asleep......");
+                }
                 return;
             }
         }
@@ -187,6 +193,18 @@ public class PersonCommonAI : MonoBehaviour
         }
         for (int i = length; i < pocketItemSlots.Count; i++){
             pocketItemSlots[i].SetActive(false);
+        }
+    }
+
+    public void SleepAndRecharging(){
+        if(this.personData.stamina < 100){
+            this.personData.stamina+=5;
+        }
+    }
+
+    public void Tire(){
+        if(this.personData.stamina > 0){
+            this.personData.stamina--;
         }
     }
 }

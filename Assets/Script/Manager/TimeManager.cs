@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour{
+    public delegate void TimeEvent();
     [SerializeField] int timeValue;
     [SerializeField] float ticPerSecond = 10.0f;
     [SerializeField] Animator daylightAnimator;
@@ -12,6 +14,8 @@ public class TimeManager : MonoBehaviour{
     [SerializeField] int midnight = 80;
     [SerializeField] int timeInDay;
     [SerializeField] int elapsedDate;
+    [SerializeField] List<TimeEventQueueTicket> waitingList = new List<TimeEventQueueTicket>();
+
     float blendValue;
     public float _blendValue{get{return blendValue;}}
     public int _timeInDay{get{return timeInDay;}}
@@ -38,6 +42,18 @@ public class TimeManager : MonoBehaviour{
         }
     }
     public bool isDayTime(){return dayTime;}
+
+    public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, TimeManager.TimeEvent timeEvent){
+        foreach (TimeEventQueueTicket queueTicket in waitingList){
+            if(queueTicket._idString == idString){
+                return null;
+            }
+        }
+
+        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay, idString, timeEvent);
+        waitingList.Add(result);
+        return result;
+    }
 
     void Start(){
         StartCoroutine("CountTime", 1);
@@ -73,6 +89,18 @@ public class TimeManager : MonoBehaviour{
             }
         }
         daylightAnimator.SetFloat("Blend",blendValue);
+
+        List<TimeEventQueueTicket> discardList = new List<TimeEventQueueTicket>();
+
+        foreach (TimeEventQueueTicket queueTicket in waitingList){
+            if(queueTicket._timeValue <= this.timeValue){
+                queueTicket._timeEvent.Invoke();
+                discardList.Add(queueTicket);
+            }
+        }
+        foreach (TimeEventQueueTicket discardQueueTicket in discardList){
+            waitingList.Remove(discardQueueTicket);
+        }
     }
 
     IEnumerator CountTime(float delayTime) {
@@ -80,4 +108,23 @@ public class TimeManager : MonoBehaviour{
       yield return new WaitForSeconds(delayTime);
       StartCoroutine("CountTime", 1/ticPerSecond);
    }
+}
+
+[Serializable]
+public class TimeEventQueueTicket{
+    [SerializeField] int timeValue;
+    [SerializeField] string idString;
+    TimeManager.TimeEvent timeEvent;
+    public int _timeValue{get{return timeValue;}}
+    public string _idString{get{return idString;}}
+    public TimeManager.TimeEvent _timeEvent{get{return timeEvent;}}
+    
+    public TimeEventQueueTicket(int timeValue,string idString, TimeManager.TimeEvent timeEvent){
+        this.timeValue = timeValue;
+        this.idString = idString;
+        this.timeEvent = timeEvent;
+    }
+    public bool isThisValid(){
+        return GameManager.Instance.timeManager._timeValue < this.timeValue;
+    }
 }

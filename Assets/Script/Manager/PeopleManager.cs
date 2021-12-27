@@ -33,6 +33,15 @@ public class PeopleManager : MonoBehaviour
         return result;
     }
 
+    public PersonCommonAI FindPersonWithID(int id){
+        foreach (PersonCommonAI person in people){
+            if(person.personData.id == id){
+                return person;
+            }
+        }
+        return null;
+    }
+
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
         houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.buildingPreset.name == "Tent");
@@ -42,7 +51,8 @@ public class PeopleManager : MonoBehaviour
         foreach (PersonCommonAI person in people){
             Debug.Log("제 아이디는 "+person.personData.id);
             if(person.personData.homeID != 0){
-                continue;
+                BuildingObject house =  GameManager.Instance.buildingManager.FindBuildingObjectWithID(person.personData.homeID);
+                // continue;
             }
             Debug.Log("저는 집이 없어요");
             foreach (BuildingObject house in houseList){

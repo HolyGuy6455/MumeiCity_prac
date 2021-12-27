@@ -205,10 +205,10 @@ public class BuildingManager : MonoBehaviour {
 
     public bool Build(){
         // 장애물이 있으면 못지어요
-        if(constructionArea.isThereObstacle()){
-            Debug.Log("There is Obstacles");
-            return false;
-        }
+        // if(constructionArea.isThereObstacle()){
+        //     Debug.Log("There is Obstacles");
+        //     return false;
+        // }
         // 무슨 건물 지을지 결정 안했으면 못지어요
         if(this.buildingPreset == null){
             Debug.Log("buildingPreset is null");

@@ -82,6 +82,7 @@
      <Compile Include="Assets\Script\Manager\TimeManager.cs" />
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\PlayerLight.cs" />
+     <Compile Include="Assets\Script\UI\TentUI.cs" />
     <Reference Include="UnityEngine">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
