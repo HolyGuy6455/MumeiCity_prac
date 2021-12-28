@@ -34,6 +34,21 @@ public class PersonCommonAI : MonoBehaviour
             return;
         }
 
+        this.target = GameManager.Instance.PlayerTransform.gameObject;
+        animator.SetBool("HasAGoal",true);
+        aIDestination.target = this.target.transform;
+
+        float distance = Vector3.Distance(this.transform.position, this.target.transform.position);
+        animator.SetFloat("DistanceToTheGoal",distance);
+        float movementX = this.target.transform.position.x - this.transform.position.x;
+        if(movementX <= -0.01f){
+            spriteTransform.localScale = new Vector3(-1f,1f,1f);
+        }else if(movementX >= 0.01f){
+            spriteTransform.localScale = new Vector3(1f,1f,1f);
+        }
+
+        /*
+
         if(this.personData.sleep){
             if(GameManager.Instance.timeManager.isDayTime()){
                 this.personData.sleep = false;
@@ -132,6 +147,8 @@ public class PersonCommonAI : MonoBehaviour
                 spriteTransform.localScale = new Vector3(1f,1f,1f);
             }
         }
+
+        */
     }
 
     void CheckWorkplace(){
