@@ -41,7 +41,7 @@ public class TimeManager : MonoBehaviour{
             }
         }
     }
-    public bool isDayTime(){return dayTime;}
+    public bool IsItDayTime(){return dayTime;}
 
     public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, TimeManager.TimeEvent timeEvent){
         foreach (TimeEventQueueTicket queueTicket in waitingList){

@@ -1,0 +1,33 @@
+// 뿌리 트리
+tree("Root")
+	fallback
+		tree("DayWork")
+		tree("NightSleep")
+
+// 밤에 휴식하는 트리
+tree("NightSleep")
+	while not IsItDayTime // 밤이예요?
+		// 작업 마무리
+		// 집간다
+		// 잔다
+		Fail
+
+// 낮에 하는 일 트리
+tree("DayWork")
+	while IsItDayTime // 낮이예요?
+		fallback
+			tree("PutInItem") // 아이템을 직장에 넣기
+			tree("PickItemUp") // 아이템을 줍는다
+
+tree("PutInItem")
+	sequence
+		DoIHaveItemMoreThen 5
+		GoPutInItem
+		MoveToDestination
+		while DoIHaveItemMoreThen 0
+			repeat Wait 1.0
+
+tree("PickItemUp")
+	sequence
+		SearchItemToPickUp
+		MoveToDestination

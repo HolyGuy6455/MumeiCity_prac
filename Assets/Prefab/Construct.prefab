@@ -195,7 +195,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0cd41c92ee362944885354db19128dda, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f072ff24f28e2649b0bef56b8b7f7f0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 841887544}
   - component: {fileID: 3294552732431657724}
   - component: {fileID: 4175102474998173150}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Construct
   m_TagString: Building
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
-    code: 65
+    code: 97
     items:
     - code: 0
       amount: 0
@@ -547,4 +547,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1924040
+  m_InstanceId: -2466

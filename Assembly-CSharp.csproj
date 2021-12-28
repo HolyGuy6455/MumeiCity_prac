@@ -75,7 +75,7 @@
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
      <Compile Include="Assets\Script\UI\ItemSlot.cs" />
-     <Compile Include="Assets\Script\AI\PersonCommonAI.cs" />
+     <Compile Include="Assets\Script\AI\PersonBehavior.cs" />
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\UI\HealthBar.cs" />
@@ -101,6 +101,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\TriggerType.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
+     <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Player.BT.txt" />

@@ -22,18 +22,15 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
 
-        Initialize(this.buildingData);
+        if(this.buildingData != null){
+            Initialize(this.buildingData);
+        }
     }
 
     private void Update() {
-        // Debug.Log("Log Party!!");
-        // Debug.Log(buildingData);
-        // Debug.Log(buildingData.buildingPreset);
-        // Debug.Log(buildingData.workerID);
-
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
-            List<PersonCommonAI> people = GameManager.Instance.peopleManager.GetWholePeopleList();
-            people = people.FindAll(person=> (person != null)&&((person as PersonCommonAI).personData.workplaceID == 0) );
+            List<PersonBehavior> people = GameManager.Instance.peopleManager.GetWholePeopleList();
+            people = people.FindAll(person=> (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
             if(people.Count > 0){
                 people[0].personData.workplaceID = this.buildingData.id;
                 this.buildingData.workerID = people[0].personData.id;
@@ -47,6 +44,7 @@ public class BuildingObject : MonoBehaviour
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
         if( !buildingData.buildingPreset.interactable ){
+            Debug.Log("buildingData "+this.GetComponentInChildren<Interactable>());
             this.GetComponentInChildren<Interactable>().gameObject.SetActive(false);
         }
     }
@@ -55,13 +53,11 @@ public class BuildingObject : MonoBehaviour
         GameManager.Instance.interactingBuilding = this.buildingData;
         GameManager.GameTab gameTab = GameManager.GameTab.NORMAL;
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        byte code_forester = buildingManager.presetDictionary["Forester"].code;
-        byte code_tent = buildingManager.presetDictionary["Tent"].code;
 
         // switch문은 들어가는 인자가 반드시 상수여야한단다.....
-        if(buildingData.code == code_forester){
+        if(buildingData.code == buildingManager.presetDictionary["Forester"].code){
             gameTab = GameManager.GameTab.FORESTER;
-        }else if(buildingData.code == code_tent){
+        }else if(buildingData.code == buildingManager.presetDictionary["Tent"].code){
             gameTab = GameManager.GameTab.TENT;
         }
 

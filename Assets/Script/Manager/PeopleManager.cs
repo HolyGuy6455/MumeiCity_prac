@@ -8,12 +8,12 @@ public class PeopleManager : MonoBehaviour
     public GameObject normalPerson;
     public List<string> thinks;
     public int lastID = 1;
-    [SerializeField] List<PersonCommonAI> people;
+    [SerializeField] List<PersonBehavior> people;
     List<BuildingObject> houseInfomation;
     public List<BuildingObject> _houseInfomation{get{return houseInfomation;}}
     private void Start() {
-        List<PersonCommonAI> buildingList = GetWholePeopleList();
-        foreach (PersonCommonAI person in buildingList){
+        List<PersonBehavior> buildingList = GetWholePeopleList();
+        foreach (PersonBehavior person in buildingList){
             person.personData.id = lastID++;
         }
     }
@@ -21,10 +21,10 @@ public class PeopleManager : MonoBehaviour
         return think.IndexOf(think);
     }
 
-    public List<PersonCommonAI> GetWholePeopleList(){
-        List<PersonCommonAI> result = new List<PersonCommonAI>();
+    public List<PersonBehavior> GetWholePeopleList(){
+        List<PersonBehavior> result = new List<PersonBehavior>();
         foreach (Transform childTransform in theMotherOfWholePeople.transform){
-            PersonCommonAI person = childTransform.GetComponent<PersonCommonAI>();
+            PersonBehavior person = childTransform.GetComponent<PersonBehavior>();
             if(person != null){
                 result.Add(person);
             }
@@ -33,8 +33,8 @@ public class PeopleManager : MonoBehaviour
         return result;
     }
 
-    public PersonCommonAI FindPersonWithID(int id){
-        foreach (PersonCommonAI person in people){
+    public PersonBehavior FindPersonWithID(int id){
+        foreach (PersonBehavior person in people){
             if(person.personData.id == id){
                 return person;
             }
@@ -45,10 +45,10 @@ public class PeopleManager : MonoBehaviour
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
         houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.buildingPreset.name == "Tent");
-        List<PersonCommonAI> people = GameManager.Instance.peopleManager.GetWholePeopleList();
+        List<PersonBehavior> people = GameManager.Instance.peopleManager.GetWholePeopleList();
         Debug.Log("집의 갯수는 "+ houseList.Count);
 
-        foreach (PersonCommonAI person in people){
+        foreach (PersonBehavior person in people){
             Debug.Log("제 아이디는 "+person.personData.id);
             if(person.personData.homeID != 0){
                 BuildingObject house =  GameManager.Instance.buildingManager.FindBuildingObjectWithID(person.personData.homeID);

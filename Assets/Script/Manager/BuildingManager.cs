@@ -245,10 +245,7 @@ public class BuildingManager : MonoBehaviour {
 
         // 해당 건물이 가질 Building Data를 생성한다
         BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
-        BuildingData buildingData = new BuildingData();
-        buildingData.positionX = ((int)location.x);
-        buildingData.positionY = ((int)location.y);
-        buildingData.positionZ = ((int)location.z);
+        BuildingData buildingData = BuiltObject.buildingData;
         buildingData.code = GetBuildingCode(buildingPreset);
         buildingData.id = lastID++;
         const int itemSpace = 4;
@@ -266,7 +263,6 @@ public class BuildingManager : MonoBehaviour {
             default:
                 break;
         }
-        BuiltObject.Initialize(buildingData);
 
         // DropItem을 설정
         if(buildingPreset.dropAmounts.Count > 0){

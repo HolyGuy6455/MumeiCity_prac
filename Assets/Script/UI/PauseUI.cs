@@ -47,7 +47,7 @@ public class PauseUI : MonoBehaviour{
         }
         GameObject peopleParent = GameManager.Instance.peopleManager.theMotherOfWholePeople;
         foreach (Transform childTransform in peopleParent.transform){
-            PersonData personData = childTransform.GetComponent<PersonCommonAI>().personData;
+            PersonData personData = childTransform.GetComponent<PersonBehavior>().personData;
             personData.position = childTransform.position;
             saveForm.personDatas.Add(personData);
         }
@@ -153,7 +153,7 @@ public class PauseUI : MonoBehaviour{
             location = data.position;
             // 데이터로 시민을 생성한다
             GameObject itemObject = Instantiate(GameManager.Instance.peopleManager.normalPerson,location,Quaternion.identity);
-            PersonCommonAI personCommonAI = itemObject.GetComponent<PersonCommonAI>();
+            PersonBehavior personCommonAI = itemObject.GetComponent<PersonBehavior>();
             personCommonAI.personData = data;
             personCommonAI.UpdateItemView();
             itemObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
