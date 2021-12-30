@@ -100,6 +100,7 @@
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDropInfo.cs" />
+     <Compile Include="Assets\Script\UI\MineUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />

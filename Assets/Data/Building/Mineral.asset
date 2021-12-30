@@ -15,10 +15,11 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 21300000, guid: 619c057bfea53e748a7fa6790d876f1e, type: 3}
-  attributes: []
+  attributes:
+  - Mining
   interactable: 0
   workplace: 0
-  toolType: 
+  toolType: Pickaxe
   toolTypeIndex: 0
   materialList: []
   dropAmounts:

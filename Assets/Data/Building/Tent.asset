@@ -12,15 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Tent
   m_EditorClassIdentifier: 
-  buildingName: Tent
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
   sprite: {fileID: 21300000, guid: 0cd41c92ee362944885354db19128dda, type: 3}
   attributes: []
   interactable: 1
+  workplace: 0
   toolType: Lantern
   toolTypeIndex: 1
   materialList:
   - name: Wood
-    amount: 1
+    amount: 0
   dropAmounts: []

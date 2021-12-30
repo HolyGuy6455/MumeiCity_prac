@@ -23,7 +23,10 @@ tree("DayWork")
 				DoIHaveItemMoreThen 5 	// 아이템이 꽉차면
 				tree("PutInItem")		// 아이템을 직장에 넣는다
 			tree("PickItemUp")	// 아이템을 줍는다
-			tree("Forester")	// 숲지기면 숲지기의 일을 한다
+			// 각 직업에 맞는 일을 한다
+			tree("Forester")	// 숲지기의 일을 한다
+			tree("Mine")		// 광부의 일을 한다
+			tree("FoodStorage")	// 음식창고의 일을 한다
 			tree("PutInItem")	// 할게 없으면 아이템을 직장에 넣는다
 			Wait 1.0	
 			
@@ -45,5 +48,20 @@ tree("PickItemUp")
 tree("Forester")
 	while IsMyWorkplace "Forester"
 		sequence
-			SearchingTreeToChop
+			ChangeTool "Axe"
+			SearchingToGathering "Log"
+			MoveToDestination
+
+tree("Mine")
+	while IsMyWorkplace "Mine"
+		sequence
+			ChangeTool "Pickaxe"
+			SearchingToGathering "Mining"
+			MoveToDestination
+
+tree("FoodStorage")
+	while IsMyWorkplace "FoodStorage"
+		sequence
+			ChangeTool "Knife"
+			SearchingToGathering "Fruit"
 			MoveToDestination

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Pathfinding;
 
 /*
  * 건설 관련된 내용 전체를 관리하는 객체
@@ -21,6 +22,8 @@ public class BuildingManager : MonoBehaviour {
     [SerializeField] BuildingPreset buildingPreset;
     public GameObject buildingsParent;
     public int lastID = 1;
+
+    public AstarPath astarPath;
 
     private void Start() {
         buildingDictionary = new Dictionary<Tool, List<BuildingPreset>>();
@@ -289,6 +292,7 @@ public class BuildingManager : MonoBehaviour {
                 break;
         }
         hittable.effectiveTool = toolType;
+        astarPath.Scan();
 
         return true;
     }

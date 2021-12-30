@@ -155,6 +155,14 @@ public class GameManager : MonoBehaviour
                 taskUI.SetInteger("SelectedUI",4);
                 break;
 
+            case GameTab.FOODSTORAGE:
+                taskUI.SetInteger("SelectedUI",5);
+                break;
+
+            case GameTab.MINE:
+                taskUI.SetInteger("SelectedUI",6);
+                break;
+
             default:
                 break;
         }

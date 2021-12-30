@@ -368,6 +368,7 @@ MonoBehaviour:
     timeValue: 0
     idString: 
   think: 
+  hitBoxCollision: {fileID: 1947303994047388216}
   personData:
     id: 0
     position: {x: 0, y: 0, z: 0}
@@ -980,6 +981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   test: 0
+  tool: 0
 --- !u!1 &8806962723255050831
 GameObject:
   m_ObjectHideFlags: 0

@@ -61,9 +61,9 @@ public class BuildingObject : MonoBehaviour
         }else if(buildingData.code == buildingManager.presetDictionary["Tent"].code){
             gameTab = GameManager.GameTab.TENT;
         }else if(buildingData.code == buildingManager.presetDictionary["FoodStorage"].code){
-            gameTab = GameManager.GameTab.TENT;
+            gameTab = GameManager.GameTab.FOODSTORAGE;
         }else if(buildingData.code == buildingManager.presetDictionary["Mine"].code){
-            gameTab = GameManager.GameTab.TENT;
+            gameTab = GameManager.GameTab.MINE;
         }
 
         GameManager.Instance.ChangeGameTab(gameTab);

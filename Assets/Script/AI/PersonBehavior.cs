@@ -16,6 +16,7 @@ public class PersonBehavior : MonoBehaviour
     [SerializeField] BuildingObject workplace;
     [SerializeField] TimeEventQueueTicket sleepEvent;
     [SerializeField] string think;
+    [SerializeField] HitBoxCollision hitBoxCollision;
     public PersonData personData = new PersonData();
     
     /*
@@ -304,9 +305,29 @@ public class PersonBehavior : MonoBehaviour
             LoseMyTarget();
         }
     }
+    [Task]
+    void ChangeTool(string tool_name){
+        Tool.ToolType toolType = Tool.ToolType.NONE;
+        switch (tool_name){
+            case "Axe" : 
+                toolType = Tool.ToolType.AXE;
+                break;
+            case "Pickaxe" : 
+                toolType = Tool.ToolType.PICKAXE;
+                break;
+            case "Knife" : 
+                toolType = Tool.ToolType.KNIFE;
+                break;
+            
+            default:
+                break;
+        }
+        hitBoxCollision.tool = toolType;
+        ThisTask.Succeed();
+    }
 
     [Task]
-    void SearchingTreeToChop(){
+    void SearchingToGathering(string tag){
         sence.filter =
             delegate(GameObject value){
                 if(value == null){
@@ -317,12 +338,13 @@ public class PersonBehavior : MonoBehaviour
                     return false;
                 }
                 BuildingPreset preset = buildingObject.buildingData.buildingPreset;
-                return preset.attributes.Contains("Log");
+                return preset.attributes.Contains(tag);
             };
         GameObject nearestTree = sence.FindNearest(this.transform.position);
         if(nearestTree != null){
-            think = "Going Chop Chop " + nearestTree;
+            // think = "Going Chop Chop " + nearestTree;
             animator.SetInteger("ThinkCode",2);
+            // hitBoxCollision.tool = Tool.ToolType.AXE;
             this.target = nearestTree;
             aIDestination.target = this.target.transform;
             this.target.GetComponent<Hittable>().EntityDestroyEventHandler += LoseMyTarget;
