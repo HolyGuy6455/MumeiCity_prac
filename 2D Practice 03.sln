@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaBehaviour", "PandaBehaviour.csproj", "{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaBehaviourEditor", "PandaBehaviourEditor.csproj", "{08d9f0aa-3af9-558b-feda-16adb9b5d51e}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras.Editor", "Unity.2D.Tilemap.Extras.Editor.csproj", "{fe666db1-356c-f0d1-2c18-0f033ff8868f}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProjectEditor", "AstarPathfindingProjectEditor.csproj", "{1238dc59-38c2-172e-d237-48943726a517}"
@@ -16,8 +18,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PackageToolsEditor", "PackageToolsEditor.csproj", "{a8d486a0-7320-5e3d-8e2e-9420973521c4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras.Placeholder.EditorTests", "Unity.2D.Tilemap.Extras.Placeholder.EditorTests.csproj", "{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaBehaviourEditor", "PandaBehaviourEditor.csproj", "{08d9f0aa-3af9-558b-feda-16adb9b5d51e}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +32,8 @@ Global
 		{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{fe666db1-356c-f0d1-2c18-0f033ff8868f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{fe666db1-356c-f0d1-2c18-0f033ff8868f}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1238dc59-38c2-172e-d237-48943726a517}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,8 +42,6 @@ Global
 		{a8d486a0-7320-5e3d-8e2e-9420973521c4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

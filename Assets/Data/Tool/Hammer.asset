@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Hammer
   m_EditorClassIdentifier: 
   icon: {fileID: 7738640354081864971, guid: 901b44042b52a5d468bf92faf46506f6, type: 3}
-  ToolName: Hammer
+  toolType: 9

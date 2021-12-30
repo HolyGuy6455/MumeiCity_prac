@@ -14,7 +14,7 @@ public class BuildingManager : MonoBehaviour {
     [SerializeField] List<BuildingPreset> dictionaryBucket = new List<BuildingPreset>();
     [SerializeField] List<BuildingPreset> dictionaryHammer = new List<BuildingPreset>();
     [SerializeField] List<BuildingPreset> dictionaryKnife = new List<BuildingPreset>();
-    [SerializeField] List<BuildingPreset> dictionarySkillet = new List<BuildingPreset>();
+    [SerializeField] List<BuildingPreset> dictionaryFryingPan = new List<BuildingPreset>();
     public Dictionary<Tool, List<BuildingPreset>> buildingDictionary; 
     public Dictionary<string, BuildingPreset> presetDictionary;
     public ConstructionArea constructionArea;
@@ -27,7 +27,7 @@ public class BuildingManager : MonoBehaviour {
         presetDictionary = new Dictionary<string, BuildingPreset>();
         List<Tool> tools = GameManager.Instance.tools;
         foreach (Tool tool in tools){
-            switch (tool.ToolName){
+            switch (tool.name){
                 case "Axe":
                     buildingDictionary.Add(tool, dictionaryAxe);
                     break;
@@ -49,8 +49,8 @@ public class BuildingManager : MonoBehaviour {
                 case "Knife":
                     buildingDictionary.Add(tool, dictionaryKnife);
                     break;
-                case "Skillet":
-                    buildingDictionary.Add(tool, dictionarySkillet);
+                case "FryingPan":
+                    buildingDictionary.Add(tool, dictionaryFryingPan);
                     break;
                 default:
                     break;
@@ -111,13 +111,13 @@ public class BuildingManager : MonoBehaviour {
             case "Shovel":
                 result = 4;
                 break;
-            case "Frying Pan":
+            case "FryingPan":
                 result = 5;
                 break;
             case "Chisel":
                 result = 6;
                 break;
-            case "Pickax":
+            case "Pickaxe":
                 result = 7;
                 break;
             default:
@@ -148,13 +148,13 @@ public class BuildingManager : MonoBehaviour {
                 result = "Shovel";
                 break;
             case 5:
-                result = "Frying Pan";
+                result = "FryingPan";
                 break;
             case 6:
                 result = "Chisel";
                 break;
             case 7:
-                result = "Pickax";
+                result = "Pickaxe";
                 break;
             default:
                 break;
@@ -166,8 +166,7 @@ public class BuildingManager : MonoBehaviour {
     public static BuildingPreset GetBuildingPreset(string ToolType, int index){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
         BuildingPreset result = null;
-        switch (ToolType)
-        {
+        switch (ToolType){
             // case "Bucket":
             //     result = dictionaryAxe[index];
             //     break;
@@ -183,15 +182,18 @@ public class BuildingManager : MonoBehaviour {
             case "Shovel":
                 result = buildingManager.dictionaryShovel[index];
                 break;
-            // case "Frying Pan":
-            //     result = 5;
-            //     break;
+            case "FryingPan":
+                result = buildingManager.dictionaryFryingPan[index];
+                break;
+            case "Knife":
+                result = buildingManager.dictionaryKnife[index];
+                break;
             // case "Chisel":
             //     result = 6;
             //     break;
-            // case "Pickax":
-            //     result = 7;
-            //     break;
+            case "Pickaxe":
+                result = buildingManager.dictionaryPickaxe[index];
+                break;
             default:
                 break;
         }
@@ -205,10 +207,10 @@ public class BuildingManager : MonoBehaviour {
 
     public bool Build(){
         // 장애물이 있으면 못지어요
-        // if(constructionArea.isThereObstacle()){
-        //     Debug.Log("There is Obstacles");
-        //     return false;
-        // }
+        if(constructionArea.isThereObstacle()){
+            Debug.Log("There is Obstacles");
+            return false;
+        }
         // 무슨 건물 지을지 결정 안했으면 못지어요
         if(this.buildingPreset == null){
             Debug.Log("buildingPreset is null");
@@ -266,11 +268,27 @@ public class BuildingManager : MonoBehaviour {
 
         // DropItem을 설정
         if(buildingPreset.dropAmounts.Count > 0){
-            ItemDroper itemDroper = Built.AddComponent<ItemDroper>();
-            foreach (ItemDropAmount dropItem in buildingPreset.dropAmounts){
-                itemDroper.Add(dropItem);
-            }
+            Built.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset);
         }
+        Hittable hittable = Built.GetComponent<Hittable>();
+        Tool.ToolType toolType = Tool.ToolType.NONE;
+        switch (buildingPreset.toolType){
+            case "Axe":
+                toolType = Tool.ToolType.AXE;
+                break;
+            case "Knife":
+                toolType = Tool.ToolType.KNIFE;
+                break;
+            case "FryingPan":
+                toolType = Tool.ToolType.FRYINGPAN;
+                break;
+            case "Pickaxe":
+                toolType = Tool.ToolType.PICKAXE;
+                break;
+            default:
+                break;
+        }
+        hittable.effectiveTool = toolType;
 
         return true;
     }

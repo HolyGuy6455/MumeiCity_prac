@@ -3648,6 +3648,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b93054ccb921b8643806cc8f9e7aa568, type: 3}
+--- !u!114 &400163927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3698410216043258616, guid: 2712d9d0db15cc740975552a55b79ac6, type: 3}
+  m_PrefabInstance: {fileID: 8371264234623141186}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27692080442ed424789c7fe229523b35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &408994687 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5113355000482386034, guid: 945c69f0a361ef24f94bb7df925c0448, type: 3}
@@ -4758,33 +4769,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 642579709}
   m_CullTransparentMesh: 1
---- !u!1 &649893541 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5145041405634047705, guid: b93054ccb921b8643806cc8f9e7aa568, type: 3}
-  m_PrefabInstance: {fileID: 5145041407036125593}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &649893549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 649893541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scripts:
-  - {fileID: 4900000, guid: 90119fd2b9681e8449c9be93d2f5fc96, type: 3}
-  autoReset: 1
-  tickOn: 0
-  sourceInfos:
-  - isFoldout: 1
-    breakPoints: 
-    breakPointStatuses: 
-    collapsedLines: 
-    btScript: 
 --- !u!1001 &653873899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5776,7 +5760,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b4311ca96a37bb44b34b8d32c98e544, type: 2}
   - {fileID: 11400000, guid: d2ea7f0a7bd25e946ad5283bd597e6e6, type: 2}
   - {fileID: 11400000, guid: 04daf907e4f6ac248949671b79b6b410, type: 2}
+  - {fileID: 11400000, guid: 71d0ea2f0b37c2145b48b02adbae52a2, type: 2}
   - {fileID: 11400000, guid: e38b756b758c8a247a6262fb978133c6, type: 2}
+  hitBoxCollision: {fileID: 400163927}
   ToolView: {fileID: 1402587172}
   playerMovement: {fileID: 1750695403}
   inventory: {fileID: 842351768}
@@ -5872,12 +5858,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 964b60c937bdf7b46b3fc0704c0876b5, type: 2}
   - {fileID: 11400000, guid: 2dab68202eb7de247969ae6202aa5ed5, type: 2}
   dictionaryShovel: []
-  dictionaryPickaxe: []
+  dictionaryPickaxe:
+  - {fileID: 11400000, guid: ab7b785aac2549f4cb247474e9df66e8, type: 2}
+  - {fileID: 11400000, guid: 2cfdbdb84909bcf4e9e62ce1d63b8863, type: 2}
   dictionaryBucket: []
   dictionaryHammer: []
-  dictionaryKnife: []
-  dictionarySkillet:
-  - {fileID: 11400000, guid: 3574980d3c63aee4b968aff565542307, type: 2}
+  dictionaryKnife:
+  - {fileID: 11400000, guid: ea8b9ff83969c3a42b80f5ea1c318878, type: 2}
+  dictionaryFryingPan: []
   constructionArea: {fileID: 270268997}
   buildingPreset: {fileID: 0}
   buildingsParent: {fileID: 325282680}
@@ -5933,12 +5921,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeValue: 50
-  ticPerSecond: 0.001
+  ticPerSecond: 10
   daylightAnimator: {fileID: 681614544}
-  lengthOfDay: 1500
+  lengthOfDay: 150
   morning: 50
-  evening: 1400
-  midnight: 1450
+  evening: 100
+  midnight: 130
   timeInDay: 0
   elapsedDate: 0
   waitingList: []
@@ -35702,10 +35690,6 @@ PrefabInstance:
     - target: {fileID: 5145041405634047705, guid: b93054ccb921b8643806cc8f9e7aa568, type: 3}
       propertyPath: m_Name
       value: Person
-      objectReference: {fileID: 0}
-    - target: {fileID: 5145041405634047705, guid: b93054ccb921b8643806cc8f9e7aa568, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b93054ccb921b8643806cc8f9e7aa568, type: 3}

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Shovel
   m_EditorClassIdentifier: 
   icon: {fileID: -4090520558567933565, guid: 901b44042b52a5d468bf92faf46506f6, type: 3}
-  ToolName: Shovel
+  toolType: 5

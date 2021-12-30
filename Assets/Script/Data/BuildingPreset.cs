@@ -17,7 +17,7 @@ public class BuildingPreset : ScriptableObject {
     public string toolType;
     public int toolTypeIndex;
     public List<BuildingMaterial> materialList = new List<BuildingMaterial>();
-    public List<ItemDropAmount> dropAmounts = new List<ItemDropAmount>();
+    public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
     public byte code{
         get{
             return BuildingManager.GetBuildingCode(this);

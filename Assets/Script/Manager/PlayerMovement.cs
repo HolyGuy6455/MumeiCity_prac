@@ -60,6 +60,8 @@ public class PlayerMovement : MonoBehaviour
         Tool toolNowHold = GameManager.Instance.GetToolNowHold();
         switch (toolNowHold.name)
         {
+            case "Knife":
+            case "Pickaxe":
             case "Axe":
                 if(Input.GetButtonDown("Fire1")){
                     animator.SetBool("Choping",true);

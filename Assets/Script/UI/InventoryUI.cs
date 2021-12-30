@@ -29,7 +29,7 @@ public class InventoryUI : MonoBehaviour{
             return;
         }
         ItemInfoImage.sprite = inventorySlot.data.itemPreset.itemSprite;
-        ItemInfoName.text = inventorySlot.data.itemPreset.itemName;
+        ItemInfoName.text = inventorySlot.data.itemPreset.name;
         ItemInfoText.text = inventorySlot.data.itemPreset.info;
     }
 

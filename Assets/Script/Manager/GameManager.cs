@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
      */
     public List<Tool> tools = new List<Tool>();
     private int selectedTool = 0;
+    [SerializeField] HitBoxCollision hitBoxCollision;
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
     public Inventory inventory;
@@ -35,7 +36,10 @@ public class GameManager : MonoBehaviour
         ITEM,
         BUILDING,
         FORESTER,
-        TENT
+        TENT,
+        FOODSTORAGE,
+        MINE
+
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;
@@ -84,6 +88,7 @@ public class GameManager : MonoBehaviour
             if(buildingManager.onToolChangedCallback != null){
                 buildingManager.onToolChangedCallback.Invoke();
             }
+            hitBoxCollision.tool = GetToolNowHold().toolType;
         }
         
         if(Input.GetButtonDown("Building")){

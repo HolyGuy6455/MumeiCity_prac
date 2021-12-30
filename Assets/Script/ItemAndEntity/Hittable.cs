@@ -3,41 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Hittable : MonoBehaviour, IEntityDestroyEvent
+public class Hittable : MonoBehaviour
 {
     public Animator animator;
-    public int HP = 5;
+    public int HP = 10;
     public Collider hitBoxCollider;
-    public event IEntityDestroyEvent.VoidEvent EntityDestroyEventHandler;
+    public delegate void EntityEvent(Component component);
+    public event EntityEvent EntityDestroyEventHandler;
+    public event EntityEvent EntityHitEventHandler;
+    public Tool.ToolType effectiveTool;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Hit(){
-        // Debug.Log("Hit!!");
-        HP--;
+    public void Hit(Tool.ToolType tool){
+        if(tool == effectiveTool){
+            HP -= 3;
+        }else{
+            HP -= 1;
+        }
         if(HP<=0){
             animator.SetBool("isDead",true);
             return;
         }
+        if(!(EntityHitEventHandler is null))
+            EntityHitEventHandler(this);
         animator.SetTrigger("Hit");
     }
 
     public void Dead(){
         if(!(EntityDestroyEventHandler is null))
-            EntityDestroyEventHandler();
+            EntityDestroyEventHandler(this);
 
         // 임시 코드
-        // GameManager.Instance.buildingManager.wholeBuildingSet.Remove(this.transform.gameObject);
         Destroy(this.gameObject);
     }
 }

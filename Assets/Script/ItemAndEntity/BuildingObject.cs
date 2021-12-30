@@ -39,8 +39,9 @@ public class BuildingObject : MonoBehaviour
     }
 
     public void Initialize(BuildingData buildingData){
-        BuildingPreset buildingPreset = BuildingManager.GetBuildingPreset(buildingData.code);
+        BuildingPreset buildingPreset = buildingData.buildingPreset;
         this.buildingData = buildingData;
+        Debug.Log(buildingData);
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
         if( !buildingData.buildingPreset.interactable ){
@@ -58,6 +59,10 @@ public class BuildingObject : MonoBehaviour
         if(buildingData.code == buildingManager.presetDictionary["Forester"].code){
             gameTab = GameManager.GameTab.FORESTER;
         }else if(buildingData.code == buildingManager.presetDictionary["Tent"].code){
+            gameTab = GameManager.GameTab.TENT;
+        }else if(buildingData.code == buildingManager.presetDictionary["FoodStorage"].code){
+            gameTab = GameManager.GameTab.TENT;
+        }else if(buildingData.code == buildingManager.presetDictionary["Mine"].code){
             gameTab = GameManager.GameTab.TENT;
         }
 

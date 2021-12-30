@@ -289,8 +289,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3294552732431657724}
-  HP: 5
+  HP: 10
   hitBoxCollider: {fileID: 0}
+  effectiveTool: 0
 --- !u!95 &3294552732431657724
 Animator:
   serializedVersion: 3

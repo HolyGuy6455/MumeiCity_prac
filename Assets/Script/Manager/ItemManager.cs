@@ -23,7 +23,7 @@ public class ItemManager : MonoBehaviour {
     public static byte GetCodeFromItemName(string name){
         List<ItemPreset> itemPresetList = GameManager.Instance.itemManager.itemPresetList;
         for (int i = 0; i < itemPresetList.Count; i++){
-            if(itemPresetList[i].itemName == name){
+            if(itemPresetList[i].name == name){
                 return (byte)i;
             }
         }

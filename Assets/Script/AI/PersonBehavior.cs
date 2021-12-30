@@ -254,6 +254,9 @@ public class PersonBehavior : MonoBehaviour
             LoseMyTarget();
             return;
         }
+        if(personData.items.Count >= 6){
+            return;
+        }
         ItemPickup itemPickup = target.GetComponent<ItemPickup>();
         if(itemPickup == null){
             Debug.Log("Fail to Pick up the Item");
@@ -292,6 +295,9 @@ public class PersonBehavior : MonoBehaviour
 
         if(this.personData.items.Count > 0){
             ItemSlotData itemSlotData = this.personData.items[0];
+            if(workplace == null){
+                return;
+            }
             workplace.buildingData.AddItem(itemSlotData);
             UpdateItemView();
         }else{
@@ -376,10 +382,15 @@ public class PersonBehavior : MonoBehaviour
         // animator.SetInteger("ThinkCode",0);
     }
 
+    void LoseMyTarget(Component component) {
+        LoseMyTarget();
+    }
+
     public void UpdateItemView(){
         this.personData.items = this.personData.items.FindAll(x => x.code != 0);
 
         int length = this.personData.items.Count;
+        Debug.Log("length? : "+length);
         for (int i = 0; i < length; i++){
             pocketItemSlots[i].SetActive(true);
             pocketItemSlots[i].transform.localPosition = new Vector3(((float)-length+1)/4 + ((float)i)/2,0.5f,0);

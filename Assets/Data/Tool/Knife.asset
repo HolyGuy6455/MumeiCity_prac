@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Knife
   m_EditorClassIdentifier: 
   icon: {fileID: -5001564971276340100, guid: 901b44042b52a5d468bf92faf46506f6, type: 3}
-  ToolName: Knife
+  toolType: 2

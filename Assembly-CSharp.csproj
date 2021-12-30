@@ -38,9 +38,13 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Data\HouseData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\HitBoxCollision.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Dialogue.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
      <Compile Include="Assets\Script\Manager\TimeManager.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.cs" />
      <Compile Include="Assets\Script\Data\MediocrityData.cs" />
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
@@ -48,58 +52,54 @@
      <Compile Include="Assets\Script\UI\ForesterUI.cs" />
      <Compile Include="Assets\Script\Data\ForesterData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
      <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
      <Compile Include="Assets\Script\TilemapStart.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
      <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
      <Compile Include="Assets\Script\Data\BuildingData.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AIVision.cs" />
      <Compile Include="Assets\Script\FootPrint.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\TriggerType.cs" />
      <Compile Include="Assets\Script\Data\BuildingPreset.cs" />
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\PlayerLight.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\IEntityDestroyEvent.cs" />
      <Compile Include="Assets\Script\UI\TentUI.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
      <Compile Include="Assets\Script\Data\ItemPreset.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ConstructionArea.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
      <Compile Include="Assets\Script\Tool.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
      <Compile Include="Assets\Script\UI\ItemSlot.cs" />
      <Compile Include="Assets\Script\AI\PersonBehavior.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\UI\HealthBar.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
      <Compile Include="Assets\Script\Manager\CameraManager.cs" />
      <Compile Include="Assets\Script\UI\BuildingUI.cs" />
+     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AIVision.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Dialogue.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
-     <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\TriggerType.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\ItemDropInfo.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />
@@ -338,11 +338,11 @@
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="PandaBT">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/Panda.BT.free/Runtime/PandaBT.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -740,9 +740,6 @@
     <Reference Include="Unity.2D.Path.Editor">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.2D.Path.Editor.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.Core.Runtime">
-        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -760,6 +757,9 @@
     </Reference>
     <Reference Include="Unity.InternalAPIEditorBridge.001">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.InternalAPIEditorBridge.001.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.Core.Runtime">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.RenderPipelines.Core.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
@@ -821,9 +821,17 @@
       <Project>{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}</Project>
       <Name>Unity.2D.Tilemap.Extras</Name>
     </ProjectReference>
+    <ProjectReference Include="PandaBehaviour.csproj">
+      <Project>{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}</Project>
+      <Name>PandaBehaviour</Name>
+    </ProjectReference>
     <ProjectReference Include="PackageToolsEditor.csproj">
       <Project>{a8d486a0-7320-5e3d-8e2e-9420973521c4}</Project>
       <Name>PackageToolsEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="PandaBehaviourEditor.csproj">
+      <Project>{08d9f0aa-3af9-558b-feda-16adb9b5d51e}</Project>
+      <Name>PandaBehaviourEditor</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.Tilemap.Extras.Editor.csproj">
       <Project>{fe666db1-356c-f0d1-2c18-0f033ff8868f}</Project>
@@ -836,14 +844,6 @@
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{1238dc59-38c2-172e-d237-48943726a517}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="PandaBehaviour.csproj">
-      <Project>{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}</Project>
-      <Name>PandaBehaviour</Name>
-    </ProjectReference>
-    <ProjectReference Include="PandaBehaviourEditor.csproj">
-      <Project>{08d9f0aa-3af9-558b-feda-16adb9b5d51e}</Project>
-      <Name>PandaBehaviourEditor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

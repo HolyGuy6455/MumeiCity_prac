@@ -3,5 +3,17 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Tool", menuName = "MumeiCity/Tool", order = 0)]
 public class Tool : ScriptableObject {
     public Sprite icon = null;
-    public string ToolName;
+    public ToolType toolType;
+    public enum ToolType{
+        NONE,
+        BUCKET,
+        KNIFE,
+        LANTERN,
+        AXE,
+        SHOVEL,
+        FRYINGPAN,
+        CHISEL,
+        PICKAXE,
+        HAMMER,
+    }
 }
