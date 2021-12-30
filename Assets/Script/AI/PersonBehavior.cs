@@ -171,6 +171,10 @@ public class PersonBehavior : MonoBehaviour
     // 목표를 향해 이동한다
     [Task]
     void MoveToDestination(){
+        if(this.target == null){
+            ThisTask.Fail();
+            return;
+        }
         float distance = Vector3.Distance(this.transform.position, this.target.transform.position);
         animator.SetFloat("DistanceToTheGoal",distance);
 
@@ -196,7 +200,13 @@ public class PersonBehavior : MonoBehaviour
     // 내 직장이 ~가 맞습니까?
     [Task]
     void IsMyWorkplace(string job){
-        ThisTask.Complete(job.CompareTo(workplace.buildingData.buildingPreset.name) == 0);
+        try{
+            ThisTask.Complete(job.CompareTo(workplace.buildingData.buildingPreset.name) == 0);
+        }
+        catch (System.NullReferenceException){
+            ThisTask.Fail();            
+        }
+        
     }
 
     [Task]
@@ -266,6 +276,10 @@ public class PersonBehavior : MonoBehaviour
     void GoPutInItem(){
         animator.SetInteger("ThinkCode",3);
         CheckWorkplace();
+        if(workplace==null){
+            ThisTask.Fail();
+            return;
+        }
         this.target = workplace.gameObject;
         aIDestination.target = workplace.gameObject.transform;
         animator.SetBool("HasAGoal",true);
@@ -313,11 +327,46 @@ public class PersonBehavior : MonoBehaviour
         }
     }
 
-    public void Sleep(){
+    // 집으로 갑시다
+    [Task]
+    void GoToHome(){
+        think = "let i go home";
+        animator.SetInteger("ThinkCode",4);
+        BuildingObject home = GameManager.Instance.buildingManager.FindBuildingObjectWithID(this.personData.homeID);
+        if(home == null){
+            ThisTask.Fail();
+            return;
+        }
+        this.target = home.gameObject;
+        aIDestination.target = this.target.transform;
+        animator.SetBool("HasAGoal",true);
+        ThisTask.Succeed();
+        return;
+    }
+
+    [Task]
+    void SleepAct(){
+        // if(this.personData.sleep == true){
+        //     return;
+        // }
         LoseMyTarget();
         this.personData.sleep = true;
         animator.SetBool("Sleep",true);
         think = "Go to sleep! Good Night!";
+        if(sleepEvent == null || !sleepEvent.isThisValid()){
+            string ticketName = "person"+this.personData.id+"_sleep";
+            sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,SleepAndRecharging);
+        }
+    }
+    [Task]
+    void AwakeAct(){
+        if(this.personData.sleep == false){
+            ThisTask.Fail();
+            return;
+        }
+        this.personData.sleep = false;
+        animator.SetBool("Sleep",false);
+        ThisTask.Succeed();
     }
 
     void LoseMyTarget() {

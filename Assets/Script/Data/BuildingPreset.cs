@@ -7,7 +7,7 @@ using System;
  */
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
-    public string buildingName;
+    // public string buildingName;
     public Vector3 scale;
     public Vector3 relativeLocation;
     public Sprite sprite;
@@ -23,6 +23,13 @@ public class BuildingPreset : ScriptableObject {
             return BuildingManager.GetBuildingCode(this);
         }
     }
+    /*
+     * 기억 못하겠어서 적어두는 건물 코드
+     * 65 = 집
+     * 96 = 나무
+     * 97 = 숲지기의 집
+     *
+     */
 
 }
 [Serializable]

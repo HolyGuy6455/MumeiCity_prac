@@ -7,27 +7,43 @@ tree("Root")
 // 밤에 휴식하는 트리
 tree("NightSleep")
 	while not IsItDayTime // 밤이예요?
-		// 작업 마무리
-		// 집간다
-		// 잔다
-		Fail
+		fallback
+			tree("PutInItem") // 아이템 정리하고 마무리
+			sequence
+				GoToHome			// 집으로 가야지
+				MoveToDestination	// 간다
+				SleepAct			// 잔다
 
 // 낮에 하는 일 트리
 tree("DayWork")
 	while IsItDayTime // 낮이예요?
 		fallback
-			tree("PutInItem") // 아이템을 직장에 넣기
-			tree("PickItemUp") // 아이템을 줍는다
-
+			AwakeAct	// 일단 잠에서 깨어납시다
+			sequence
+				DoIHaveItemMoreThen 5 	// 아이템이 꽉차면
+				tree("PutInItem")		// 아이템을 직장에 넣는다
+			tree("PickItemUp")	// 아이템을 줍는다
+			tree("Forester")	// 숲지기면 숲지기의 일을 한다
+			tree("PutInItem")	// 할게 없으면 아이템을 직장에 넣는다
+			Wait 1.0	
+			
 tree("PutInItem")
 	sequence
-		DoIHaveItemMoreThen 5
-		GoPutInItem
-		MoveToDestination
-		while DoIHaveItemMoreThen 0
-			repeat Wait 1.0
+		GoPutInItem			// 아이템 넣으러 가야지
+		MoveToDestination	// 간다
+		while DoIHaveItemMoreThen 0	// 아이템이 1개 이상이면
+			repeat Wait 1.0			// 아이템을 다 넣을때까지 기다린다
+			// 아이템을 넣는 스크립트가 없고 기다리기만 하는 이유는
+			// 아이템 넣는 스크립트가 애니메이션 쪽에 있기 때문
+			// 애니메이션 행동과 모션을 맞추려다보니 이렇게 되었음
 
 tree("PickItemUp")
 	sequence
 		SearchItemToPickUp
 		MoveToDestination
+
+tree("Forester")
+	while IsMyWorkplace "Forester"
+		sequence
+			SearchingTreeToChop
+			MoveToDestination

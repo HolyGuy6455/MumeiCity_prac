@@ -180,6 +180,7 @@ GameObject:
   - component: {fileID: 1564780423}
   - component: {fileID: 1564780422}
   - component: {fileID: 1564780425}
+  - component: {fileID: 649893549}
   m_Layer: 0
   m_Name: Person
   m_TagString: Untagged
@@ -363,6 +364,10 @@ MonoBehaviour:
   - {fileID: 6360774931791214541}
   - {fileID: 6434923741951127137}
   workplace: {fileID: 0}
+  sleepEvent:
+    timeValue: 0
+    idString: 
+  think: 
   personData:
     id: 0
     position: {x: 0, y: 0, z: 0}
@@ -370,6 +375,29 @@ MonoBehaviour:
     stamina: 0
     workplaceID: 0
     homeID: 0
+    sleep: 0
+--- !u!114 &649893549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5145041405634047705}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 90119fd2b9681e8449c9be93d2f5fc96, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
 --- !u!1 &5529596193097522865
 GameObject:
   m_ObjectHideFlags: 0
