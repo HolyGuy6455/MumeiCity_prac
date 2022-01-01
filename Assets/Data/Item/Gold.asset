@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemSprite: {fileID: 21300000, guid: 6b3c491a1700506499cff1332bc0889a, type: 3}
   info: Look at gold as if it is a valueless stone
+  tags:
+  - Mining

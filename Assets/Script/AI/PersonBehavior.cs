@@ -25,6 +25,7 @@ public class PersonBehavior : MonoBehaviour
      2 : 나무를 벤다
      3 : 아이템을 저장하러 직장으로 복귀
      4 : 퇴근
+     5 : 필요한 아이템을 꺼내러 간다
 
      */
 
@@ -320,6 +321,7 @@ public class PersonBehavior : MonoBehaviour
             LoseMyTarget();
         }
     }
+
     [Task]
     void ChangeTool(string tool_name){
         Tool.ToolType toolType = Tool.ToolType.NONE;
@@ -341,6 +343,7 @@ public class PersonBehavior : MonoBehaviour
         ThisTask.Succeed();
     }
 
+    // 아이템을 채집하기 위해 찾아보아요
     [Task]
     void SearchingToGathering(string tag){
         sence.filter =
@@ -364,6 +367,81 @@ public class PersonBehavior : MonoBehaviour
             aIDestination.target = this.target.transform;
             this.target.GetComponent<Hittable>().EntityDestroyEventHandler += LoseMyTarget;
             animator.SetBool("HasAGoal",true);
+            ThisTask.Succeed();
+        }else{
+            ThisTask.Fail();
+        }
+    }
+
+    // 필요한 아이템 찾기
+    [Task]
+    void SearchingToTakeOutByTag(string itemTag){
+        think = "I'm looking for" + itemTag + "(tag)";
+        animator.SetInteger("ThinkCode",5);
+        List<BuildingObject> buildingList = GameManager.Instance.buildingManager.wholeBuildingList();
+        buildingList = buildingList.FindAll(
+            delegate(BuildingObject value){
+                // if(buildingTag != null){
+                //     List<string> attributes = value.buildingData.buildingPreset.attributes;
+                //     if(!attributes.Contains(buildingTag)){
+                //         return false;
+                //     }
+                // }
+                ItemSlotData[] buildingItems = value.buildingData.items;
+                foreach (ItemSlotData itemSlot in buildingItems){
+                    ItemPreset itemPreset =  ItemManager.GetItemPresetFromCode(itemSlot.code);
+                    if(itemPreset.tags.Contains(itemTag)){
+                        return true;
+                    }
+                }
+                return false;
+            }
+        );
+        this.target = buildingList[0].gameObject;
+        aIDestination.target = this.target.transform;
+        animator.SetBool("HasAGoal",true);
+        ThisTask.Succeed();
+    }
+
+    // 아이템 꺼내기
+    [Task]
+    void TakeOutByTag(string itemTag){
+        BuildingObject buildingObject =  this.target.GetComponent<BuildingObject>();
+        if(buildingObject == null){
+            ThisTask.Fail();
+            return;
+        }
+        ItemSlotData[] buildingItems = buildingObject.buildingData.items;
+        ItemSlotData taken = null;
+        foreach (ItemSlotData itemSlot in buildingItems){
+            ItemPreset itemPreset =  ItemManager.GetItemPresetFromCode(itemSlot.code);
+            if(itemPreset.tags.Contains(itemTag)){
+                taken = itemSlot;
+                break;
+            }
+        }
+        if(taken == null){
+            ThisTask.Fail();
+            return;
+        }
+
+        this.personData.items.Add(ItemSlotData.Create(taken.itemPreset));
+        taken.amount--;
+        UpdateItemView();
+        ThisTask.Succeed();
+    }
+    [Task]
+    void ConsumeItemByTag(string itemTag){
+        this.personData.items = this.personData.items.FindAll(x =>
+            (x.code != 0) && (x.itemPreset.tags.Contains(itemTag))
+        );
+
+        if(this.personData.items.Count > 0){
+            this.personData.items[0].amount -= 1;
+            if(this.personData.items[0].amount <= 0){
+                this.personData.items[0].code = 0;
+            }
+            UpdateItemView();
             ThisTask.Succeed();
         }else{
             ThisTask.Fail();

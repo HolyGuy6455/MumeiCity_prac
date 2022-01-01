@@ -20,7 +20,6 @@ public class BuildingData : MediocrityData {
             }
         }
 
-    
     public bool AddItem(ItemSlotData itemSlotData){
         for (int i = 0; i < 4; i++){
             if(items[i].code == itemSlotData.code){
@@ -41,5 +40,15 @@ public class BuildingData : MediocrityData {
         }
         return false;
     }
+
+    // public bool ReduceItem(byte ItemCode, int amount){
+    //     for (int i = 0; i < 4; i++){
+    //         if(items[i].code == ItemCode && items[i].amount > amount){
+    //             items[i].amount -= amount;
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
 
 }
