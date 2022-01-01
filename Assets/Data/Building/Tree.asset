@@ -21,6 +21,8 @@ MonoBehaviour:
   workplace: 0
   toolType: Axe
   toolTypeIndex: 0
+  buildTool: 4
+  removalTool: 4
   materialList: []
   dropAmounts:
   - name: Wood

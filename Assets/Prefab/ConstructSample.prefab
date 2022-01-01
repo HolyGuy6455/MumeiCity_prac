@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 3294552732431657724}
   - component: {fileID: 4175102474998173150}
   m_Layer: 8
-  m_Name: Construct
+  m_Name: ConstructSample
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

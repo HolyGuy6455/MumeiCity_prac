@@ -21,20 +21,22 @@ public class PeopleManager : MonoBehaviour
         return think.IndexOf(think);
     }
 
-    public List<PersonBehavior> GetWholePeopleList(){
+    public static List<PersonBehavior> GetWholePeopleList(){
+        PeopleManager peopleManager = GameManager.Instance.peopleManager;
         List<PersonBehavior> result = new List<PersonBehavior>();
-        foreach (Transform childTransform in theMotherOfWholePeople.transform){
+        foreach (Transform childTransform in peopleManager.theMotherOfWholePeople.transform){
             PersonBehavior person = childTransform.GetComponent<PersonBehavior>();
             if(person != null){
                 result.Add(person);
             }
         }
-        people = result;
+        peopleManager.people = result;
         return result;
     }
 
-    public PersonBehavior FindPersonWithID(int id){
-        foreach (PersonBehavior person in people){
+    public static PersonBehavior FindPersonWithID(int id){
+        PeopleManager peopleManager = GameManager.Instance.peopleManager;
+        foreach (PersonBehavior person in peopleManager.people){
             if(person.personData.id == id){
                 return person;
             }
@@ -45,7 +47,7 @@ public class PeopleManager : MonoBehaviour
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
         houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
-        List<PersonBehavior> people = GameManager.Instance.peopleManager.GetWholePeopleList();
+        List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
         Debug.Log("집의 갯수는 "+ houseList.Count);
 
         foreach (PersonBehavior person in people){

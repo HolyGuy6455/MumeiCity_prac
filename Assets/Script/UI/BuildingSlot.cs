@@ -27,7 +27,7 @@ public class BuildingSlot : MonoBehaviour
 
     public void OnBuildButton(){
         if(buildingPreset != null){
-            GameManager.Instance.buildingManager.SetBuildingPreset(this.buildingPreset);
+            GameManager.Instance.buildingManager.ReadyToBuild(this.buildingPreset);
             // bool isDone = GameManager.Instance.buildingManager.Build(this.buildingData);
             // if(!isDone){
             //     Debug.Log("Construction is Fail......");

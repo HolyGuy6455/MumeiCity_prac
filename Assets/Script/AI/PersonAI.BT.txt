@@ -28,7 +28,7 @@ tree("DayWork")
 				DoIHaveItemMoreThen 5 	// 아이템이 꽉차면
 				tree("PutInItem")		// 아이템을 직장에 넣는다
 			// 각 직업에 맞는 일을 한다
-			tree("Forester")	// 숲지기의 일을 한다
+			tree("ForesterHut")	// 숲지기의 일을 한다
 			tree("Mine")		// 광부의 일을 한다
 			tree("FoodStorage")	// 음식창고의 일을 한다
 			tree("PutInItem")	// 할게 없으면 아이템을 직장에 넣는다
@@ -45,8 +45,8 @@ tree("PutInItem")
 			// 애니메이션 행동과 모션을 맞추려다보니 이렇게 되었음
 
 
-tree("Forester")	// 숲지기
-	while IsMyWorkplace "Forester"	// 직업이 맞는지 확인
+tree("ForesterHut")	// 숲지기
+	while IsMyWorkplace "ForesterHut"	// 직업이 맞는지 확인
 		fallback
 			sequence	// 나무 아이템을 줍는다
 				SearchItemToPickUp "Log"	

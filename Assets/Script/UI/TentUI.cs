@@ -19,7 +19,7 @@ public class TentUI : MonoBehaviour{
             // 이건 급하게 짜느라 이렇게 했다. slider.count를 나중에 housedata.personlist.count로 바꿀것
             for (int i = 0; i < sliders.Count; i++){
                 int personID = houseData.personIDList[i];
-                PersonBehavior person = GameManager.Instance.peopleManager.FindPersonWithID(personID);
+                PersonBehavior person = PeopleManager.FindPersonWithID(personID);
                 Debug.Log("personID : "+personID);
                 if(person != null){
                     sliders[i].value = ((float)person.personData.stamina)/100.0f;

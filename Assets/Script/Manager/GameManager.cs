@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         NORMAL,
         ITEM,
         BUILDING,
-        FORESTER,
+        FORESTER_HUT,
         TENT,
         FOODSTORAGE,
         MINE
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
                 }
                 break;
 
-            case GameTab.FORESTER:
+            case GameTab.FORESTER_HUT:
                 taskUI.SetInteger("SelectedUI",3);
                 break;
 

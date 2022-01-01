@@ -49,7 +49,7 @@
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
      <Compile Include="Assets\Script\UI\TaskUIBundle.cs" />
-     <Compile Include="Assets\Script\UI\ForesterUI.cs" />
+     <Compile Include="Assets\Script\UI\ForesterHutUI.cs" />
      <Compile Include="Assets\Script\Data\ForesterData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\ItemDropInfo.cs" />
      <Compile Include="Assets\Script\Data\BuildingData.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AIVision.cs" />
      <Compile Include="Assets\Script\FootPrint.cs" />
@@ -81,6 +82,7 @@
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
      <Compile Include="Assets\Script\Data\ItemPreset.cs" />
+     <Compile Include="Assets\Script\UI\MineUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ConstructionArea.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
      <Compile Include="Assets\Script\Tool.cs" />
@@ -99,8 +101,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\ItemDropInfo.cs" />
-     <Compile Include="Assets\Script\UI\MineUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />

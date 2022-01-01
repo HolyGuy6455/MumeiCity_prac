@@ -29,7 +29,7 @@ public class BuildingObject : MonoBehaviour
 
         switch (buildingData.buildingPreset.name){
             case "Forester":
-                buildingData.mediocrityData = new ForesterData();
+                buildingData.mediocrityData = new ForesterHutData();
                 break;
             case "Tent":
                 buildingData.mediocrityData = new HouseData(4);
@@ -45,7 +45,7 @@ public class BuildingObject : MonoBehaviour
 
     private void Update() {
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
-            List<PersonBehavior> people = GameManager.Instance.peopleManager.GetWholePeopleList();
+            List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
             people = people.FindAll(person=> (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
             if(people.Count > 0){
                 people[0].personData.workplaceID = this.buildingData.id;
@@ -69,19 +69,24 @@ public class BuildingObject : MonoBehaviour
     public void ShowWindow(){
         GameManager.Instance.interactingBuilding = this.buildingData;
         GameManager.GameTab gameTab = GameManager.GameTab.NORMAL;
-        BuildingManager buildingManager = GameManager.Instance.buildingManager;
 
         // switch문은 들어가는 인자가 반드시 상수여야한단다.....
-        if(buildingData.code == buildingManager.presetDictionary["Forester"].code){
-            gameTab = GameManager.GameTab.FORESTER;
-        }else if(buildingData.code == buildingManager.presetDictionary["Tent"].code){
-            gameTab = GameManager.GameTab.TENT;
-        }else if(buildingData.code == buildingManager.presetDictionary["FoodStorage"].code){
-            gameTab = GameManager.GameTab.FOODSTORAGE;
-        }else if(buildingData.code == buildingManager.presetDictionary["Mine"].code){
-            gameTab = GameManager.GameTab.MINE;
+        switch (buildingData.buildingPreset.name){
+            case "ForesterHut":
+                gameTab = GameManager.GameTab.FORESTER_HUT;
+                break;
+            case "Tent":
+                gameTab = GameManager.GameTab.TENT;
+                break;
+            case "FoodStorage":
+                gameTab = GameManager.GameTab.FOODSTORAGE;
+                break;
+            case "Mine":
+                gameTab = GameManager.GameTab.MINE;
+                break;
+            default:
+                break;
         }
-
         GameManager.Instance.ChangeGameTab(gameTab);
     }
 

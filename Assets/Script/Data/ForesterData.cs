@@ -1,11 +1,11 @@
 using System;
 
 [Serializable]
-public class ForesterData : MediocrityData{
+public class ForesterHutData : MediocrityData{
     public bool doingTreeToLog;
     public bool doingPineconeToTree;
 
-    public ForesterData(){
+    public ForesterHutData(){
         doingTreeToLog = true;
         doingPineconeToTree = true;
     }

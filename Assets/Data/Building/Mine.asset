@@ -20,5 +20,7 @@ MonoBehaviour:
   workplace: 1
   toolType: 
   toolTypeIndex: 0
+  buildTool: 8
+  removalTool: 8
   materialList: []
   dropAmounts: []

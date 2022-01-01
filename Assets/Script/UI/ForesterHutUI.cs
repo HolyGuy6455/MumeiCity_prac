@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ForesterUI : MonoBehaviour{
+public class ForesterHutUI : MonoBehaviour{
     [SerializeField] GameObject StorageSlotParent;
     [SerializeField] ItemSlot[] StorageSlots;
     [SerializeField] Toggle TreeToLogToggle;

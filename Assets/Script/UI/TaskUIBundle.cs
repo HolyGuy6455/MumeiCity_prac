@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class TaskUIBundle : MonoBehaviour{
     [SerializeField] InventoryUI inventoryUI;
-    [SerializeField] ForesterUI foresterUI;
+    [SerializeField] ForesterHutUI foresterUI;
     [SerializeField] TentUI tentUI;
     // [SerializeField] MineUI mineUI;
-    [SerializeField] ForesterUI mineUI;         // 임시용
-    [SerializeField] ForesterUI foodStorageUI; // 임시용
+    [SerializeField] ForesterHutUI mineUI;         // 임시용
+    [SerializeField] ForesterHutUI foodStorageUI; // 임시용
 
     public void LoadInventoryUIData(){
         inventoryUI.LoadItemSlotData();

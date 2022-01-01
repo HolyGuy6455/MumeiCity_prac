@@ -16,7 +16,7 @@ public class BuildingUI : MonoBehaviour
 
     void UpdateUI(){
         Tool nowUsing = GameManager.Instance.GetToolNowHold();
-        buildingDataList = GameManager.Instance.buildingManager.buildingDictionary[nowUsing];
+        buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing.toolType);
 
         for (int i = 0; i < slots.Length; i++)
         {

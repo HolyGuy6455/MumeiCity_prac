@@ -14,8 +14,9 @@ public class BuildingPreset : ScriptableObject {
     public List<string> attributes;
     public bool interactable;
     public bool workplace;
-    public string toolType;
-    public int toolTypeIndex;
+    public Tool.ToolType buildTool;
+    public Tool.ToolType removalTool;
+    public int buildToolIndex;
     public List<BuildingMaterial> materialList = new List<BuildingMaterial>();
     public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
     public byte code{
@@ -23,14 +24,6 @@ public class BuildingPreset : ScriptableObject {
             return BuildingManager.GetBuildingCode(this);
         }
     }
-    /*
-     * 기억 못하겠어서 적어두는 건물 코드
-     * 65 = 집
-     * 96 = 나무
-     * 97 = 숲지기의 집
-     *
-     */
-
 }
 [Serializable]
 public class BuildingMaterial{

@@ -113,7 +113,7 @@ public class PauseUI : MonoBehaviour{
             location.y = data.positionY;
             location.z = data.positionZ;
             // 건물을 생성하고 데이터로 초기화한다
-            GameObject Built =  Instantiate(GameManager.Instance.buildingManager.constructure,location,Quaternion.identity);
+            GameObject Built =  Instantiate(GameManager.Instance.buildingManager.constructureSample,location,Quaternion.identity);
             BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
             BuiltObject.Initialize(data);
