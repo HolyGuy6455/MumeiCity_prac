@@ -22,7 +22,6 @@ tree("DayWork")
 			sequence
 				DoIHaveItemMoreThen 5 	// 아이템이 꽉차면
 				tree("PutInItem")		// 아이템을 직장에 넣는다
-			tree("PickItemUp")	// 아이템을 줍는다
 			// 각 직업에 맞는 일을 한다
 			tree("Forester")	// 숲지기의 일을 한다
 			tree("Mine")		// 광부의 일을 한다
@@ -40,28 +39,39 @@ tree("PutInItem")
 			// 아이템 넣는 스크립트가 애니메이션 쪽에 있기 때문
 			// 애니메이션 행동과 모션을 맞추려다보니 이렇게 되었음
 
-tree("PickItemUp")
-	sequence
-		SearchItemToPickUp
-		MoveToDestination
 
-tree("Forester")
-	while IsMyWorkplace "Forester"
-		sequence
-			ChangeTool "Axe"
-			SearchingToGathering "Log"
-			MoveToDestination
+tree("Forester")	// 숲지기
+	while IsMyWorkplace "Forester"	// 직업이 맞는지 확인
+		fallback
+			sequence	// 나무 아이템을 줍는다
+				SearchItemToPickUp "Log"	
+				MoveToDestination
+			sequence	// 나무 씨앗 아이템을 줍는다
+				SearchItemToPickUp "LogSeed"	
+				MoveToDestination
+			sequence	// 캘 수 있는 나무를 찾는다
+				ChangeTool "Axe"
+				SearchingToGathering "Log"	
+				MoveToDestination
 
-tree("Mine")
-	while IsMyWorkplace "Mine"
-		sequence
-			ChangeTool "Pickaxe"
-			SearchingToGathering "Mining"
-			MoveToDestination
+tree("Mine")		// 광부
+	while IsMyWorkplace "Mine"	// 직업이 맞는지 확인
+		fallback
+			sequence	// 광물 아이템을 줍는다
+				SearchItemToPickUp "Mining"
+				MoveToDestination
+			sequence	// 캘 수 있는 광물을 찾는다
+				ChangeTool "Pickaxe"
+				SearchingToGathering "Mining"
+				MoveToDestination
 
-tree("FoodStorage")
-	while IsMyWorkplace "FoodStorage"
-		sequence
-			ChangeTool "Knife"
-			SearchingToGathering "Fruit"
-			MoveToDestination
+tree("FoodStorage")	// 식량창고지기
+	while IsMyWorkplace "FoodStorage"	// 직업이 맞는지 확인
+		fallback
+			sequence	// 음식 아이템을 줍는다
+				SearchItemToPickUp "Food"
+				MoveToDestination
+			sequence	// 캘 수 있는 과일을 찾는다
+				ChangeTool "Knife"
+				SearchingToGathering "Fruit"
+				MoveToDestination

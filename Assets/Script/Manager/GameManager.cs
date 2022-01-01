@@ -198,16 +198,4 @@ public class GameManager : MonoBehaviour
     private void Awake() {
         singleton_instance = this;
     }
-
-    // public void AddInteractable(Interactable interactable){
-    //     if(interactableList.Contains(interactable)){
-    //         return;
-    //     }
-    //     interactableList.Add(interactable);
-    // }
-
-
-    // public void RemoveInteractable(Interactable interactable){
-    //     interactableList.Remove(interactable);
-    // }
 }

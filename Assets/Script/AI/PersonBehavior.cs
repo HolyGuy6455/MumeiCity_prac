@@ -210,11 +210,13 @@ public class PersonBehavior : MonoBehaviour
         
     }
 
+    // 낮이예요?
     [Task]
     void IsItDayTime(){
         ThisTask.Complete(GameManager.Instance.timeManager.IsItDayTime());
     }
 
+    // 회사 멀쩡한거 맞죠?
     void CheckWorkplace(){
         if(workplace == null || workplace.buildingData.id != personData.workplaceID){
             workplace = GameManager.Instance.buildingManager.FindBuildingObjectWithID(this.personData.workplaceID);
@@ -224,15 +226,28 @@ public class PersonBehavior : MonoBehaviour
     // 주워올만한 아이템이 있는지 탐색
     [Task]
     void SearchItemToPickUp(){
+        SearchItemToPickUp(null);
+    }
+
+    // 
+    [Task]
+    void SearchItemToPickUp(string itemTag){
         sence.filter = delegate(GameObject value){
-            if(value == null){
+            if(value == null)
                 return false;
-            }
+
             ItemPickup itemPickup = value.GetComponent<ItemPickup>();
-            if(itemPickup == null){
+            if(itemPickup == null)
                 return false;
+            if(itemTag == null)
+                return true;
+
+            List<string> pickupItemTags = itemPickup.itemData.itemPreset.tags;
+            foreach (string tag in pickupItemTags){
+                if(itemTag.CompareTo(tag) == 0)
+                    return true;
             }
-            return true;
+            return false;
         };
 
         GameObject nearestItem = sence.FindNearest(this.transform.position);
@@ -362,6 +377,7 @@ public class PersonBehavior : MonoBehaviour
         animator.SetInteger("ThinkCode",4);
         BuildingObject home = GameManager.Instance.buildingManager.FindBuildingObjectWithID(this.personData.homeID);
         if(home == null){
+            this.personData.homeID = 0;
             ThisTask.Fail();
             return;
         }

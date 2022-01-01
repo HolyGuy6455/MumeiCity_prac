@@ -29,7 +29,7 @@ public class ItemDropInfo{
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             byte itemcode = ItemManager.GetCodeFromItemName(name);
             ItemPreset preset = ItemManager.GetItemPresetFromCode(itemcode);
-            itemPickup.item = ItemPickupData.create(preset);
+            itemPickup.itemData = ItemPickupData.create(preset);
             itemPickup.IconSpriteUpdate();
             
             itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);

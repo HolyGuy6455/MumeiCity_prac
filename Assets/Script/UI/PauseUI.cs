@@ -41,7 +41,7 @@ public class PauseUI : MonoBehaviour{
         // 아이템 위치 저장하기
         GameObject itemPickupParent = GameManager.Instance.itemPickupParent;
         foreach (Transform childTransform in itemPickupParent.transform){
-            ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().item;
+            ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().itemData;
             itemPickupData.position = childTransform.position;
             saveForm.itemPickupDatas.Add(itemPickupData);
         }
@@ -135,7 +135,7 @@ public class PauseUI : MonoBehaviour{
             // 아이템 데이터로 픽업아이템을 생성한다
             GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            itemPickup.item = data;
+            itemPickup.itemData = data;
             itemPickup.IconSpriteUpdate();
             itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
         }

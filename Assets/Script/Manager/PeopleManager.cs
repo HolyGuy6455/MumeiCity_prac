@@ -44,7 +44,7 @@ public class PeopleManager : MonoBehaviour
 
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
-        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.buildingPreset.name == "Tent");
+        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
         List<PersonBehavior> people = GameManager.Instance.peopleManager.GetWholePeopleList();
         Debug.Log("집의 갯수는 "+ houseList.Count);
 
@@ -56,10 +56,6 @@ public class PeopleManager : MonoBehaviour
             }
             Debug.Log("저는 집이 없어요");
             foreach (BuildingObject house in houseList){
-                if(!(house.buildingData.mediocrityData is HouseData)){
-                    Debug.Log("여기엔 집의 정보가 없어요");
-                    continue;
-                }
                 HouseData houseData = house.buildingData.mediocrityData as HouseData;
                 for (int i = 0; i < houseData.personIDList.Length; i++){
 

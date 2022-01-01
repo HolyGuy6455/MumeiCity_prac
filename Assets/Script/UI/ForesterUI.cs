@@ -24,12 +24,6 @@ public class ForesterUI : MonoBehaviour{
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnFocusSlot(ItemSlot inventorySlot, PointerEventData eventData){
         if(inventorySlot.data.code == 0){
             return;

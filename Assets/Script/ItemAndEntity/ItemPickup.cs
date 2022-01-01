@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public ItemPickupData item;
+    public ItemPickupData itemData;
 
     void Start() {
         IconSpriteUpdate();
     }
 
     public void IconSpriteUpdate(){
-        if(item == null)
+        if(itemData == null)
             return;
-        this.GetComponentInChildren<SpriteRenderer>().sprite = item.itemPreset.itemSprite;
+        this.GetComponentInChildren<SpriteRenderer>().sprite = itemData.itemPreset.itemSprite;
     }
 
     public void PickUp(){
@@ -23,6 +23,6 @@ public class ItemPickup : MonoBehaviour
     }
 
     public ItemSlotData ProcessToItemSlotData(){
-        return ItemSlotData.Create(item.itemPreset);
+        return ItemSlotData.Create(itemData.itemPreset);
     }
 }
