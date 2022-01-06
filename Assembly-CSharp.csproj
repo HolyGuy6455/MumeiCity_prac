@@ -101,6 +101,9 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
+     <Compile Include="Assets\Script\UI\BuildingButton.cs" />
+     <Compile Include="Assets\Script\UI\ResourceView.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a6223b44c16708845a0e69927b596b14
+guid: d854d95e97269d141918df40ffef32da
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Upheaval TT (BRK)
+  - Yoster Island
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
