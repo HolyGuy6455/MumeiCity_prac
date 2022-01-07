@@ -15,15 +15,17 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 9163872656599509061, guid: 83b77d3925d8bf04e89c77b85dccdda4, type: 3}
+  info: You can cut this.
   attributes:
   - Log
   interactable: 0
   workplace: 0
-  toolType: Axe
-  toolTypeIndex: 0
   buildTool: 4
   removalTool: 4
-  materialList: []
+  buildToolIndex: 0
+  resourceList:
+  - name: Pinecone
+    amount: 1
   dropAmounts:
   - name: Wood
     chance: 1.3

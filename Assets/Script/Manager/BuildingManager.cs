@@ -16,6 +16,8 @@ public class BuildingManager : MonoBehaviour {
 
     public AstarPath astarPath;
 
+    public BuildingPreset _nowBuilding{get{return nowBuilding;}}
+
     private void Start() {
         List<Tool> tools = GameManager.Instance.tools;
 
@@ -92,9 +94,9 @@ public class BuildingManager : MonoBehaviour {
         }
         // 재료가 충분한지 확인
         Inventory inventoryManager = GameManager.Instance.inventory;
-        List<BuildingMaterial> materialList = nowBuilding.materialList;
+        List<BuildingResource> materialList = nowBuilding.resourceList;
         bool doWeHaveMaterialEnough = true;
-        foreach (BuildingMaterial material in materialList){
+        foreach (BuildingResource material in materialList){
             if(inventoryManager.GetItemAmount(material.name) < material.amount){
                 doWeHaveMaterialEnough = false;
                 Debug.Log("Not Enough Material");
@@ -106,7 +108,7 @@ public class BuildingManager : MonoBehaviour {
             return false;
         }
         // 재료가 있다면 재료를 소모한다
-        foreach (BuildingMaterial material in materialList){
+        foreach (BuildingResource material in materialList){
             inventoryManager.ConsumeItem(material.name,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다

@@ -53,10 +53,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.C)){
-            GameManager.Instance.buildingManager.Build();
-        }
-
         Tool toolNowHold = GameManager.Instance.GetToolNowHold();
         switch (toolNowHold.name)
         {

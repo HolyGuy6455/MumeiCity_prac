@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public Interactable nearestInteractable;
     public BuildingData interactingBuilding;
     [SerializeField] InteractUI interactUI;
+    public Sprite emptySprite;
     public enum GameTab
     {
         NORMAL,
@@ -45,6 +46,7 @@ public class GameManager : MonoBehaviour
     private GameTab pastGameTab;
     [SerializeField] Sence _sence;
     public Sence sence{get{return _sence;}}
+    public int _selectedTool{get{return selectedTool;}}
     public static GameManager Instance{
         get{
             return singleton_instance;

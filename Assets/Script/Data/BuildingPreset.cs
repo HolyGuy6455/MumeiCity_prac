@@ -11,13 +11,14 @@ public class BuildingPreset : ScriptableObject {
     public Vector3 scale;
     public Vector3 relativeLocation;
     public Sprite sprite;
+    [TextArea] public string info;
     public List<string> attributes;
     public bool interactable;
     public bool workplace;
     public Tool.ToolType buildTool;
     public Tool.ToolType removalTool;
     public int buildToolIndex;
-    public List<BuildingMaterial> materialList = new List<BuildingMaterial>();
+    public List<BuildingResource> resourceList = new List<BuildingResource>();
     public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
     public byte code{
         get{
@@ -26,7 +27,7 @@ public class BuildingPreset : ScriptableObject {
     }
 }
 [Serializable]
-public class BuildingMaterial{
+public class BuildingResource{
     public string name;
     public int amount;
 }

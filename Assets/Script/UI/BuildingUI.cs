@@ -1,29 +1,95 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class BuildingUI : MonoBehaviour
-{
-    public Transform buildingParents;
+public class BuildingUI : MonoBehaviour{
     public List<BuildingPreset> buildingDataList;
+
+    [SerializeField] Image[] toolButtonsSelectionImages;
+    [SerializeField] GameObject buildingArticlesList;
+    [SerializeField] GameObject resourceViewList;
+    [SerializeField] BuildingArticle[] buildingArticles; 
+    [SerializeField] ResourceView[] resourceViews;
+    [SerializeField] Image infoImage;
+    [SerializeField] Text infoName;
+    [SerializeField] Text infoDescription;
+    [SerializeField] Sprite selectedToolSprite;
+    [SerializeField] Sprite otherToolSprite;
+    RectTransform buildingArticlesListRect;
 
     // Start is called before the first frame update
     void Start(){
         GameManager.Instance.buildingManager.onToolChangedCallback += UpdateUI;
-        // slots = buildingParents.GetComponentsInChildren<BuildingSlot>();
+        buildingArticlesListRect = buildingArticlesList.GetComponent<RectTransform>();
+        buildingArticles = buildingArticlesList.GetComponentsInChildren<BuildingArticle>();
+        resourceViews = resourceViewList.GetComponentsInChildren<ResourceView>();
+        UpdateUI();
+        UpdateInfomation();
     }
 
     void UpdateUI(){
         Tool nowUsing = GameManager.Instance.GetToolNowHold();
         buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing.toolType);
+        int minCount = Mathf.Max(buildingDataList.Count,5);
+        int selectedTool = GameManager.Instance._selectedTool;
 
-        // for (int i = 0; i < slots.Length; i++)
-        // {
-        //     if(i < buildingDataList.Count){
-        //         slots[i].AddItem(buildingDataList[i]);
-        //     }else{
-        //         slots[i].ClearSlot();
-        //     }
-        // }
+        for (int i = 0; i < toolButtonsSelectionImages.Length; i++){
+            if(selectedTool == i){
+                toolButtonsSelectionImages[i].sprite = selectedToolSprite;
+            }else{
+                toolButtonsSelectionImages[i].sprite = otherToolSprite;
+            }
+        }
+
+        for (int i = 0; i < buildingArticles.Length; i++){
+            if(i < buildingDataList.Count){
+                buildingArticles[i].gameObject.SetActive(true);
+                buildingArticles[i].UpdatePreset(buildingDataList[i]);
+            }else{
+                buildingArticles[i].gameObject.SetActive(false);
+            }
+        }
+        buildingArticlesListRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, minCount*20);
+
     }
+
+    public void UpdateInfomation(){
+        BuildingPreset selectedPreset = GameManager.Instance.buildingManager._nowBuilding;
+        if(selectedPreset == null){
+            infoImage.sprite = GameManager.Instance.emptySprite;
+            infoName.text = "";
+            infoDescription.text = "";
+            for (int i = 0; i < resourceViews.Length; i++){
+                resourceViews[i].gameObject.SetActive(false);
+                resourceViews[i].UpdateResource(null);
+            }
+            return;
+        }
+        infoImage.sprite = selectedPreset.sprite;
+        infoName.text = selectedPreset.name;
+        infoDescription.text = selectedPreset.info;
+
+        List<BuildingResource> resourceList = selectedPreset.resourceList;
+        for (int i = 0; i < resourceViews.Length; i++){
+            if(i < resourceList.Count){
+                resourceViews[i].gameObject.SetActive(true);
+                resourceViews[i].UpdateResource(resourceList[i]);
+            }else{
+                resourceViews[i].gameObject.SetActive(false);
+                resourceViews[i].UpdateResource(null);
+            }
+        }
+    }
+
+    public void OnToolButtonClick(int index){
+        GameManager.Instance.SelectTool(index);
+        UpdateUI();
+    }
+
+    public void OnBuildButtonClick(){
+        GameManager.Instance.buildingManager.Build();
+    }
+
+
 }

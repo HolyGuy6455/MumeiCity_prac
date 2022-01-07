@@ -15,15 +15,15 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 21300000, guid: 25d380ef0276aa5498210953a52f1bf0, type: 3}
+  info: You can pick fruits here.
   attributes:
   - Fruit
   interactable: 0
   workplace: 0
-  toolType: Knife
-  toolTypeIndex: 0
   buildTool: 6
   removalTool: 2
-  materialList: []
+  buildToolIndex: 0
+  resourceList: []
   dropAmounts:
   - name: Berry
     chance: 1

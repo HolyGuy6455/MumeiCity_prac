@@ -15,12 +15,14 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 21300000, guid: de2dd8db9cba0cb428255c909ee6e4bb, type: 3}
+  info: It's warm here.
   attributes: []
   interactable: 0
   workplace: 0
-  toolType: Lantern
-  toolTypeIndex: 0
   buildTool: 3
   removalTool: 4
-  materialList: []
+  buildToolIndex: 0
+  resourceList:
+  - name: Wood
+    amount: 1
   dropAmounts: []

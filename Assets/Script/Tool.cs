@@ -6,7 +6,7 @@ public class Tool : ScriptableObject {
     public ToolType toolType;
     public enum ToolType{
         NONE,
-        BUCKET,
+        FISHINGROD,
         KNIFE,
         LANTERN,
         AXE,
