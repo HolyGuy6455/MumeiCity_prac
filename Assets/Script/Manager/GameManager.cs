@@ -78,6 +78,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeGameTab(string gameTabName){
+        switch (gameTabName){
+            case "Inventory":
+                ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
+                break;
+            case "Building":
+                ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
+                break;
+            default:
+                break;
+        }
+    }
+
     private void Update() {
         cameraManager.CameraZoom();
 
