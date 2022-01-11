@@ -16,7 +16,7 @@ public class ItemPickup : MonoBehaviour
 
     public void PickUp(){
         bool isItDone = GameManager.Instance.inventory.AddItem(this.ProcessToItemSlotData());
-        GameManager.Instance.sence.CleanReservation();
+        GameManager.Instance.sence_.CleanReservation();
         if(isItDone){
             Destroy(gameObject);
         }

@@ -40,7 +40,11 @@ public class BuildingObject : MonoBehaviour
 
         Initialize(this.buildingData);
 
-        Debug.Log("mediocrityData : " + buildingData.mediocrityData);
+        Hittable hittable = GetComponent<Hittable>();
+        hittable.EntityDestroyEventHandler += 
+            delegate(Component component){
+                GameManager.Instance.buildingManager.astarPath.Scan();
+            };
     }
 
     private void Update() {

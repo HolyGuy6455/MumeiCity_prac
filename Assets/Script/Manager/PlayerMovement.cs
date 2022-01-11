@@ -53,28 +53,30 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        Tool toolNowHold = GameManager.Instance.GetToolNowHold();
-        switch (toolNowHold.name)
-        {
-            case "Knife":
-            case "Pickaxe":
-            case "Axe":
-                if(Input.GetButtonDown("Fire1")){
-                    animator.SetBool("Choping",true);
-                }else if(Input.GetButtonUp("Fire1")){
-                    animator.SetBool("Choping",false);
-                }
-                break;
-            default:
-                break;
-        }
-
-        if(GameManager.Instance.GetToolNowHold().name == "Axe"){
-            if(Input.GetButtonDown("Fire1")){
-                animator.SetBool("Choping",true);
-            }else if(Input.GetButtonUp("Fire1")){
-                animator.SetBool("Choping",false);
+        if(Input.GetButton("Fire1")){
+            Tool toolNowHold = GameManager.Instance.GetToolNowHold();
+            switch (toolNowHold.name){
+                case "Axe":
+                    animator.SetInteger("ActCode",1);
+                    break;
+                case "Knife":
+                    animator.SetInteger("ActCode",2);
+                    break;
+                case "FryingPan":
+                    animator.SetInteger("ActCode",3);
+                    break;
+                case "Pickaxe":
+                    animator.SetInteger("ActCode",4);
+                    break;
+                case "Shovel":
+                    animator.SetInteger("ActCode",5);
+                    break;
+                default:
+                    animator.SetInteger("ActCode",0);
+                    break;
             }
+        }else if(Input.GetButtonUp("Fire1")){
+            animator.SetInteger("ActCode",0);
         }
 
         animator.SetBool("IsJumping",!IsGrounded());

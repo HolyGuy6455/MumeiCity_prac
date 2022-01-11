@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,9 +28,6 @@ public class GameManager : MonoBehaviour
     public Animator pauseAnimator;
     bool gameIsPause = false;
     public GameObject itemPickupParent;
-    public Interactable nearestInteractable;
-    public BuildingData interactingBuilding;
-    [SerializeField] InteractUI interactUI;
     public Sprite emptySprite;
     public enum GameTab
     {
@@ -44,8 +42,16 @@ public class GameManager : MonoBehaviour
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;
-    [SerializeField] Sence _sence;
-    public Sence sence{get{return _sence;}}
+    public BuildingData interactingBuilding;
+    public Interactable nearestInteractable;
+    public PersonBehavior nearestPerson;
+    [SerializeField] InteractUI interactUI;
+    [SerializeField] PersonInfoUI personInfoUI;
+    
+    [SerializeField] Sence sence;
+    public Sence sence_{get{return sence;}}
+    Predicate<GameObject> interactableSenseFilter;
+    Predicate<GameObject> personSenseFilter;
     public int _selectedTool{get{return selectedTool;}}
     public static GameManager Instance{
         get{
@@ -60,16 +66,31 @@ public class GameManager : MonoBehaviour
         cameraManager = this.GetComponent<CameraManager>();
         timeManager = this.GetComponent<TimeManager>();
 
-        _sence.filter = delegate(GameObject gameObject){
-            if(gameObject == null){
+        interactableSenseFilter = delegate(GameObject gameObject){
+            if(gameObject == null)
                 return false;
-            }
-            if(gameObject.tag != "Interactable"){
+            if(gameObject.tag != "Interactable")
                 return false;
-            }
-            Interactable interactable =  gameObject.GetComponent<Interactable>();
-            return interactable != null;
+            Interactable interactable = gameObject.GetComponent<Interactable>();
+            if(interactable == null)
+                return false;
+            return true;
         };
+        personSenseFilter = delegate(GameObject gameObject){
+            if(gameObject == null)
+                return false;
+            if(gameObject.tag != "Person")
+                return false;
+            PersonBehavior personBehavior = gameObject.GetComponent<PersonBehavior>();
+            if(personBehavior == null)
+                return false;
+            if(personBehavior.personData.sleep == true)
+                return false;
+            return true;
+        };
+        sence.filter = interactableSenseFilter;
+
+        SelectTool(0);
     }
 
     private void OnValidate () {
@@ -122,8 +143,8 @@ public class GameManager : MonoBehaviour
         if(Input.GetButtonDown("View")){
             Debug.Log("View");
         }
-
-        GameObject nearestInteractableObject = _sence.FindNearest(PlayerTransform.position);
+        sence.filter = interactableSenseFilter;
+        GameObject nearestInteractableObject = sence.FindNearest(PlayerTransform.position);
         if(nearestInteractableObject != null){
             interactUI.MoveUIPositionFromTransform(nearestInteractableObject.transform);
             interactUI.visible = true;
@@ -132,6 +153,18 @@ public class GameManager : MonoBehaviour
         }else{
             nearestInteractable = null;
             interactUI.visible = false;
+        }
+
+        sence.filter = personSenseFilter;
+        GameObject nearestPersonObject = sence.FindNearest(PlayerTransform.position);
+        if(nearestPersonObject != null){
+            personInfoUI.MoveUIPositionFromTransform(nearestPersonObject.transform);
+            personInfoUI.visible = true;
+            nearestPerson = nearestPersonObject.GetComponent<PersonBehavior>();
+            personInfoUI.UpdateIcon(nearestPerson.personData);
+        }else{
+            nearestPerson = null;
+            personInfoUI.visible = false;
         }
     }
 

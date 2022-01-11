@@ -6,7 +6,7 @@ public class ConstructionArea : MonoBehaviour
 {
     public Transform followTransform;
     public GameObject sprite;
-    private List<Collider> colliderOverlaped = new List<Collider>();
+    [SerializeField] private List<Collider> colliderOverlaped = new List<Collider>();
     private List<string> overlapTag = new List<string>();
     private BoxCollider boxCollider;
     private BuildingPreset buildingData;

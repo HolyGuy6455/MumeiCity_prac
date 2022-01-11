@@ -158,6 +158,11 @@ public class PersonBehavior : MonoBehaviour
         ThisTask.Complete( personData.items.Count > amount );
     }
 
+    [Task]
+    void DoIHaveStaminaMoreThen(int amount){
+        ThisTask.Complete( personData.stamina > amount );
+    }
+
     // 아이템 갖다 넣으러 가기
     [Task]
     void GoPutInItem(){
@@ -264,6 +269,10 @@ public class PersonBehavior : MonoBehaviour
                 return false;
             }
         );
+        if(buildingList.Count < 1){
+            ThisTask.Fail();
+            return;
+        }
         this.target = buildingList[0].gameObject;
         aIDestination.target = this.target.transform;
         animator.SetBool("HasAGoal",true);
@@ -304,6 +313,14 @@ public class PersonBehavior : MonoBehaviour
         );
 
         if(this.personData.items.Count > 0){
+            ItemPreset itemPreset = ItemManager.GetItemPresetFromCode(this.personData.items[0].code);
+            switch (itemTag){
+                case "Food":
+                    this.personData.stamina += itemPreset.efficiency;
+                    break;
+                default:
+                    break;
+            }
             this.personData.items[0].amount -= 1;
             if(this.personData.items[0].amount <= 0){
                 this.personData.items[0].code = 0;
@@ -385,14 +402,17 @@ public class PersonBehavior : MonoBehaviour
     }
 
     public void SleepAndRecharging(){
-        if(this.personData.stamina < 100){
-            this.personData.stamina+=5;
+        if(this.personData.stamina < 1000){
+            this.personData.stamina += 5;
+        }
+        if(this.personData.stamina > 800){
+            this.personData.happiness += 5;
         }
     }
 
-    public void Tire(){
+    public void Tired(int amount){
         if(this.personData.stamina > 0){
-            this.personData.stamina--;
+            this.personData.stamina -= amount;
         }
     }
 }

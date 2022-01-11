@@ -8,6 +8,7 @@ public class PersonData : MediocrityData {
     public Vector3 position = new Vector3();
     public List<ItemSlotData> items = new List<ItemSlotData>();
     public int stamina;
+    public int happiness;
     public int workplaceID;
     public int homeID;
     public bool sleep;

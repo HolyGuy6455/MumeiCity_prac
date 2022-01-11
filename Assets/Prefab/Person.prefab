@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 649893549}
   m_Layer: 0
   m_Name: Person
-  m_TagString: Untagged
+  m_TagString: Person
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -373,7 +373,8 @@ MonoBehaviour:
     id: 0
     position: {x: 0, y: 0, z: 0}
     items: []
-    stamina: 0
+    stamina: 1000
+    happiness: 100
     workplaceID: 0
     homeID: 0
     sleep: 0

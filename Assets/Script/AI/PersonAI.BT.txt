@@ -8,13 +8,17 @@ tree("Root")
 tree("NightSleep")
 	while not IsItDayTime // 밤이예요?
 		fallback
-			tree("PutInItem") // 아이템 정리하고 마무리
 			sequence
+				DoIHaveItemMoreThen 0
+				tree("PutInItem") // 아이템 정리하고 마무리
+			sequence
+				not DoIHaveStaminaMoreThen 900
 				SearchingToTakeOutByTag "Food"	// 야식 챙겨야지
 				MoveToDestination	// 간다
 				TakeOutByTag "Food"	// 야식 꺼낸다
-				Wait 3.0			// 호와와 야식 구경하는거시에오
+				Wait 1.0			// 호와와 야식 구경하는거시에오
 				ConsumeItemByTag "Food"	// 와작 와작 마시썽
+			sequence		
 				GoToHome			// 집으로 가야지
 				MoveToDestination	// 간다
 				SleepAct			// zzZ

@@ -148,6 +148,8 @@ public class BuildingManager : MonoBehaviour {
         }
         Hittable hittable = Built.GetComponent<Hittable>();
         hittable.effectiveTool = nowBuilding.removalTool;
+        
+        // 경로 재설정
         astarPath.Scan();
 
         return true;

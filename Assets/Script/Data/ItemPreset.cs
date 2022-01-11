@@ -6,6 +6,7 @@ public class ItemPreset : ScriptableObject {
     public Sprite itemSprite = null;
     [TextArea] public string info;
     public List<string> tags = new List<string>();
+    public int efficiency;
 
     // public virtual void Use(ItemSlotData itemData){
     //     Debug.Log("Using "+ itemName); 

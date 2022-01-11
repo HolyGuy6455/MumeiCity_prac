@@ -8,6 +8,7 @@ TagManager:
   - Building
   - Plant
   - Interactable
+  - Person
   layers:
   - Default
   - TransparentFX
