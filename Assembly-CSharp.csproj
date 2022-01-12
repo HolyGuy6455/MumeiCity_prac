@@ -57,6 +57,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
      <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
      <Compile Include="Assets\Script\TilemapStart.cs" />
+     <Compile Include="Assets\Script\UI\PersonInfoUI.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
      <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
@@ -110,7 +111,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\PersonInfoUI.cs" />
+     <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />

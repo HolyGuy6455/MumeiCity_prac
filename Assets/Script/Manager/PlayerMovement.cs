@@ -3,18 +3,20 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5.0f;
-    public float jumpPower = 7.0f;
-    public Rigidbody rigidBody;
-    public Animator animator;
+    [SerializeField] float moveSpeed = 5.0f;
+    [SerializeField] float slowSpeed = 1.0f;
+    [SerializeField] float jumpPower = 7.0f;
+    [SerializeField] Rigidbody rigidBody;
+    [SerializeField] Animator animator;
+    [SerializeField] bool isJump = false;
+    [SerializeField] bool isAbleToJump = true;
+    [SerializeField] GameObject spriteObject;
     public Vector3 movement;
     public Transform shadow;
-    private bool isJump = false;
     RaycastHit hit;
     bool isRaycastHit;
     int groundLayerMask;
     public bool stop;
-    [SerializeField] GameObject spriteObject;
 
     // [SerializeField] Sence sence;
 
@@ -42,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(Input.GetButtonDown("Jump")/* && IsGrounded()*/){
+        if(isAbleToJump && Input.GetButtonDown("Jump") && IsGrounded()){
             isJump = true;
         }
 
@@ -124,11 +126,25 @@ public class PlayerMovement : MonoBehaviour
             movement.x = 0;
         if(VerticalRayCast)
             movement.z = 0;
-        rigidBody.MovePosition(rigidBody.position + movement * moveSpeed * Time.fixedDeltaTime);
+        rigidBody.MovePosition(rigidBody.position + movement * moveSpeed / slowSpeed * Time.fixedDeltaTime);
         if(isJump){
             rigidBody.AddForce(new Vector3(movement.x/3,1,movement.z/3)*jumpPower,ForceMode.Impulse);
             isJump = false;
         }
         // this.transform.position = Vector3.Lerp(this.transform.position,Input.mousePosition,Time.deltaTime * 10);
+    }
+
+    void SlowDown(float slowSpeed){
+        this.slowSpeed = slowSpeed;
+    }
+
+    void EnableJump(){
+        this.isAbleToJump = true;
+    }
+    void DisableJump(){
+        this.isAbleToJump = false;
+    }
+    void LookAtMonitor(){
+        animator.SetFloat("Backward",0);
     }
 }

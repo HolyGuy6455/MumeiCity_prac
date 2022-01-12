@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 
 /*
  * 인게임에서 보이는 건물의 GameObject
@@ -68,6 +69,9 @@ public class BuildingObject : MonoBehaviour
             Debug.Log("buildingData "+this.GetComponentInChildren<Interactable>());
             this.GetComponentInChildren<Interactable>().gameObject.SetActive(false);
         }
+
+        Light2D light = GetComponentInChildren<Light2D>();
+        light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
     }
 
     public void ShowWindow(){

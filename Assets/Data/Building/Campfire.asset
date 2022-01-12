@@ -19,6 +19,7 @@ MonoBehaviour:
   attributes: []
   interactable: 0
   workplace: 0
+  lightSource: 1
   buildTool: 3
   removalTool: 4
   buildToolIndex: 0

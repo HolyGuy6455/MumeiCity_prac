@@ -15,6 +15,7 @@ public class BuildingPreset : ScriptableObject {
     public List<string> attributes;
     public bool interactable;
     public bool workplace;
+    public int lightSourceIntensity;
     public Tool.ToolType buildTool;
     public Tool.ToolType removalTool;
     public int buildToolIndex;
