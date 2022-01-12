@@ -18,7 +18,7 @@ public class ItemDropInfo{
                 break;
             }
             chanceTemp -= 1.0f;
-            Debug.Log("Drop!");
+            // Debug.Log("Drop!");
 
             Vector3 popForce = new Vector3();
             popForce.x = Random.Range(-ItemDroper.RANGE, ItemDroper.RANGE);

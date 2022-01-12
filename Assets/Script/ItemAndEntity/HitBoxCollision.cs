@@ -10,7 +10,7 @@ public class HitBoxCollision : MonoBehaviour{
         if(other.tag != "HitBox"){
             return;
         }
-        Debug.Log("TriggerEnter "+other.gameObject);
+        // Debug.Log("TriggerEnter "+other.gameObject);
         other.gameObject.GetComponentInParent<Hittable>().Hit(tool);
     }
 

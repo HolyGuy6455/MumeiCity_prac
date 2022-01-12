@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class BuildingUI : MonoBehaviour{
+public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
     public List<BuildingPreset> buildingDataList;
 
     [SerializeField] Image[] toolButtonsSelectionImages;
@@ -91,5 +92,11 @@ public class BuildingUI : MonoBehaviour{
         GameManager.Instance.buildingManager.Build();
     }
 
+    public void OnPointerEnter(PointerEventData eventData) {
+        GameManager.Instance.mouseOnUI = true;
+    }
+    public void OnPointerExit(PointerEventData eventData) {
+        GameManager.Instance.mouseOnUI = false;
+    }
 
 }

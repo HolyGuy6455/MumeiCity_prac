@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     Predicate<GameObject> interactableSenseFilter;
     Predicate<GameObject> personSenseFilter;
     public int _selectedTool{get{return selectedTool;}}
+    public bool mouseOnUI;
     public static GameManager Instance{
         get{
             return singleton_instance;

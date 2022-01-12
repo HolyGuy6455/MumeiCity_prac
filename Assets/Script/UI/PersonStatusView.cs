@@ -7,15 +7,16 @@ public class PersonStatusView : MonoBehaviour{
     [SerializeField] Animator animator;
     [SerializeField] Image staminaImage;
     [SerializeField] Image happinessImage;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [SerializeField] Image personImage;
+    public void UpdateUI(PersonData personData){
+        staminaImage.fillAmount = ((float)personData.stamina)/1000.0f;
+        happinessImage.fillAmount = ((float)personData.happiness)/100.0f;
+        animator.SetBool("IsWorking",!personData.sleep);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SetVisible(bool visible){
+        staminaImage.enabled = visible;
+        happinessImage.enabled = visible;
+        personImage.enabled = visible;
     }
 }

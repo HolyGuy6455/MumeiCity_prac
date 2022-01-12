@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if(Input.GetButton("Fire1")){
+        if(Input.GetButton("Fire1") && !GameManager.Instance.mouseOnUI){
             Tool toolNowHold = GameManager.Instance.GetToolNowHold();
             switch (toolNowHold.name){
                 case "Axe":

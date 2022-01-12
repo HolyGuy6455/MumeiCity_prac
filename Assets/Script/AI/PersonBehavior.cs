@@ -390,7 +390,7 @@ public class PersonBehavior : MonoBehaviour
         this.personData.items = this.personData.items.FindAll(item => item.code != 0);
 
         int length = this.personData.items.Count;
-        Debug.Log("length? : "+length);
+        // Debug.Log("length? : "+length);
         for (int i = 0; i < length; i++){
             pocketItemSlots[i].SetActive(true);
             pocketItemSlots[i].transform.localPosition = new Vector3(((float)-length+1)/4 + ((float)i)/2,0.5f,0);

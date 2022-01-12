@@ -39,6 +39,7 @@
      <Compile Include="Assets\Script\Data\HouseData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
+     <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\Note.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\HitBoxCollision.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
@@ -111,7 +112,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
+     <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
