@@ -33,7 +33,7 @@ public class BuildingObject : MonoBehaviour
                 buildingData.mediocrityData = new ForesterHutData();
                 break;
             case "Tent":
-                buildingData.mediocrityData = new HouseData(4);
+                buildingData.mediocrityData = new HouseData(12);
                 break;
             default:
                 break;
@@ -46,9 +46,15 @@ public class BuildingObject : MonoBehaviour
             delegate(Component component){
                 GameManager.Instance.buildingManager.astarPath.Scan();
             };
+
+        HirePerson();
     }
 
     private void Update() {
+        HirePerson();
+    }
+
+    private void HirePerson(){
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
             List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
             people = people.FindAll(person=> (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
@@ -59,6 +65,7 @@ public class BuildingObject : MonoBehaviour
         }
     }
 
+    // 오브젝트의 초기화
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
         this.buildingData = buildingData;

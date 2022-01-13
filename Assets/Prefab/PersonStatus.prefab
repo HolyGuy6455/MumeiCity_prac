@@ -151,7 +151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 315450279639172192}
   staminaImage: {fileID: 2915927378349035786}
+  staminaBGImage: {fileID: 2915927378098465589}
   happinessImage: {fileID: 2915927378865273143}
+  happinessBGImage: {fileID: 2915927378078315705}
+  personImage: {fileID: 2915927377162659418}
 --- !u!1 &2915927378078315711
 GameObject:
   m_ObjectHideFlags: 0

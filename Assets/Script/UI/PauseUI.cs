@@ -149,11 +149,11 @@ public class PauseUI : MonoBehaviour{
             Vector3 location = new Vector3();
             location = data.position;
             // 데이터로 시민을 생성한다
-            GameObject itemObject = Instantiate(GameManager.Instance.peopleManager.normalPerson,location,Quaternion.identity);
-            PersonBehavior personCommonAI = itemObject.GetComponent<PersonBehavior>();
+            GameObject personObject = Instantiate(GameManager.Instance.peopleManager.normalPerson,location,Quaternion.identity);
+            PersonBehavior personCommonAI = personObject.GetComponent<PersonBehavior>();
             personCommonAI.personData = data;
             personCommonAI.UpdateItemView();
-            itemObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
+            personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
         }
 
     }

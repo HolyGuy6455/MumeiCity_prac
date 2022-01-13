@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TentUI : CommonTaskUI{
     [SerializeField] PersonStatusView[] personStatusViews;
     [SerializeField] GameObject PersonStatusViewParent;
-    HouseData houseData;
+    [SerializeField] HouseData houseData;
     // Start is called before the first frame update
     protected override void Start(){
         base.Start();
@@ -23,12 +23,16 @@ public class TentUI : CommonTaskUI{
         }
         for (int i = 0; i < personStatusViews.Length; i++){
             if(i >= houseData.personIDList.Length){
+                personStatusViews[i].SetVisible(false);
                 continue;
             }
             int personID = houseData.personIDList[i];
             PersonBehavior person = PeopleManager.FindPersonWithID(personID);
             if(person != null){
+                personStatusViews[i].SetVisible(true);
                 personStatusViews[i].UpdateUI(person.personData);
+            }else{
+                // personStatusViews[i].SetVisible(false);
             }
         }
     }

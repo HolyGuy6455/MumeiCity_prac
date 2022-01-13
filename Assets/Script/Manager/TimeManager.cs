@@ -20,7 +20,6 @@ public class TimeManager : MonoBehaviour{
     public float _blendValue{get{return blendValue;}}
     public int _timeInDay{get{return timeInDay;}}
     public int _timeValue{get{return timeValue;}set{timeValue=value;}}
-    bool dayTime;
     public enum TimeSlot{
         NONE,
         MORNING,
@@ -41,6 +40,8 @@ public class TimeManager : MonoBehaviour{
             }
         }
     }
+    TimeSlot lastTimeSlot = TimeSlot.NONE;
+    bool dayTime;
     public bool IsItDayTime(){return dayTime;}
 
     public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, TimeManager.TimeEvent timeEvent){
@@ -62,6 +63,10 @@ public class TimeManager : MonoBehaviour{
     void Update(){
         elapsedDate = timeValue/lengthOfDay;
         timeInDay = timeValue%lengthOfDay;
+        if(lastTimeSlot != _timeSlot){
+            lastTimeSlot = _timeSlot;
+            OnTimeSlotChanged();
+        }
         switch (_timeSlot){
             case TimeSlot.MORNING:
                 blendValue = ((float)(morning-timeInDay))/((float)(morning));
@@ -78,16 +83,7 @@ public class TimeManager : MonoBehaviour{
             default:
                 break;
         }
-        bool newDayTime = (blendValue<0.5);
-        if(dayTime != newDayTime){
-            dayTime = newDayTime;
-            if(dayTime){
-                // 출근시간
-                GameManager.Instance.peopleManager.ResetHouseInfomation();
-            }else{
-                // 퇴근시간
-            }
-        }
+        dayTime = (blendValue<0.5);
         daylightAnimator.SetFloat("Blend",blendValue);
 
         List<TimeEventQueueTicket> discardList = new List<TimeEventQueueTicket>();
@@ -106,7 +102,31 @@ public class TimeManager : MonoBehaviour{
     IEnumerator CountTime(float delayTime) {
       timeValue++;
       yield return new WaitForSeconds(delayTime);
-      StartCoroutine("CountTime", 1/ticPerSecond);
+      if(ticPerSecond == 0){
+          // 실수로 0이 들어가면, 그냥 10초뒤에 실행되게 한다. 10초도 길어...
+          StartCoroutine("CountTime", 10);
+      }else{
+          StartCoroutine("CountTime", 1/ticPerSecond);
+      }
+      
+   }
+
+    void OnTimeSlotChanged(){
+        switch (_timeSlot){
+            case TimeSlot.MORNING:
+                GameManager.Instance.peopleManager.OfferJob();
+                break;
+            case TimeSlot.DAY:
+                GameManager.Instance.peopleManager.ResetHouseInfomation();
+                break;
+            case TimeSlot.EVENING:
+                break;
+            case TimeSlot.NIGHT:
+                GameManager.Instance.peopleManager.SurveyHappiness();
+                break;
+            default:
+                break;
+       }
    }
 }
 

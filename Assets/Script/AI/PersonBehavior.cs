@@ -402,11 +402,9 @@ public class PersonBehavior : MonoBehaviour
     }
 
     public void SleepAndRecharging(){
+        PeopleManager peopleManager = GameManager.Instance.peopleManager;
         if(this.personData.stamina < 1000){
             this.personData.stamina += 5;
-        }
-        if(this.personData.stamina > 800){
-            this.personData.happiness += 5;
         }
     }
 
