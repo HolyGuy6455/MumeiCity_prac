@@ -20,11 +20,16 @@ MonoBehaviour:
   - Fruit
   interactable: 0
   workplace: 0
+  workTier: 0
+  lightSourceIntensity: 0
   buildTool: 6
   removalTool: 2
   buildToolIndex: 0
   resourceList: []
   dropAmounts:
-  - name: Berry
+  - preset: {fileID: 11400000, guid: 327a9c1c77a8a8d458575cd52896c90e, type: 2}
     chance: 1
     itemDropType: 1
+  - preset: {fileID: 11400000, guid: 327a9c1c77a8a8d458575cd52896c90e, type: 2}
+    chance: 0.3
+    itemDropType: 2

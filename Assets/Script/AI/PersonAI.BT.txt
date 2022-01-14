@@ -27,6 +27,9 @@ tree("NightSleep")
 tree("DayWork")
 	while IsItDayTime // 낮이예요?
 		fallback
+			sequence
+				not AmIHappyToWork	// 오늘 일하기 싫은가?
+				SleepAct			// zzZ
 			AwakeAct	// 일단 잠에서 깨어납시다
 			sequence
 				DoIHaveItemMoreThen 5 	// 아이템이 꽉차면

@@ -20,11 +20,13 @@ MonoBehaviour:
   - Mining
   interactable: 0
   workplace: 0
+  workTier: 0
+  lightSourceIntensity: 0
   buildTool: 8
   removalTool: 8
   buildToolIndex: 0
   resourceList: []
   dropAmounts:
-  - name: Gold
+  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
     chance: 0.3
     itemDropType: 2

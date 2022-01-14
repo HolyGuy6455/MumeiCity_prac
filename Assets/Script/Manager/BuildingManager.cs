@@ -97,7 +97,7 @@ public class BuildingManager : MonoBehaviour {
         List<BuildingResource> materialList = nowBuilding.resourceList;
         bool doWeHaveMaterialEnough = true;
         foreach (BuildingResource material in materialList){
-            if(inventoryManager.GetItemAmount(material.name) < material.amount){
+            if(inventoryManager.GetItemAmount(material.preset.name) < material.amount){
                 doWeHaveMaterialEnough = false;
                 Debug.Log("Not Enough Material");
                 break;
@@ -109,7 +109,7 @@ public class BuildingManager : MonoBehaviour {
         }
         // 재료가 있다면 재료를 소모한다
         foreach (BuildingResource material in materialList){
-            inventoryManager.ConsumeItem(material.name,material.amount);
+            inventoryManager.ConsumeItem(material.preset.name,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다
         Vector3 location = new Vector3();
@@ -144,7 +144,7 @@ public class BuildingManager : MonoBehaviour {
 
         // DropItem을 설정
         if(nowBuilding.dropAmounts.Count > 0){
-            Built.AddComponent<ItemDroper>().InitializeItemDrop(nowBuilding);
+            Built.AddComponent<ItemDroper>().InitializeItemDrop(nowBuilding.dropAmounts);
         }
         Hittable hittable = Built.GetComponent<Hittable>();
         hittable.effectiveTool = nowBuilding.removalTool;

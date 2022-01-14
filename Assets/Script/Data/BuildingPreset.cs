@@ -15,6 +15,7 @@ public class BuildingPreset : ScriptableObject {
     public List<string> attributes;
     public bool interactable;
     public bool workplace;
+    public int workTier;
     public int lightSourceIntensity;
     public Tool.ToolType buildTool;
     public Tool.ToolType removalTool;
@@ -29,6 +30,6 @@ public class BuildingPreset : ScriptableObject {
 }
 [Serializable]
 public class BuildingResource{
-    public string name;
+    public ItemPreset preset;
     public int amount;
 }

@@ -375,6 +375,25 @@ public class PersonBehavior : MonoBehaviour
         ThisTask.Succeed();
     }
 
+    [Task]
+    void AmIHappyToWork(){
+        int workplaceID = this.personData.workplaceID;
+        BuildingObject buildingObject = GameManager.Instance.buildingManager.FindBuildingObjectWithID(workplaceID);
+        if(buildingObject == null){
+            // 백수는 직장이 없으니 직장에 만족하지 않은걸로 취급
+            ThisTask.Fail();
+            return;
+        }
+        int workTier = buildingObject.buildingData.buildingPreset.workTier;
+        if(workTier < 1){
+            ThisTask.Succeed();
+            return;
+        }
+        int happiness = this.personData.happiness;
+        int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier-1];
+        ThisTask.Complete( happiness > happinessNeeds );
+    }
+
     void LoseMyTarget() {
         target = null;
         aIDestination.target = this.transform;
@@ -402,10 +421,13 @@ public class PersonBehavior : MonoBehaviour
     }
 
     public void SleepAndRecharging(){
-        PeopleManager peopleManager = GameManager.Instance.peopleManager;
-        if(this.personData.stamina < 1000){
-            this.personData.stamina += 5;
-        }
+        // PeopleManager peopleManager = GameManager.Instance.peopleManager;
+        // if(this.personData.stamina < 1000){
+        //     this.personData.stamina -= 5;
+        // }
+
+        // do nothing
+        
     }
 
     public void Tired(int amount){

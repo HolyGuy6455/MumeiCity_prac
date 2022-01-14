@@ -190,6 +190,7 @@ GameObject:
   - component: {fileID: 909571268637782953}
   - component: {fileID: 938883647}
   - component: {fileID: 7641753704875566351}
+  - component: {fileID: 992389515}
   m_Layer: 0
   m_Name: Prey
   m_TagString: Untagged
@@ -229,6 +230,7 @@ MonoBehaviour:
   animator: {fileID: 909571268637782953}
   HP: 1
   hitBoxCollider: {fileID: 0}
+  effectiveTool: 0
 --- !u!95 &909571268637782953
 Animator:
   serializedVersion: 3
@@ -264,7 +266,7 @@ MonoBehaviour:
   rigidbody: {fileID: 7641753704875566351}
   animator: {fileID: 909571268637782953}
   noticeDistance: 3
-  jumpPower: 12
+  jumpPower: 8
 --- !u!54 &7641753704875566351
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -281,6 +283,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &992389515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909571268637782958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - preset: {fileID: 11400000, guid: 947a5abf120e257409c2703fbeca4401, type: 2}
+    chance: 1
+    itemDropType: 1
 --- !u!1 &7870593606876094272
 GameObject:
   m_ObjectHideFlags: 0

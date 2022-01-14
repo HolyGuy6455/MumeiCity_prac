@@ -119,7 +119,7 @@ public class PauseUI : MonoBehaviour{
             BuiltObject.Initialize(data);
             // DropItem을 설정
             if(buildingPreset.dropAmounts.Count > 0){
-                Built.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset);
+                Built.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset.dropAmounts);
             }
         }
 

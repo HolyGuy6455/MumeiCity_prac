@@ -17,7 +17,7 @@ public class ResourceView : MonoBehaviour{
             resourceImage.sprite = GameManager.Instance.emptySprite;
             resourceAmount.text = "";
         }else{
-            this.itemPreset = ItemManager.GetItemPresetFromCode(ItemManager.GetCodeFromItemName(buildingMaterial.name));
+            this.itemPreset = ItemManager.GetItemPresetFromCode(ItemManager.GetCodeFromItemName(buildingMaterial.preset.name));
             resourceName.text = itemPreset.name;
             resourceImage.sprite = itemPreset.itemSprite;
             resourceAmount.text = buildingMaterial.amount.ToString();

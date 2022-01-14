@@ -19,6 +19,8 @@ MonoBehaviour:
   attributes: []
   interactable: 1
   workplace: 1
+  workTier: 1
+  lightSourceIntensity: 0
   buildTool: 8
   removalTool: 8
   buildToolIndex: 0

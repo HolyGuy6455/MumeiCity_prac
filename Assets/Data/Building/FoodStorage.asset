@@ -20,6 +20,8 @@ MonoBehaviour:
   - Food
   interactable: 1
   workplace: 1
+  workTier: 1
+  lightSourceIntensity: 0
   buildTool: 6
   removalTool: 4
   buildToolIndex: 0

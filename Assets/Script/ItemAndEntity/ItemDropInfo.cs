@@ -2,7 +2,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class ItemDropInfo{
-    public string name;
+    public ItemPreset preset;
     public float chance;
     public ItemDropType itemDropType;
     public void DropItem(Component component){
@@ -18,7 +18,7 @@ public class ItemDropInfo{
                 break;
             }
             chanceTemp -= 1.0f;
-            // Debug.Log("Drop!");
+            Debug.Log("Drop! : " + preset.name);
 
             Vector3 popForce = new Vector3();
             popForce.x = Random.Range(-ItemDroper.RANGE, ItemDroper.RANGE);
@@ -27,8 +27,6 @@ public class ItemDropInfo{
 
             GameObject itemObject = GameObject.Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location+popForce/10,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            byte itemcode = ItemManager.GetCodeFromItemName(name);
-            ItemPreset preset = ItemManager.GetItemPresetFromCode(itemcode);
             itemPickup.itemData = ItemPickupData.create(preset);
             itemPickup.IconSpriteUpdate();
             

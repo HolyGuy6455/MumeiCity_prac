@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
     
     public ItemSlotData itemHeldInHand;
+    [SerializeField] RectTransform itemHeldInHandTransform;
     [SerializeField] Image itemHeldInHandImage;
     [SerializeField] Text itemHeldInHandAmount;
     public ItemSlotData[] itemData;
@@ -21,7 +22,7 @@ public class Inventory : MonoBehaviour {
     }
 
     private void Update() {
-        itemHeldInHandImage.transform.position = Input.mousePosition;
+        itemHeldInHandTransform.transform.position = Input.mousePosition;
     }
 
     public int GetItemAmount(string itemName){
