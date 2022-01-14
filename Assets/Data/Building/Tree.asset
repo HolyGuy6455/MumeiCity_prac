@@ -26,7 +26,7 @@ MonoBehaviour:
   removalTool: 4
   buildToolIndex: 0
   resourceList:
-  - name: Pinecone
+  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
     amount: 1
   dropAmounts:
   - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}

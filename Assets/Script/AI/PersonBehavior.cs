@@ -282,8 +282,11 @@ public class PersonBehavior : MonoBehaviour
     // 아이템 꺼내기
     [Task]
     void TakeOutByTag(string itemTag){
-        BuildingObject buildingObject =  this.target.GetComponent<BuildingObject>();
-        if(buildingObject == null){
+        BuildingObject buildingObject;
+        try{
+            buildingObject = this.target.GetComponent<BuildingObject>();
+        }
+        catch (System.NullReferenceException){
             ThisTask.Fail();
             return;
         }
@@ -303,6 +306,9 @@ public class PersonBehavior : MonoBehaviour
 
         this.personData.items.Add(ItemSlotData.Create(taken.itemPreset));
         taken.amount--;
+        if(taken.amount <= 0){
+            taken.code = 0;
+        }
         UpdateItemView();
         ThisTask.Succeed();
     }
@@ -317,6 +323,9 @@ public class PersonBehavior : MonoBehaviour
             switch (itemTag){
                 case "Food":
                     this.personData.stamina += itemPreset.efficiency;
+                    break;
+                case "Present":
+                    this.personData.happiness += itemPreset.efficiency;
                     break;
                 default:
                     break;
@@ -355,7 +364,7 @@ public class PersonBehavior : MonoBehaviour
         // if(this.personData.sleep == true){
         //     return;
         // }
-        LoseMyTarget();
+        // LoseMyTarget();
         this.personData.sleep = true;
         animator.SetBool("Sleep",true);
         think = "Go to sleep! Good Night!";
@@ -363,6 +372,7 @@ public class PersonBehavior : MonoBehaviour
             string ticketName = "person"+this.personData.id+"_sleep";
             sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,SleepAndRecharging);
         }
+        ThisTask.Succeed();
     }
     [Task]
     void AwakeAct(){
@@ -423,7 +433,7 @@ public class PersonBehavior : MonoBehaviour
     public void SleepAndRecharging(){
         // PeopleManager peopleManager = GameManager.Instance.peopleManager;
         // if(this.personData.stamina < 1000){
-        //     this.personData.stamina -= 5;
+        //     this.personData.stamina += 5;
         // }
 
         // do nothing

@@ -14,15 +14,19 @@ public class TaskUIBundle : MonoBehaviour{
         inventoryUI.LoadItemSlotData();
     }
     public void LoadForesterUIData(){
+        inventoryUI.LoadItemSlotData();
         foresterUI.UpdateUI();
     }
     public void LoadMineUIData(){
+        inventoryUI.LoadItemSlotData();
         mineUI.UpdateUI();
     }
     public void LoadFoodStorageUIData(){
+        inventoryUI.LoadItemSlotData();
         foodStorageUI.UpdateUI();
     }
     public void LoadTentUIData(){
+        inventoryUI.LoadItemSlotData();
         tentUI.UpdateUI();
     }
 }

@@ -3,14 +3,15 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour{
-    [SerializeField] ItemSlot[] slots;
+    [SerializeField] ItemSlot[] itemSlots;
     [SerializeField] Image ItemInfoImage;
     [SerializeField] Text ItemInfoName;
     [SerializeField] Text ItemInfoText;
+    [SerializeField] TagSlot[] itemTags;
 
     void Start(){
-        slots = this.GetComponentsInChildren<ItemSlot>();
-        foreach (ItemSlot slot in slots){
+        itemSlots = this.GetComponentsInChildren<ItemSlot>();
+        foreach (ItemSlot slot in itemSlots){
             slot.onFocusCallback += OnFocusSlot;
             slot.onClickCallback += OnClickSlot;
         }
@@ -18,9 +19,9 @@ public class InventoryUI : MonoBehaviour{
 
     public void LoadItemSlotData(){
         ItemSlotData[] itemSlotData = GameManager.Instance.inventory.itemData;
-        for (int i = 0; i < slots.Length; i++){
-            slots[i].data = itemSlotData[i];
-            slots[i].UpdateUI();
+        for (int i = 0; i < itemSlots.Length; i++){
+            itemSlots[i].data = itemSlotData[i];
+            itemSlots[i].UpdateUI();
         }
     }
 
@@ -31,6 +32,8 @@ public class InventoryUI : MonoBehaviour{
         ItemInfoImage.sprite = inventorySlot.data.itemPreset.itemSprite;
         ItemInfoName.text = inventorySlot.data.itemPreset.name;
         ItemInfoText.text = inventorySlot.data.itemPreset.info;
+
+        itemTags[0].UpdateUI(inventorySlot.data.itemPreset.tags[0]);
     }
 
     private void OnClickSlot(ItemSlot inventorySlot, PointerEventData eventData){

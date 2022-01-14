@@ -35,6 +35,7 @@ public class TentUI : CommonTaskUI{
                 // personStatusViews[i].SetVisible(false);
             }
         }
+        UpdateUI();
     }
 
     public override void UpdateUI(){
