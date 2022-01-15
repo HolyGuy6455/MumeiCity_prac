@@ -83,6 +83,7 @@
      <Compile Include="Assets\Script\UI\TentUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
+     <Compile Include="Assets\Script\UI\TagSlot.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />
@@ -113,7 +114,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\TagSlot.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
@@ -859,6 +859,22 @@
     <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
       <Project>{1238dc59-38c2-172e-d237-48943726a517}</Project>
       <Name>AstarPathfindingProjectEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnity.csproj">
+      <Project>{bb34e9d0-0ac7-8826-28e3-b9168459c52d}</Project>
+      <Name>FMODUnity</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityEditor.csproj">
+      <Project>{2273bdd2-2a0b-109f-8754-c711fa76df8e}</Project>
+      <Name>FMODUnityEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="FMODUnityResonance.csproj">
+      <Project>{2c5026e5-1b3d-bc90-d85c-9151a87b3e76}</Project>
+      <Name>FMODUnityResonance</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
