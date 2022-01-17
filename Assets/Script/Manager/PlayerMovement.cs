@@ -54,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
                 interactable.Interact();
             }
         }
+        bool walking = false;
 
         if(Input.GetButton("Fire1") && !GameManager.Instance.mouseOnUI){
             Tool toolNowHold = GameManager.Instance.GetToolNowHold();
@@ -74,11 +75,18 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetInteger("ActCode",5);
                     break;
                 default:
+                    walking = true;
                     animator.SetInteger("ActCode",0);
                     break;
             }
         }else if(Input.GetButtonUp("Fire1")){
             animator.SetInteger("ActCode",0);
+        }
+
+        if(Input.GetButton("Crouch")){
+            animator.SetFloat("Crouch", -1);
+        }else{
+            animator.SetFloat("Crouch", 1);
         }
 
         animator.SetBool("IsJumping",!IsGrounded());
@@ -93,9 +101,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         if(movement.z <= -0.01f){
-            animator.SetFloat("Backward",0);
-        }else if(movement.z >= 0.01f){
             animator.SetFloat("Backward",1);
+            
+        }else if(movement.z >= 0.01f){
+            animator.SetFloat("Backward",-1);
         }
     }
 
@@ -145,6 +154,6 @@ public class PlayerMovement : MonoBehaviour
         this.isAbleToJump = false;
     }
     void LookAtMonitor(){
-        animator.SetFloat("Backward",0);
+        animator.SetFloat("Backward",1);
     }
 }

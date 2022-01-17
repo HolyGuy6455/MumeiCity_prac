@@ -79,9 +79,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 2256302306461006844, guid: 96d315f4828e2c144a41bf409b2e9753, type: 3}
+      value: {fileID: 2352544708806120410, guid: 966df4ea33821a94ca98fa6e4f0acf2e, type: 3}
     - time: 0.25
-      value: {fileID: 658842594160552371, guid: 96d315f4828e2c144a41bf409b2e9753, type: 3}
+      value: {fileID: 8834226784525004959, guid: 966df4ea33821a94ca98fa6e4f0acf2e, type: 3}
     attribute: m_Sprite
     path: Sprite/Character
     classID: 212
@@ -115,8 +115,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 2256302306461006844, guid: 96d315f4828e2c144a41bf409b2e9753, type: 3}
-    - {fileID: 658842594160552371, guid: 96d315f4828e2c144a41bf409b2e9753, type: 3}
+    - {fileID: 2352544708806120410, guid: 966df4ea33821a94ca98fa6e4f0acf2e, type: 3}
+    - {fileID: 8834226784525004959, guid: 966df4ea33821a94ca98fa6e4f0acf2e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -336,4 +336,53 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.41666666
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: SlowDown
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 1
+    intParameter: 0
+    messageOptions: 0
