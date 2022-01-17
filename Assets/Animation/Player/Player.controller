@@ -164,7 +164,7 @@ BlendTree:
   m_Name: Blend Tree
   m_Childs:
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: b0d3f6f5136b5f24eb351ab3c098f7f7, type: 2}
+    m_Motion: {fileID: 7400000, guid: 8c3c8c917a8db624791a54e50f8117c9, type: 2}
     m_Threshold: 0
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -172,7 +172,7 @@ BlendTree:
     m_DirectBlendParameter: Horizontal
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 8c3c8c917a8db624791a54e50f8117c9, type: 2}
+    m_Motion: {fileID: 7400000, guid: b0d3f6f5136b5f24eb351ab3c098f7f7, type: 2}
     m_Threshold: 1
     m_Position: {x: 0, y: 0}
     m_TimeScale: 1
@@ -643,7 +643,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Backward
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
@@ -655,7 +655,7 @@ AnimatorController:
     m_Controller: {fileID: 0}
   - m_Name: Crouch
     m_Type: 1
-    m_DefaultFloat: 0
+    m_DefaultFloat: 1
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}

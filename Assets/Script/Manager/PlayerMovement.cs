@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator animator;
     [SerializeField] bool isJump = false;
     [SerializeField] bool isAbleToJump = true;
+    [SerializeField] bool isAbleToReflect = true;
     [SerializeField] GameObject spriteObject;
     public Vector3 movement;
     public Transform shadow;
@@ -54,7 +55,6 @@ public class PlayerMovement : MonoBehaviour
                 interactable.Interact();
             }
         }
-        bool walking = false;
 
         if(Input.GetButton("Fire1") && !GameManager.Instance.mouseOnUI){
             Tool toolNowHold = GameManager.Instance.GetToolNowHold();
@@ -75,7 +75,6 @@ public class PlayerMovement : MonoBehaviour
                     animator.SetInteger("ActCode",5);
                     break;
                 default:
-                    walking = true;
                     animator.SetInteger("ActCode",0);
                     break;
             }
@@ -94,10 +93,12 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log("IsGrounded : " + IsGrounded());
         // rigidBody.useGravity = !IsGrounded();
 
-        if(movement.x <= -0.01f){
-            spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
-        }else if(movement.x >= 0.01f){
-            spriteObject.transform.localScale = new Vector3(1f,1f,1f);
+        if(isAbleToReflect){
+            if(movement.x <= -0.01f){
+                spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
+            }else if(movement.x >= 0.01f){
+                spriteObject.transform.localScale = new Vector3(1f,1f,1f);
+            }
         }
 
         if(movement.z <= -0.01f){
@@ -144,6 +145,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void SlowDown(float slowSpeed){
+        if(!IsGrounded()){
+            return;
+        }
         this.slowSpeed = slowSpeed;
     }
 
@@ -152,6 +156,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void DisableJump(){
         this.isAbleToJump = false;
+    }
+    void EnableReflect(){
+        this.isAbleToReflect = true;
+    }
+    void DisableReflect(){
+        this.isAbleToReflect = false;
     }
     void LookAtMonitor(){
         animator.SetFloat("Backward",1);
