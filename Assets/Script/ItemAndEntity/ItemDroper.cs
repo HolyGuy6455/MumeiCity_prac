@@ -14,7 +14,7 @@ public class ItemDroper : MonoBehaviour{
         Hittable hittable = this.GetComponent<Hittable>();
 
         // 기존에 있던 것들을 먼저 지운다
-        foreach (ItemDropInfo itemDropInfo in this.dropAmounts){
+        foreach (ItemDropInfo itemDropInfo in dropAmounts){
             switch (itemDropInfo.itemDropType){
                 case ItemDropInfo.ItemDropType.DESTROY:
                     hittable.EntityDestroyEventHandler -= itemDropInfo.DropItem;

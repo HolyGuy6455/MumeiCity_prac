@@ -12,7 +12,7 @@ public class BuildingPreset : ScriptableObject {
     public Vector3 relativeLocation;
     public Sprite sprite;
     public Sprite spriteBroken;
-    public int healthPointMax;
+    public int healthPointMax = 10;
     [TextArea] public string info;
     public List<string> attributes;
     public bool interactable;

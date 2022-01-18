@@ -3,6 +3,7 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public ItemPickupData itemData;
+    [SerializeField] SpriteRenderer spriteRenderer;
 
     void Start() {
         IconSpriteUpdate();
@@ -11,7 +12,7 @@ public class ItemPickup : MonoBehaviour
     public void IconSpriteUpdate(){
         if(itemData == null)
             return;
-        this.GetComponentInChildren<SpriteRenderer>().sprite = itemData.itemPreset.itemSprite;
+        spriteRenderer.sprite = itemData.itemPreset.itemSprite;
     }
 
     public void PickUp(){

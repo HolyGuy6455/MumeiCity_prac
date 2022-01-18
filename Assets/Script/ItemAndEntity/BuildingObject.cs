@@ -12,6 +12,7 @@ public class BuildingObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
     public GameObject shadowObject;
+    [SerializeField] float percentage_test;
 
     private void Start() {
         // TODO
@@ -79,7 +80,9 @@ public class BuildingObject : MonoBehaviour
             delegate(Component component){
                 GameManager.Instance.buildingManager.astarPath.Scan();
             };
+        hittable.EntityHitEventHandler += CheckHP;
         hittable.SetEffectiveTool(buildingPreset.removalTool);
+        hittable.HP = buildingPreset.healthPointMax;
 
         Light2D light = GetComponentInChildren<Light2D>();
         light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
@@ -114,7 +117,13 @@ public class BuildingObject : MonoBehaviour
         if(hittable is null){
             return;
         }
-        
+        float percentage = (float)hittable.HP / (float)buildingData.buildingPreset.healthPointMax;
+        if( percentage < 0.5f ){
+            spriteRenderer.sprite = buildingData.buildingPreset.spriteBroken;
+        }else{
+            spriteRenderer.sprite = buildingData.buildingPreset.sprite;
+        }
+        percentage_test = percentage;
     }
 
 }
