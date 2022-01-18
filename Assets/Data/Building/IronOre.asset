@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
-  m_Name: Mine
+  m_Name: IronOre
   m_EditorClassIdentifier: 
-  scale: {x: 2, y: 2, z: 2}
-  relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: 21300000, guid: c6167795ecaf16e4885e507ce6803ff9, type: 3}
-  spriteBroken: {fileID: 0}
-  info: Dig up minerals and store them here.
-  attributes: []
-  interactable: 1
-  workplace: 1
-  workTier: 1
+  scale: {x: 1, y: 1, z: 1}
+  relativeLocation: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 7173273053214142725, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  spriteBroken: {fileID: -5937200866895562579, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  info: You can dig Irons here.
+  attributes:
+  - Mining
+  interactable: 0
+  workplace: 0
+  workTier: 0
   lightSourceIntensity: 0
   buildTool: 8
   removalTool:
   - tool: 8
-    damage: 10
+    damage: 3
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []

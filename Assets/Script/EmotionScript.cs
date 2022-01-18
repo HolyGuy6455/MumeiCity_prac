@@ -10,7 +10,7 @@ public class EmotionScript : MonoBehaviour{
     
     // Start is called before the first frame update
     void Start(){
-        StartCoroutine("CountTime", term);
+        // StartCoroutine("CountTime", term);
     }
 
     // Update is called once per frame

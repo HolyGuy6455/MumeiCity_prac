@@ -290,8 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3294552732431657724}
   HP: 10
-  hitBoxCollider: {fileID: 0}
-  effectiveTool: 0
+  hitBoxCollider: {fileID: 5291611408930266337}
 --- !u!95 &3294552732431657724
 Animator:
   serializedVersion: 3
@@ -548,4 +547,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -2466
+  m_InstanceId: 374210

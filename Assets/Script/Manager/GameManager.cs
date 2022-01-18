@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
      */
     public List<Tool> tools = new List<Tool>();
     private int selectedTool = 0;
-    [SerializeField] HitBoxCollision hitBoxCollision;
+    [SerializeField] HitCollision hitCollision;
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
     public Inventory inventory;
@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
             return singleton_instance;
         }
     }
+    [SerializeField] HitCollision heatCollision;
 
     private void Start() {
         buildingManager = this.GetComponent<BuildingManager>();
@@ -125,7 +126,8 @@ public class GameManager : MonoBehaviour
             if(buildingManager.onToolChangedCallback != null){
                 buildingManager.onToolChangedCallback.Invoke();
             }
-            hitBoxCollision.tool = GetToolNowHold().toolType;
+            hitCollision.tool = GetToolNowHold().toolType;
+            
         }
         
         if(Input.GetButtonDown("Building")){
@@ -233,6 +235,12 @@ public class GameManager : MonoBehaviour
         }
         this.selectedTool = index;
         ToolView.sprite = tools[index].icon;
+
+        if(GetToolNowHold().toolType == Tool.ToolType.LANTERN){
+            heatCollision.gameObject.SetActive(true);
+        }else{
+            heatCollision.gameObject.SetActive(false);
+        }
     }
 
     public void SelectToolNext(){

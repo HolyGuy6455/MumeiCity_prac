@@ -11,6 +11,8 @@ public class BuildingPreset : ScriptableObject {
     public Vector3 scale;
     public Vector3 relativeLocation;
     public Sprite sprite;
+    public Sprite spriteBroken;
+    public int healthPointMax;
     [TextArea] public string info;
     public List<string> attributes;
     public bool interactable;
@@ -18,7 +20,7 @@ public class BuildingPreset : ScriptableObject {
     public int workTier;
     public int lightSourceIntensity;
     public Tool.ToolType buildTool;
-    public Tool.ToolType removalTool;
+    public List<EffectiveTool> removalTool;
     public int buildToolIndex;
     public List<BuildingResource> resourceList = new List<BuildingResource>();
     public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
@@ -32,4 +34,9 @@ public class BuildingPreset : ScriptableObject {
 public class BuildingResource{
     public ItemPreset preset;
     public int amount;
+}
+[Serializable]
+public class EffectiveTool{
+    public Tool.ToolType tool;
+    public int damage;
 }

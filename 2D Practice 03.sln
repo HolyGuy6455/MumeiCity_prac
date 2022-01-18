@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{957d027c-6977-4f4a-1528-4fa01907c799}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnity", "FMODUnity.csproj", "{bb34e9d0-0ac7-8826-28e3-b9168459c52d}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{594c6eab-faf1-f38c-9cf4-d23c22cdae64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras", "Unity.2D.Tilemap.Extras.csproj", "{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaBehaviour", "PandaBehaviour.csproj", "{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnity", "FMODUnity.csproj", "{bb34e9d0-0ac7-8826-28e3-b9168459c52d}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonance", "FMODUnityResonance.csproj", "{2c5026e5-1b3d-bc90-d85c-9151a87b3e76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityEditor", "FMODUnityEditor.csproj", "{2273bdd2-2a0b-109f-8754-c711fa76df8e}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PandaBehaviourEditor", "PandaBehaviourEditor.csproj", "{08d9f0aa-3af9-558b-feda-16adb9b5d51e}"
 EndProject
@@ -25,8 +27,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-Editor", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras.Placeholder.EditorTests", "Unity.2D.Tilemap.Extras.Placeholder.EditorTests.csproj", "{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityEditor", "FMODUnityEditor.csproj", "{2273bdd2-2a0b-109f-8754-c711fa76df8e}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnityResonanceEditor", "FMODUnityResonanceEditor.csproj", "{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}"
 EndProject
 Global
@@ -36,16 +36,18 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{957d027c-6977-4f4a-1528-4fa01907c799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{957d027c-6977-4f4a-1528-4fa01907c799}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2c5026e5-1b3d-bc90-d85c-9151a87b3e76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2c5026e5-1b3d-bc90-d85c-9151a87b3e76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2273bdd2-2a0b-109f-8754-c711fa76df8e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2273bdd2-2a0b-109f-8754-c711fa76df8e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{08d9f0aa-3af9-558b-feda-16adb9b5d51e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{fe666db1-356c-f0d1-2c18-0f033ff8868f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,8 +60,6 @@ Global
 		{6232a0a0-5a39-87ce-ad69-87e8e42564a7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3f083ca7-d2b1-f3c9-1116-3f0109ca7e3c}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2273bdd2-2a0b-109f-8754-c711fa76df8e}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2273bdd2-2a0b-109f-8754-c711fa76df8e}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection

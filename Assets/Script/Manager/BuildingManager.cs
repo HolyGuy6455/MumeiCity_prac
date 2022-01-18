@@ -141,13 +141,6 @@ public class BuildingManager : MonoBehaviour {
             default:
                 break;
         }
-
-        // DropItem을 설정
-        if(nowBuilding.dropAmounts.Count > 0){
-            Built.AddComponent<ItemDroper>().InitializeItemDrop(nowBuilding.dropAmounts);
-        }
-        Hittable hittable = Built.GetComponent<Hittable>();
-        hittable.effectiveTool = nowBuilding.removalTool;
         
         // 경로 재설정
         astarPath.Scan();

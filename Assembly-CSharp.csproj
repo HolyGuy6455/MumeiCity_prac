@@ -41,7 +41,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
      <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\Note.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\HitBoxCollision.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Dialogue.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
@@ -114,6 +113,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\HitCollision.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
@@ -353,11 +353,11 @@
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
-    <Reference Include="PandaBT">
-        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/Panda.BT.free/Runtime/PandaBT.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PandaBT">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Assets/Panda.BT.free/Runtime/PandaBT.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
         <HintPath>D:/Unity/2020.3.17f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -806,11 +806,11 @@
     <Reference Include="Unity.RenderPipeline.Universal.ShaderLibrary">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.RenderPipeline.Universal.ShaderLibrary.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
-        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
-    </Reference>
     <Reference Include="Unity.Timeline.Editor">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary">
+        <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Mathematics.Editor">
         <HintPath>C:/Users/user/Documents/UnityProject/2D Practice 03/Library/ScriptAssemblies/Unity.Mathematics.Editor.dll</HintPath>
@@ -844,6 +844,10 @@
       <Project>{a8d486a0-7320-5e3d-8e2e-9420973521c4}</Project>
       <Name>PackageToolsEditor</Name>
     </ProjectReference>
+    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
+      <Project>{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}</Project>
+      <Name>FMODUnityResonanceEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="PandaBehaviourEditor.csproj">
       <Project>{08d9f0aa-3af9-558b-feda-16adb9b5d51e}</Project>
       <Name>PandaBehaviourEditor</Name>
@@ -856,14 +860,6 @@
       <Project>{957d027c-6977-4f4a-1528-4fa01907c799}</Project>
       <Name>AstarPathfindingProject</Name>
     </ProjectReference>
-    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
-      <Project>{1238dc59-38c2-172e-d237-48943726a517}</Project>
-      <Name>AstarPathfindingProjectEditor</Name>
-    </ProjectReference>
-    <ProjectReference Include="FMODUnityResonanceEditor.csproj">
-      <Project>{15f98d45-dee1-8ae2-d99b-2ad7cf7806c2}</Project>
-      <Name>FMODUnityResonanceEditor</Name>
-    </ProjectReference>
     <ProjectReference Include="FMODUnity.csproj">
       <Project>{bb34e9d0-0ac7-8826-28e3-b9168459c52d}</Project>
       <Name>FMODUnity</Name>
@@ -871,6 +867,10 @@
     <ProjectReference Include="FMODUnityEditor.csproj">
       <Project>{2273bdd2-2a0b-109f-8754-c711fa76df8e}</Project>
       <Name>FMODUnityEditor</Name>
+    </ProjectReference>
+    <ProjectReference Include="AstarPathfindingProjectEditor.csproj">
+      <Project>{1238dc59-38c2-172e-d237-48943726a517}</Project>
+      <Name>AstarPathfindingProjectEditor</Name>
     </ProjectReference>
     <ProjectReference Include="FMODUnityResonance.csproj">
       <Project>{2c5026e5-1b3d-bc90-d85c-9151a87b3e76}</Project>

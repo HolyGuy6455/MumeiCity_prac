@@ -40,13 +40,6 @@ public class BuildingObject : MonoBehaviour
         }
 
         Initialize(this.buildingData);
-
-        Hittable hittable = GetComponent<Hittable>();
-        hittable.EntityDestroyEventHandler += 
-            delegate(Component component){
-                GameManager.Instance.buildingManager.astarPath.Scan();
-            };
-
         HirePerson();
     }
 
@@ -77,6 +70,17 @@ public class BuildingObject : MonoBehaviour
             this.GetComponentInChildren<Interactable>().gameObject.SetActive(false);
         }
 
+        if(buildingPreset.dropAmounts.Count > 0){
+            this.gameObject.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset.dropAmounts);
+        }
+
+        Hittable hittable = GetComponent<Hittable>();
+        hittable.EntityDestroyEventHandler += 
+            delegate(Component component){
+                GameManager.Instance.buildingManager.astarPath.Scan();
+            };
+        hittable.SetEffectiveTool(buildingPreset.removalTool);
+
         Light2D light = GetComponentInChildren<Light2D>();
         light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
     }
@@ -103,6 +107,14 @@ public class BuildingObject : MonoBehaviour
                 break;
         }
         GameManager.Instance.ChangeGameTab(gameTab);
+    }
+
+    public void CheckHP(Component component){
+        Hittable hittable = component as Hittable;
+        if(hittable is null){
+            return;
+        }
+        
     }
 
 }

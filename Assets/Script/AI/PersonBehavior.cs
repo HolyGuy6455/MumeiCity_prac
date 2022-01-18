@@ -16,7 +16,7 @@ public class PersonBehavior : MonoBehaviour
     [SerializeField] BuildingObject workplace;
     [SerializeField] TimeEventQueueTicket sleepEvent;
     [SerializeField] string think;
-    [SerializeField] HitBoxCollision hitBoxCollision;
+    [SerializeField] HitCollision hitCollision;
     public PersonData personData = new PersonData();
     
     /*
@@ -211,7 +211,7 @@ public class PersonBehavior : MonoBehaviour
             default:
                 break;
         }
-        hitBoxCollision.tool = toolType;
+        hitCollision.tool = toolType;
         ThisTask.Succeed();
     }
 

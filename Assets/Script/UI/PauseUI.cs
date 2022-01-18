@@ -114,13 +114,8 @@ public class PauseUI : MonoBehaviour{
             location.z = data.positionZ;
             // 건물을 생성하고 데이터로 초기화한다
             GameObject Built =  Instantiate(GameManager.Instance.buildingManager.constructureSample,location,Quaternion.identity);
-            BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
             Built.transform.SetParent(buildingsParent.transform);
-            BuiltObject.Initialize(data);
-            // DropItem을 설정
-            if(buildingPreset.dropAmounts.Count > 0){
-                Built.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset.dropAmounts);
-            }
+            Built.GetComponent<BuildingObject>().Initialize(data);
         }
 
         // 맵에 남아있는 아이템을 전부 없앤다

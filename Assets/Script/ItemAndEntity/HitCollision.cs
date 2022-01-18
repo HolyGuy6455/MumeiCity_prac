@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HitBoxCollision : MonoBehaviour{
-    public int test;
+public class HitCollision : MonoBehaviour{
     public Tool.ToolType tool;
 
     private void OnTriggerEnter(Collider other) {
         if(other.tag != "HitBox"){
             return;
         }
-        // Debug.Log("TriggerEnter "+other.gameObject);
-        other.gameObject.GetComponentInParent<Hittable>().Hit(tool);
+        Hittable hittable = other.gameObject.GetComponentInParent<Hittable>();
+        Debug.Log(hittable);
+        hittable.Hit(tool);
     }
 
 }
