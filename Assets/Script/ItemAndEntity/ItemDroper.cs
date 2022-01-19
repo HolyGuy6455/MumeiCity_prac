@@ -17,10 +17,10 @@ public class ItemDroper : MonoBehaviour{
         foreach (ItemDropInfo itemDropInfo in dropAmounts){
             switch (itemDropInfo.itemDropType){
                 case ItemDropInfo.ItemDropType.DESTROY:
-                    hittable.EntityDestroyEventHandler -= itemDropInfo.DropItem;
+                    hittable.DeadEventHandler -= itemDropInfo.DropItem;
                     break;
                 case ItemDropInfo.ItemDropType.HIT:
-                    hittable.EntityHitEventHandler -= itemDropInfo.DropItem;
+                    hittable.HitEventHandler -= itemDropInfo.DropItem;
                     break;
                 default:
                     break;
@@ -30,10 +30,10 @@ public class ItemDroper : MonoBehaviour{
         foreach (ItemDropInfo itemDropInfo in dropAmounts){
             switch (itemDropInfo.itemDropType){
                 case ItemDropInfo.ItemDropType.DESTROY:
-                    hittable.EntityDestroyEventHandler += itemDropInfo.DropItem;
+                    hittable.DeadEventHandler += itemDropInfo.DropItem;
                     break;
                 case ItemDropInfo.ItemDropType.HIT:
-                    hittable.EntityHitEventHandler += itemDropInfo.DropItem;
+                    hittable.HitEventHandler += itemDropInfo.DropItem;
                     break;
                 default:
                     break;

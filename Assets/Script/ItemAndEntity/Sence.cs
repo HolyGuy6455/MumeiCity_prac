@@ -32,10 +32,11 @@ public class Sence : MonoBehaviour
         Invoke("Clean",0.1f);
     }
 
-    public GameObject FindNearest(Vector3 position){
+    public GameObject FindNearest(){
         if(_whatTheySee.Count == 0){
             return null;
         }
+        Vector3 position = this.gameObject.transform.position;
         List<GameObject> whatTheySeeWithFilter = _whatTheySee;
         if(_filter != null){
             whatTheySeeWithFilter = _whatTheySee.FindAll(_filter);

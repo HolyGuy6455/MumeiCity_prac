@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 992389515}
   m_Layer: 0
   m_Name: Prey
-  m_TagString: Untagged
+  m_TagString: Animal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -229,8 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 909571268637782953}
   HP: 1
-  hitBoxCollider: {fileID: 0}
-  effectiveTool: 0
+  hitBoxCollider: {fileID: 909571268550559594}
 --- !u!95 &909571268637782953
 Animator:
   serializedVersion: 3

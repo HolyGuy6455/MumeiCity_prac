@@ -214,9 +214,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemData:
-    code: 0
+    code: 1
     position: {x: 0, y: 0, z: 0}
   spriteRenderer: {fileID: 8891392639584434882}
+  animator: {fileID: 8221350410908557075}
+  leftSecond: 30
 --- !u!54 &2102534911
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -118,7 +118,7 @@ public class PersonBehavior : MonoBehaviour
             return false;
         };
 
-        GameObject nearestItem = sence.FindNearest(this.transform.position);
+        GameObject nearestItem = sence.FindNearest();
 
         if(nearestItem != null){
             think = "Going Pick Up " + nearestItem;
@@ -230,14 +230,14 @@ public class PersonBehavior : MonoBehaviour
                 BuildingPreset preset = buildingObject.buildingData.buildingPreset;
                 return preset.attributes.Contains(tag);
             };
-        GameObject nearestTree = sence.FindNearest(this.transform.position);
+        GameObject nearestTree = sence.FindNearest();
         if(nearestTree != null){
             // think = "Going Chop Chop " + nearestTree;
             animator.SetInteger("ThinkCode",2);
             // hitBoxCollision.tool = Tool.ToolType.AXE;
             this.target = nearestTree;
             aIDestination.target = this.target.transform;
-            this.target.GetComponent<Hittable>().EntityDestroyEventHandler += LoseMyTarget;
+            this.target.GetComponent<Hittable>().DeadEventHandler += LoseMyTarget;
             animator.SetBool("HasAGoal",true);
             ThisTask.Succeed();
         }else{
@@ -411,7 +411,7 @@ public class PersonBehavior : MonoBehaviour
         // animator.SetInteger("ThinkCode",0);
     }
 
-    void LoseMyTarget(Component component) {
+    void LoseMyTarget(Hittable component) {
         LoseMyTarget();
     }
 

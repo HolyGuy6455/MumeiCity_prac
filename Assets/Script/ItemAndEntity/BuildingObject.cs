@@ -76,11 +76,11 @@ public class BuildingObject : MonoBehaviour
         }
 
         Hittable hittable = GetComponent<Hittable>();
-        hittable.EntityDestroyEventHandler += 
-            delegate(Component component){
+        hittable.DeadEventHandler += 
+            delegate(Hittable component){
                 GameManager.Instance.buildingManager.astarPath.Scan();
             };
-        hittable.EntityHitEventHandler += CheckHP;
+        hittable.HitEventHandler += CheckHP;
         hittable.SetEffectiveTool(buildingPreset.removalTool);
         hittable.HP = buildingPreset.healthPointMax;
 
@@ -112,11 +112,7 @@ public class BuildingObject : MonoBehaviour
         GameManager.Instance.ChangeGameTab(gameTab);
     }
 
-    public void CheckHP(Component component){
-        Hittable hittable = component as Hittable;
-        if(hittable is null){
-            return;
-        }
+    public void CheckHP(Hittable hittable){
         float percentage = (float)hittable.HP / (float)buildingData.buildingPreset.healthPointMax;
         if( percentage < 0.5f ){
             spriteRenderer.sprite = buildingData.buildingPreset.spriteBroken;

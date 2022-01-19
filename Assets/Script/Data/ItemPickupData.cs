@@ -7,6 +7,7 @@ using System;
 public class ItemPickupData : MediocrityData{
     public byte code;
     public Vector3 position;
+    public int leftSecond = 30;
     public ItemPreset itemPreset{
         get{
             return ItemManager.GetItemPresetFromCode(code);

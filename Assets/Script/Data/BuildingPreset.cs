@@ -39,4 +39,8 @@ public class BuildingResource{
 public class EffectiveTool{
     public Tool.ToolType tool;
     public int damage;
+    public EffectiveTool(Tool.ToolType tool, int damage){
+        this.tool = tool;
+        this.damage = damage;
+    }
 }

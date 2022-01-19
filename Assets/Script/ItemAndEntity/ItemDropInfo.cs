@@ -5,11 +5,11 @@ public class ItemDropInfo{
     public ItemPreset preset;
     public float chance;
     public ItemDropType itemDropType;
-    public void DropItem(Component component){
+    public void DropItem(Hittable hittable){
         Vector3 location = new Vector3();
-        location.x = component.transform.position.x;
-        location.y = component.transform.position.y;
-        location.z = component.transform.position.z;
+        location.x = hittable.transform.position.x;
+        location.y = hittable.transform.position.y;
+        location.z = hittable.transform.position.z;
 
         float chanceTemp = this.chance;
         while (chanceTemp > 0){

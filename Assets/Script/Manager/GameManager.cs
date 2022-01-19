@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
      * [2] = shovel
      */
     public List<Tool> tools = new List<Tool>();
-    private int selectedTool = 0;
+    [SerializeField] int selectedTool = 0;
     [SerializeField] HitCollision hitCollision;
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
@@ -126,7 +126,7 @@ public class GameManager : MonoBehaviour
             if(buildingManager.onToolChangedCallback != null){
                 buildingManager.onToolChangedCallback.Invoke();
             }
-            hitCollision.tool = GetToolNowHold().toolType;
+            
             
         }
         
@@ -147,7 +147,7 @@ public class GameManager : MonoBehaviour
             Debug.Log("View");
         }
         sence.filter = interactableSenseFilter;
-        GameObject nearestInteractableObject = sence.FindNearest(PlayerTransform.position);
+        GameObject nearestInteractableObject = sence.FindNearest();
         if(nearestInteractableObject != null){
             interactUI.MoveUIPositionFromTransform(nearestInteractableObject.transform);
             interactUI.visible = true;
@@ -159,7 +159,7 @@ public class GameManager : MonoBehaviour
         }
 
         sence.filter = personSenseFilter;
-        GameObject nearestPersonObject = sence.FindNearest(PlayerTransform.position);
+        GameObject nearestPersonObject = sence.FindNearest();
         if(nearestPersonObject != null){
             personInfoUI.MoveUIPositionFromTransform(nearestPersonObject.transform);
             personInfoUI.visible = true;
@@ -235,6 +235,7 @@ public class GameManager : MonoBehaviour
         }
         this.selectedTool = index;
         ToolView.sprite = tools[index].icon;
+        hitCollision.tool = tools[this.selectedTool].toolType;
 
         if(GetToolNowHold().toolType == Tool.ToolType.LANTERN){
             heatCollision.gameObject.SetActive(true);

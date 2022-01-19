@@ -4,9 +4,27 @@ public class ItemPickup : MonoBehaviour
 {
     public ItemPickupData itemData;
     [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] TimeEventQueueTicket disapearEvent;
+    [SerializeField] Animator animator;
+    string ticketName;
 
     void Start() {
         IconSpriteUpdate();
+        ticketName = "ItemPickup"+this.GetInstanceID()+"_Update";
+    }
+
+    void Update() {
+        if(disapearEvent == null || !disapearEvent.isThisValid()){
+            disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,UpdatePerSecond);
+        }
+    }
+
+    public void UpdatePerSecond(){
+        itemData.leftSecond -= 1;
+        animator.SetInteger("LeftSecond",itemData.leftSecond);
+        if(itemData.leftSecond < 0){
+            Destroy(this.gameObject);
+        }
     }
 
     public void IconSpriteUpdate(){
@@ -26,4 +44,6 @@ public class ItemPickup : MonoBehaviour
     public ItemSlotData ProcessToItemSlotData(){
         return ItemSlotData.Create(itemData.itemPreset);
     }
+
+    
 }

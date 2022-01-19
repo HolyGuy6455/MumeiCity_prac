@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RabbitAI : MonoBehaviour
+public class RabbitAI : MonoBehaviour, IHeraingEar
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] new Rigidbody rigidbody;
@@ -15,18 +15,23 @@ public class RabbitAI : MonoBehaviour
     void Start()
     {
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
+        
+        Hittable hittable = this.GetComponent<Hittable>();
+        List<EffectiveTool> effectiveTools = new List<EffectiveTool>();
+        effectiveTools.Add(new EffectiveTool(Tool.ToolType.KNIFE, 3));
+        hittable.SetEffectiveTool(effectiveTools);
     }
 
     void Update()
     {
-        if(!isNoticed){
-            float distanceToPLayer = Vector3.Distance(this.transform.position,playerTransform.position);
-            if(distanceToPLayer < noticeDistance){
-                animator.SetTrigger("Notice");
-                animator.SetBool("isNoticed",true);
-                isNoticed = true;
-            }
-        }
+        // if(!isNoticed){
+        //     float distanceToPLayer = Vector3.Distance(this.transform.position,playerTransform.position);
+        //     if(distanceToPLayer < noticeDistance){
+        //         animator.SetTrigger("Notice");
+        //         animator.SetBool("isNoticed",true);
+        //         isNoticed = true;
+        //     }
+        // }
         animator.SetBool("isGrounded",IsGrounded());
     }
 
@@ -47,5 +52,13 @@ public class RabbitAI : MonoBehaviour
     private void OnDrawGizmosSelected() {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(this.transform.position, noticeDistance);
+    }
+    
+    public void Hear(string soundSource){
+        if(!isNoticed){
+            animator.SetTrigger("Notice");
+            animator.SetBool("isNoticed",true);
+            isNoticed = true;
+        }
     }
 }

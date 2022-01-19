@@ -712,7 +712,9 @@ m_PackageAssets:
         - 2.8.1
         - 2.8.2
         - 2.8.3
+        - 2.8.4
         - 2.9.0-pre.1
+        - 2.9.0-pre.6
         compatible:
         - 2.5.0
         - 2.6.0-preview.2
@@ -745,7 +747,9 @@ m_PackageAssets:
         - 2.8.1
         - 2.8.2
         - 2.8.3
+        - 2.8.4
         - 2.9.0-pre.1
+        - 2.9.0-pre.6
         verified: 2.6.11
       dependencies: []
       resolvedDependencies: []
@@ -970,6 +974,8 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
+        - 3.0.10
         compatible:
         - 1.0.2
         - 1.0.6
@@ -996,6 +1002,8 @@ m_PackageAssets:
         - 3.0.5
         - 3.0.6
         - 3.0.7
+        - 3.0.9
+        - 3.0.10
         verified: 2.0.7
       dependencies:
       - name: com.unity.test-framework
@@ -1254,6 +1262,7 @@ m_PackageAssets:
         - 10.6.0
         - 10.7.0
         - 10.8.0
+        - 10.8.1
         compatible:
         - 10.6.0
         verified: 10.6.0
@@ -3786,6 +3795,7 @@ m_PackageAssets:
         - 10.6.0
         - 10.7.0
         - 10.8.0
+        - 10.8.1
         compatible:
         - 10.6.0
         verified: 10.6.0
@@ -3937,6 +3947,7 @@ m_PackageAssets:
         - 10.6.0
         - 10.7.0
         - 10.8.0
+        - 10.8.1
         compatible:
         - 10.6.0
         verified: 10.6.0
@@ -4236,9 +4247,37 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 4.0.0-preview
+        - 4.0.0
+        - 4.0.7-preview
+        - 4.0.7
+        - 4.0.8-preview
+        - 4.0.9
+        - 4.1.0-preview
+        - 4.1.0
+        - 4.2.0
+        - 4.3.0
+        - 4.3.1
         - 4.3.2
+        - 4.6.0-preview
+        - 4.7.0-preview
+        - 4.9.1
         compatible:
+        - 4.0.0-preview
+        - 4.0.0
+        - 4.0.7-preview
+        - 4.0.7
+        - 4.0.8-preview
+        - 4.0.9
+        - 4.1.0-preview
+        - 4.1.0
+        - 4.2.0
+        - 4.3.0
+        - 4.3.1
         - 4.3.2
+        - 4.6.0-preview
+        - 4.7.0-preview
+        - 4.9.1
         verified: 4.3.2
       dependencies: []
       resolvedDependencies: []
@@ -4257,7 +4296,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637509898070000000
       documentationUrl: 
       hasRepository: 1
       repository:

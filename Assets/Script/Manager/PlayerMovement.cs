@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] bool isAbleToJump = true;
     [SerializeField] bool isAbleToReflect = true;
     [SerializeField] GameObject spriteObject;
+    [SerializeField] SoundCollider playerSoundCollider;
     public Vector3 movement;
     public Transform shadow;
     RaycastHit hit;

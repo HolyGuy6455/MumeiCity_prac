@@ -16,6 +16,7 @@ MonoBehaviour:
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: -3751032848796065094, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
   spriteBroken: {fileID: -5937200866895562579, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  healthPointMax: 10
   info: You can dig copper here.
   attributes:
   - Mining
@@ -29,4 +30,7 @@ MonoBehaviour:
     damage: 4
   buildToolIndex: 0
   resourceList: []
-  dropAmounts: []
+  dropAmounts:
+  - preset: {fileID: 11400000, guid: 9b1ab34e9171e3e4fa3d99fa699526ee, type: 2}
+    chance: 0.3
+    itemDropType: 2

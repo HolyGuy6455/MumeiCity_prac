@@ -47,6 +47,7 @@
      <Compile Include="Assets\Script\UI\ResourceView.cs" />
      <Compile Include="Assets\Script\Manager\TimeManager.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\IHeraingEar.cs" />
      <Compile Include="Assets\Script\Data\MediocrityData.cs" />
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
@@ -79,6 +80,7 @@
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\HitCollision.cs" />
      <Compile Include="Assets\Script\UI\TentUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
@@ -107,13 +109,13 @@
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
      <Compile Include="Assets\Script\Manager\GameManager.cs" />
      <Compile Include="Assets\Script\UI\HealthBar.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\SoundCollider.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
      <Compile Include="Assets\Script\Manager\CameraManager.cs" />
      <Compile Include="Assets\Script\UI\BuildingUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\HitCollision.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
