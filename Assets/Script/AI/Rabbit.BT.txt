@@ -1,0 +1,5 @@
+// 뿌리 트리
+tree("Root")
+    sequence
+        SetTarget "Player"
+        PanicRunaway

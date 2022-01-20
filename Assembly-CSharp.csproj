@@ -116,6 +116,9 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\AI\AnimalBehavior.cs" />
+     <Compile Include="Assets\Script\Data\AnimalData.cs" />
+     <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
@@ -128,6 +131,7 @@
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.BT.txt" />
+     <None Include="Assets\Script\AI\Rabbit.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.BT.lib.txt" />
      <None Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\GameController.BT.txt" />
     <Reference Include="UnityEngine">

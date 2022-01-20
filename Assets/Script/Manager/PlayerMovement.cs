@@ -9,8 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] Animator animator;
     [SerializeField] bool isJump = false;
-    [SerializeField] bool isAbleToJump = true;
-    [SerializeField] bool isAbleToReflect = true;
+    [SerializeField] bool jumpCapable = true;
+    [SerializeField] bool reflectCapable = true;
     [SerializeField] GameObject spriteObject;
     [SerializeField] SoundCollider playerSoundCollider;
     public Vector3 movement;
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
 
-        if(isAbleToJump && Input.GetButtonDown("Jump") && IsGrounded()){
+        if(jumpCapable && Input.GetButtonDown("Jump") && IsGrounded()){
             isJump = true;
         }
 
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
         // Debug.Log("IsGrounded : " + IsGrounded());
         // rigidBody.useGravity = !IsGrounded();
 
-        if(isAbleToReflect){
+        if(reflectCapable){
             if(movement.x <= -0.01f){
                 spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
             }else if(movement.x >= 0.01f){
@@ -153,16 +153,16 @@ public class PlayerMovement : MonoBehaviour
     }
 
     void EnableJump(){
-        this.isAbleToJump = true;
+        this.jumpCapable = true;
     }
     void DisableJump(){
-        this.isAbleToJump = false;
+        this.jumpCapable = false;
     }
     void EnableReflect(){
-        this.isAbleToReflect = true;
+        this.reflectCapable = true;
     }
     void DisableReflect(){
-        this.isAbleToReflect = false;
+        this.reflectCapable = false;
     }
     void LookAtMonitor(){
         animator.SetFloat("Backward",1);

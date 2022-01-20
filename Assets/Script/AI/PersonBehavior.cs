@@ -154,12 +154,12 @@ public class PersonBehavior : MonoBehaviour
 
     // 아이템을 얼마나 가지고 있나요
     [Task]
-    void DoIHaveItemMoreThen(int amount){
+    void DoIHaveItemMoreThan(int amount){
         ThisTask.Complete( personData.items.Count > amount );
     }
 
     [Task]
-    void DoIHaveStaminaMoreThen(int amount){
+    void DoIHaveStaminaMoreThan(int amount){
         ThisTask.Complete( personData.stamina > amount );
     }
 

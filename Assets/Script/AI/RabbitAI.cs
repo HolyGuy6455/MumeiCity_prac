@@ -12,8 +12,7 @@ public class RabbitAI : MonoBehaviour, IHeraingEar
     bool isNoticed = false;
     int groundLayerMask;
 
-    void Start()
-    {
+    void Start(){
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
         
         Hittable hittable = this.GetComponent<Hittable>();
@@ -22,16 +21,7 @@ public class RabbitAI : MonoBehaviour, IHeraingEar
         hittable.SetEffectiveTool(effectiveTools);
     }
 
-    void Update()
-    {
-        // if(!isNoticed){
-        //     float distanceToPLayer = Vector3.Distance(this.transform.position,playerTransform.position);
-        //     if(distanceToPLayer < noticeDistance){
-        //         animator.SetTrigger("Notice");
-        //         animator.SetBool("isNoticed",true);
-        //         isNoticed = true;
-        //     }
-        // }
+    void Update(){
         animator.SetBool("isGrounded",IsGrounded());
     }
 
