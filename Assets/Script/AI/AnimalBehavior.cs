@@ -31,6 +31,7 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
         // aIPath.destination = new Vector3(0,0,0);
         hittable.HP = hpMax;
+        hittable.SetEffectiveTool(removalTool);
     }
     public virtual void Update() {
         animator.SetBool("isGrounded",IsGrounded());
@@ -62,7 +63,6 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
 
         float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
         distanceToTarget = distanceValue;
-   
         
         if(distanceValue < 0.3f ){
             targetVector3 = this.transform.position;
@@ -154,6 +154,18 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
             default:
                 break;
         }
+        ThisTask.Succeed();
+    }
+
+    [Task]
+    public virtual void SetCautionLevel(int cautionLevel){
+        this.animalData.cautionLevel = cautionLevel;
+        ThisTask.Succeed();
+    }
+
+    [Task]
+    public virtual void SetSpeed(float speed){
+        this.aIPath.maxSpeed = speed;
         ThisTask.Succeed();
     }
 

@@ -9,6 +9,16 @@ tree("Root")
             race 
                 RandomMove
                 Wait 3.0
+                SearchItemToPickUp "Food"
+                SearchPreyToHunt
+            fallback
+                while SearchItemToPickUp "Food"
+                    sequence
+                        GoCloser 1.0
+                        PickItemUp
+                        
+                while SearchPreyToHunt
+                    tree("InCaution")
             Idle
             Wait 3.0
 

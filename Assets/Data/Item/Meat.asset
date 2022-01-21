@@ -10,11 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2932deca9741afb49bcbc34c0399bcad, type: 3}
-  m_Name: RabbitFoot
+  m_Name: Meat
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: f383f8aaa717d194583fb51988ae3c7f, type: 3}
-  info: The piece that you took from an innocent creature to wish you happiness and
-    peace.
+  itemSprite: {fileID: 21300000, guid: bd940a7a75c09b54e9fcaf37b30fe030, type: 3}
+  info: FRESH MEAT
   tags:
-  - Gift
-  efficiency: 10
+  - Food
+  efficiency: 150

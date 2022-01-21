@@ -12,11 +12,13 @@ public class WolfBehavior : AnimalBehavior{
     [SerializeField] bool jumpCapable;
     [SerializeField] bool moveCapable;
     IAstarAI ai;
+    static List<string> preyList = new List<string>{"Rabbit","Reindeer"};
 
     public override void Start() {
         base.Start();
         InvokeRepeating("UpdatePath", 0f, 1f);
         moveCapable = true;
+        animalData.animalName = "Wolf";
     }
 
     public override void Update() {
@@ -83,6 +85,7 @@ public class WolfBehavior : AnimalBehavior{
             ThisTask.Succeed();
         }
     }
+
     [Task]
     public void LockTarget(){
         targetVector3 = targetObject.transform.position;
@@ -103,47 +106,71 @@ public class WolfBehavior : AnimalBehavior{
     }
 
     [Task]
-    public void ItemPickUp(string itemTag){
-        bool weNeedToSearch = false;
-        while (true){
-            // 일단 목표가 상호작용이 됩니까
-            if(targetObject.tag != "Interactable"){
-                weNeedToSearch = true;
-                break;
-            }
-            // 상호작용이 된다면, 주을 수 있는 아이템인건 맞습니까
-            ItemPickup itemPickup = targetObject.GetComponent<ItemPickup>();
-            if(itemPickup == null){
-                weNeedToSearch = true;
-            }
-            // 아이템이라면, 아이템 태그가 제대로 되어있습니까
-            if(!itemPickup.itemData.itemPreset.tags.Contains(itemTag)){
-                weNeedToSearch = true;
-            }
-            break;
-        }
-        if(weNeedToSearch){
-            // 목표가 아이템이 아닌거 같은데?
-            sence.filter = delegate(GameObject value){
-                if(value == null)
-                    return false;
-
-                ItemPickup itemPickup = value.GetComponent<ItemPickup>();
-                if(itemPickup == null)
-                    return false;
-                if(itemTag == null)
-                    return true;
-
-                List<string> pickupItemTags = itemPickup.itemData.itemPreset.tags;
-                foreach (string tag in pickupItemTags){
-                    if(itemTag.CompareTo(tag) == 0)
-                        return true;
-                }
+    public void SearchItemToPickUp(string itemTag){
+        sence.filter = delegate(GameObject value){
+            if(value == null)
                 return false;
-            };
-            GameObject nearestItem = sence.FindNearest();
-        }
 
+            ItemPickup itemPickup = value.GetComponent<ItemPickup>();
+            if(itemPickup == null)
+                return false;
+            if(itemTag == null)
+                return true;
+
+            List<string> pickupItemTags = itemPickup.itemData.itemPreset.tags;
+            foreach (string tag in pickupItemTags){
+                if(itemTag.CompareTo(tag) == 0)
+                    return true;
+            }
+            return false;
+        };
+        GameObject nearestItem = sence.FindNearest();
+        if(nearestItem != null){
+            targetObject = nearestItem;
+            ThisTask.Succeed();
+        }else{
+            targetObject = null;
+            ThisTask.Fail();
+        }
+    }
+
+    [Task]
+    public void SearchPreyToHunt(){
+        sence.filter = delegate(GameObject value){
+            if(value == null)
+                return false;
+
+            AnimalBehavior animal = value.GetComponentInParent<AnimalBehavior>();
+            if(animal == null)
+                return false;
+
+            return (preyList.Contains(animal.animalData.animalName));
+        };
+        GameObject nearestPrey = sence.FindNearest();
+        Debug.Log("nearestPrey : " + nearestPrey);
+        if(nearestPrey != null){
+            targetObject = nearestPrey;
+            ThisTask.Succeed();
+        }else{
+            targetObject = null;
+            ThisTask.Fail();
+        }
+    }
+
+    [Task]
+    public void PickItemUp(){
+        if(targetObject == null){
+            ThisTask.Fail();
+        }
+        ItemPickup itemPickup = targetObject.GetComponent<ItemPickup>();
+        if(itemPickup == null){
+            Debug.Log("Fail to Pick up the Item");
+            ThisTask.Fail();
+            return;
+        }
+        Destroy(targetObject);
+        animalData.cautionLevel -= 5;
+        ThisTask.Succeed();
     }
 
     public void Jump(){

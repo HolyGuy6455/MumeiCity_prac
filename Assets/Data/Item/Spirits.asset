@@ -15,4 +15,5 @@ MonoBehaviour:
   itemSprite: {fileID: 21300000, guid: e1f584fed62c15441b3833540eaa9b32, type: 3}
   info: It's true alcohol kills people. But how many are born because of it?
   tags:
-  - Present
+  - Gift
+  efficiency: 20

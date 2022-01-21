@@ -5,5 +5,6 @@ using System;
 
 [Serializable]
 public class AnimalData{
+    public string animalName;
     public int cautionLevel;
 }

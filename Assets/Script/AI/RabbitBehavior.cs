@@ -7,6 +7,11 @@ public class RabbitBehavior : AnimalBehavior{
     public float jumpPower = 3.0f;
     bool jumpCapable;
 
+    public override void Start() {
+        base.Start();
+        animalData.animalName = "Rabbit";
+    }
+
     // 길찾기 없이 도망치기
     [Task]
     public override void PanicRunaway(){
