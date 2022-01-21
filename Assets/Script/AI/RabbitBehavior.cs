@@ -11,14 +11,13 @@ public class RabbitBehavior : AnimalBehavior{
     [Task]
     public override void PanicRunaway(){
         // targetVector3 = targetObject.transform.position;
+        if(!jumpCapable){
+            return;
+        }
         Vector3 direction = -1*(this.transform.position - targetObject.transform.position);
         targetVector3 = this.transform.position + direction;
         Jump();
-    }
-    // 길찾기로 도망치기
-    [Task]
-    public override void Runaway(){
-        
+        ThisTask.Succeed();
     }
 
     public void Jump(){
@@ -48,6 +47,11 @@ public class RabbitBehavior : AnimalBehavior{
     }
 
     public override void Hear(string soundSource){
-
+        if(animalData.cautionLevel < 1){
+            animator.SetTrigger("Notice");
+            animalData.cautionLevel = 1;
+            this.jumpCapable = false;
+            Debug.Log("Notice!");
+        }
     }
 }

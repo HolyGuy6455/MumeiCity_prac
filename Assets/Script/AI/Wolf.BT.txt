@@ -1,0 +1,24 @@
+// 뿌리 트리
+tree("Root")
+    fallback
+        while BeCautionedGraterThan 0
+            sequence
+                SetTarget "Player"
+                tree("InCaution")
+        sequence
+            race 
+                RandomMove
+                Wait 3.0
+            Idle
+            Wait 3.0
+
+
+tree("InCaution")
+    sequence
+        Runaway 5.0
+        Wait 1.0
+        GoCloser 3.0
+        LockTarget
+        Wait 0.5
+        Attack
+        Wait 1.0

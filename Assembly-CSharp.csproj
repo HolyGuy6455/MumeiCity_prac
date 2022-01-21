@@ -119,8 +119,10 @@
      <Compile Include="Assets\Script\AI\AnimalBehavior.cs" />
      <Compile Include="Assets\Script\Data\AnimalData.cs" />
      <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
+     <Compile Include="Assets\Script\AI\WolfBehavior.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
+     <None Include="Assets\Script\AI\Wolf.BT.txt" />
      <None Include="Assets\SimpleNote\Readme.txt" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\PlayTag.commented.BT.txt" />
      <None Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.BT.txt" />

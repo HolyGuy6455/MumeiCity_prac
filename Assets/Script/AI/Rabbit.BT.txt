@@ -1,5 +1,13 @@
 // 뿌리 트리
 tree("Root")
-    sequence
-        SetTarget "Player"
-        PanicRunaway
+    fallback
+        while BeCautionedGraterThan 0
+            sequence
+                SetTarget "Player"
+                PanicRunaway
+                Wait 0.5
+                PanicRunaway
+                Wait 0.5
+                PanicRunaway
+                Wait 1.0	
+        Idle

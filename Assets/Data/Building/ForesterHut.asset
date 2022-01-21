@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: 1219138384544230145, guid: 51b685c436993a341a5c953a9f04b8ae, type: 3}
+  sprite: {fileID: 21300000, guid: 3f072ff24f28e2649b0bef56b8b7f7f0, type: 3}
+  spriteBroken: {fileID: 0}
+  healthPointMax: 10
   info: Cut down the tree and store it here.
   attributes: []
   interactable: 1
@@ -22,7 +24,7 @@ MonoBehaviour:
   workTier: 1
   lightSourceIntensity: 0
   buildTool: 4
-  removalTool: 4
+  removalTool: []
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []

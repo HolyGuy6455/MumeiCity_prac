@@ -14,8 +14,13 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
     [SerializeField] protected Hittable hittable;
     [SerializeField] protected int hpMax;
     [SerializeField] protected Rigidbody animalRigidbody;
-    public AnimalData animalData;
+    [SerializeField] protected float distanceToTarget;
+    public List<EffectiveTool> removalTool; //temperal
+    public AnimalData animalData = new AnimalData();
     static int groundLayerMask;
+    public float walkAroundRangeMin = 3;
+    public float walkAroundRangeMax = 5;
+    bool walkAround = false;
 
     /*
     경계상태 구분
@@ -34,7 +39,7 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
     }
 
     public bool IsGrounded() {
-        return Physics.Raycast(this.transform.position, Vector3.down, 1.0f, groundLayerMask);
+        return Physics.Raycast(this.transform.position, Vector3.down, 0.5f, groundLayerMask);
     }
 
     void UpdatePath(){
@@ -43,10 +48,37 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
         // }
     }
 
+    [Task]
+    public virtual void RandomMove(){
+        if(walkAround == false){
+            targetVector3 = new Vector3();
+            targetVector3.x = this.transform.position.x 
+                                + Random.Range(walkAroundRangeMin, walkAroundRangeMax) * ((Random.Range(0,2)>0)?1:-1);
+            targetVector3.y = this.transform.position.y;
+            targetVector3.z = this.transform.position.z 
+                                + Random.Range(walkAroundRangeMin, walkAroundRangeMax) * ((Random.Range(0,2)>0)?1:-1);
+            walkAround = true;
+        }
+
+        float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
+        distanceToTarget = distanceValue;
+   
+        
+        if(distanceValue < 0.3f ){
+            targetVector3 = this.transform.position;
+            distanceToTarget = 0 ;
+            ThisTask.Succeed();
+            walkAround = false;
+        }
+    }
+
     // 멍때리기
     [Task]
     public virtual void Idle(){
-        // do nothing;
+        targetVector3 = this.transform.position;
+        distanceToTarget = 0 ;
+        walkAround = false;
+        ThisTask.Succeed();
     }
     // 길찾기 없이 도망치기
     [Task]
@@ -73,16 +105,33 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
     // 목표와의 거리가 이거보다 가까운가
     [Task]
     public virtual void IsTheTargetCloserThan(float distance){
+        if(targetObject != null){
+            targetVector3 = targetObject.transform.position;
+        }
         if(targetVector3 == null){
             ThisTask.Succeed();
             return;
         }
         float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
+        // Debug.Log("distanceValue : "+distanceValue);
         ThisTask.Complete( distanceValue < distance );
+    }
+    // 목표와의 거리가 이거보다 먼가
+    [Task]
+    public virtual void IsTheTargetFartherThan(float distance){
+        if(targetObject != null){
+            targetVector3 = targetObject.transform.position;
+        }
+        if(targetVector3 == null){
+            ThisTask.Succeed();
+            return;
+        }
+        float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
+        ThisTask.Complete( distanceValue > distance );
     }
     // 경계상태인가
     [Task]
-    public virtual void BeCautionedMoreThan(int cautionLevel){
+    public virtual void BeCautionedGraterThan(int cautionLevel){
         ThisTask.Complete( this.animalData.cautionLevel > cautionLevel );
     }
     // 길들여진 상태인가

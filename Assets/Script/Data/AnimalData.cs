@@ -4,6 +4,6 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class AnimalData : MonoBehaviour{
+public class AnimalData{
     public int cautionLevel;
 }

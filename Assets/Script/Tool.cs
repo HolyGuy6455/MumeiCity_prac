@@ -15,5 +15,6 @@ public class Tool : ScriptableObject {
         CHISEL,
         PICKAXE,
         HAMMER,
+        CLAW
     }
 }

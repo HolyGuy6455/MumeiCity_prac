@@ -324,7 +324,7 @@ public class PersonBehavior : MonoBehaviour
                 case "Food":
                     this.personData.stamina += itemPreset.efficiency;
                     break;
-                case "Present":
+                case "Gift":
                     this.personData.happiness += itemPreset.efficiency;
                     break;
                 default:

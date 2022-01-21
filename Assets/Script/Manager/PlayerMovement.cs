@@ -114,17 +114,8 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(this.transform.position, Vector3.down, 1.0f, groundLayerMask);
     }
 
-    // void TakeDamage(int damage){
-    //     health -= damage;
-    //     healthBar.SetHealth(health);
-    // }
-
-    private void OnDrawGizmos() {
-        Gizmos.color = Color.red;
-        // Gizmos.DrawLine(rigidBody.position,rigidBody.position + movement);
-        // if(isRaycastHit)
-        //     Gizmos.DrawWireSphere(hit.point, 0.5f);
-        
+    public void Hurt(){
+        animator.SetTrigger("Hurt");
     }
 
     void FixedUpdate() {

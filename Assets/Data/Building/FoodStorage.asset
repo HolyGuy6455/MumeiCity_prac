@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: -8676433478304906619, guid: 51b685c436993a341a5c953a9f04b8ae, type: 3}
+  sprite: {fileID: 21300000, guid: 68c9d36558d11dd418de55794765dab0, type: 3}
+  spriteBroken: {fileID: 0}
+  healthPointMax: 10
   info: Save food here.
   attributes:
   - Food
@@ -23,7 +25,7 @@ MonoBehaviour:
   workTier: 1
   lightSourceIntensity: 0
   buildTool: 6
-  removalTool: 4
+  removalTool: []
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []

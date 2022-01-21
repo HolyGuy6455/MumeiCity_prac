@@ -23,8 +23,8 @@ tree("NightSleep")
 				MoveToDestination	// 간다
 				SleepAct			// zzZ
 				not AmIHappyToWork
-				TakeOutByTag "Present"
-				ConsumeItemByTag "Present"
+				TakeOutByTag "Gift"
+				ConsumeItemByTag "Gift"
 
 // 낮에 하는 일
 tree("DayWork")
