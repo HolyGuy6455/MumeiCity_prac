@@ -290,7 +290,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8143549605622719538}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -10.74, y: 0, z: -4.33}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -329,7 +329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5febc0b976cdb7740a16f24cefd8f071, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 1518857398079707154}
   HP: 1
   hitBoxCollider: {fileID: 8143549605510893814}
   effectiveToolDictionaryLength: 0
@@ -365,8 +365,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: 947a5abf120e257409c2703fbeca4401, type: 2}
-    chance: 1
+  - preset: {fileID: 11400000, guid: 48e9086d56adc764b8602b6b8c2f6659, type: 2}
+    chance: 1.3
     itemDropType: 1
 --- !u!114 &9051321589568770118
 MonoBehaviour:
@@ -405,7 +405,7 @@ MonoBehaviour:
   version: 5
   radius: 0.5
   height: 2
-  canMove: 0
+  canMove: 1
   maxSpeed: 1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
@@ -415,7 +415,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 0
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -480,19 +480,21 @@ MonoBehaviour:
   sence: {fileID: 3204058155829331174}
   hittable: {fileID: 8143549605622719540}
   hpMax: 6
-  animalRigidbody: {fileID: 0}
+  animalRigidbody: {fileID: 1697918109807440531}
   distanceToTarget: 0
   removalTool:
   - tool: 2
     damage: 2
   - tool: 4
     damage: 3
+  - tool: 10
+    damage: 3
   animalData:
     animalName: 
     cautionLevel: 0
   walkAroundRangeMin: 3
   walkAroundRangeMax: 5
-  jumpPower: 3
+  spriteTransform: {fileID: 8143549604566907994}
 --- !u!1001 &6827089190872041675
 PrefabInstance:
   m_ObjectHideFlags: 0

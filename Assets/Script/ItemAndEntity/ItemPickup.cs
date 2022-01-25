@@ -20,6 +20,9 @@ public class ItemPickup : MonoBehaviour
     }
 
     public void UpdatePerSecond(){
+        if(animator == null){
+            return;
+        }
         itemData.leftSecond -= 1;
         animator.SetInteger("LeftSecond",itemData.leftSecond);
         if(itemData.leftSecond < 0){

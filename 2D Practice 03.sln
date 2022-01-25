@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{594c6eab-faf1-f38c-9cf4-d23c22cdae64}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstarPathfindingProject", "AstarPathfindingProject.csproj", "{957d027c-6977-4f4a-1528-4fa01907c799}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FMODUnity", "FMODUnity.csproj", "{bb34e9d0-0ac7-8826-28e3-b9168459c52d}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{594c6eab-faf1-f38c-9cf4-d23c22cdae64}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Tilemap.Extras", "Unity.2D.Tilemap.Extras.csproj", "{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}"
 EndProject
@@ -34,12 +34,12 @@ Global
 		Debug|Any CPU = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{957d027c-6977-4f4a-1528-4fa01907c799}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{957d027c-6977-4f4a-1528-4fa01907c799}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{bb34e9d0-0ac7-8826-28e3-b9168459c52d}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{594c6eab-faf1-f38c-9cf4-d23c22cdae64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{d7f52b23-a9cc-1bb4-e3a2-07dbc1997e2d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9c55bb97-60d6-59e0-d08b-ae8fea62fb20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

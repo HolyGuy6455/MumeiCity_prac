@@ -36,6 +36,7 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Data\AnimalData.cs" />
      <Compile Include="Assets\Script\Data\HouseData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
@@ -57,6 +58,8 @@
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
      <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
+     <Compile Include="Assets\Script\AI\ReindeerBehavior.cs" />
+     <Compile Include="Assets\Script\AI\AnimalBehavior.cs" />
      <Compile Include="Assets\Script\TilemapStart.cs" />
      <Compile Include="Assets\Script\UI\PersonInfoUI.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
@@ -73,6 +76,7 @@
      <Compile Include="Assets\SimpleNote\Scripts\SimpleNoteAttribute.cs" />
      <Compile Include="Assets\Script\AI\RabbitAI.cs" />
      <Compile Include="Assets\Script\PlayerLight.cs" />
+     <Compile Include="Assets\Script\AI\WolfBehavior.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
@@ -98,6 +102,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\HelpBoxAttribute.cs" />
      <Compile Include="Assets\Script\Tool.cs" />
+     <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\MessageType.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
@@ -116,11 +121,8 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\AI\AnimalBehavior.cs" />
-     <Compile Include="Assets\Script\Data\AnimalData.cs" />
-     <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
-     <Compile Include="Assets\Script\AI\WolfBehavior.cs" />
-     <Compile Include="Assets\Script\AI\ReindeerBehavior.cs" />
+     <Compile Include="Assets\Script\Manager\SaveLoadManager.cs" />
+     <Compile Include="Assets\Script\Manager\MobManager.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

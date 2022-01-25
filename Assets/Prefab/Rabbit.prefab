@@ -284,7 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - preset: {fileID: 11400000, guid: 947a5abf120e257409c2703fbeca4401, type: 2}
-    chance: 1
+    chance: 0.8
     itemDropType: 1
   - preset: {fileID: 11400000, guid: 48e9086d56adc764b8602b6b8c2f6659, type: 2}
     chance: 0.3

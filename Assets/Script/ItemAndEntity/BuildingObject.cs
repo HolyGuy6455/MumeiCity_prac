@@ -30,7 +30,7 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
 
         switch (buildingData.buildingPreset.name){
-            case "Forester":
+            case "ForesterHut":
                 buildingData.mediocrityData = new ForesterHutData();
                 break;
             case "Tent":
@@ -46,6 +46,7 @@ public class BuildingObject : MonoBehaviour
 
     private void Update() {
         HirePerson();
+        buildingData.mediocrityData.SaveMediocrityData();
     }
 
     private void HirePerson(){
