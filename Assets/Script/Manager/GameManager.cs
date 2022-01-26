@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Animator taskUI;
     public Animator pauseAnimator;
     bool gameIsPause = false;
-    public GameObject itemPickupParent;
+    
     public Sprite emptySprite;
     public enum GameTab
     {

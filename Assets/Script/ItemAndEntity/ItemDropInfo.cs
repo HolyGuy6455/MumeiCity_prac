@@ -31,7 +31,7 @@ public class ItemDropInfo{
             itemPickup.IconSpriteUpdate();
             
             itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);
-            itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
+            itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
         }
     }
     public enum ItemDropType{

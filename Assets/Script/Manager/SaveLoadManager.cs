@@ -39,7 +39,7 @@ public class SaveLoadManager : MonoBehaviour{
             saveForm.buildingDatas.Add(buildingData);
         }
         // 아이템 위치 저장하기
-        GameObject itemPickupParent = GameManager.Instance.itemPickupParent;
+        GameObject itemPickupParent = GameManager.Instance.itemManager.itemPickupParent;
         foreach (Transform childTransform in itemPickupParent.transform){
             ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().itemData;
             itemPickupData.position = childTransform.position;
@@ -144,7 +144,7 @@ public class SaveLoadManager : MonoBehaviour{
         }
 
         // 맵에 남아있는 아이템을 전부 없앤다
-        foreach (Transform childTransform in GameManager.Instance.itemPickupParent.transform){
+        foreach (Transform childTransform in GameManager.Instance.itemManager.itemPickupParent.transform){
             Destroy(childTransform.gameObject);
         }
 
@@ -157,7 +157,7 @@ public class SaveLoadManager : MonoBehaviour{
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
             itemPickup.itemData = data;
             itemPickup.IconSpriteUpdate();
-            itemObject.transform.SetParent(GameManager.Instance.itemPickupParent.transform);
+            itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
         }
 
         // 맵에 남아있는 사람을 전부 없앤다. 학살의 시간이다!

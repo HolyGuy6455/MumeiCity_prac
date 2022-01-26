@@ -11,8 +11,6 @@ public class Inventory : MonoBehaviour {
     public ItemSlotData[] itemData;
     int itemSpace = 20;
 
-    [SerializeField] List<ItemSlotData> dataView;
-
     private void Start() {
         itemHeldInHand = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
         itemData = new ItemSlotData[itemSpace];
@@ -97,56 +95,14 @@ public class Inventory : MonoBehaviour {
         itemHeldInHandAmount.text = (itemHeldInHand.code==0) ? "" : itemHeldInHand.amount.ToString();
     }
 
-    // private void OnFocusSlot(InventorySlot inventorySlot, PointerEventData eventData){
-        // for (int i = 0; i < slots.Length; i++){
-        //     if(slots[i] == inventorySlot){
-        //         Debug.Log("slot is "+i);
-        //     }
-        // }
-    // }
-
-    // private void OnClickSlot(InventorySlot inventorySlot, PointerEventData eventData){
-
-        // if(eventData.button == PointerEventData.InputButton.Left){
-        //     if(itemHeldInHand != null && inventorySlot.data != null &&itemHeldInHand.code == inventorySlot.data.code){
-        //         itemHeldInHand.amount += inventorySlot.data.amount;
-        //         inventorySlot.data = null;
-        //     }else{
-        //         ItemSlotData tempData = itemHeldInHand;
-        //         itemHeldInHand = inventorySlot.data;
-        //         inventorySlot.data = tempData;
-        //     }
-
-        // }else if (eventData.button == PointerEventData.InputButton.Right){
-        //     if(itemHeldInHand == null && inventorySlot.data != null){
-        //         int amount = inventorySlot.data.amount/2;
-        //         Debug.Log("item slot divide! : "+amount);
-        //     }else if(itemHeldInHand != null){
-        //         if(inventorySlot.data == null){
-        //             // inventorySlot.data = itemHeldInHand.CopyEmpty();
-        //             inventorySlot.data.amount += 1;
-        //             itemHeldInHand.amount -= 1;
-        //             if(itemHeldInHand.amount <= 0){
-        //                 itemHeldInHand = null;
-        //             }
-        //         }else if(itemHeldInHand.code == inventorySlot.data.code) {
-        //             inventorySlot.data.amount += 1;
-        //             itemHeldInHand.amount -= 1;
-        //             if(itemHeldInHand.amount <= 0){
-        //                 itemHeldInHand = null;
-        //             }
-        //         }
-        //     }
-        // }
-
-        // if(itemHeldInHand != null){
-        //     itemHeldInHandImage.sprite = itemHeldInHand.itemPreset.itemSprite;
-        //     itemHeldInHandImage.gameObject.SetActive(true);
-        // }else{
-        //     itemHeldInHandImage.sprite = null;
-        //     itemHeldInHandImage.gameObject.SetActive(false);
-        // }
-        // inventorySlot.UpdateUI();
-        // updatedSlot();
-    // }
+    public List<ItemSlotData> GetDataList(){
+        List<ItemSlotData> result = new List<ItemSlotData>();
+        for (int i = 0; i < itemData.Length; i++){
+            if(itemData[i].code == 0){
+                continue;
+            }
+            result.Add(itemData[i]);
+        }
+        return result;
+    }
 }

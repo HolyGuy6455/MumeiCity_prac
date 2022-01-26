@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class ItemManager : MonoBehaviour {
     [SerializeField] private List<ItemPreset> itemPresetList = new List<ItemPreset>();
     public GameObject itemPickupPrefab;
+    public GameObject itemPickupParent;
 
     public static ItemPreset GetItemPresetFromCode(byte code){
         int index = (int)code;

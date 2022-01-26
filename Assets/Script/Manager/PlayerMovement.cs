@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     bool isRaycastHit;
     int groundLayerMask;
     public bool stop;
+    [SerializeField] float ITEM_DROP_RANGE = 10.0f;
+    [SerializeField] float ITEM_DROP_JUMP = 10.0f;
 
     // [SerializeField] Sence sence;
 
@@ -116,6 +119,42 @@ public class PlayerMovement : MonoBehaviour
 
     public void Hurt(){
         animator.SetTrigger("Hurt");
+        List<ItemSlotData> inventoryItems = GameManager.Instance.inventory.GetDataList();
+        for (int i = 0; i < 3; i++){
+            if(Random.Range(0.0f,1.0f)>0.8f){
+                // 20확률로 아이템을 잃어버리지 않아요
+                continue;
+            }
+            if(inventoryItems.Count == 0){
+                break;
+            }
+            ItemSlotData selectedSlot = inventoryItems[Random.Range(0,inventoryItems.Count)];
+            ItemPreset preset = ItemManager.GetItemPresetFromCode(selectedSlot.code);
+
+            if(selectedSlot.code == 0){
+                continue;
+            }
+            if(selectedSlot.amount == 1){
+                selectedSlot.amount = 0;
+                selectedSlot.code = 0;
+            }else{
+                selectedSlot.amount -= 1;
+            }
+
+            Vector3 popForce = new Vector3();
+            popForce.x = Random.Range(-ITEM_DROP_RANGE, ITEM_DROP_RANGE);
+            popForce.y = ITEM_DROP_JUMP;
+            popForce.z = Random.Range(-ITEM_DROP_RANGE, ITEM_DROP_RANGE);
+            Vector3 location = this.transform.position;
+
+            GameObject itemObject = Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location,Quaternion.identity);
+            ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
+            itemPickup.itemData = ItemPickupData.create(preset);
+            itemPickup.itemData.leftSecond = 12;
+            itemPickup.IconSpriteUpdate();
+            itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);
+            itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
+        }
     }
 
     void FixedUpdate() {
