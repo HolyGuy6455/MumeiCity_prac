@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     public bool IsGrounded() {
-        return Physics.Raycast(this.transform.position, Vector3.down, 1.0f, groundLayerMask);
+        return Physics.Raycast(this.transform.position, Vector3.down, 1.2f, groundLayerMask);
     }
 
     public void Hurt(){
@@ -161,8 +161,8 @@ public class PlayerMovement : MonoBehaviour
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
         shadow.position = hit.point + new Vector3(0,0,-0.2f);
 
-        bool HorizontalRayCast = Physics.Raycast(rigidBody.position + new Vector3(0,0.5f,0), new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
-        bool VerticalRayCast = Physics.Raycast(rigidBody.position + new Vector3(0,0.5f,0), new Vector3(0,0,movement.z), 0.5f, groundLayerMask);
+        bool HorizontalRayCast = Physics.Raycast(this.transform.position, new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
+        bool VerticalRayCast = Physics.Raycast(this.transform.position, new Vector3(0,0,movement.z), 0.5f, groundLayerMask);
         if(HorizontalRayCast)
             movement.x = 0;
         if(VerticalRayCast)

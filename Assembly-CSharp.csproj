@@ -82,7 +82,9 @@
      <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
+     <Compile Include="Assets\Script\Manager\MobManager.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
+     <Compile Include="Assets\Script\Manager\SaveLoadManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\HitCollision.cs" />
      <Compile Include="Assets\Script\UI\TentUI.cs" />
@@ -121,8 +123,8 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Manager\SaveLoadManager.cs" />
-     <Compile Include="Assets\Script\Manager\MobManager.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\DefaultGround.cs" />
+     <Compile Include="Assets\Script\Manager\GridMapManager.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

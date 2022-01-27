@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RuleTile_Ground
   m_EditorClassIdentifier: 
   m_DefaultSprite: {fileID: 4998937224500876124, guid: e4468bfa53f0a3e4d9780f09febb09db, type: 3}
-  m_DefaultGameObject: {fileID: 6926641816945442314, guid: 1fe2322f44211e8479bf410e9665a2bd, type: 3}
+  m_DefaultGameObject: {fileID: 0}
   m_DefaultColliderType: 1
   m_TilingRules:
   - m_Id: 0
@@ -33,7 +33,7 @@ MonoBehaviour:
     - {fileID: -6765549610841505982, guid: e4468bfa53f0a3e4d9780f09febb09db, type: 3}
     - {fileID: 4998937224500876124, guid: e4468bfa53f0a3e4d9780f09febb09db, type: 3}
     - {fileID: -6765549610841505982, guid: e4468bfa53f0a3e4d9780f09febb09db, type: 3}
-    m_GameObject: {fileID: 6926641816945442314, guid: 1fe2322f44211e8479bf410e9665a2bd, type: 3}
+    m_GameObject: {fileID: 0}
     m_MinAnimationSpeed: 1
     m_MaxAnimationSpeed: 1
     m_PerlinScale: 0.853

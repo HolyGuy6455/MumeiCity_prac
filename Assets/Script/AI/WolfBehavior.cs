@@ -147,7 +147,7 @@ public class WolfBehavior : AnimalBehavior{
             return (preyList.Contains(animal.animalData.animalName));
         };
         GameObject nearestPrey = sence.FindNearest();
-        Debug.Log("nearestPrey : " + nearestPrey);
+        // Debug.Log("nearestPrey : " + nearestPrey);
         if(nearestPrey != null){
             targetObject = nearestPrey;
             ThisTask.Succeed();

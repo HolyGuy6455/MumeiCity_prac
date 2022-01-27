@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public delegate void UpdateUI();
@@ -19,14 +20,16 @@ public class GameManager : MonoBehaviour
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
     public Inventory inventory;
-    [HideInInspector] public BuildingManager buildingManager;
-    [HideInInspector] public ItemManager itemManager;
-    [HideInInspector] public PeopleManager peopleManager;
-    [HideInInspector] public CameraManager cameraManager;
-    [HideInInspector] public TimeManager timeManager;
-    [HideInInspector] public SaveLoadManager saveLoadManager;
-    [HideInInspector] public MobManager mobManager;
+    public BuildingManager buildingManager;
+    public ItemManager itemManager;
+    public PeopleManager peopleManager;
+    public CameraManager cameraManager;
+    public TimeManager timeManager;
+    public SaveLoadManager saveLoadManager;
+    public MobManager mobManager;
+    public GridMapManager gridMapManager;
     [SerializeField] private Animator taskUI;
+    
     public Animator pauseAnimator;
     bool gameIsPause = false;
     
@@ -62,16 +65,9 @@ public class GameManager : MonoBehaviour
         }
     }
     [SerializeField] HitCollision heatCollision;
+    
 
     private void Start() {
-        buildingManager = this.GetComponent<BuildingManager>();
-        itemManager = this.GetComponent<ItemManager>();
-        peopleManager = this.GetComponent<PeopleManager>();
-        cameraManager = this.GetComponent<CameraManager>();
-        timeManager = this.GetComponent<TimeManager>();
-        saveLoadManager = this.GetComponent<SaveLoadManager>();
-        mobManager = this.GetComponent<MobManager>();
-
         interactableSenseFilter = delegate(GameObject gameObject){
             if(gameObject == null)
                 return false;
