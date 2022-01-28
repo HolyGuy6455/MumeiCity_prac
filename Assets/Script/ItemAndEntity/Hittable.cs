@@ -26,10 +26,11 @@ public class Hittable : MonoBehaviour
         int damage = 0;
         if(effectiveToolDictionary != null && effectiveToolDictionary.ContainsKey(tool)){
             damage = effectiveToolDictionary[tool];
-            Debug.Log("damage - " + effectiveToolDictionary[tool]);
+        }
+        if(damage == 0){
+            return;
         }
         HP -= damage;
-        Debug.Log("hit!"+damage);
 
         if(HP<=0){
             animator.SetBool("isDead",true);

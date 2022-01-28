@@ -186,14 +186,13 @@ public class SaveLoadManager : MonoBehaviour{
 
         foreach (AnimalData data in saveForm.animalsData){
             // 데이터로부터 위치를 읽어온다
-            Vector3 location = new Vector3();
-            location = data.position;
+            Vector3 location = data.position;
             // 데이터로 동물을 생성한다
             GameObject animalPrefab = GameManager.Instance.mobManager.GetPrefab(data.animalName);
             GameObject animalObject = Instantiate(animalPrefab,location,Quaternion.identity);
             AnimalBehavior animalBehavior = animalObject.GetComponent<AnimalBehavior>();
             animalBehavior.animalData = data;
-            // animalObject.transform.
+            animalObject.transform.SetParent(GameManager.Instance.mobManager.theMotherOfNature.transform);
         }
 
 

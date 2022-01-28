@@ -370,7 +370,7 @@ public class PersonBehavior : MonoBehaviour
         think = "Go to sleep! Good Night!";
         if(sleepEvent == null || !sleepEvent.isThisValid()){
             string ticketName = "person"+this.personData.id+"_sleep";
-            sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,SleepAndRecharging);
+            sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, SleepAndRecharging);
         }
         ThisTask.Succeed();
     }

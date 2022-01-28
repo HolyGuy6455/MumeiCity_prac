@@ -156,6 +156,11 @@ public class PlayerMovement : MonoBehaviour{
             rigidBody.AddForce(new Vector3(movement.x * jumpRange,1.0f * jumpPower,movement.z * jumpRange),ForceMode.Impulse);
             isJump = false;
         }
+
+        // Vector3 lightAndShadowPosition = new Vector3();
+        // lightAndShadowPosition.x = -this.transform.position.x;
+        // lightAndShadowPosition.y = -this.transform.position.z;
+        // GameManager.Instance.buildingManager.lightAndShadow.transform.localPosition = lightAndShadowPosition;
         // this.transform.position = Vector3.Lerp(this.transform.position,Input.mousePosition,Time.deltaTime * 10);
     }
 

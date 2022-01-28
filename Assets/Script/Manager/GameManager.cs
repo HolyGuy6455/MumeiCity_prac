@@ -126,6 +126,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void ChangeGameTab(string gameTab){
+        switch (gameTab){
+            case "Building":
+                ChangeGameTab(GameTab.BUILDING);
+                break;
+            case "Inventory":
+                ChangeGameTab(GameTab.ITEM);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void ChangeGameTab(GameTab gameTab){
         presentGameTab = gameTab;
         bool playerMovementEnabled = false;
@@ -292,5 +305,9 @@ public class GameManager : MonoBehaviour
 
     public void SwitchActionMap(string actionMap){
         playerInput.SwitchCurrentActionMap(actionMap);
+    }
+
+    public void QuitGame(){
+        Application.Quit();
     }
 }

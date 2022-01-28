@@ -44,14 +44,14 @@ public class TimeManager : MonoBehaviour{
     bool dayTime;
     public bool IsItDayTime(){return dayTime;}
 
-    public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, TimeManager.TimeEvent timeEvent){
+    public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, bool repeat, TimeManager.TimeEvent timeEvent){
         foreach (TimeEventQueueTicket queueTicket in waitingList){
             if(queueTicket._idString == idString){
                 return null;
             }
         }
-
-        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay, idString, timeEvent);
+        int repeatTime = (repeat)?delay:0;
+        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay, idString, repeatTime, timeEvent);
         waitingList.Add(result);
         return result;
     }
@@ -94,8 +94,11 @@ public class TimeManager : MonoBehaviour{
                 discardList.Add(queueTicket);
             }
         }
-        foreach (TimeEventQueueTicket discardQueueTicket in discardList){
-            waitingList.Remove(discardQueueTicket);
+        foreach (TimeEventQueueTicket ticket in discardList){
+            waitingList.Remove(ticket);
+            if(ticket._repeatTime != 0){
+                AddTimeEventQueueTicket(ticket._repeatTime,ticket._idString,true,ticket._timeEvent);
+            }
         }
     }
 
@@ -123,6 +126,7 @@ public class TimeManager : MonoBehaviour{
                 break;
             case TimeSlot.NIGHT:
                 GameManager.Instance.peopleManager.SurveyHappiness();
+                GameManager.Instance.mobManager.Spawn();
                 break;
             default:
                 break;
@@ -133,18 +137,21 @@ public class TimeManager : MonoBehaviour{
 [Serializable]
 public class TimeEventQueueTicket{
     [SerializeField] int timeValue;
+    [SerializeField] int repeatTime;
     [SerializeField] string idString;
     TimeManager.TimeEvent timeEvent;
     public int _timeValue{get{return timeValue;}}
+    public int _repeatTime{get{return repeatTime;}}
     public string _idString{get{return idString;}}
     public TimeManager.TimeEvent _timeEvent{get{return timeEvent;}}
     
-    public TimeEventQueueTicket(int timeValue,string idString, TimeManager.TimeEvent timeEvent){
+    public TimeEventQueueTicket(int timeValue,string idString, int repeatTime, TimeManager.TimeEvent timeEvent){
         this.timeValue = timeValue;
         this.idString = idString;
         this.timeEvent = timeEvent;
+        this.repeatTime = repeatTime;
     }
     public bool isThisValid(){
-        return GameManager.Instance.timeManager._timeValue < this.timeValue;
+        return GameManager.Instance.timeManager._timeValue <= this.timeValue;
     }
 }

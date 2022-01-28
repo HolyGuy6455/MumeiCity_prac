@@ -12,6 +12,7 @@ public class BuildingManager : MonoBehaviour {
     public ConstructionArea constructionArea;
     [SerializeField] BuildingPreset nowBuilding;
     public GameObject buildingsParent;
+    public GameObject lightAndShadow;
     public int lastID = 1;
 
     public AstarPath astarPath;

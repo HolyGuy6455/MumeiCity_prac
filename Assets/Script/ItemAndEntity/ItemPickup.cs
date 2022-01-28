@@ -11,12 +11,7 @@ public class ItemPickup : MonoBehaviour
     void Start() {
         IconSpriteUpdate();
         ticketName = "ItemPickup"+this.GetInstanceID()+"_Update";
-    }
-
-    void Update() {
-        if(disapearEvent == null || !disapearEvent.isThisValid()){
-            disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,UpdatePerSecond);
-        }
+        disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,true, UpdatePerSecond);
     }
 
     public void UpdatePerSecond(){

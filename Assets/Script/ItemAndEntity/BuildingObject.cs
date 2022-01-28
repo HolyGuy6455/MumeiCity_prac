@@ -12,18 +12,13 @@ public class BuildingObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject spriteObject;
     public GameObject shadowObject;
-    [SerializeField] float percentage_test;
+    [SerializeField] TimeEventQueueTicket hiringEvent;
 
     private void Start() {
         // TODO
         // 내가 에디터에서 만들때와 BuildingManager에서 만들때
         // Initilize()의 실행 시점이 달라야하는데 그렇지않아 문제가 생긴다
         // 이 부분은 조금 더 고민이 필요해 보인다. 일단 지금은 덮어두기식으로 간단하게 넘어간다
-
-        Vector3 shadowPostion = new Vector3();
-        shadowPostion.x = this.transform.position.x;
-        shadowPostion.y = (this.transform.position.y+this.transform.position.z);
-        shadowObject.transform.position = shadowPostion;
 
         buildingData.positionX = ((int)Mathf.Round(this.transform.position.x));
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
@@ -42,11 +37,17 @@ public class BuildingObject : MonoBehaviour
 
         Initialize(this.buildingData);
         HirePerson();
-    }
+        if(buildingData.buildingPreset.workplace){
+            string ticketName = "building"+this.buildingData.id+"_hire";
+            hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, HirePerson);
+        }
 
-    private void Update() {
-        HirePerson();
-        buildingData.mediocrityData.SaveMediocrityData();
+        
+        Vector3 shadowPostion = new Vector3();
+        shadowPostion.x = this.transform.position.x;
+        shadowPostion.y = (this.transform.position.y+this.transform.position.z);
+        shadowObject.transform.position = shadowPostion;
+
     }
 
     private void HirePerson(){
@@ -58,6 +59,7 @@ public class BuildingObject : MonoBehaviour
                 this.buildingData.workerID = people[0].personData.id;
             }
         }
+        buildingData.mediocrityData.SaveMediocrityData();
     }
 
     // 오브젝트의 초기화
@@ -114,13 +116,15 @@ public class BuildingObject : MonoBehaviour
     }
 
     public void CheckHP(Hittable hittable){
+        if(buildingData.buildingPreset.spriteBroken == null){
+            return;
+        }
         float percentage = (float)hittable.HP / (float)buildingData.buildingPreset.healthPointMax;
         if( percentage < 0.5f ){
             spriteRenderer.sprite = buildingData.buildingPreset.spriteBroken;
         }else{
             spriteRenderer.sprite = buildingData.buildingPreset.sprite;
         }
-        percentage_test = percentage;
     }
 
 }
