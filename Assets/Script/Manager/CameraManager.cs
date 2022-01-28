@@ -11,7 +11,7 @@ public class CameraManager : MonoBehaviour {
     [SerializeField] CinemachineVirtualCamera virtualCamera;
 
     public void CameraZoom(){
-        zoom -= Input.GetAxisRaw("Mouse ScrollWheel")*zoomAmount;
+        // zoom -= Input.GetAxisRaw("Mouse ScrollWheel")*zoomAmount;
         zoom = (zoom<zoomMin)?zoomMin:(zoom>zoomMax)?zoomMax:zoom;
         virtualCamera.m_Lens.OrthographicSize = Mathf.Lerp(virtualCamera.m_Lens.OrthographicSize, zoom, Time.deltaTime*zoomSpeed);
     }

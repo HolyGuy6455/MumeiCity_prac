@@ -24,7 +24,9 @@ MonoBehaviour:
   workTier: 1
   lightSourceIntensity: 0
   buildTool: 4
-  removalTool: []
+  removalTool:
+  - tool: 9
+    damage: 2
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []

@@ -66,8 +66,8 @@ public class GridMapManager : MonoBehaviour{
         }
         Vector3 origin = invisibleTilemap.origin;
         origin.x += 0.5f;
-        origin.z = origin.y * 1.5f + 0.5f;
-        origin.y = 0;
+        origin.z = origin.y * 1.5f + 2.5f;
+        origin.y = -3.5f;
         groundParent.transform.Translate(origin);
         groundParent.transform.localScale = new Vector3(1.0f,1.0f,1.5f);
     }

@@ -16,6 +16,7 @@ MonoBehaviour:
   relativeLocation: {x: 0, y: 0, z: 2}
   sprite: {fileID: 21300000, guid: c6167795ecaf16e4885e507ce6803ff9, type: 3}
   spriteBroken: {fileID: 0}
+  healthPointMax: 10
   info: Dig up minerals and store them here.
   attributes: []
   interactable: 1
@@ -24,8 +25,8 @@ MonoBehaviour:
   lightSourceIntensity: 0
   buildTool: 8
   removalTool:
-  - tool: 8
-    damage: 10
+  - tool: 9
+    damage: 2
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []

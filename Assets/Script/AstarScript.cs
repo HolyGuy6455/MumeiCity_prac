@@ -16,8 +16,8 @@ public class AstarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P)){
-            astarPath.Scan();
-        }
+        // if(Input.GetKeyDown(KeyCode.P)){
+        //     astarPath.Scan();
+        // }
     }
 }

@@ -19,9 +19,9 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    private void Update() {
-        itemHeldInHandTransform.transform.position = Input.mousePosition;
-    }
+    // private void Update() {
+        // itemHeldInHandTransform.transform.position = Input.mousePosition;
+    // }
 
     public int GetItemAmount(string itemName){
         int result = 0;

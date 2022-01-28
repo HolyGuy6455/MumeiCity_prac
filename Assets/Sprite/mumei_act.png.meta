@@ -38,6 +38,18 @@ TextureImporter:
   - first:
       213: -1210100116882013561
     second: mumei_act_fishing_1
+  - first:
+      213: 3220746862230938773
+    second: mumei_act_hammer_1
+  - first:
+      213: -448131796732902007
+    second: mumei_act_hammer_2
+  - first:
+      213: -6216216873835796948
+    second: mumei_act_bucket
+  - first:
+      213: 1817384060956403649
+    second: mumei_act_hurt
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,7 +143,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 640
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -152,7 +164,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 640
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -173,7 +185,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -194,7 +206,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 512
+        y: 384
         width: 128
         height: 128
       alignment: 0
@@ -215,7 +227,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -236,7 +248,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 384
+        y: 256
         width: 128
         height: 128
       alignment: 0
@@ -257,7 +269,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -278,7 +290,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 256
+        y: 128
         width: 128
         height: 128
       alignment: 0
@@ -299,7 +311,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 0
         width: 128
         height: 128
       alignment: 0
@@ -320,7 +332,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 128
-        y: 128
+        y: 0
         width: 128
         height: 128
       alignment: 0
@@ -340,8 +352,8 @@ TextureImporter:
       name: mumei_act_fishing_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 256
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -361,8 +373,8 @@ TextureImporter:
       name: mumei_act_fishing_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 384
+        y: 512
         width: 128
         height: 128
       alignment: 0
@@ -374,6 +386,90 @@ TextureImporter:
       bones: []
       spriteID: 782c696ea5cd43fe0800000000000000
       internalID: -1210100116882013561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_act_hammer_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 594aabaf43462bc20800000000000000
+      internalID: 3220746862230938773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_act_hammer_2
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9858d23518ae7c9f0800000000000000
+      internalID: -448131796732902007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_act_bucket
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c266a3c20bf8bb9a0800000000000000
+      internalID: -6216216873835796948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_act_hurt
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c763cdac25a83910800000000000000
+      internalID: 1817384060956403649
       vertices: []
       indices: 
       edges: []

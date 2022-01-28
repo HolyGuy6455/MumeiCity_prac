@@ -1,12 +1,12 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
-{
-
+public class PlayerMovement : MonoBehaviour{
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] float slowSpeed = 1.0f;
     [SerializeField] float jumpPower = 7.0f;
+    [SerializeField] float jumpRange = 3.0f;
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] Animator animator;
     [SerializeField] bool isJump = false;
@@ -22,12 +22,20 @@ public class PlayerMovement : MonoBehaviour
     public bool stop;
     [SerializeField] float ITEM_DROP_RANGE = 10.0f;
     [SerializeField] float ITEM_DROP_JUMP = 10.0f;
+    Dictionary<string,int> toolActionDictionary;
 
     // [SerializeField] Sence sence;
 
     void Start()
     {
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
+        toolActionDictionary = new Dictionary<string, int>();
+        toolActionDictionary["Axe"] = 1;
+        toolActionDictionary["Knife"] = 2;
+        toolActionDictionary["FryingPan"] = 3;
+        toolActionDictionary["Pickaxe"] = 4;
+        toolActionDictionary["Shovel"] = 5;
+        toolActionDictionary["Hammer"] = 6;
     }
 
     void Update()
@@ -35,67 +43,23 @@ public class PlayerMovement : MonoBehaviour
         if(stop){
             movement.x = 0;
             movement.z = 0;
-
-            animator.SetFloat("Horizontal", movement.x);
-            animator.SetFloat("Vertical", movement.z);
-            animator.SetFloat("Speed", movement.sqrMagnitude);
-            animator.SetBool("IsJumping",!IsGrounded());
-            return;
         }
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.z = Input.GetAxisRaw("Vertical");
-
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
-
-        if(jumpCapable && Input.GetButtonDown("Jump") && IsGrounded()){
-            isJump = true;
-        }
-
-        if(Input.GetButtonDown("Fire2")){
-            Interactable interactable = GameManager.Instance.nearestInteractable;
-            if(interactable != null){
-                interactable.Interact();
-            }
-        }
-
-        if(Input.GetButton("Fire1") && !GameManager.Instance.mouseOnUI){
-            Tool toolNowHold = GameManager.Instance.GetToolNowHold();
-            switch (toolNowHold.name){
-                case "Axe":
-                    animator.SetInteger("ActCode",1);
-                    break;
-                case "Knife":
-                    animator.SetInteger("ActCode",2);
-                    break;
-                case "FryingPan":
-                    animator.SetInteger("ActCode",3);
-                    break;
-                case "Pickaxe":
-                    animator.SetInteger("ActCode",4);
-                    break;
-                case "Shovel":
-                    animator.SetInteger("ActCode",5);
-                    break;
-                default:
-                    animator.SetInteger("ActCode",0);
-                    break;
-            }
-        }else if(Input.GetButtonUp("Fire1")){
-            animator.SetInteger("ActCode",0);
-        }
-
-        if(Input.GetButton("Crouch")){
-            animator.SetFloat("Crouch", -1);
-        }else{
-            animator.SetFloat("Crouch", 1);
-        }
-
         animator.SetBool("IsJumping",!IsGrounded());
+    }
 
-        // Debug.Log("IsGrounded : " + IsGrounded());
-        // rigidBody.useGravity = !IsGrounded();
+    public void OnMovement(InputAction.CallbackContext value){
+        Vector2 inputMovement = value.ReadValue<Vector2>();
+        movement.x = inputMovement.x;
+        movement.z = inputMovement.y;
+
+        if(movement.z <= -0.01f){
+            animator.SetFloat("Backward",1);
+        }else if(movement.z >= 0.01f){
+            animator.SetFloat("Backward",-1);
+        }
 
         if(reflectCapable){
             if(movement.x <= -0.01f){
@@ -104,12 +68,39 @@ public class PlayerMovement : MonoBehaviour
                 spriteObject.transform.localScale = new Vector3(1f,1f,1f);
             }
         }
+    }
 
-        if(movement.z <= -0.01f){
-            animator.SetFloat("Backward",1);
-            
-        }else if(movement.z >= 0.01f){
-            animator.SetFloat("Backward",-1);
+    public void OnJump(InputAction.CallbackContext value){
+        if(value.started && jumpCapable && IsGrounded()){
+            isJump = true;
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext value){
+        if(value.started){
+            Interactable interactable = GameManager.Instance.nearestInteractable;
+            if(interactable != null){
+                interactable.Interact();
+            }
+        }
+    }
+
+    public void OnAttack(InputAction.CallbackContext value){
+        if(value.started && !GameManager.Instance.mouseOnUI){
+            Tool toolNowHold = GameManager.Instance.GetToolNowHold();
+            if(toolActionDictionary.ContainsKey(toolNowHold.name)){
+                animator.SetInteger("ActCode",toolActionDictionary[toolNowHold.name]);
+            }
+        }else if(value.canceled){
+            animator.SetInteger("ActCode",0);
+        }
+    }
+
+    public void OnCrouch(InputAction.CallbackContext value){
+        if(value.started){
+            animator.SetFloat("Crouch", -1);
+        }else if (value.canceled){
+            animator.SetFloat("Crouch", 1);
         }
     }
 
@@ -169,7 +160,7 @@ public class PlayerMovement : MonoBehaviour
             movement.z = 0;
         rigidBody.MovePosition(rigidBody.position + movement * moveSpeed / slowSpeed * Time.fixedDeltaTime);
         if(isJump){
-            rigidBody.AddForce(new Vector3(movement.x/3,1,movement.z/3)*jumpPower,ForceMode.Impulse);
+            rigidBody.AddForce(new Vector3(movement.x * jumpRange,1.0f * jumpPower,movement.z * jumpRange),ForceMode.Impulse);
             isJump = false;
         }
         // this.transform.position = Vector3.Lerp(this.transform.position,Input.mousePosition,Time.deltaTime * 10);

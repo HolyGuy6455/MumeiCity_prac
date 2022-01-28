@@ -1,19 +1,13 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
     public delegate void UpdateUI();
     private static GameManager singleton_instance = null;
     public Transform PlayerTransform;
-    /*
-     * selectedTool
-     * [0] = axe
-     * [1] = lantern
-     * [2] = shovel
-     */
     public List<Tool> tools = new List<Tool>();
     [SerializeField] int selectedTool = 0;
     [SerializeField] HitCollision hitCollision;
@@ -29,6 +23,8 @@ public class GameManager : MonoBehaviour
     public MobManager mobManager;
     public GridMapManager gridMapManager;
     [SerializeField] private Animator taskUI;
+
+    [SerializeField] PlayerInput playerInput;
     
     public Animator pauseAnimator;
     bool gameIsPause = false;
@@ -117,35 +113,35 @@ public class GameManager : MonoBehaviour
     private void Update() {
         cameraManager.CameraZoom();
 
-        if(Input.GetButtonDown("Inventory")){
-            ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
-        }
+        // if(Input.GetButtonDown("Inventory")){
+        //     ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
+        // }
 
-        if(Input.GetButtonDown("ChangeTool")){
-            SelectToolNext();
-            if(buildingManager.onToolChangedCallback != null){
-                buildingManager.onToolChangedCallback.Invoke();
-            }
+        // if(Input.GetButtonDown("ChangeTool")){
+        //     SelectToolNext();
+        //     if(buildingManager.onToolChangedCallback != null){
+        //         buildingManager.onToolChangedCallback.Invoke();
+        //     }
             
             
-        }
+        // }
         
-        if(Input.GetButtonDown("Building")){
-            ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
-        }
-        if(Input.GetButtonDown("Menu")){
-            if(presentGameTab != GameTab.NORMAL){
-                ChangeGameTab(GameTab.NORMAL);
-            }else{
-                gameIsPause = !gameIsPause;
-                pauseAnimator.SetBool("isVisible",gameIsPause);
-                Time.timeScale = gameIsPause? 0:1;
-                playerMovement.enabled = !gameIsPause;
-            }
-        }
-        if(Input.GetButtonDown("View")){
-            Debug.Log("View");
-        }
+        // if(Input.GetButtonDown("Building")){
+        //     ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
+        // }
+        // if(Input.GetButtonDown("Menu")){
+        //     if(presentGameTab != GameTab.NORMAL){
+        //         ChangeGameTab(GameTab.NORMAL);
+        //     }else{
+        //         gameIsPause = !gameIsPause;
+        //         pauseAnimator.SetBool("isVisible",gameIsPause);
+        //         Time.timeScale = gameIsPause? 0:1;
+        //         playerMovement.enabled = !gameIsPause;
+        //     }
+        // }
+        // if(Input.GetButtonDown("View")){
+        //     Debug.Log("View");
+        // }
         sence.filter = interactableSenseFilter;
         GameObject nearestInteractableObject = sence.FindNearest();
         if(nearestInteractableObject != null){
@@ -182,6 +178,7 @@ public class GameManager : MonoBehaviour
         {
             case GameTab.NORMAL:
                 playerMovementEnabled = true;
+                playerInput.SwitchCurrentActionMap("PlayerControl");
                 taskUI.SetInteger("SelectedUI",0);
                 break;
 
@@ -244,13 +241,63 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SelectToolNext(){
+    public void OnNextTool(InputAction.CallbackContext value){
+        if(!value.started){
+            return;
+        }
         if(selectedTool > tools.ToArray().Length -2){
             SelectTool(0);
         }else{
             SelectTool(selectedTool+1);
         }
-        
+        if(buildingManager.onToolChangedCallback != null){
+            buildingManager.onToolChangedCallback.Invoke();
+        }
+    }
+
+    public void OnBeforeTool(InputAction.CallbackContext value){
+        if(!value.started){
+            return;
+        }
+        if(selectedTool < 1){
+            SelectTool(tools.ToArray().Length-1);
+        }else{
+            SelectTool(selectedTool-1);
+        }
+        if(buildingManager.onToolChangedCallback != null){
+            buildingManager.onToolChangedCallback.Invoke();
+        }
+    }
+
+    public void OnInventory(InputAction.CallbackContext value){
+        if(!value.started){
+            return;
+        }
+        ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
+    }
+
+    public void OnMenu(InputAction.CallbackContext value){
+        if(value.started){
+            gameIsPause = true;
+            pauseAnimator.SetBool("isVisible",true);
+            Time.timeScale = 0;
+            playerMovement.enabled = false;
+            playerInput.SwitchCurrentActionMap("Pause");
+        }
+    }
+
+    public void OnExitTask(InputAction.CallbackContext value){
+        ChangeGameTab(GameTab.NORMAL);
+    }
+
+    public void OnExitPause(InputAction.CallbackContext value){
+        if(value.started){
+            gameIsPause = false;
+            pauseAnimator.SetBool("isVisible",false);
+            Time.timeScale = 1;
+            playerMovement.enabled = true;
+            playerInput.SwitchCurrentActionMap("PlayerControl");
+        }
     }
 
     private void Awake() {
