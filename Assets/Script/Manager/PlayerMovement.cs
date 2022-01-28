@@ -76,14 +76,6 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
-    public void OnInteract(InputAction.CallbackContext value){
-        if(value.started){
-            Interactable interactable = GameManager.Instance.nearestInteractable;
-            if(interactable != null){
-                interactable.Interact();
-            }
-        }
-    }
 
     public void OnAttack(InputAction.CallbackContext value){
         if(value.started && !GameManager.Instance.mouseOnUI){
@@ -154,11 +146,12 @@ public class PlayerMovement : MonoBehaviour{
 
         bool HorizontalRayCast = Physics.Raycast(this.transform.position, new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
         bool VerticalRayCast = Physics.Raycast(this.transform.position, new Vector3(0,0,movement.z), 0.5f, groundLayerMask);
+        Vector3 movementTemp = movement * 1;
         if(HorizontalRayCast)
-            movement.x = 0;
+            movementTemp.x = 0;
         if(VerticalRayCast)
-            movement.z = 0;
-        rigidBody.MovePosition(rigidBody.position + movement * moveSpeed / slowSpeed * Time.fixedDeltaTime);
+            movementTemp.z = 0;
+        rigidBody.MovePosition(rigidBody.position + movementTemp * moveSpeed / slowSpeed * Time.fixedDeltaTime);
         if(isJump){
             rigidBody.AddForce(new Vector3(movement.x * jumpRange,1.0f * jumpPower,movement.z * jumpRange),ForceMode.Impulse);
             isJump = false;

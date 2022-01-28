@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class InventoryUI : MonoBehaviour{
     [SerializeField] ItemSlot[] itemSlots;
@@ -8,6 +9,7 @@ public class InventoryUI : MonoBehaviour{
     [SerializeField] Text ItemInfoName;
     [SerializeField] Text ItemInfoText;
     [SerializeField] TagSlot[] itemTags;
+    [SerializeField] RectTransform itemHeldInHandTransform;
 
     void Start(){
         itemSlots = this.GetComponentsInChildren<ItemSlot>();
@@ -39,5 +41,12 @@ public class InventoryUI : MonoBehaviour{
     private void OnClickSlot(ItemSlot inventorySlot, PointerEventData eventData){
         GameManager.Instance.inventory.ClickLeft(inventorySlot);
         inventorySlot.UpdateUI();
+    }
+
+    public void OnMouseMove(InputAction.CallbackContext value){
+        Debug.Log("??");
+        Vector2 mousePosition = value.ReadValue<Vector2>();
+        itemHeldInHandTransform.transform.position = mousePosition;
+        
     }
 }

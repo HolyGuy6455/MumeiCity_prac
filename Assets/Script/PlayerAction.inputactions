@@ -46,6 +46,14 @@
                     "interactions": ""
                 },
                 {
+                    "name": "Cancle",
+                    "type": "Button",
+                    "id": "10350501-1a72-4d1c-a841-74a625ccab8f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
                     "name": "Inventory",
                     "type": "Button",
                     "id": "ded74d81-fa3e-4cdb-8239-6aec29ccfb09",
@@ -84,6 +92,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "d4700af3-000c-4b40-a271-683be0b3a15c",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -111,7 +127,7 @@
                 },
                 {
                     "name": "",
-                    "id": "db070ab9-cd57-474b-af77-d08b71756b7d",
+                    "id": "5ed99710-cd52-413e-bc23-366ba8d721f5",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -254,7 +270,7 @@
                 },
                 {
                     "name": "",
-                    "id": "fa5ab5c7-ea02-4418-9836-692539a25420",
+                    "id": "53a99eff-fe65-42bd-b4ed-e25c78b51f6f",
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
@@ -372,6 +388,94 @@
                     "action": "Bulding",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6a378d6a-9012-4934-98fe-e77f5592d111",
+                    "path": "<Gamepad>/rightStick/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "4fac25b5-29af-44bd-aad0-d1b6c18fc193",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4d483abf-a036-4321-8e95-7c2fe4a3ae22",
+                    "path": "<Keyboard>/numpadMinus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "f742cee7-2dda-4a45-98b9-d2d2c4425ace",
+                    "path": "<Keyboard>/numpadPlus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "bc6c327e-cb04-4293-b9d0-f412fcb418b9",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "436fd6df-a240-4f4e-8a50-22433601555e",
+                    "path": "<Keyboard>/minus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "0f9b8cdc-564b-4744-8faf-5d1bf5ec3d8a",
+                    "path": "<Keyboard>/equals",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f3c7f02d-ab06-4bae-898e-2760e12f6a06",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard;Gamepad",
+                    "action": "Cancle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -414,7 +518,7 @@
                 {
                     "name": "MousePosition",
                     "type": "Value",
-                    "id": "911c476b-77e4-4084-8be7-5dcd6525befe",
+                    "id": "2c88fe53-0188-44d3-850d-a7e609382855",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
@@ -533,45 +637,12 @@
                 },
                 {
                     "name": "",
-                    "id": "3f8dc220-4289-49e9-8984-976c17bd8edb",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "9d4203a0-779b-4e9d-aa10-43b47d090a0a",
-                    "path": "<Keyboard>/escape",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard",
-                    "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f927c745-32ff-4f24-ad82-7f8b20448988",
                     "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Exit",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c10b2fd6-7ae6-480a-a273-838ea5c2d6d5",
-                    "path": "<Mouse>/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -588,12 +659,45 @@
                 },
                 {
                     "name": "",
+                    "id": "bf95b2a5-dc64-4357-bf60-2c51d837fd14",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ca86a8d4-a8e5-45a6-be48-c548a8e8f7c8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Exit",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c0f80078-058e-4599-920a-2de9cca60084",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Cancle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e7d15626-f018-48ab-8b88-ed2bb2cb4bcc",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MousePosition",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -608,6 +712,14 @@
                     "type": "Button",
                     "id": "dc7c1036-27c7-4cb7-b18a-80214bb9ea59",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "MousePosition",
+                    "type": "Value",
+                    "id": "52baf544-b56a-4edf-b4ef-c1b8dd2125c1",
+                    "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": ""
                 }
@@ -645,6 +757,17 @@
                     "action": "Exit",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "760fa5c9-998b-433d-a61a-f55f36c32581",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
@@ -656,6 +779,11 @@
             "devices": [
                 {
                     "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
                     "isOptional": false,
                     "isOR": false
                 }

@@ -29,4 +29,8 @@ public class TaskUIBundle : MonoBehaviour{
         inventoryUI.LoadItemSlotData();
         tentUI.UpdateUI();
     }
+
+    void SwitchActionMap(string actionMap){
+        GameManager.Instance.SwitchActionMap(actionMap);
+    }
 }

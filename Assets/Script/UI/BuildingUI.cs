@@ -17,6 +17,7 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] Text infoDescription;
     [SerializeField] Sprite selectedToolSprite;
     [SerializeField] Sprite otherToolSprite;
+    [SerializeField] Button buildButton;
     RectTransform buildingArticlesListRect;
 
     // Start is called before the first frame update
@@ -97,6 +98,14 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
     public void OnPointerExit(PointerEventData eventData) {
         GameManager.Instance.mouseOnUI = false;
+    }
+
+    public void CheckConstructionArea(){
+        if(GameManager.Instance.buildingManager.constructionArea.isThereObstacle()){
+            buildButton.interactable = false;
+        }else{
+            buildButton.interactable = true;
+        }
     }
 
 }

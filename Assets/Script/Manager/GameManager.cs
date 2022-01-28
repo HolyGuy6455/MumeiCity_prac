@@ -97,50 +97,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void ChangeGameTab(string gameTabName){
-        switch (gameTabName){
-            case "Inventory":
-                ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
-                break;
-            case "Building":
-                ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
-                break;
-            default:
-                break;
-        }
-    }
-
     private void Update() {
-        cameraManager.CameraZoom();
-
-        // if(Input.GetButtonDown("Inventory")){
-        //     ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
-        // }
-
-        // if(Input.GetButtonDown("ChangeTool")){
-        //     SelectToolNext();
-        //     if(buildingManager.onToolChangedCallback != null){
-        //         buildingManager.onToolChangedCallback.Invoke();
-        //     }
-            
-            
-        // }
-        
         // if(Input.GetButtonDown("Building")){
         //     ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
-        // }
-        // if(Input.GetButtonDown("Menu")){
-        //     if(presentGameTab != GameTab.NORMAL){
-        //         ChangeGameTab(GameTab.NORMAL);
-        //     }else{
-        //         gameIsPause = !gameIsPause;
-        //         pauseAnimator.SetBool("isVisible",gameIsPause);
-        //         Time.timeScale = gameIsPause? 0:1;
-        //         playerMovement.enabled = !gameIsPause;
-        //     }
-        // }
-        // if(Input.GetButtonDown("View")){
-        //     Debug.Log("View");
         // }
         sence.filter = interactableSenseFilter;
         GameObject nearestInteractableObject = sence.FindNearest();
@@ -178,7 +137,6 @@ public class GameManager : MonoBehaviour
         {
             case GameTab.NORMAL:
                 playerMovementEnabled = true;
-                playerInput.SwitchCurrentActionMap("PlayerControl");
                 taskUI.SetInteger("SelectedUI",0);
                 break;
 
@@ -268,6 +226,19 @@ public class GameManager : MonoBehaviour
             buildingManager.onToolChangedCallback.Invoke();
         }
     }
+    
+    public void OnInteract(InputAction.CallbackContext value){
+        if(value.started){
+            if(presentGameTab == GameTab.BUILDING){
+                GameManager.Instance.buildingManager.Build();
+            }else{
+                Interactable interactable = GameManager.Instance.nearestInteractable;
+                if(interactable != null){
+                    interactable.Interact();
+                }
+            }
+        }
+    }
 
     public void OnInventory(InputAction.CallbackContext value){
         if(!value.started){
@@ -276,18 +247,32 @@ public class GameManager : MonoBehaviour
         ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
     }
 
+    public void OnBuliding(InputAction.CallbackContext value){
+        if(!value.started){
+            return;
+        }
+        Debug.Log("presentGameTab - " + presentGameTab);
+        ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
+    }
+
     public void OnMenu(InputAction.CallbackContext value){
         if(value.started){
-            gameIsPause = true;
-            pauseAnimator.SetBool("isVisible",true);
-            Time.timeScale = 0;
-            playerMovement.enabled = false;
-            playerInput.SwitchCurrentActionMap("Pause");
+            if(presentGameTab != GameTab.NORMAL){
+                OnExitTask(value);
+            }else{
+                gameIsPause = true;
+                pauseAnimator.SetBool("isVisible",true);
+                Time.timeScale = 0;
+                playerMovement.enabled = false;
+                playerInput.SwitchCurrentActionMap("Pause");
+            }
         }
     }
 
     public void OnExitTask(InputAction.CallbackContext value){
-        ChangeGameTab(GameTab.NORMAL);
+        if(value.started){
+            ChangeGameTab(GameTab.NORMAL);
+        }
     }
 
     public void OnExitPause(InputAction.CallbackContext value){
@@ -300,7 +285,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+
     private void Awake() {
         singleton_instance = this;
+    }
+
+    public void SwitchActionMap(string actionMap){
+        playerInput.SwitchCurrentActionMap(actionMap);
     }
 }

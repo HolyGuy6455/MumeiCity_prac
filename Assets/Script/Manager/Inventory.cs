@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Inventory : MonoBehaviour {
     
     public ItemSlotData itemHeldInHand;
-    [SerializeField] RectTransform itemHeldInHandTransform;
+    
     [SerializeField] Image itemHeldInHandImage;
     [SerializeField] Text itemHeldInHandAmount;
     public ItemSlotData[] itemData;

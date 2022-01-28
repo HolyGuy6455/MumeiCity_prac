@@ -1,27 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ConstructionArea : MonoBehaviour
 {
     public Transform followTransform;
-    public GameObject sprite;
+    public SpriteRenderer sprite;
     [SerializeField] private List<Collider> colliderOverlaped = new List<Collider>();
-    private List<string> overlapTag = new List<string>();
-    private BoxCollider boxCollider;
+    [SerializeField] List<string> overlapTag = new List<string>();
+    [SerializeField] BoxCollider boxCollider;
     private BuildingPreset buildingData;
+    public UnityEvent eventCallBack;
 
     public bool isThereObstacle(){
-        return (colliderOverlaped.Count != 0);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        foreach (string overlapTagString in new[]{"Building","Wall"}){
-            overlapTag.Add(overlapTagString);
+        bool result = (colliderOverlaped.Count != 0);
+        if(result){
+            sprite.color = new Color(1.0f,0.5f,0.5f,0.5f);
+        }else{
+            sprite.color = new Color(1.0f,1.0f,1.0f,0.5f);
         }
-        boxCollider = this.GetComponent<BoxCollider>();
+        return result;
     }
 
     // Update is called once per frame
@@ -36,12 +35,11 @@ public class ConstructionArea : MonoBehaviour
 
     public void SetBuildingData(BuildingPreset buildingData){
         this.buildingData = buildingData;
-        SpriteRenderer spriteRenderer = sprite.GetComponent<SpriteRenderer>();
         if(buildingData == null){
-            spriteRenderer.sprite = null;
+            sprite.sprite = null;
             this.transform.localScale = new Vector3(1,1,1);
         }else{
-            spriteRenderer.sprite = buildingData.sprite;
+            sprite.sprite = buildingData.sprite;
             this.transform.localScale = buildingData.scale;
         }
     }
@@ -49,14 +47,14 @@ public class ConstructionArea : MonoBehaviour
     private void OnTriggerEnter(Collider other) {
         if(overlapTag.Contains(other.tag)){
             colliderOverlaped.Add(other);
-            Debug.Log("OnTriggerEnter");
+            eventCallBack.Invoke();
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if(overlapTag.Contains(other.tag)){
             colliderOverlaped.Remove(other);
-            Debug.Log("OnTriggerExit");
+            eventCallBack.Invoke();
         }
     }
 }

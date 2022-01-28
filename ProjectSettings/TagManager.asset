@@ -10,6 +10,7 @@ TagManager:
   - Interactable
   - Person
   - Animal
+  - Ground
   layers:
   - Default
   - TransparentFX
