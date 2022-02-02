@@ -15,7 +15,7 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: -5604964625577292770, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
-  spriteBroken: {fileID: -5937200866895562579, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  healthPointMax: 9
   info: You can dig gold here.
   attributes:
   - Mining
@@ -33,3 +33,7 @@ MonoBehaviour:
   - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
     chance: 0.3
     itemDropType: 2
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 11400000, guid: bb0a01712471aae41a30d036d010cc89, type: 2}
+  growUpTerm: 0
+  brokenStyle: 3

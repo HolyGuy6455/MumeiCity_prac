@@ -48,6 +48,14 @@ public class PlayerMovement : MonoBehaviour{
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.SetBool("IsJumping",!IsGrounded());
+
+        if(reflectCapable){
+            if(movement.x <= -0.01f){
+                spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
+            }else if(movement.x >= 0.01f){
+                spriteObject.transform.localScale = new Vector3(1f,1f,1f);
+            }
+        }
     }
 
     public void OnMovement(InputAction.CallbackContext value){
@@ -59,14 +67,6 @@ public class PlayerMovement : MonoBehaviour{
             animator.SetFloat("Backward",1);
         }else if(movement.z >= 0.01f){
             animator.SetFloat("Backward",-1);
-        }
-
-        if(reflectCapable){
-            if(movement.x <= -0.01f){
-                spriteObject.transform.localScale = new Vector3(-1f,1f,1f);
-            }else if(movement.x >= 0.01f){
-                spriteObject.transform.localScale = new Vector3(1f,1f,1f);
-            }
         }
     }
 

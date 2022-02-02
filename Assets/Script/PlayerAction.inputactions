@@ -468,6 +468,17 @@
                 },
                 {
                     "name": "",
+                    "id": "5ab0f156-5f20-45f6-98cf-09b2ed046152",
+                    "path": "<Mouse>/scroll/y",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "f3c7f02d-ab06-4bae-898e-2760e12f6a06",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",

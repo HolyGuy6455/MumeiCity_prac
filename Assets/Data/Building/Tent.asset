@@ -15,14 +15,13 @@ MonoBehaviour:
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
   sprite: {fileID: 21300000, guid: 0cd41c92ee362944885354db19128dda, type: 3}
-  spriteBroken: {fileID: 0}
   healthPointMax: 10
   info: You can sleep here.
   attributes: []
   interactable: 1
   workplace: 0
   workTier: 0
-  lightSourceIntensity: 0
+  lightSourceIntensity: 2
   buildTool: 3
   removalTool:
   - tool: 9
@@ -32,3 +31,7 @@ MonoBehaviour:
   - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
     amount: 5
   dropAmounts: []
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 0}
+  growUpTerm: 0
+  brokenStyle: 1

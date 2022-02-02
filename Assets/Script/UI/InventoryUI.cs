@@ -39,7 +39,9 @@ public class InventoryUI : MonoBehaviour{
     }
 
     private void OnClickSlot(ItemSlot inventorySlot, PointerEventData eventData){
-        GameManager.Instance.inventory.ClickLeft(inventorySlot);
+        if(eventData.button == PointerEventData.InputButton.Left){
+            GameManager.Instance.inventory.ClickLeft(inventorySlot);
+        }
         inventorySlot.UpdateUI();
     }
 

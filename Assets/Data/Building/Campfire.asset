@@ -15,14 +15,13 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 21300000, guid: de2dd8db9cba0cb428255c909ee6e4bb, type: 3}
-  spriteBroken: {fileID: 0}
   healthPointMax: 10
   info: It's warm here.
   attributes: []
   interactable: 0
   workplace: 0
   workTier: 0
-  lightSourceIntensity: 0
+  lightSourceIntensity: 5
   buildTool: 3
   removalTool:
   - tool: 4
@@ -32,3 +31,7 @@ MonoBehaviour:
   - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
     amount: 1
   dropAmounts: []
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 0}
+  growUpTerm: 0
+  brokenStyle: 0

@@ -15,8 +15,7 @@ MonoBehaviour:
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: 7173273053214142725, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
-  spriteBroken: {fileID: -5937200866895562579, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
-  healthPointMax: 10
+  healthPointMax: 9
   info: You can dig Irons here.
   attributes:
   - Mining
@@ -34,3 +33,7 @@ MonoBehaviour:
   - preset: {fileID: 11400000, guid: b6e08568969e97443a91ff0bb8a7dacb, type: 2}
     chance: 0.3
     itemDropType: 2
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 11400000, guid: a3dc924ad17fe0c4ab08c5dc385874f2, type: 2}
+  growUpTerm: 0
+  brokenStyle: 3

@@ -13,7 +13,8 @@ public class BuildingObject : MonoBehaviour
     public GameObject spriteObject;
     public GameObject shadowObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
-
+    [SerializeField] Animator animator;
+ 
     private void Start() {
         // TODO
         // 내가 에디터에서 만들때와 BuildingManager에서 만들때
@@ -41,13 +42,12 @@ public class BuildingObject : MonoBehaviour
             string ticketName = "building"+this.buildingData.id+"_hire";
             hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, HirePerson);
         }
-
-        
         Vector3 shadowPostion = new Vector3();
         shadowPostion.x = this.transform.position.x;
         shadowPostion.y = (this.transform.position.y+this.transform.position.z);
         shadowObject.transform.position = shadowPostion;
 
+        
     }
 
     private void HirePerson(){
@@ -66,12 +66,13 @@ public class BuildingObject : MonoBehaviour
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
         this.buildingData = buildingData;
-        Debug.Log(buildingData);
         this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
         if( !buildingData.buildingPreset.interactable ){
-            Debug.Log("buildingData "+this.GetComponentInChildren<Interactable>());
-            this.GetComponentInChildren<Interactable>().gameObject.SetActive(false);
+            Interactable interactable = this.GetComponentInChildren<Interactable>();
+            if(interactable != null){
+                interactable.gameObject.SetActive(false);
+            }
         }
 
         if(buildingPreset.dropAmounts.Count > 0){
@@ -83,9 +84,25 @@ public class BuildingObject : MonoBehaviour
             delegate(Hittable component){
                 GameManager.Instance.buildingManager.astarPath.Scan();
             };
-        hittable.HitEventHandler += CheckHP;
+        // hittable.HitEventHandler += CheckHP;
         hittable.SetEffectiveTool(buildingPreset.removalTool);
         hittable.HP = buildingPreset.healthPointMax;
+        switch (buildingPreset.brokenStyle){
+            case BuildingPreset.BrokenStyle.NONE:
+                animator.SetInteger("BrokenStyle",0);
+                break;
+            case BuildingPreset.BrokenStyle.FALL_DOWN:
+                animator.SetInteger("BrokenStyle",1);
+                break;
+            case BuildingPreset.BrokenStyle.COLLAPSE:
+                animator.SetInteger("BrokenStyle",2);
+                break;
+            case BuildingPreset.BrokenStyle.SWAP:
+                animator.SetInteger("BrokenStyle",3);
+                break;
+            default:
+                break;
+        }
 
         Light2D light = GetComponentInChildren<Light2D>();
         light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
@@ -115,16 +132,22 @@ public class BuildingObject : MonoBehaviour
         GameManager.Instance.ChangeGameTab(gameTab);
     }
 
-    public void CheckHP(Hittable hittable){
-        if(buildingData.buildingPreset.spriteBroken == null){
-            return;
-        }
-        float percentage = (float)hittable.HP / (float)buildingData.buildingPreset.healthPointMax;
-        if( percentage < 0.5f ){
-            spriteRenderer.sprite = buildingData.buildingPreset.spriteBroken;
-        }else{
-            spriteRenderer.sprite = buildingData.buildingPreset.sprite;
-        }
+    public void SwapPresetToRuin(){
+        buildingData.code = buildingData.buildingPreset.ruinPreset.code;
+        Initialize(buildingData);
+        animator.SetBool("isDead",false);
     }
+
+    // public void CheckHP(Hittable hittable){
+    //     if(buildingData.buildingPreset.spriteBroken == null){
+    //         return;
+    //     }
+    //     float percentage = (float)hittable.HP / (float)buildingData.buildingPreset.healthPointMax;
+    //     if( percentage < 0.5f ){
+    //         spriteRenderer.sprite = buildingData.buildingPreset.spriteBroken;
+    //     }else{
+    //         spriteRenderer.sprite = buildingData.buildingPreset.sprite;
+    //     }
+    // }
 
 }

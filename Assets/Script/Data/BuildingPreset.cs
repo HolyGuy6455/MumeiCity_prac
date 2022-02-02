@@ -8,11 +8,11 @@ using System;
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
     // public string buildingName;
-    public Vector3 scale;
+    public Vector3 scale = new Vector3(1,1,1);
     public Vector3 relativeLocation;
     public Sprite sprite;
-    public Sprite spriteBroken;
     public int healthPointMax = 10;
+    // public Sprite spriteBroken;
     [TextArea] public string info;
     public List<string> attributes;
     public bool interactable;
@@ -24,10 +24,20 @@ public class BuildingPreset : ScriptableObject {
     public int buildToolIndex;
     public List<BuildingResource> resourceList = new List<BuildingResource>();
     public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
+    public BuildingPreset grownPreset;
+    public BuildingPreset ruinPreset;
+    public int growUpTerm = 0;
+    public BrokenStyle brokenStyle;
     public byte code{
         get{
             return BuildingManager.GetBuildingCode(this);
         }
+    }
+    public enum BrokenStyle{
+        NONE,
+        COLLAPSE,
+        FALL_DOWN,
+        SWAP
     }
 }
 [Serializable]
