@@ -13,6 +13,7 @@ public class BuildingObject : MonoBehaviour
     public GameObject spriteObject;
     public GameObject shadowObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
+    [SerializeField] TimeEventQueueTicket growupEvent;
     [SerializeField] Animator animator;
  
     private void Start() {
@@ -47,7 +48,11 @@ public class BuildingObject : MonoBehaviour
         shadowPostion.y = (this.transform.position.y+this.transform.position.z);
         shadowObject.transform.position = shadowPostion;
 
-        
+        if(buildingData.buildingPreset.growUpTerm != 0){
+            int term = buildingData.buildingPreset.growUpTerm;
+            string ticketName = "building"+this.GetInstanceID()+"_growup";
+            growupEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(term,ticketName,false, SwapPresetToGrow);
+        }
     }
 
     private void HirePerson(){
@@ -136,6 +141,11 @@ public class BuildingObject : MonoBehaviour
         buildingData.code = buildingData.buildingPreset.ruinPreset.code;
         Initialize(buildingData);
         animator.SetBool("isDead",false);
+    }
+
+    public void SwapPresetToGrow(){
+        buildingData.code = buildingData.buildingPreset.grownPreset.code;
+        Initialize(buildingData);
     }
 
     // public void CheckHP(Hittable hittable){

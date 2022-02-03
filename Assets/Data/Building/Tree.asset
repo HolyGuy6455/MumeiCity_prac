@@ -23,7 +23,7 @@ MonoBehaviour:
   workplace: 0
   workTier: 0
   lightSourceIntensity: 0
-  buildTool: 4
+  buildTool: 0
   removalTool:
   - tool: 4
     damage: 3

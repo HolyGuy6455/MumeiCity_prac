@@ -35,7 +35,7 @@ MonoBehaviour:
     itemDropType: 2
   - preset: {fileID: 11400000, guid: 9b1ab34e9171e3e4fa3d99fa699526ee, type: 2}
     chance: 0.3
-    itemDropType: 2
+    itemDropType: 1
   grownPreset: {fileID: 0}
   ruinPreset: {fileID: 11400000, guid: 097562b0f00551b4287b6d3f189b0d58, type: 2}
   growUpTerm: 0

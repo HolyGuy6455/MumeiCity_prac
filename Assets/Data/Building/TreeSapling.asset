@@ -22,7 +22,7 @@ MonoBehaviour:
   workplace: 0
   workTier: 0
   lightSourceIntensity: 0
-  buildTool: 0
+  buildTool: 4
   removalTool:
   - tool: 4
     damage: 0
@@ -33,5 +33,5 @@ MonoBehaviour:
   dropAmounts: []
   grownPreset: {fileID: 11400000, guid: 9f0d843bcc0ae4a42a7bf6a2260e5eb5, type: 2}
   ruinPreset: {fileID: 0}
-  growUpTerm: 120
+  growUpTerm: 5
   brokenStyle: 0
