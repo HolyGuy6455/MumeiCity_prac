@@ -25,6 +25,7 @@ public class ItemPickup : MonoBehaviour
         }
     }
 
+    [ContextMenu("UpdateItemData")]
     public void IconSpriteUpdate(){
         if(itemData == null)
             return;
@@ -42,6 +43,4 @@ public class ItemPickup : MonoBehaviour
     public ItemSlotData ProcessToItemSlotData(){
         return ItemSlotData.Create(itemData.itemPreset);
     }
-
-    
 }

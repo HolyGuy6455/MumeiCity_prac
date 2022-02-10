@@ -57,7 +57,9 @@ public class GameManager : MonoBehaviour
     public bool mouseOnUI;
     public static GameManager Instance{
         get{
-            return singleton_instance;
+            return GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+            // Debug.Log("singleton_instance - " + singleton_instance);
+            // return singleton_instance;
         }
     }
     [SerializeField] HitCollision heatCollision;

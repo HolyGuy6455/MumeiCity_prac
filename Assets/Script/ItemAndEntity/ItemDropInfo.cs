@@ -6,6 +6,7 @@ public class ItemDropInfo{
     public float chance;
     public ItemDropType itemDropType;
     public void DropItem(Hittable hittable){
+        Debug.Log("DropItem");
         Vector3 location = new Vector3();
         location.x = hittable.transform.position.x;
         location.y = hittable.transform.position.y;

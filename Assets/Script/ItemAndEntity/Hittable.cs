@@ -34,6 +34,8 @@ public class Hittable : MonoBehaviour
 
         if(HP<=0){
             animator.SetBool("isDead",true);
+            if(!(DeadEventHandler is null))
+                DeadEventHandler(this);
             return;
         }
         if(!(HitEventHandler is null)){
@@ -46,10 +48,6 @@ public class Hittable : MonoBehaviour
     } 
 
     public void Dead(){
-        if(!(DeadEventHandler is null))
-            DeadEventHandler(this);
-
-        // 임시 코드
         Destroy(this.gameObject);
     }
 

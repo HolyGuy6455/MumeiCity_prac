@@ -55,8 +55,8 @@ public class BuildingManager : MonoBehaviour {
     }
 
     public static BuildingPreset GetBuildingPreset(byte buildingCode){
-        // BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        BuildingManager buildingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<BuildingManager>();
+        BuildingManager buildingManager = GameManager.Instance.buildingManager;
+        // BuildingManager buildingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<BuildingManager>();
         int index = (int)buildingCode;
         return buildingManager.buildingPresets[index];
     }

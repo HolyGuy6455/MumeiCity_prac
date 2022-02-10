@@ -90,12 +90,12 @@ public class TimeManager : MonoBehaviour{
 
         foreach (TimeEventQueueTicket queueTicket in waitingList){
             if(queueTicket._timeValue <= this.timeValue){
-                queueTicket._timeEvent.Invoke();
                 discardList.Add(queueTicket);
             }
         }
         foreach (TimeEventQueueTicket ticket in discardList){
             waitingList.Remove(ticket);
+            ticket._timeEvent.Invoke();
             if(ticket._repeatTime != 0){
                 AddTimeEventQueueTicket(ticket._repeatTime,ticket._idString,true,ticket._timeEvent);
             }

@@ -46,9 +46,8 @@ public class InventoryUI : MonoBehaviour{
     }
 
     public void OnMouseMove(InputAction.CallbackContext value){
-        Debug.Log("??");
         Vector2 mousePosition = value.ReadValue<Vector2>();
         itemHeldInHandTransform.transform.position = mousePosition;
-        
     }
+
 }

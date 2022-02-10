@@ -50,11 +50,7 @@ public class BuildingObject : MonoBehaviour
         shadowPostion.y = (this.transform.position.y+this.transform.position.z);
         shadowObject.transform.position = shadowPostion;
 
-        if(buildingData.buildingPreset.growUpTerm != 0){
-            int term = buildingData.buildingPreset.growUpTerm;
-            string ticketName = "building"+this.GetInstanceID()+"_growup";
-            growupEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(term,ticketName,false, SwapPresetToGrow);
-        }
+        
     }
 
     private void HirePerson(){
@@ -83,15 +79,16 @@ public class BuildingObject : MonoBehaviour
         }
 
         if(buildingPreset.dropAmounts.Count > 0){
-            this.gameObject.AddComponent<ItemDroper>().InitializeItemDrop(buildingPreset.dropAmounts);
+            ItemDroper itemDroper = this.gameObject.GetComponent<ItemDroper>();
+            if(itemDroper != null){
+                itemDroper.RemoveItemDrop();
+            }else{
+                itemDroper = this.gameObject.AddComponent<ItemDroper>();
+            }
+            itemDroper.InitializeItemDrop(buildingPreset.dropAmounts);
         }
 
         Hittable hittable = GetComponent<Hittable>();
-        hittable.DeadEventHandler += 
-            delegate(Hittable component){
-                GameManager.Instance.buildingManager.astarPath.Scan();
-            };
-        // hittable.HitEventHandler += CheckHP;
         hittable.SetEffectiveTool(buildingPreset.removalTool);
         hittable.HP = buildingPreset.healthPointMax;
         switch (buildingPreset.brokenStyle){
@@ -113,6 +110,12 @@ public class BuildingObject : MonoBehaviour
 
         Light2D light = GetComponentInChildren<Light2D>();
         light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
+
+        if(buildingData.buildingPreset.growUpTerm != 0){
+            int term = buildingData.buildingPreset.growUpTerm;
+            string ticketName = "building"+this.GetInstanceID()+"_growup";
+            growupEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(term,ticketName,false, SwapPresetToGrow);
+        }
     }
 
     public void ShowWindow(){
@@ -136,6 +139,10 @@ public class BuildingObject : MonoBehaviour
     void DoSomething()
     {
         Initialize(this.buildingData);
+    }
+
+    private void OnDestroy() {
+        GameManager.Instance.buildingManager.astarPath.Scan();
     }
 
     // public void CheckHP(Hittable hittable){
