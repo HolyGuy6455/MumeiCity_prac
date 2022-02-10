@@ -72,7 +72,7 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         infoName.text = selectedPreset.name;
         infoDescription.text = selectedPreset.info;
 
-        List<BuildingResource> resourceList = selectedPreset.resourceList;
+        List<NecessaryResource> resourceList = selectedPreset.resourceList;
         for (int i = 0; i < resourceViews.Length; i++){
             if(i < resourceList.Count){
                 resourceViews[i].gameObject.SetActive(true);

@@ -7,7 +7,6 @@ public class CommonTaskUI : MonoBehaviour{
     [SerializeField] ItemSlot[] StorageSlots;
     // Start is called before the first frame update
     protected virtual void Start(){
-        StorageSlots = StorageSlotParent.GetComponentsInChildren<ItemSlot>();
         foreach (ItemSlot slot in StorageSlots){
             slot.onFocusCallback += OnFocusSlot;
             slot.onClickCallback += OnClickSlot;

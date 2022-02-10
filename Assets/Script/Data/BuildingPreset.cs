@@ -18,11 +18,13 @@ public class BuildingPreset : ScriptableObject {
     public bool interactable;
     public bool workplace;
     public int workTier;
+    public GameManager.GameTab gameTab;
+    public List<TaskPreset> taskPresets;
     public int lightSourceIntensity;
     public Tool.ToolType buildTool;
     public List<EffectiveTool> removalTool;
     public int buildToolIndex;
-    public List<BuildingResource> resourceList = new List<BuildingResource>();
+    public List<NecessaryResource> resourceList = new List<NecessaryResource>();
     public List<ItemDropInfo> dropAmounts = new List<ItemDropInfo>();
     public BuildingPreset grownPreset;
     public BuildingPreset ruinPreset;
@@ -40,11 +42,7 @@ public class BuildingPreset : ScriptableObject {
         SWAP
     }
 }
-[Serializable]
-public class BuildingResource{
-    public ItemPreset preset;
-    public int amount;
-}
+
 [Serializable]
 public class EffectiveTool{
     public Tool.ToolType tool;

@@ -28,7 +28,9 @@ public class BuildingObject : MonoBehaviour
 
         switch (buildingData.buildingPreset.name){
             case "ForesterHut":
-                buildingData.mediocrityData = new ForesterHutData();
+                buildingData.mediocrityData = new SuperintendentData();
+                SuperintendentData superintendentData = buildingData.mediocrityData as SuperintendentData;
+                superintendentData.workList = new bool[buildingData.buildingPreset.taskPresets.Count];
                 break;
             case "Tent":
                 buildingData.mediocrityData = new HouseData(12);
@@ -115,25 +117,7 @@ public class BuildingObject : MonoBehaviour
 
     public void ShowWindow(){
         GameManager.Instance.interactingBuilding = this.buildingData;
-        GameManager.GameTab gameTab = GameManager.GameTab.NORMAL;
-
-        // switch문은 들어가는 인자가 반드시 상수여야한단다.....
-        switch (buildingData.buildingPreset.name){
-            case "ForesterHut":
-                gameTab = GameManager.GameTab.FORESTER_HUT;
-                break;
-            case "Tent":
-                gameTab = GameManager.GameTab.TENT;
-                break;
-            case "FoodStorage":
-                gameTab = GameManager.GameTab.FOODSTORAGE;
-                break;
-            case "Mine":
-                gameTab = GameManager.GameTab.MINE;
-                break;
-            default:
-                break;
-        }
+        GameManager.GameTab gameTab = buildingData.buildingPreset.gameTab;
         GameManager.Instance.ChangeGameTab(gameTab);
     }
 
@@ -146,6 +130,12 @@ public class BuildingObject : MonoBehaviour
     public void SwapPresetToGrow(){
         buildingData.code = buildingData.buildingPreset.grownPreset.code;
         Initialize(buildingData);
+    }
+
+    [ContextMenu("Do Something")]
+    void DoSomething()
+    {
+        Initialize(this.buildingData);
     }
 
     // public void CheckHP(Hittable hittable){

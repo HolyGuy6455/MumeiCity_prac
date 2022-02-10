@@ -4,30 +4,35 @@ using UnityEngine;
 
 public class TaskUIBundle : MonoBehaviour{
     [SerializeField] InventoryUI inventoryUI;
-    [SerializeField] ForesterHutUI foresterUI;
-    [SerializeField] TentUI tentUI;
+    [SerializeField] SuperintendentUI foresterUI;
+    [SerializeField] HouseUI houseUI;
     // [SerializeField] MineUI mineUI;
-    [SerializeField] ForesterHutUI mineUI;         // 임시용
-    [SerializeField] ForesterHutUI foodStorageUI; // 임시용
+    [SerializeField] SuperintendentUI mineUI;         // 임시용
+    [SerializeField] SuperintendentUI foodStorageUI; // 임시용
 
     public void LoadInventoryUIData(){
         inventoryUI.LoadItemSlotData();
-    }
-    public void LoadForesterUIData(){
-        inventoryUI.LoadItemSlotData();
-        foresterUI.UpdateUI();
-    }
-    public void LoadMineUIData(){
-        inventoryUI.LoadItemSlotData();
-        mineUI.UpdateUI();
     }
     public void LoadFoodStorageUIData(){
         inventoryUI.LoadItemSlotData();
         foodStorageUI.UpdateUI();
     }
-    public void LoadTentUIData(){
+
+    public void LoadTaskUIData(string taskName){
         inventoryUI.LoadItemSlotData();
-        tentUI.UpdateUI();
+        switch (taskName){   
+
+            case "House":
+                houseUI.UpdateUI();
+                break;
+
+            case "Superintendent":
+                foresterUI.UpdateUI();
+                break;
+
+            default:
+                break;
+        }
     }
 
     void SwitchActionMap(string actionMap){

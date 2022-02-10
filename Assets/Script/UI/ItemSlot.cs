@@ -32,4 +32,8 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         if(onClickCallback != null)
             onClickCallback.Invoke(this, eventData);
     }
+
+    public void OnPointerClick(){
+        Debug.Log("????");
+    }
 }

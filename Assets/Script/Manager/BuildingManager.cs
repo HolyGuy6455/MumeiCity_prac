@@ -55,7 +55,8 @@ public class BuildingManager : MonoBehaviour {
     }
 
     public static BuildingPreset GetBuildingPreset(byte buildingCode){
-        BuildingManager buildingManager = GameManager.Instance.buildingManager;
+        // BuildingManager buildingManager = GameManager.Instance.buildingManager;
+        BuildingManager buildingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<BuildingManager>();
         int index = (int)buildingCode;
         return buildingManager.buildingPresets[index];
     }
@@ -95,9 +96,9 @@ public class BuildingManager : MonoBehaviour {
         }
         // 재료가 충분한지 확인
         Inventory inventoryManager = GameManager.Instance.inventory;
-        List<BuildingResource> materialList = nowBuilding.resourceList;
+        List<NecessaryResource> materialList = nowBuilding.resourceList;
         bool doWeHaveMaterialEnough = true;
-        foreach (BuildingResource material in materialList){
+        foreach (NecessaryResource material in materialList){
             if(inventoryManager.GetItemAmount(material.preset.name) < material.amount){
                 doWeHaveMaterialEnough = false;
                 Debug.Log("Not Enough Material");
@@ -109,7 +110,7 @@ public class BuildingManager : MonoBehaviour {
             return false;
         }
         // 재료가 있다면 재료를 소모한다
-        foreach (BuildingResource material in materialList){
+        foreach (NecessaryResource material in materialList){
             inventoryManager.ConsumeItem(material.preset.name,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다
@@ -134,7 +135,7 @@ public class BuildingManager : MonoBehaviour {
         }
         switch (nowBuilding.name){
             case "ForesterHut":
-                buildingData.mediocrityData = new ForesterHutData();
+                buildingData.mediocrityData = new SuperintendentData();
                 break;
             case "Tent":
                 buildingData.mediocrityData = new HouseData(4);

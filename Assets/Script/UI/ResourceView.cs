@@ -10,7 +10,7 @@ public class ResourceView : MonoBehaviour{
     [SerializeField] ItemPreset itemPreset;
 
 
-    public void UpdateResource(BuildingResource buildingMaterial){
+    public void UpdateResource(NecessaryResource buildingMaterial){
         if(buildingMaterial == null){
             this.itemPreset = null;
             resourceName.text = "";

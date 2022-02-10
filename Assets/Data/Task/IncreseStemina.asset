@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3064de219787a8419a6d698149ceb29, type: 3}
+  m_Name: IncreseStemina
+  m_EditorClassIdentifier: 
+  guideSprite: {fileID: 0}
+  info: 
+  taskType: 1
+  necessaryResources:
+  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
+    amount: 10
+  requiredTime: 0

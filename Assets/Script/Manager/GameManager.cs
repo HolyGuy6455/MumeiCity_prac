@@ -35,10 +35,10 @@ public class GameManager : MonoBehaviour
         NORMAL,
         ITEM,
         BUILDING,
-        FORESTER_HUT,
-        TENT,
-        FOODSTORAGE,
-        MINE
+        HOUSE,
+        SUPERINTENDENT,
+        MANUFACTURER,
+        LABORATORY
 
     }
     public GameTab presentGameTab;
@@ -166,19 +166,19 @@ public class GameManager : MonoBehaviour
                 }
                 break;
 
-            case GameTab.FORESTER_HUT:
-                taskUI.SetInteger("SelectedUI",3);
-                break;
-
-            case GameTab.TENT:
+            case GameTab.HOUSE:
                 taskUI.SetInteger("SelectedUI",4);
                 break;
 
-            case GameTab.FOODSTORAGE:
+            case GameTab.SUPERINTENDENT:
+                taskUI.SetInteger("SelectedUI",3);
+                break;
+
+            case GameTab.MANUFACTURER:
                 taskUI.SetInteger("SelectedUI",5);
                 break;
 
-            case GameTab.MINE:
+            case GameTab.LABORATORY:
                 taskUI.SetInteger("SelectedUI",6);
                 break;
 

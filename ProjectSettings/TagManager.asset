@@ -11,6 +11,7 @@ TagManager:
   - Person
   - Animal
   - Ground
+  - GameManager
   layers:
   - Default
   - TransparentFX

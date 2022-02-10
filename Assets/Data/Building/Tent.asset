@@ -21,6 +21,8 @@ MonoBehaviour:
   interactable: 1
   workplace: 0
   workTier: 0
+  gameTab: 3
+  taskPresets: []
   lightSourceIntensity: 2
   buildTool: 3
   removalTool:

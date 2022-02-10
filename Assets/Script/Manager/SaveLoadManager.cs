@@ -128,7 +128,7 @@ public class SaveLoadManager : MonoBehaviour{
             switch (buildingPreset.name)
             {
                 case "ForesterHut":
-                    buildingData.mediocrityData = new ForesterHutData();
+                    buildingData.mediocrityData = new SuperintendentData();
                     break;
                 case "Tent":
                     buildingData.mediocrityData = new HouseData(4);

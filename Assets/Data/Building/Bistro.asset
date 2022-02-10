@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
+  m_Name: Bistro
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1, z: 1}
+  relativeLocation: {x: 0, y: 0, z: 0}
+  sprite: {fileID: 21300000, guid: 8734026df89e7594eb2bae46b1dff150, type: 3}
+  healthPointMax: 10
+  info: 
+  attributes: []
+  interactable: 1
+  workplace: 1
+  workTier: 0
+  gameTab: 5
+  taskPresets:
+  - {fileID: 11400000, guid: dfaa18b06c553e4438e325a190f712f5, type: 2}
+  - {fileID: 11400000, guid: 3b15a7fce8a7f084dbbbec7fc3b88eab, type: 2}
+  - {fileID: 11400000, guid: 09a9ba8fd05f8a74783abd81956554c7, type: 2}
+  lightSourceIntensity: 0
+  buildTool: 6
+  removalTool:
+  - tool: 9
+    damage: 5
+  buildToolIndex: 0
+  resourceList: []
+  dropAmounts: []
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 0}
+  growUpTerm: 0
+  brokenStyle: 1

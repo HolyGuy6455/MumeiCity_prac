@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TentUI : CommonTaskUI{
+public class HouseUI : CommonTaskUI{
     [SerializeField] PersonStatusView[] personStatusViews;
     [SerializeField] GameObject PersonStatusViewParent;
     [SerializeField] HouseData houseData;
@@ -15,7 +15,7 @@ public class TentUI : CommonTaskUI{
 
     // Update is called once per frame
     void Update(){
-        if(GameManager.Instance.presentGameTab != GameManager.GameTab.TENT){
+        if(GameManager.Instance.presentGameTab != GameManager.GameTab.HOUSE){
             return;
         }
         if(houseData == null){

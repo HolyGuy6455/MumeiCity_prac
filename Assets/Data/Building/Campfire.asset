@@ -18,9 +18,13 @@ MonoBehaviour:
   healthPointMax: 10
   info: It's warm here.
   attributes: []
-  interactable: 0
+  interactable: 1
   workplace: 0
   workTier: 0
+  gameTab: 5
+  taskPresets:
+  - {fileID: 11400000, guid: aceb4c58438293241a80bac810c1e661, type: 2}
+  - {fileID: 11400000, guid: 66538799ff28d5f429ac5f686491a4bb, type: 2}
   lightSourceIntensity: 5
   buildTool: 3
   removalTool:

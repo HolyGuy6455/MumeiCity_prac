@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2932deca9741afb49bcbc34c0399bcad, type: 3}
-  m_Name: Spirits
+  m_Name: GrilledSalmon
   m_EditorClassIdentifier: 
-  itemSprite: {fileID: 21300000, guid: e1f584fed62c15441b3833540eaa9b32, type: 3}
-  info: It's true alcohol kills people. But how many are born because of it?
+  itemSprite: {fileID: -8591552387375275320, guid: 03a3ea34f1380c041b0de07b92c788aa, type: 3}
+  info: 
   tags:
-  - Gift
-  efficiency: 20
+  - Food
+  efficiency: 0
