@@ -28,7 +28,6 @@ public class ItemDroper : MonoBehaviour{
 
     public void RemoveItemDrop() {
         Hittable hittable = this.GetComponent<Hittable>();
-        Debug.Log("ItemDroper OnDestroy");
 
         // 기존에 있던 것들을 먼저 지운다
         foreach (ItemDropInfo itemDropInfo in dropAmounts){

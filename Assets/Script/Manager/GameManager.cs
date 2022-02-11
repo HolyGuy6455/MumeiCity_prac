@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
         HOUSE,
         SUPERINTENDENT,
         MANUFACTURER,
-        LABORATORY
+        LABORATORY,
+        GUIDE_BOOK
 
     }
     public GameTab presentGameTab;
@@ -184,6 +185,10 @@ public class GameManager : MonoBehaviour
                 taskUI.SetInteger("SelectedUI",6);
                 break;
 
+            case GameTab.GUIDE_BOOK:
+                taskUI.SetInteger("SelectedUI",7);
+                break;
+
             default:
                 break;
         }
@@ -215,7 +220,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnNextTool(InputAction.CallbackContext value){
-        if(!value.started){
+        if(!value.performed){
             return;
         }
         if(selectedTool > tools.ToArray().Length -2){
@@ -229,7 +234,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnBeforeTool(InputAction.CallbackContext value){
-        if(!value.started){
+        if(!value.performed){
             return;
         }
         if(selectedTool < 1){
@@ -243,7 +248,7 @@ public class GameManager : MonoBehaviour
     }
     
     public void OnInteract(InputAction.CallbackContext value){
-        if(value.started){
+        if(value.performed){
             if(presentGameTab == GameTab.BUILDING){
                 GameManager.Instance.buildingManager.Build();
             }else{
@@ -256,14 +261,18 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnInventory(InputAction.CallbackContext value){
-        if(!value.started){
+        if(value.started)
+            Debug.Log("OnInventory started");
+        if(value.performed)
+            Debug.Log("OnInventory performed");
+        if(!value.performed){
             return;
         }
-        ChangeGameTab((presentGameTab != GameTab.ITEM) ? GameTab.ITEM : GameTab.NORMAL);
+        ChangeGameTab(GameTab.ITEM);
     }
 
     public void OnBuliding(InputAction.CallbackContext value){
-        if(!value.started){
+        if(!value.performed){
             return;
         }
         Debug.Log("presentGameTab - " + presentGameTab);
@@ -271,7 +280,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void OnMenu(InputAction.CallbackContext value){
-        if(value.started){
+        if(value.performed){
             if(presentGameTab != GameTab.NORMAL){
                 OnExitTask(value);
             }else{
@@ -284,14 +293,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void OnExitTask(InputAction.CallbackContext value){
-        if(value.started){
-            ChangeGameTab(GameTab.NORMAL);
+    public void OnGuide(InputAction.CallbackContext value){
+        if(value.started)
+            Debug.Log("OnGuide started");
+        if(value.performed)
+            Debug.Log("OnGuide performed");
+        if(!value.performed){
+            return;
         }
+        ChangeGameTab(GameTab.GUIDE_BOOK);
+    }
+
+    public void OnExitTask(InputAction.CallbackContext value){
+        if(!value.performed){
+            return;
+        }
+        ChangeGameTab(GameTab.NORMAL);
     }
 
     public void OnExitPause(InputAction.CallbackContext value){
-        if(value.started){
+        if(value.performed){
             gameIsPause = false;
             pauseAnimator.SetBool("isVisible",false);
             Time.timeScale = 1;
