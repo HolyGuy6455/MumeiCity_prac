@@ -96,6 +96,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
      <Compile Include="Assets\Script\UI\TagSlot.cs" />
+     <Compile Include="Assets\Script\UI\SuperintendentTaskUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
@@ -116,6 +117,7 @@
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\Data\LaboratoryData.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
+     <Compile Include="Assets\Script\UI\GuideBookFolder.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
      <Compile Include="Assets\Script\UI\ItemSlot.cs" />
      <Compile Include="Assets\Script\AI\PersonBehavior.cs" />
@@ -131,7 +133,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\SuperintendentTaskUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />
