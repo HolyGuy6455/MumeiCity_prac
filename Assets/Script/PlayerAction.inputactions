@@ -100,6 +100,14 @@
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "Guide",
+                    "type": "Button",
+                    "id": "9e693ef7-3f5f-4821-9f6b-cc428da1d4df",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -485,6 +493,17 @@
                     "processors": "",
                     "groups": "Keyboard;Gamepad",
                     "action": "Cancle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d8d95ed-a5ff-49e2-9dff-9ed7cd635f2a",
+                    "path": "<Keyboard>/f1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Guide",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

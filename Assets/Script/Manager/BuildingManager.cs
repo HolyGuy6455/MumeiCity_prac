@@ -79,6 +79,7 @@ public class BuildingManager : MonoBehaviour {
     }
 
     public void ReadyToBuild(BuildingPreset buildingData){
+        Debug.Log("buildingData " + buildingData);
         this.nowBuilding = buildingData;
         constructionArea.SetBuildingData(buildingData);
     }

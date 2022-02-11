@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GuideBookFolder : MonoBehaviour{
-    [SerializeField] Text title;
     [SerializeField] Image openImage;
     [SerializeField] Image closeImage;
     [SerializeField] GameObject childObject;

@@ -20,7 +20,14 @@ public class ResourceView : MonoBehaviour{
             this.itemPreset = ItemManager.GetItemPresetFromCode(ItemManager.GetCodeFromItemName(buildingMaterial.preset.name));
             resourceName.text = itemPreset.name;
             resourceImage.sprite = itemPreset.itemSprite;
-            resourceAmount.text = buildingMaterial.amount.ToString();
+
+            int resourceAmountValue = buildingMaterial.amount;
+            int havingAmountValue = GameManager.Instance.inventory.GetItemAmount(itemPreset.name);
+            string resourceAmountString = resourceAmountValue.ToString() + "/" + havingAmountValue.ToString();
+            Color textColor = (resourceAmountValue>havingAmountValue)? Color.red : Color.white;
+
+            resourceAmount.text = resourceAmountString;
+            resourceAmount.color = textColor;
         }
     }
 }

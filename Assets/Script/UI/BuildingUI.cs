@@ -50,10 +50,11 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
                 buildingArticles[i].UpdatePreset(buildingDataList[i]);
             }else{
                 buildingArticles[i].gameObject.SetActive(false);
+                buildingArticles[i].UpdatePreset(null);
             }
         }
         buildingArticlesListRect.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, minCount*20);
-
+        buildingArticles[0].ArticleSelect();
     }
 
     public void UpdateInfomation(){
@@ -91,6 +92,7 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnBuildButtonClick(){
         GameManager.Instance.buildingManager.Build();
+        UpdateInfomation();
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
