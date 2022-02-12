@@ -369,7 +369,7 @@ public class PersonBehavior : MonoBehaviour
         animator.SetBool("Sleep",true);
         think = "Go to sleep! Good Night!";
         if(sleepEvent == null || !sleepEvent.isThisValid()){
-            string ticketName = "person"+this.personData.id+"_sleep";
+            string ticketName = "person_"+this.personData.id+"_sleep";
             sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, SleepAndRecharging);
         }
         ThisTask.Succeed();
@@ -430,7 +430,7 @@ public class PersonBehavior : MonoBehaviour
         }
     }
 
-    public void SleepAndRecharging(){
+    public void SleepAndRecharging(string ticketName){
         // PeopleManager peopleManager = GameManager.Instance.peopleManager;
         // if(this.personData.stamina < 1000){
         //     this.personData.stamina += 5;

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour{
-    public delegate void TimeEvent();
+    public delegate void TimeEvent(string args = "");
     [SerializeField] int timeValue;
     [SerializeField] float ticPerSecond = 10.0f;
     [SerializeField] Animator daylightAnimator;
@@ -95,7 +95,7 @@ public class TimeManager : MonoBehaviour{
         }
         foreach (TimeEventQueueTicket ticket in discardList){
             waitingList.Remove(ticket);
-            ticket._timeEvent.Invoke();
+            ticket._timeEvent.Invoke(ticket._idString);
             if(ticket._repeatTime != 0){
                 AddTimeEventQueueTicket(ticket._repeatTime,ticket._idString,true,ticket._timeEvent);
             }

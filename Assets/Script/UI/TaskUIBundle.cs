@@ -4,32 +4,26 @@ using UnityEngine;
 
 public class TaskUIBundle : MonoBehaviour{
     [SerializeField] InventoryUI inventoryUI;
-    [SerializeField] SuperintendentUI foresterUI;
+    [SerializeField] SuperintendentUI superintendentUI;
     [SerializeField] HouseUI houseUI;
-    // [SerializeField] MineUI mineUI;
-    [SerializeField] SuperintendentUI mineUI;         // 임시용
-    [SerializeField] SuperintendentUI foodStorageUI; // 임시용
+    [SerializeField] ManufacturerUI manufacturerUI;
 
     public void LoadInventoryUIData(){
         inventoryUI.LoadItemSlotData();
-    }
-    public void LoadFoodStorageUIData(){
-        inventoryUI.LoadItemSlotData();
-        foodStorageUI.UpdateUI();
     }
 
     public void LoadTaskUIData(string taskName){
         inventoryUI.LoadItemSlotData();
         switch (taskName){   
-
             case "House":
                 houseUI.UpdateUI();
                 break;
-
             case "Superintendent":
-                foresterUI.UpdateUI();
+                superintendentUI.UpdateUI();
                 break;
-
+           case "Manufacturer":
+                manufacturerUI.UpdateUI();
+                break;
             default:
                 break;
         }

@@ -28,32 +28,37 @@ public class BuildingObject : MonoBehaviour
 
         switch (buildingData.buildingPreset.name){
             case "ForesterHut":
-                buildingData.mediocrityData = new SuperintendentData();
-                SuperintendentData superintendentData = buildingData.mediocrityData as SuperintendentData;
+                SuperintendentData superintendentData = new SuperintendentData();
+                buildingData.mediocrityData = superintendentData;
                 superintendentData.workList = new bool[buildingData.buildingPreset.taskPresets.Count];
                 break;
             case "Tent":
                 buildingData.mediocrityData = new HouseData(12);
+                break;
+            case "Bistro":
+                ManufacturerData manufacturerData = new ManufacturerData();
+                buildingData.mediocrityData = manufacturerData;
+                manufacturerData.amount = new int[3];
+                manufacturerData.dueDate = new int[3];
                 break;
             default:
                 break;
         }
 
         Initialize(this.buildingData);
-        HirePerson();
+        HirePerson("");
         if(buildingData.buildingPreset.workplace){
-            string ticketName = "building"+this.buildingData.id+"_hire";
+            string ticketName = "building_"+this.buildingData.id+"_hire";
             hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, HirePerson);
         }
         Vector3 shadowPostion = new Vector3();
         shadowPostion.x = this.transform.position.x;
         shadowPostion.y = (this.transform.position.y+this.transform.position.z);
         shadowObject.transform.position = shadowPostion;
-
         
     }
 
-    private void HirePerson(){
+    private void HirePerson(string ticketName){
         if(buildingData.buildingPreset.workplace && buildingData.workerID == 0){
             List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
             people = people.FindAll(person=> (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
@@ -113,7 +118,7 @@ public class BuildingObject : MonoBehaviour
 
         if(buildingData.buildingPreset.growUpTerm != 0){
             int term = buildingData.buildingPreset.growUpTerm;
-            string ticketName = "building"+this.GetInstanceID()+"_growup";
+            string ticketName = "building_"+this.buildingData.id+"_growup";
             growupEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(term,ticketName,false, SwapPresetToGrow);
         }
     }
@@ -130,7 +135,7 @@ public class BuildingObject : MonoBehaviour
         animator.SetBool("isDead",false);
     }
 
-    public void SwapPresetToGrow(){
+    public void SwapPresetToGrow(string ticketName){
         buildingData.code = buildingData.buildingPreset.grownPreset.code;
         Initialize(buildingData);
     }

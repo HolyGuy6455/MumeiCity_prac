@@ -7,8 +7,9 @@ public class TaskPreset : ScriptableObject {
     [TextArea] public string info;
     public TaskType taskType;
     public List<NecessaryResource> necessaryResources;
+    public NecessaryResource resultItem;
+    public string resultUpgrade;
     public int requiredTime;
-
 
     public enum TaskType
     {
