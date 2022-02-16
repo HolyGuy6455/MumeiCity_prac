@@ -5,12 +5,17 @@ public class ItemDropInfo{
     public ItemPreset preset;
     public float chance;
     public ItemDropType itemDropType;
-    public void DropItem(Hittable hittable){
-        Debug.Log("DropItem");
+    public enum ItemDropType{
+        NONE,
+        DESTROY,
+        HIT
+    }
+    
+    public void DropItem(Vector3 position){
         Vector3 location = new Vector3();
-        location.x = hittable.transform.position.x;
-        location.y = hittable.transform.position.y;
-        location.z = hittable.transform.position.z;
+        location.x = position.x;
+        location.y = position.y;
+        location.z = position.z;
 
         float chanceTemp = this.chance;
         while (chanceTemp > 0){
@@ -19,7 +24,6 @@ public class ItemDropInfo{
                 break;
             }
             chanceTemp -= 1.0f;
-            Debug.Log("Drop! : " + preset.name);
 
             Vector3 popForce = new Vector3();
             popForce.x = Random.Range(-ItemDroper.RANGE, ItemDroper.RANGE);
@@ -35,9 +39,5 @@ public class ItemDropInfo{
             itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
         }
     }
-    public enum ItemDropType{
-        NONE,
-        DESTROY,
-        HIT
-    }
+    
 }

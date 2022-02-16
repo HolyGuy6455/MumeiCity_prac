@@ -1,23 +1,22 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using System;
+using UnityEngine.Events;
 
 public class Hittable : MonoBehaviour
 {
     public Animator animator;
     public int HP = 10;
+    public int HPMax = 10;
     public Collider hitBoxCollider;
-    public delegate void HittableEvent(Hittable hittable);
-    public event HittableEvent DeadEventHandler;
-    public event HittableEvent HitEventHandler;
-    [SerializeField] Dictionary<Tool.ToolType, int> effectiveToolDictionary;
+    public UnityEvent DeadEventHandler;
+    public UnityEvent HitEventHandler;
+    [SerializeField] Dictionary<Tool.ToolType, EffectiveTool> effectiveToolDictionary;
     [SerializeField] int effectiveToolDictionaryLength;
 
     public void SetEffectiveTool(List<EffectiveTool> list){
-        effectiveToolDictionary = new Dictionary<Tool.ToolType, int>();
+        effectiveToolDictionary = new Dictionary<Tool.ToolType, EffectiveTool>();
         foreach (EffectiveTool effectiveTool in list){
-            effectiveToolDictionary[effectiveTool.tool] = effectiveTool.damage;
+            effectiveToolDictionary[effectiveTool.tool] = effectiveTool;
         }
         effectiveToolDictionaryLength = effectiveToolDictionary.Count;
     }
@@ -25,7 +24,9 @@ public class Hittable : MonoBehaviour
     public void Hit(Tool.ToolType tool){
         int damage = 0;
         if(effectiveToolDictionary != null && effectiveToolDictionary.ContainsKey(tool)){
-            damage = effectiveToolDictionary[tool];
+            if(effectiveToolDictionary[tool].minHP < HP){
+                damage = effectiveToolDictionary[tool].damage;
+            }
         }
         if(damage == 0){
             return;
@@ -34,20 +35,22 @@ public class Hittable : MonoBehaviour
 
         if(HP<=0){
             animator.SetBool("isDead",true);
+            animator.SetInteger("hp",HP);
             return;
         }
         if(!(HitEventHandler is null)){
-            HitEventHandler(this);
+            HitEventHandler.Invoke();
         }
 
         if(damage != 0){
             animator.SetTrigger("Hit");
         }
+        animator.SetInteger("hp",HP);
     } 
 
     public void Dead(){
         if(!(DeadEventHandler is null))
-            DeadEventHandler(this);
+            DeadEventHandler.Invoke();
         Destroy(this.gameObject);
     }
 

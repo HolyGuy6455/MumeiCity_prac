@@ -237,7 +237,7 @@ public class PersonBehavior : MonoBehaviour
             // hitBoxCollision.tool = Tool.ToolType.AXE;
             this.target = nearestTree;
             aIDestination.target = this.target.transform;
-            this.target.GetComponent<Hittable>().DeadEventHandler += LoseMyTarget;
+            this.target.GetComponent<Hittable>().DeadEventHandler.AddListener(LoseMyTarget);
             animator.SetBool("HasAGoal",true);
             ThisTask.Succeed();
         }else{
@@ -398,7 +398,7 @@ public class PersonBehavior : MonoBehaviour
         if(workTier < 1){
             ThisTask.Succeed();
             return;
-        }
+        } 
         int happiness = this.personData.happiness;
         int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier-1];
         ThisTask.Complete( happiness > happinessNeeds );

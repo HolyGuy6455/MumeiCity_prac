@@ -6,29 +6,22 @@ public class ItemDroper : MonoBehaviour{
     public static float JUMP_POWER = 8.0f;
     [SerializeField] List<ItemDropInfo> dropAmounts;
 
-    private void Start() {
-        Hittable hittable = this.GetComponent<Hittable>();
-        hittable.DeadEventHandler += this.DropItemWhenDestroy;
-        hittable.HitEventHandler += this.DropItemWhenHit;
-    }
-
     public void InitializeItemDrop(List<ItemDropInfo> dropAmounts){
         this.dropAmounts = dropAmounts;
     }
 
-    public void DropItemWhenDestroy(Hittable hittable){
-        Debug.Log("DropItemWhenDestroy");
+    public void DropItemWhenDestroy(){
         foreach (ItemDropInfo itemDropInfo in dropAmounts){
             if(itemDropInfo.itemDropType == ItemDropInfo.ItemDropType.DESTROY){
-                itemDropInfo.DropItem(hittable);
+                itemDropInfo.DropItem(this.transform.position);
             }
         }
     }
 
-    public void DropItemWhenHit(Hittable hittable){
+    public void DropItemWhenHit(){
         foreach (ItemDropInfo itemDropInfo in dropAmounts){
             if(itemDropInfo.itemDropType == ItemDropInfo.ItemDropType.HIT){
-                itemDropInfo.DropItem(hittable);
+                itemDropInfo.DropItem(this.transform.position);
             }
         }
     }

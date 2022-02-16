@@ -3,9 +3,8 @@ using UnityEngine.Events;
 using System;
 
 public class Interactable : MonoBehaviour {
-    [Serializable] public class InteractEvent : UnityEvent {}
     [SerializeField] InteractType _interactType;
-    [SerializeField] private InteractEvent _interactEvent = new InteractEvent();
+    [SerializeField] UnityEvent _interactEvent = new UnityEvent();
     public InteractType interactType{get{ return _interactType; }}
 
     public enum InteractType
