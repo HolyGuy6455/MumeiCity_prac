@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Bistro
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 1908260287097672744, guid: c2a409b8267abe448b3163ab5e715043, type: 3}
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: 21300000, guid: 8734026df89e7594eb2bae46b1dff150, type: 3}
+  sprite: {fileID: -3182273467554438379, guid: 3e6845079ebd22f4aa2631571725760c, type: 3}
   healthPointMax: 10
   info: 
   attributes: []

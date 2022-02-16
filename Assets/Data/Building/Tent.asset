@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Tent
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 3710798525690343477, guid: daf8fe1ed0cf0bd47894118fa4702be2, type: 3}
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: 21300000, guid: 0cd41c92ee362944885354db19128dda, type: 3}
+  sprite: {fileID: -6752567909215077633, guid: 90ccf450cfa071a4d948e80bf6d7e0f3, type: 3}
   healthPointMax: 10
   info: You can sleep here.
   attributes: []

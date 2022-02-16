@@ -13,6 +13,7 @@ public class BuildingData : MediocrityData {
     public ItemSlotData[] items;
     public int workerID;
     public MediocrityData mediocrityData;
+    
 
     public BuildingPreset buildingPreset{
         get{

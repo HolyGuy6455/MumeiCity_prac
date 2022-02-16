@@ -68,6 +68,7 @@
      <Compile Include="Assets\Script\Data\ManufacturerData.cs" />
      <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\AI\EnemyAI.cs" />
+     <Compile Include="Assets\Script\UI\ManufacturerTaskUI.cs" />
      <Compile Include="Assets\Script\Manager\GridMapManager.cs" />
      <Compile Include="Assets\Script\UI\BuildingArticle.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\FollowCamera.cs" />
@@ -95,6 +96,7 @@
      <Compile Include="Assets\Script\UI\HouseUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\BulletImpact.cs" />
      <Compile Include="Assets\Script\AstarScript.cs" />
+     <Compile Include="Assets\Script\UI\GuideBookUI.cs" />
      <Compile Include="Assets\Script\UI\TagSlot.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentTaskUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
@@ -114,6 +116,7 @@
      <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\MessageType.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
+     <Compile Include="Assets\Script\UI\GuideBookDescription.cs" />
      <Compile Include="Assets\Script\Data\LaboratoryData.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
      <Compile Include="Assets\Script\UI\GuideBookFolder.cs" />
@@ -132,9 +135,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\GuideBookDescription.cs" />
-     <Compile Include="Assets\Script\UI\GuideBookUI.cs" />
-     <Compile Include="Assets\Script\UI\ManufacturerTaskUI.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\SimpleInteract.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

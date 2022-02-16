@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Smeltery
   m_EditorClassIdentifier: 
+  gameObject: {fileID: 205137619275696620, guid: a7d731452a115c84590917d796b8c42a, type: 3}
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
-  sprite: {fileID: 21300000, guid: c6167795ecaf16e4885e507ce6803ff9, type: 3}
-  spriteBroken: {fileID: 0}
+  sprite: {fileID: 5770067619390753283, guid: e09b85c1cdf54bc4ca14849a335f8240, type: 3}
   healthPointMax: 10
   info: Dig up minerals and store them here.
   attributes: []
   interactable: 1
   workplace: 1
   workTier: 1
+  gameTab: 0
+  taskPresets: []
   lightSourceIntensity: 0
   buildTool: 8
   removalTool:
@@ -30,3 +32,7 @@ MonoBehaviour:
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []
+  grownPreset: {fileID: 0}
+  ruinPreset: {fileID: 0}
+  growUpTerm: 0
+  brokenStyle: 0

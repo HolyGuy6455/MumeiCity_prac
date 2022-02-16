@@ -1,22 +1,31 @@
 fileFormatVersion: 2
-guid: 249647bbc1eadc844b2aef19a078e1c7
+guid: 8a0049bae75fb394f89bcc4033a5502d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1692555110696628669
-    second: person_2nd_0
+      213: 571658415570871954
+    second: shining effect_0
   - first:
-      213: 8587787638196397520
-    second: person_2nd_1
+      213: 3447747612774359950
+    second: shining effect_1
   - first:
-      213: 8317849063446283453
-    second: person_2nd_2
+      213: -8756138791655304241
+    second: shining effect_2
   - first:
-      213: -5223334897111141985
-    second: person_2nd_3
+      213: -811201104182549334
+    second: shining effect_3
   - first:
-      213: -562544179428658183
-    second: person_2nd_4
+      213: -3172501494811046385
+    second: shining effect_4
+  - first:
+      213: 7422509342964867511
+    second: shining effect_5
+  - first:
+      213: 6397837475430997115
+    second: shining effect_6
+  - first:
+      213: -1870457977838925688
+    second: shining effect_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -47,7 +56,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -61,7 +70,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: person_2nd_0
+      name: shining effect_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +129,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 34ec7282816d288e0800000000000000
-      internalID: -1692555110696628669
+      spriteID: 296e6f8dc40fee700800000000000000
+      internalID: 571658415570871954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: person_2nd_1
+      name: shining effect_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e83ed96df2cd8df20800000000000000
+      internalID: 3447747612774359950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shining effect_2
       rect:
         serializedVersion: 2
         x: 32
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +171,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0d5ef2d5b53fd2770800000000000000
-      internalID: 8587787638196397520
+      spriteID: fc31e573922fb7680800000000000000
+      internalID: -8756138791655304241
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: person_2nd_2
+      name: shining effect_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa46bc7c4e80eb4f0800000000000000
+      internalID: -811201104182549334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shining effect_4
       rect:
         serializedVersion: 2
         x: 64
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +213,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db4080247afee6370800000000000000
-      internalID: 8317849063446283453
+      spriteID: f0e4468f2b209f3d0800000000000000
+      internalID: -3172501494811046385
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: person_2nd_3
+      name: shining effect_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b16079dbec020760800000000000000
+      internalID: 7422509342964867511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shining effect_6
       rect:
         serializedVersion: 2
         x: 96
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +255,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f91f9c2e59cf287b0800000000000000
-      internalID: -5223334897111141985
+      spriteID: b7c1fb5694fa9c850800000000000000
+      internalID: 6397837475430997115
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: person_2nd_4
+      name: shining effect_7
       rect:
         serializedVersion: 2
-        x: 128
+        x: 112
         y: 0
-        width: 32
-        height: 32
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,8 +276,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9f3f0be9c017138f0800000000000000
-      internalID: -562544179428658183
+      spriteID: 8888d97116cca06e0800000000000000
+      internalID: -1870457977838925688
       vertices: []
       indices: 
       edges: []

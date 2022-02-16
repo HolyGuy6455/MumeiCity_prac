@@ -10,7 +10,7 @@ public class BuildingObject : MonoBehaviour
 {
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
-    public GameObject spriteObject;
+    // public GameObject spriteObject;
     public GameObject shadowObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
     [SerializeField] TimeEventQueueTicket growupEvent;
@@ -51,10 +51,6 @@ public class BuildingObject : MonoBehaviour
             string ticketName = "building_"+this.buildingData.id+"_hire";
             hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, true, HirePerson);
         }
-        Vector3 shadowPostion = new Vector3();
-        shadowPostion.x = this.transform.position.x;
-        shadowPostion.y = (this.transform.position.y+this.transform.position.z);
-        shadowObject.transform.position = shadowPostion;
         
     }
 
@@ -73,49 +69,28 @@ public class BuildingObject : MonoBehaviour
     // 오브젝트의 초기화
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
+        if(buildingPreset.gameObject == null){
+            this.transform.localScale = buildingPreset.scale;
+        }
         this.buildingData = buildingData;
-        this.transform.localScale = buildingPreset.scale;
         spriteRenderer.sprite = buildingPreset.sprite;
-        if( !buildingData.buildingPreset.interactable ){
-            Interactable interactable = this.GetComponentInChildren<Interactable>();
-            if(interactable != null){
-                interactable.gameObject.SetActive(false);
-            }
+
+        Interactable interactable = this.GetComponentInChildren<Interactable>();
+        if(interactable != null){
+            interactable.gameObject.SetActive(buildingData.buildingPreset.interactable);
         }
 
-        if(buildingPreset.dropAmounts.Count > 0){
-            ItemDroper itemDroper = this.gameObject.GetComponent<ItemDroper>();
-            if(itemDroper != null){
-                itemDroper.RemoveItemDrop();
-            }else{
-                itemDroper = this.gameObject.AddComponent<ItemDroper>();
-            }
-            itemDroper.InitializeItemDrop(buildingPreset.dropAmounts);
-        }
+        // if(buildingPreset.dropAmounts.Count > 0){
+        //     ItemDroper itemDroper = this.gameObject.GetComponent<ItemDroper>();
+        //     if(itemDroper == null){
+        //         itemDroper = this.gameObject.AddComponent<ItemDroper>();
+        //     }
+        //     itemDroper.InitializeItemDrop(buildingPreset.dropAmounts);
+        // }
 
         Hittable hittable = GetComponent<Hittable>();
         hittable.SetEffectiveTool(buildingPreset.removalTool);
         hittable.HP = buildingPreset.healthPointMax;
-        switch (buildingPreset.brokenStyle){
-            case BuildingPreset.BrokenStyle.NONE:
-                animator.SetInteger("BrokenStyle",0);
-                break;
-            case BuildingPreset.BrokenStyle.FALL_DOWN:
-                animator.SetInteger("BrokenStyle",1);
-                break;
-            case BuildingPreset.BrokenStyle.COLLAPSE:
-                animator.SetInteger("BrokenStyle",2);
-                break;
-            case BuildingPreset.BrokenStyle.SWAP:
-                animator.SetInteger("BrokenStyle",3);
-                break;
-            default:
-                break;
-        }
-
-        Light2D light = GetComponentInChildren<Light2D>();
-        light.pointLightOuterRadius = buildingPreset.lightSourceIntensity;
-
         if(buildingData.buildingPreset.growUpTerm != 0){
             int term = buildingData.buildingPreset.growUpTerm;
             string ticketName = "building_"+this.buildingData.id+"_growup";
@@ -140,14 +115,16 @@ public class BuildingObject : MonoBehaviour
         Initialize(buildingData);
     }
 
-    [ContextMenu("Do Something")]
-    void DoSomething()
-    {
+    [ContextMenu("Manual Initialize")]
+    void ManualInitialize(){
         Initialize(this.buildingData);
     }
 
     private void OnDestroy() {
-        GameManager.Instance.buildingManager.astarPath.Scan();
+        GameManager gameManager = GameManager.Instance;
+        if(gameManager != null){
+            gameManager.buildingManager.astarPath.Scan();
+        }
     }
 
     // public void CheckHP(Hittable hittable){

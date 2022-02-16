@@ -7,6 +7,7 @@ using System;
  */
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
+    public GameObject gameObject;
     // public string buildingName;
     public Vector3 scale = new Vector3(1,1,1);
     public Vector3 relativeLocation;
@@ -20,7 +21,6 @@ public class BuildingPreset : ScriptableObject {
     public int workTier;
     public GameManager.GameTab gameTab;
     public List<TaskPreset> taskPresets;
-    public int lightSourceIntensity;
     public Tool.ToolType buildTool;
     public List<EffectiveTool> removalTool;
     public int buildToolIndex;
@@ -29,17 +29,10 @@ public class BuildingPreset : ScriptableObject {
     public BuildingPreset grownPreset;
     public BuildingPreset ruinPreset;
     public int growUpTerm = 0;
-    public BrokenStyle brokenStyle;
     public byte code{
         get{
             return BuildingManager.GetBuildingCode(this);
         }
-    }
-    public enum BrokenStyle{
-        NONE,
-        COLLAPSE,
-        FALL_DOWN,
-        SWAP
     }
 }
 

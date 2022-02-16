@@ -153,12 +153,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1692555110696628669, guid: 249647bbc1eadc844b2aef19a078e1c7, type: 3}
+  m_Sprite: {fileID: -2648069533430052375, guid: 539f2778cf94f214da7c136dd0141baa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.84, y: 0.68}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -366,10 +366,12 @@ MonoBehaviour:
   workplace: {fileID: 0}
   sleepEvent:
     timeValue: 0
+    repeatTime: 0
     idString: 
   think: 
   hitCollision: {fileID: 4678566043314319977}
   personData:
+    content: 
     id: 0
     position: {x: 0, y: 0, z: 0}
     items: []
@@ -981,7 +983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd78be143b2184a4cb393190aa74bc52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: 0
   tool: 0
 --- !u!1 &8806962723255050831
 GameObject:

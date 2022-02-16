@@ -34,8 +34,6 @@ public class Hittable : MonoBehaviour
 
         if(HP<=0){
             animator.SetBool("isDead",true);
-            if(!(DeadEventHandler is null))
-                DeadEventHandler(this);
             return;
         }
         if(!(HitEventHandler is null)){
@@ -48,14 +46,18 @@ public class Hittable : MonoBehaviour
     } 
 
     public void Dead(){
+        if(!(DeadEventHandler is null))
+            DeadEventHandler(this);
         Destroy(this.gameObject);
     }
 
     void EnableHit(){
-        this.hitBoxCollider.enabled = true;
+        if(hitBoxCollider != null)
+            this.hitBoxCollider.enabled = true;
     }
     void DisableHit(){
-        this.hitBoxCollider.enabled = false;
+        if(hitBoxCollider != null)
+            this.hitBoxCollider.enabled = false;
     }
     
 }

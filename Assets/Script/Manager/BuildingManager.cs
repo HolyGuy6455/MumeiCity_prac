@@ -121,7 +121,14 @@ public class BuildingManager : MonoBehaviour {
         location.z = Mathf.Round(constructionArea.transform.position.z);
 
         Debug.Log("Build Position "+location);
-        GameObject Built = Instantiate(constructureSample,location,Quaternion.identity);
+        GameObject Built;
+        if(nowBuilding.gameObject != null){
+            Built = Instantiate(nowBuilding.gameObject,location,Quaternion.identity);
+        }else{
+            Built = Instantiate(constructureSample,location,Quaternion.identity);
+        }
+        
+
         Built.transform.SetParent(buildingsParent.transform);
 
         // 해당 건물이 가질 Building Data를 생성한다
