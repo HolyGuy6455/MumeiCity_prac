@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3064de219787a8419a6d698149ceb29, type: 3}
   m_Name: MakingSoup
   m_EditorClassIdentifier: 
-  guideSprite: {fileID: 0}
+  guideSprite: {fileID: 21300000, guid: e430654c8aaa5984a8c013994fd02258, type: 3}
   info: 
   taskType: 2
   necessaryResources: []
-  requiredTime: 0
+  resultItem:
+    preset: {fileID: 0}
+    amount: 0
+  resultUpgrade: 
+  requiredTime: 5

@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] SoundCollider playerSoundCollider;
     public Vector3 movement;
     public Transform shadow;
+    [SerializeField] Animator shadowAnimator;
+    [SerializeField] bool isInWater;
     RaycastHit hit;
     bool isRaycastHit;
     int groundLayerMask;
@@ -56,6 +58,7 @@ public class PlayerMovement : MonoBehaviour{
                 spriteObject.transform.localScale = new Vector3(1f,1f,1f);
             }
         }
+        
     }
 
     public void OnMovement(InputAction.CallbackContext value){
@@ -141,8 +144,17 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void FixedUpdate() {
+        isInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
+
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
         shadow.position = hit.point + new Vector3(0,0,-0.2f);
+        if(isInWater && rigidBody.position.y < 0){
+            shadow.position = new Vector3(shadow.position.x,0,shadow.position.z);
+            shadowAnimator.SetBool("amIInWater",true);
+        }else{
+            shadowAnimator.SetBool("amIInWater",false);
+        }
+        
 
         bool HorizontalRayCast = Physics.Raycast(this.transform.position, new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
         bool VerticalRayCast = Physics.Raycast(this.transform.position, new Vector3(0,0,movement.z), 0.5f, groundLayerMask);

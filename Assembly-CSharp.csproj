@@ -100,7 +100,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\DefaultGround.cs" />
      <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
      <Compile Include="Assets\Script\EmotionScript.cs" />

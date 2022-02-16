@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 9092517261266139881, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   healthPointMax: 10
   info: 
   attributes: []
@@ -30,8 +30,11 @@ MonoBehaviour:
     damage: 10
   buildToolIndex: 0
   resourceList: []
-  dropAmounts: []
+  dropAmounts:
+  - preset: {fileID: 11400000, guid: 0df0db71be9efec4b93c7ae81c381419, type: 2}
+    chance: 1.8
+    itemDropType: 1
   grownPreset: {fileID: 0}
   ruinPreset: {fileID: 11400000, guid: ba211985b41cd754d9273db41e1eb8a6, type: 2}
   growUpTerm: 0
-  brokenStyle: 0
+  brokenStyle: 3

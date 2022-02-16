@@ -10,7 +10,7 @@ public class CameraManager : MonoBehaviour {
     [SerializeField] float zoomSpeed = 1.0f;
     [SerializeField] float zoomAmount = 1.0f;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
-    float zoomValue;
+    [SerializeField] float zoomValue;
 
     private void Update() {
         zoom -= zoomValue*zoomAmount;

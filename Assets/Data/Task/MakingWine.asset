@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3064de219787a8419a6d698149ceb29, type: 3}
   m_Name: MakingWine
   m_EditorClassIdentifier: 
-  guideSprite: {fileID: 0}
+  guideSprite: {fileID: 21300000, guid: b92942c685e7cd34485423b4c73a8298, type: 3}
   info: 
-  taskType: 0
+  taskType: 2
   necessaryResources: []
-  requiredTime: 0
+  resultItem:
+    preset: {fileID: 11400000, guid: bf47f5aad70fa99429338efff627fd40, type: 2}
+    amount: 1
+  resultUpgrade: 
+  requiredTime: 5

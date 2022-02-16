@@ -24,12 +24,12 @@ MonoBehaviour:
   gameTab: 0
   taskPresets: []
   lightSourceIntensity: 0
-  buildTool: 0
+  buildTool: 5
   removalTool: []
   buildToolIndex: 0
   resourceList: []
   dropAmounts: []
   grownPreset: {fileID: 11400000, guid: f4fcef45dc8bd474eb9f920723c21d88, type: 2}
   ruinPreset: {fileID: 0}
-  growUpTerm: 30
+  growUpTerm: 3
   brokenStyle: 0

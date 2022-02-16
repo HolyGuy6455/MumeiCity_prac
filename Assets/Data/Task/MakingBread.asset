@@ -12,8 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3064de219787a8419a6d698149ceb29, type: 3}
   m_Name: MakingBread
   m_EditorClassIdentifier: 
-  guideSprite: {fileID: 0}
+  guideSprite: {fileID: 21300000, guid: e533d7e8dfd120348a174768896ae827, type: 3}
   info: 
   taskType: 2
   necessaryResources: []
-  requiredTime: 0
+  resultItem:
+    preset: {fileID: 11400000, guid: edaebef346fa8c247836a719b83fb7a1, type: 2}
+    amount: 1
+  resultUpgrade: 
+  requiredTime: 5

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Tilemaps;
 
 /*
@@ -19,6 +20,7 @@ public class GridMapManager : MonoBehaviour{
     TileBase[] allTiles;
     int xMax = 3;
     int yMax = 3;
+    [SerializeField] bool[,] waterArray;
 
     public enum GroundLevel{
         B1,
@@ -54,6 +56,8 @@ public class GridMapManager : MonoBehaviour{
         allTiles = invisibleTilemap.GetTilesBlock(bounds);
         xMax = bounds.size.x;
         yMax = bounds.size.y;
+        waterArray = new bool[xMax,yMax];
+
 
         for (int x = 0; x < xMax; x++){
             for (int y = 0; y < yMax; y++){
@@ -62,6 +66,7 @@ public class GridMapManager : MonoBehaviour{
                 newGroundObject.transform.SetParent(groundParent.transform);
                 float defaultLevel = GetFloorHeight(x,y,true);
                 newGroundObject.transform.Translate(0,defaultLevel,0);
+                waterArray[x,y] = isWater(x,y);
             }
         }
         Vector3 origin = invisibleTilemap.origin;
@@ -70,6 +75,15 @@ public class GridMapManager : MonoBehaviour{
         origin.y = -3.5f;
         groundParent.transform.Translate(origin);
         groundParent.transform.localScale = new Vector3(1.0f,1.0f,1.5f);
+    }
+
+    private bool isWater(int x, int y){
+        TileBase tile = allTiles[x + y * xMax];
+        GroundLevel groundLevel = GroundLevel.B1;
+        if(tile != null){
+            groundLevel = groundDictionary[tile as Tile];
+        }
+        return groundLevel == GroundLevel.WATER;
     }
 
     private float GetFloorHeight(int x, int y, bool recurrence){
@@ -136,5 +150,10 @@ public class GridMapManager : MonoBehaviour{
         return result;
     }
 
-
+    public bool amIInWater(Vector3 vector){
+        Vector3 groundParentLocation = groundParent.transform.position;
+        int x = (int)(vector.x - groundParentLocation.x);
+        int y = (int)((vector.z - groundParentLocation.z)/1.5f);
+        return waterArray[x,y];
+    }
 }

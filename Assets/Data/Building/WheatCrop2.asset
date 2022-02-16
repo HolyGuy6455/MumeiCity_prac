@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: 0}
+  sprite: {fileID: 3799258998740461277, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   healthPointMax: 10
   info: 
   attributes: []
@@ -31,5 +31,5 @@ MonoBehaviour:
   dropAmounts: []
   grownPreset: {fileID: 11400000, guid: c082664dea9089f489462e1dc56fcede, type: 2}
   ruinPreset: {fileID: 0}
-  growUpTerm: 30
+  growUpTerm: 3
   brokenStyle: 0
