@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 3277956011162691618}
   - component: {fileID: 2503896259768582146}
   - component: {fileID: 3960858372870301472}
+  - component: {fileID: 385547883303015265}
   m_Layer: 8
   m_Name: WheatCrop
   m_TagString: Building
@@ -221,7 +222,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
-    code: 15
+    code: 12
     items:
     - content: 
       code: 0
@@ -240,14 +241,7 @@ MonoBehaviour:
       content: 
   spriteRenderer: {fileID: 7276000818628053225}
   shadowObject: {fileID: 7542474977515167380}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 2503896259768582146}
 --- !u!114 &1082898147767748038
 MonoBehaviour:
@@ -262,7 +256,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 2503896259768582146}
-  HP: 10
+  HP: 1
+  HPMax: 10
   hitBoxCollider: {fileID: 5073497028575589919}
   DeadEventHandler:
     m_PersistentCalls:
@@ -332,6 +327,24 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &385547883303015265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4182747428758371534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bfaf547fe2de434e8141bdeb1f587fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growupEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  restorationTerm: 1
+  hittable: {fileID: 1082898147767748038}
 --- !u!1 &5847605276904702869
 GameObject:
   m_ObjectHideFlags: 0
@@ -441,4 +454,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: 143794
+  m_InstanceId: -1377802

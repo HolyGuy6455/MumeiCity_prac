@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4022817359999627492}
   - component: {fileID: 1903739865422558496}
   - component: {fileID: 1018687110426497538}
-  - component: {fileID: 3822184446408785137}
   m_Layer: 8
   m_Name: Smeltery
   m_TagString: Building
@@ -76,16 +75,8 @@ MonoBehaviour:
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 6642067289307594187}
-  spriteObject: {fileID: 4501575135357830033}
   shadowObject: {fileID: 5798543074204134326}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 1903739865422558496}
 --- !u!114 &4022817359999627492
 MonoBehaviour:
@@ -101,7 +92,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1903739865422558496}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 9132314440707998525}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 1
 --- !u!95 &1903739865422558496
 Animator:
@@ -136,57 +134,6 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!212 &3822184446408785137
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205137619275696620}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
 --- !u!1 &4022817360158375608
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +444,7 @@ MonoBehaviour:
   - {x: -0.48273754, y: -0.30011702, z: 0.000000025882226}
   m_ShapePathHash: 1247074776
   m_Mesh: {fileID: 0}
-  m_InstanceId: 67836
+  m_InstanceId: -7250
 --- !u!1 &7634181049630045879
 GameObject:
   m_ObjectHideFlags: 0

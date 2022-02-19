@@ -154,7 +154,7 @@ MonoBehaviour:
   - {x: -0.43273354, y: -0.07699342, z: -0.00000019652147}
   m_ShapePathHash: 1840678541
   m_Mesh: {fileID: 0}
-  m_InstanceId: 68040
+  m_InstanceId: -7880
 --- !u!1 &3419896558221182436
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 5572850865691131446}
   - component: {fileID: 6984559753434299378}
   - component: {fileID: 8405493452037397712}
+  - component: {fileID: 2072059263}
   m_Layer: 8
   m_Name: ForesterHut
   m_TagString: Building
@@ -467,16 +468,8 @@ MonoBehaviour:
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 2785485470998049561}
-  spriteObject: {fileID: 4971301057571196227}
   shadowObject: {fileID: 3097849207957955940}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 6984559753434299378}
 --- !u!114 &5572850865691131446
 MonoBehaviour:
@@ -492,7 +485,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6984559753434299378}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 304321576203980271}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 1
 --- !u!95 &6984559753434299378
 Animator:
@@ -527,3 +527,24 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2072059263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673263103075239742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTab: 4
+  buildingObject: {fileID: 622438460227298977}
+  hiringEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  hiringPerson: 1
+  taskPresets: []
+  workTier: 0

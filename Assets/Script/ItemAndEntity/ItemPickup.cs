@@ -11,18 +11,19 @@ public class ItemPickup : MonoBehaviour
     void Start() {
         IconSpriteUpdate();
         ticketName = "ItemPickup_"+this.GetInstanceID()+"_Update";
-        disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName,true, UpdatePerSecond);
+        disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName, UpdatePerSecond);
     }
 
-    public void UpdatePerSecond(string ticketName){
+    public bool UpdatePerSecond(string ticketName){
         if(animator == null){
-            return;
+            return true;
         }
         itemData.leftSecond -= 1;
         animator.SetInteger("LeftSecond",itemData.leftSecond);
         if(itemData.leftSecond < 0){
             Destroy(this.gameObject);
         }
+        return false;
     }
 
     [ContextMenu("UpdateItemData")]

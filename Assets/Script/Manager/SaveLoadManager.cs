@@ -139,8 +139,12 @@ public class SaveLoadManager : MonoBehaviour{
 
             // 건물을 생성하고 데이터로 초기화한다
             GameObject Built =  Instantiate(buildingsPrefab,location,Quaternion.identity);
+            if(buildingPreset.prefab != null){
+                Built = Instantiate(buildingPreset.prefab,location,Quaternion.identity);
+            }else{
+                Built = Instantiate(buildingsPrefab,location,Quaternion.identity);
+            }
             Built.transform.SetParent(buildingsParent.transform);
-            Built.GetComponent<BuildingObject>().Initialize(buildingData);
         }
 
         // 맵에 남아있는 아이템을 전부 없앤다

@@ -22,12 +22,14 @@ public class Hittable : MonoBehaviour
     }
 
     public void Hit(Tool.ToolType tool){
+        Debug.Log("hit - " + this);
         int damage = 0;
         if(effectiveToolDictionary != null && effectiveToolDictionary.ContainsKey(tool)){
             if(effectiveToolDictionary[tool].minHP < HP){
                 damage = effectiveToolDictionary[tool].damage;
             }
         }
+        Debug.Log("damage - " + damage);
         if(damage == 0){
             return;
         }
@@ -35,7 +37,7 @@ public class Hittable : MonoBehaviour
 
         if(HP<=0){
             animator.SetBool("isDead",true);
-            animator.SetInteger("hp",HP);
+            animator.SetFloat("hp",(float)HP/(float)HPMax);
             return;
         }
         if(!(HitEventHandler is null)){
@@ -45,7 +47,7 @@ public class Hittable : MonoBehaviour
         if(damage != 0){
             animator.SetTrigger("Hit");
         }
-        animator.SetInteger("hp",HP);
+        animator.SetFloat("hp",(float)HP/(float)HPMax);
     } 
 
     public void Dead(){
@@ -61,6 +63,13 @@ public class Hittable : MonoBehaviour
     void DisableHit(){
         if(hitBoxCollider != null)
             this.hitBoxCollider.enabled = false;
+    }
+
+    public void Restore(int value){
+        if(HP < HPMax){
+            HP += value;
+        }
+        animator.SetFloat("hp",(float)HP/(float)HPMax);
     }
     
 }

@@ -61,9 +61,9 @@ MonoBehaviour:
   _interactEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
-        m_MethodName: ShowWindow
+      - m_Target: {fileID: 9148355464432600900}
+        m_TargetAssemblyTypeName: SimpleInteract, Assembly-CSharp
+        m_MethodName: Interact
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -85,6 +85,8 @@ GameObject:
   - component: {fileID: 5041921781802770509}
   - component: {fileID: 1660867957235664736}
   - component: {fileID: 9148355464432600900}
+  - component: {fileID: 344425577}
+  - component: {fileID: 344425581}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -145,21 +147,14 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
-    code: 20
+    code: 15
     items: []
     workerID: 0
     mediocrityData:
       content: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 5041921782567252253}
   shadowObject: {fileID: 0}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 0}
 --- !u!114 &9148355464432600900
 MonoBehaviour:
@@ -173,7 +168,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81089ee76e4a71b43a2ada0b94c0b6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 5041921781802770509}
+--- !u!114 &344425577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041921781802770496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
+    chance: 1
+    itemDropType: 1
+--- !u!114 &344425581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041921781802770496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5febc0b976cdb7740a16f24cefd8f071, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5041921781802770509}
+  HP: 10
+  HPMax: 10
+  hitBoxCollider: {fileID: 0}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 344425577}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  effectiveToolDictionaryLength: 0
 --- !u!1 &5041921782567252255
 GameObject:
   m_ObjectHideFlags: 0

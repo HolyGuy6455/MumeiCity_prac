@@ -12,24 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Forge
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 6557064219298774125, guid: 078d41a86eeb1f14e81d4fda8abe6fd9, type: 3}
+  prefab: {fileID: 6557064219298774125, guid: 078d41a86eeb1f14e81d4fda8abe6fd9, type: 3}
   scale: {x: 3, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: 21300000, guid: 95e8eb7ccaa97ed41bfa7f72ba2f300a, type: 3}
-  healthPointMax: 10
   info: 
   attributes: []
-  interactable: 0
-  workplace: 0
   workTier: 0
-  gameTab: 0
   taskPresets: []
   buildTool: 8
   removalTool: []
   buildToolIndex: 0
   resourceList: []
-  dropAmounts: []
   grownPreset: {fileID: 0}
-  ruinPreset: {fileID: 0}
   growUpTerm: 0
-  brokenStyle: 0

@@ -135,6 +135,8 @@
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\WorkPlace.cs" />
+     <Compile Include="Assets\Script\Manager\FlagManager.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

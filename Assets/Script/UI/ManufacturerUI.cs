@@ -57,14 +57,14 @@ public class ManufacturerUI : CommonTaskUI{
         string ticketName = "building_"+buildingData.id+"_make_"+index;
         Debug.Log(ticketName);
         TaskPreset taskPreset = buildingData.buildingPreset.taskPresets[index];
-        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskPreset.requiredTime,ticketName,false, ManufactureComplete);
+        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskPreset.requiredTime,ticketName, ManufactureComplete);
 
         ManufacturerData manufacturerData = buildingData.mediocrityData as ManufacturerData;
         manufacturerData.amount[index] += 1;
-        manufacturerData.dueDate[index] = ticket._timeValue;
+        manufacturerData.dueDate[index] = ticket._delay;
     }
 
-    public void ManufactureComplete(string ticketName){
+    public bool ManufactureComplete(string ticketName){
         string[] stringSplit = ticketName.Split('_');
         BuildingObject buildingObject = GameManager.Instance.buildingManager.FindBuildingObjectWithID(int.Parse(stringSplit[1]));
         BuildingData buildingData = buildingObject.buildingData;
@@ -76,5 +76,6 @@ public class ManufacturerUI : CommonTaskUI{
         buildingData.AddItem(itemSlotData);
 
         UpdateUI();
+        return true;
     }
 }

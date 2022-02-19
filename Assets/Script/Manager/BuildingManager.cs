@@ -19,10 +19,14 @@ public class BuildingManager : MonoBehaviour {
 
     public BuildingPreset _nowBuilding{get{return nowBuilding;}}
 
-    private void Start() {
-        List<Tool> tools = GameManager.Instance.tools;
+    private void Awake() {
+        IssueID();
+    }
 
+    [ContextMenu("Manual Issue ID")]
+    void IssueID(){
         List<BuildingObject> buildingList = wholeBuildingList();
+        lastID = 0;
         foreach (BuildingObject buildingObject in buildingList){
             buildingObject.buildingData.id = lastID++;
         }
@@ -122,8 +126,8 @@ public class BuildingManager : MonoBehaviour {
 
         Debug.Log("Build Position "+location);
         GameObject Built;
-        if(nowBuilding.gameObject != null){
-            Built = Instantiate(nowBuilding.gameObject,location,Quaternion.identity);
+        if(nowBuilding.prefab != null){
+            Built = Instantiate(nowBuilding.prefab,location,Quaternion.identity);
         }else{
             Built = Instantiate(constructureSample,location,Quaternion.identity);
         }

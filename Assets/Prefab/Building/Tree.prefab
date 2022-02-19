@@ -110,7 +110,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2784014845858301317}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: -1, z: 13}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
@@ -158,14 +158,7 @@ MonoBehaviour:
       content: 
   spriteRenderer: {fileID: 8671496713637769634}
   shadowObject: {fileID: 8359408129419388895}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 4472483454100044105}
 --- !u!114 &1416925517860207757
 MonoBehaviour:
@@ -181,7 +174,38 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4472483454100044105}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 6541050517502627668}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1416925518159172535}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1416925518159172535}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenHit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   effectiveToolDictionaryLength: 0
 --- !u!95 &4472483454100044105
 Animator:
@@ -193,7 +217,7 @@ Animator:
   m_GameObject: {fileID: 2784014845858301317}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d292f6cdb79d9d344ba53222cb33b9f8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0c55dfc6c6b476d4d8dc3d4d184877d8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -429,4 +453,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3940
+  m_InstanceId: -690446

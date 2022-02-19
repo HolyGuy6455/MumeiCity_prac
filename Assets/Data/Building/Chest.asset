@@ -12,27 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Chest
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 5041921781802770496, guid: 14541f3a051e68e47aad3d73f88fa8e0, type: 3}
+  prefab: {fileID: 5041921781802770496, guid: 14541f3a051e68e47aad3d73f88fa8e0, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: 7300178513047545148, guid: d54f361024203c34590bb7df02722305, type: 3}
-  healthPointMax: 10
   info: 
   attributes: []
-  interactable: 1
-  workplace: 0
   workTier: 0
-  gameTab: 0
   taskPresets: []
   buildTool: 0
   removalTool: []
   buildToolIndex: 0
   resourceList: []
-  dropAmounts:
-  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
-    chance: 0
-    itemDropType: 1
   grownPreset: {fileID: 0}
-  ruinPreset: {fileID: 0}
   growUpTerm: 0
-  brokenStyle: 0

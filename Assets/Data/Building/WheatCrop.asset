@@ -12,24 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: WheatCrop
   m_EditorClassIdentifier: 
+  prefab: {fileID: 4182747428758371534, guid: 13189fb311266a6479fb08ca89239d03, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: -4008148122699639826, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
-  healthPointMax: 10
+  sprite: {fileID: 9092517261266139881, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   info: 
   attributes: []
-  interactable: 0
-  workplace: 0
   workTier: 0
-  gameTab: 0
   taskPresets: []
-  lightSourceIntensity: 0
   buildTool: 5
-  removalTool: []
+  removalTool:
+  - tool: 2
+    damage: 1
+    minHP: 0
+  - tool: 5
+    damage: 10
+    minHP: 0
   buildToolIndex: 0
   resourceList: []
-  dropAmounts: []
-  grownPreset: {fileID: 11400000, guid: f4fcef45dc8bd474eb9f920723c21d88, type: 2}
-  ruinPreset: {fileID: 0}
+  grownPreset: {fileID: 0}
   growUpTerm: 3
-  brokenStyle: 0

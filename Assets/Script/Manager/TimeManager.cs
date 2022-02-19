@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class TimeManager : MonoBehaviour{
-    public delegate void TimeEvent(string args = "");
+    public delegate bool TimeEvent(string args = "");
     [SerializeField] int timeValue;
     [SerializeField] float ticPerSecond = 10.0f;
     [SerializeField] Animator daylightAnimator;
@@ -44,14 +44,14 @@ public class TimeManager : MonoBehaviour{
     bool dayTime;
     public bool IsItDayTime(){return dayTime;}
 
-    public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, bool repeat, TimeManager.TimeEvent timeEvent){
+    public TimeEventQueueTicket AddTimeEventQueueTicket(int delay, string idString, TimeManager.TimeEvent timeEvent){
         foreach (TimeEventQueueTicket queueTicket in waitingList){
             if(queueTicket._idString == idString){
                 return null;
             }
         }
-        int repeatTime = (repeat)?delay:0;
-        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay, idString, repeatTime, timeEvent);
+        // 이유는 모르겠지만, 딜레이를 1초씩 더한다;; 그래서 1 뺌
+        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay - 1, idString, delay, timeEvent);
         waitingList.Add(result);
         return result;
     }
@@ -86,18 +86,22 @@ public class TimeManager : MonoBehaviour{
         dayTime = (blendValue<0.5);
         daylightAnimator.SetFloat("Blend",blendValue);
 
-        List<TimeEventQueueTicket> discardList = new List<TimeEventQueueTicket>();
+        List<TimeEventQueueTicket> invokeList = new List<TimeEventQueueTicket>();
 
         foreach (TimeEventQueueTicket queueTicket in waitingList){
-            if(queueTicket._timeValue <= this.timeValue){
-                discardList.Add(queueTicket);
+            if(queueTicket._endTime <= this.timeValue){
+                invokeList.Add(queueTicket);
             }
         }
-        foreach (TimeEventQueueTicket ticket in discardList){
+
+        foreach (TimeEventQueueTicket ticket in invokeList){
+            bool isDone = false;
+            if(ticket._timeEvent != null){
+                isDone = ticket._timeEvent.Invoke(ticket._idString);
+            }
             waitingList.Remove(ticket);
-            ticket._timeEvent.Invoke(ticket._idString);
-            if(ticket._repeatTime != 0){
-                AddTimeEventQueueTicket(ticket._repeatTime,ticket._idString,true,ticket._timeEvent);
+            if(!isDone){
+                AddTimeEventQueueTicket(ticket._delay,ticket._idString,ticket._timeEvent);
             }
         }
     }
@@ -136,22 +140,24 @@ public class TimeManager : MonoBehaviour{
 
 [Serializable]
 public class TimeEventQueueTicket{
-    [SerializeField] int timeValue;
-    [SerializeField] int repeatTime;
+    [SerializeField] int startTime;
+    [SerializeField] int delay;
     [SerializeField] string idString;
     TimeManager.TimeEvent timeEvent;
-    public int _timeValue{get{return timeValue;}}
-    public int _repeatTime{get{return repeatTime;}}
+    public int _startTime{get{return startTime;}}
+    public int _endTime{get{return startTime+delay;}}
+    public int _delay{get{return delay;}}
+
     public string _idString{get{return idString;}}
     public TimeManager.TimeEvent _timeEvent{get{return timeEvent;}}
     
-    public TimeEventQueueTicket(int timeValue,string idString, int repeatTime, TimeManager.TimeEvent timeEvent){
-        this.timeValue = timeValue;
+    public TimeEventQueueTicket(int startTime, string idString, int delay, TimeManager.TimeEvent timeEvent){
+        this.startTime = startTime;
         this.idString = idString;
         this.timeEvent = timeEvent;
-        this.repeatTime = repeatTime;
+        this.delay = delay;
     }
     public bool isThisValid(){
-        return GameManager.Instance.timeManager._timeValue <= this.timeValue;
+        return GameManager.Instance.timeManager._timeValue <= this._endTime;
     }
 }

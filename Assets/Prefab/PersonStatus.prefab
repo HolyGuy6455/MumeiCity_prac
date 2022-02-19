@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -562544179428658183, guid: 249647bbc1eadc844b2aef19a078e1c7, type: 3}
+  m_Sprite: {fileID: -2648069533430052375, guid: 539f2778cf94f214da7c136dd0141baa, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -155,6 +155,16 @@ MonoBehaviour:
   happinessImage: {fileID: 2915927378865273143}
   happinessBGImage: {fileID: 2915927378078315705}
   personImage: {fileID: 2915927377162659418}
+  personData:
+    content: 
+    id: 0
+    position: {x: 0, y: 0, z: 0}
+    items: []
+    stamina: 0
+    happiness: 0
+    workplaceID: 0
+    homeID: 0
+    sleep: 0
 --- !u!1 &2915927378078315711
 GameObject:
   m_ObjectHideFlags: 0

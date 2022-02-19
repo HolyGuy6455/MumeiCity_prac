@@ -11,7 +11,7 @@ public class BuildingObject : MonoBehaviour
     // public GameObject spriteObject;
     public GameObject shadowObject;
     public List<EffectiveTool> removalTool;
-    [SerializeField] TimeEventQueueTicket growupEvent;
+    
     [SerializeField] Animator animator;
  
     private void Start() {
@@ -45,12 +45,10 @@ public class BuildingObject : MonoBehaviour
         Initialize(this.buildingData);
     }
 
-    
-
     // 오브젝트의 초기화
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
-        if(buildingPreset.gameObject == null){
+        if(buildingPreset.prefab == null){
             this.transform.localScale = buildingPreset.scale;
         }
         this.buildingData = buildingData;
@@ -58,23 +56,6 @@ public class BuildingObject : MonoBehaviour
 
         Hittable hittable = GetComponent<Hittable>();
         hittable.SetEffectiveTool(removalTool);
-        
-        if(buildingData.buildingPreset.growUpTerm != 0){
-            int term = buildingData.buildingPreset.growUpTerm;
-            string ticketName = "building_"+this.buildingData.id+"_growup";
-            growupEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(term,ticketName,false, SwapPresetToGrow);
-        }
-    }
-
-    // public void SwapPresetToRuin(){
-    //     buildingData.code = buildingData.buildingPreset.ruinPreset.code;
-    //     Initialize(buildingData);
-    //     animator.SetBool("isDead",false);
-    // }
-
-    public void SwapPresetToGrow(string ticketName){
-        buildingData.code = buildingData.buildingPreset.grownPreset.code;
-        Initialize(buildingData);
     }
 
     [ContextMenu("Manual Initialize")]

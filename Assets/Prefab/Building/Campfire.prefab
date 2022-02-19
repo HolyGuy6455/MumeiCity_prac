@@ -229,14 +229,7 @@ MonoBehaviour:
       content: 
   spriteRenderer: {fileID: 2150183074733892328}
   shadowObject: {fileID: 1261906382727459989}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 6598002484801399299}
 --- !u!114 &8514136512318992327
 MonoBehaviour:
@@ -252,7 +245,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 6598002484801399299}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 4559857815604927518}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 1
 --- !u!95 &6598002484801399299
 Animator:

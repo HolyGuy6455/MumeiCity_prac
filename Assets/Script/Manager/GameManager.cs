@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public List<Tool> tools = new List<Tool>();
     [SerializeField] int selectedTool = 0;
     [SerializeField] HitCollision hitCollision;
+    [SerializeField] HitCollision heatCollision;
     public SpriteRenderer ToolView;
     public PlayerMovement playerMovement;
     public Inventory inventory;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     public SaveLoadManager saveLoadManager;
     public MobManager mobManager;
     public GridMapManager gridMapManager;
+    public FlagManager FlagManager;
     [SerializeField] private Animator taskUI;
 
     [SerializeField] PlayerInput playerInput;
@@ -68,7 +70,7 @@ public class GameManager : MonoBehaviour
             return null;
         }
     }
-    [SerializeField] HitCollision heatCollision;
+    
     
 
     private void Start() {

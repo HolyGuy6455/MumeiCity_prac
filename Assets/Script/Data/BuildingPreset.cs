@@ -7,7 +7,7 @@ using System;
  */
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
-    public GameObject gameObject;
+    public GameObject prefab;
     // public string buildingName;
     public Vector3 scale = new Vector3(1,1,1);
     public Vector3 relativeLocation;

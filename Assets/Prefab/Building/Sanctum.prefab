@@ -57,7 +57,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
-    code: 19
+    code: 14
     items:
     - content: 
       code: 0
@@ -75,16 +75,8 @@ MonoBehaviour:
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 6358230590402234932}
-  spriteObject: {fileID: 4209012660112798830}
   shadowObject: {fileID: 6082450216074878025}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 2196302345499558623}
 --- !u!114 &3729630413674792731
 MonoBehaviour:
@@ -100,7 +92,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 2196302345499558623}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 8839963070991905986}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 0
 --- !u!95 &2196302345499558623
 Animator:
@@ -438,7 +437,7 @@ MonoBehaviour:
   - {x: -0.3389659, y: 0.5601748, z: -0.0000014057675}
   m_ShapePathHash: -940193657
   m_Mesh: {fileID: 0}
-  m_InstanceId: 67732
+  m_InstanceId: -6888
 --- !u!1 &7918360850403852616
 GameObject:
   m_ObjectHideFlags: 0
