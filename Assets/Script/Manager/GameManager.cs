@@ -23,8 +23,9 @@ public class GameManager : MonoBehaviour
     public SaveLoadManager saveLoadManager;
     public MobManager mobManager;
     public GridMapManager gridMapManager;
-    public FlagManager FlagManager;
-    [SerializeField] private Animator taskUI;
+    public AchievementManager achievementManager;
+    public TaskUIBundle taskUIBundle;
+    [SerializeField] private Animator taskUIAnimator;
 
     [SerializeField] PlayerInput playerInput;
     
@@ -41,7 +42,8 @@ public class GameManager : MonoBehaviour
         SUPERINTENDENT,
         MANUFACTURER,
         LABORATORY,
-        GUIDE_BOOK
+        GUIDE_BOOK,
+        ACHIEVEMENT
 
     }
     public GameTab presentGameTab;
@@ -144,6 +146,18 @@ public class GameManager : MonoBehaviour
             case "Inventory":
                 ChangeGameTab(GameTab.ITEM);
                 break;
+            case "House":
+                ChangeGameTab(GameTab.HOUSE);
+                break;
+            case "Superintedent":
+                ChangeGameTab(GameTab.SUPERINTENDENT);
+                break;
+            case "Manufacturer":
+                ChangeGameTab(GameTab.MANUFACTURER);
+                break;
+            case "Laboratory":
+                ChangeGameTab(GameTab.LABORATORY);
+                break;
             default:
                 break;
         }
@@ -153,6 +167,10 @@ public class GameManager : MonoBehaviour
         presentGameTab = gameTab;
         bool playerMovementEnabled = false;
         bool buildingShow = false;
+        BuildingObject buildingObject = null;
+        if(nearestInteractable != null){
+            buildingObject = nearestInteractable.GetComponentInParent<BuildingObject>();
+        }
         
         pastGameTab = presentGameTab;
         
@@ -160,15 +178,15 @@ public class GameManager : MonoBehaviour
         {
             case GameTab.NORMAL:
                 playerMovementEnabled = true;
-                taskUI.SetInteger("SelectedUI",0);
+                taskUIAnimator.SetInteger("SelectedUI",0);
                 break;
 
             case GameTab.ITEM:
-                taskUI.SetInteger("SelectedUI",1);
+                taskUIAnimator.SetInteger("SelectedUI",1);
                 break;
 
             case GameTab.BUILDING:
-                taskUI.SetInteger("SelectedUI",2);
+                taskUIAnimator.SetInteger("SelectedUI",2);
                 playerMovementEnabled = true;
                 buildingShow = true;
                 if(buildingManager.onToolChangedCallback != null){
@@ -177,23 +195,31 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameTab.HOUSE:
-                taskUI.SetInteger("SelectedUI",4);
+                interactingBuilding = buildingObject.buildingData;
+                taskUIAnimator.SetInteger("SelectedUI",4);
                 break;
 
             case GameTab.SUPERINTENDENT:
-                taskUI.SetInteger("SelectedUI",3);
+                interactingBuilding = buildingObject.buildingData;
+                taskUIAnimator.SetInteger("SelectedUI",3);
                 break;
 
             case GameTab.MANUFACTURER:
-                taskUI.SetInteger("SelectedUI",5);
+                interactingBuilding = buildingObject.buildingData;
+                taskUIAnimator.SetInteger("SelectedUI",5);
                 break;
 
             case GameTab.LABORATORY:
-                taskUI.SetInteger("SelectedUI",6);
+                interactingBuilding = buildingObject.buildingData;
+                taskUIAnimator.SetInteger("SelectedUI",6);
                 break;
 
             case GameTab.GUIDE_BOOK:
-                taskUI.SetInteger("SelectedUI",7);
+                taskUIAnimator.SetInteger("SelectedUI",7);
+                break;
+            
+            case GameTab.ACHIEVEMENT:
+                taskUIAnimator.SetInteger("SelectedUI",8);
                 break;
 
             default:
@@ -309,6 +335,17 @@ public class GameManager : MonoBehaviour
             return;
         }
         ChangeGameTab(GameTab.GUIDE_BOOK);
+    }
+
+    public void OnAchievement(InputAction.CallbackContext value){
+        if(value.started)
+            Debug.Log("OnAchievement started");
+        if(value.performed)
+            Debug.Log("OnAchievement performed");
+        if(!value.performed){
+            return;
+        }
+        ChangeGameTab(GameTab.ACHIEVEMENT);
     }
 
     public void OnExitTask(InputAction.CallbackContext value){

@@ -48,9 +48,6 @@ public class BuildingObject : MonoBehaviour
     // 오브젝트의 초기화
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
-        if(buildingPreset.prefab == null){
-            this.transform.localScale = buildingPreset.scale;
-        }
         this.buildingData = buildingData;
         spriteRenderer.sprite = buildingPreset.sprite;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class ItemManager : MonoBehaviour {
     [SerializeField] private List<ItemPreset> itemPresetList = new List<ItemPreset>();
+    [SerializeField] private List<ItemData> itemDataList = new List<ItemData>();
     public GameObject itemPickupPrefab;
     public GameObject itemPickupParent;
 

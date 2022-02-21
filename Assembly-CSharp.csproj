@@ -84,9 +84,11 @@
      <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
+     <Compile Include="Assets\Script\UI\AchievementView.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
      <Compile Include="Assets\Script\Manager\MobManager.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
      <Compile Include="Assets\Script\Manager\SaveLoadManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
@@ -97,6 +99,7 @@
      <Compile Include="Assets\Script\UI\GuideBookUI.cs" />
      <Compile Include="Assets\Script\UI\TagSlot.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentTaskUI.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\WorkPlace.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
@@ -131,12 +134,11 @@
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Player.cs" />
      <Compile Include="Assets\Script\Manager\CameraManager.cs" />
      <Compile Include="Assets\Script\UI\BuildingUI.cs" />
+     <Compile Include="Assets\Script\Manager\AchievementManager.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\WorkPlace.cs" />
-     <Compile Include="Assets\Script\Manager\FlagManager.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
+     <Compile Include="Assets\Script\UI\AchievementUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

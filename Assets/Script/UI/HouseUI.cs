@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class HouseUI : CommonTaskUI{
     [SerializeField] PersonStatusView[] personStatusViews;
@@ -41,6 +38,6 @@ public class HouseUI : CommonTaskUI{
     public override void UpdateUI(){
         base.UpdateUI();
         houseData = GameManager.Instance.interactingBuilding.mediocrityData as HouseData;
-        Debug.Log("houseData "+houseData);
+        // Debug.Log("houseData "+houseData);
     }
 }

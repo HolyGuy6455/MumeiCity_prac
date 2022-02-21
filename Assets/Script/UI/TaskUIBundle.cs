@@ -7,14 +7,15 @@ public class TaskUIBundle : MonoBehaviour{
     [SerializeField] SuperintendentUI superintendentUI;
     [SerializeField] HouseUI houseUI;
     [SerializeField] ManufacturerUI manufacturerUI;
+    [SerializeField] AchievementUI achievementUI;
 
-    public void LoadInventoryUIData(){
-        inventoryUI.LoadItemSlotData();
-    }
 
     public void LoadTaskUIData(string taskName){
         inventoryUI.LoadItemSlotData();
-        switch (taskName){   
+        switch (taskName){  
+            case "Inventory":
+                // do nothing!
+                break; 
             case "House":
                 houseUI.UpdateUI();
                 break;
@@ -23,6 +24,9 @@ public class TaskUIBundle : MonoBehaviour{
                 break;
            case "Manufacturer":
                 manufacturerUI.UpdateUI();
+                break;
+            case "Achievement":
+                achievementUI.UpdateUI();
                 break;
             default:
                 break;

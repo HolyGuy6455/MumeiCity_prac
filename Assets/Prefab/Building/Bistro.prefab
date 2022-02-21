@@ -362,16 +362,16 @@ MonoBehaviour:
   _interactEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7675618326615160247}
-        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
-        m_MethodName: ShowWindow
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeGameTab
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Laboratory
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5250030829315520114
@@ -432,7 +432,7 @@ MonoBehaviour:
   - {x: 0.08555889, y: 0.464355, z: -0.000005982739}
   m_ShapePathHash: 1440245004
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6708
+  m_InstanceId: -4562
 --- !u!1 &8165382617575320435
 GameObject:
   m_ObjectHideFlags: 0
