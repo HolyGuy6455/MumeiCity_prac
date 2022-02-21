@@ -16,13 +16,13 @@ public class CommonTaskUI : MonoBehaviour{
     public virtual void UpdateUI(){
         ItemSlotData[] itemSlotData = GameManager.Instance.interactingBuilding.items;
         for (int i = 0; i < itemSlotData.Length; i++){
-            StorageSlots[i].data = itemSlotData[i];
+            StorageSlots[i].itemSlotData = itemSlotData[i];
             StorageSlots[i].UpdateUI();
         }
     }
 
     void OnFocusSlot(ItemSlot inventorySlot, PointerEventData eventData){
-        if(inventorySlot.data.code == 0){
+        if(inventorySlot.itemSlotData.itemData.isNone()){
             return;
         }
     }

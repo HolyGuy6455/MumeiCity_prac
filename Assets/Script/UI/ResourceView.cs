@@ -7,22 +7,22 @@ public class ResourceView : MonoBehaviour{
     [SerializeField] Text resourceName;
     [SerializeField] Image resourceImage;
     [SerializeField] Text resourceAmount;
-    [SerializeField] ItemPreset itemPreset;
+    [SerializeField] ItemData itemData;
 
 
     public void UpdateResource(NecessaryResource buildingMaterial){
         if(buildingMaterial == null){
-            this.itemPreset = null;
+            this.itemData = null;
             resourceName.text = "";
             resourceImage.sprite = GameManager.Instance.emptySprite;
             resourceAmount.text = "";
         }else{
-            this.itemPreset = ItemManager.GetItemPresetFromCode(ItemManager.GetCodeFromItemName(buildingMaterial.preset.name));
-            resourceName.text = itemPreset.name;
-            resourceImage.sprite = itemPreset.itemSprite;
+            this.itemData = ItemData.Instant(buildingMaterial.itemDataName);
+            resourceName.text = itemData.itemName;
+            resourceImage.sprite = itemData.itemSprite;
 
             int resourceAmountValue = buildingMaterial.amount;
-            int havingAmountValue = GameManager.Instance.inventory.GetItemAmount(itemPreset.name);
+            int havingAmountValue = GameManager.Instance.inventory.GetItemAmount(itemData.itemName);
             string resourceAmountString = resourceAmountValue.ToString() + "/" + havingAmountValue.ToString();
             Color textColor = (resourceAmountValue>havingAmountValue)? Color.red : Color.white;
 

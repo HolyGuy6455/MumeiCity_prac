@@ -23,19 +23,19 @@ public class BuildingData : MediocrityData {
 
     public bool AddItem(ItemSlotData itemSlotData){
         for (int i = 0; i < 4; i++){
-            if(items[i].code == itemSlotData.code){
+            if(items[i].itemName == itemSlotData.itemName){
                 items[i].amount += itemSlotData.amount;
                 itemSlotData.amount = 0;
-                itemSlotData.code = 0;
+                itemSlotData.itemName = "None";
                 return true;
             }
         }
         for (int i = 0; i < 4; i++){
-            if(items[i].code == 0){
-                items[i].code = itemSlotData.code;
+            if(items[i].itemData.isNone()){
+                items[i].itemName = itemSlotData.itemName;
                 items[i].amount = itemSlotData.amount;
                 itemSlotData.amount = 0;
-                itemSlotData.code = 0;
+                itemSlotData.itemName = "None";
                 return true;
             }
         }

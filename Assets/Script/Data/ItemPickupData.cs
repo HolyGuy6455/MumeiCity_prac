@@ -5,18 +5,19 @@ using System;
 
 [Serializable]
 public class ItemPickupData : MediocrityData{
-    public byte code;
+    public string itemName;
     public Vector3 position;
     public int leftSecond = 30;
-    public ItemPreset itemPreset{
+    public ItemData itemData{
         get{
-            return ItemManager.GetItemPresetFromCode(code);
+            return ItemData.Instant(itemName);
             }
         }
 
-    public static ItemPickupData create(ItemPreset preset){
+    public static ItemPickupData create(ItemData data){
         ItemPickupData result = new ItemPickupData();
-        result.code = ItemManager.GetCodeFromItemPreset(preset);
+        result.itemName = data.itemName;
+        result.leftSecond = 30;
         return result;
     }
 }

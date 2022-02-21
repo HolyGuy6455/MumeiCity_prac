@@ -5,32 +5,28 @@ using System;
 
 [Serializable]
 public class ItemSlotData : MediocrityData{
-    public byte code;
+    public string itemName;
     public int amount;
 
-    public ItemPreset itemPreset{
+    public ItemData itemData{
         get{
-            return ItemManager.GetItemPresetFromCode(code);
+            return ItemData.Instant(itemName);
             }
         }
 
-    public static ItemSlotData Create(ItemPreset preset){
+    public static ItemSlotData Create(ItemData data){
         ItemSlotData result = new ItemSlotData();
-        result.code = ItemManager.GetCodeFromItemPreset(preset);
-        if(result.code == 0){
-            result.amount = 0;
-        }else{
-            result.amount = 1;
-        }
+        result.itemName = data.itemName;
+        result.amount = (data.isNone())? 0 : 1;
         return result;
     }
 
     public static void Swap(ItemSlotData data1, ItemSlotData data2){
-        byte temp_code = data1.code;
+        string temp_name = data1.itemName;
         int temp_amount = data1.amount;
-        data1.code = data2.code;
+        data1.itemName = data2.itemName;
         data1.amount = data2.amount;
-        data2.code = temp_code;
+        data2.itemName = temp_name;
         data2.amount = temp_amount;
     }
 }

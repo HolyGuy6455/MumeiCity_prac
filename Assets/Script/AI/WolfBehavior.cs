@@ -117,12 +117,7 @@ public class WolfBehavior : AnimalBehavior{
             if(itemTag == null)
                 return true;
 
-            List<string> pickupItemTags = itemPickup.itemData.itemPreset.tags;
-            foreach (string tag in pickupItemTags){
-                if(itemTag.CompareTo(tag) == 0)
-                    return true;
-            }
-            return false;
+            return itemPickup.itemPickupData.itemData.isThisTag(itemTag);
         };
         GameObject nearestItem = sence.FindNearest();
         if(nearestItem != null){

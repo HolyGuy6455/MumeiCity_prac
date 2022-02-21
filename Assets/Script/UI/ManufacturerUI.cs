@@ -71,7 +71,7 @@ public class ManufacturerUI : CommonTaskUI{
         int index = int.Parse(stringSplit[3]);
         NecessaryResource resultItem = buildingData.buildingPreset.taskPresets[index].resultItem;
 
-        ItemSlotData itemSlotData = ItemSlotData.Create(resultItem.preset);
+        ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(resultItem.itemDataName));
         itemSlotData.amount = resultItem.amount;
         buildingData.AddItem(itemSlotData);
 

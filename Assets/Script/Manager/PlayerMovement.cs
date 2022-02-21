@@ -115,14 +115,14 @@ public class PlayerMovement : MonoBehaviour{
                 break;
             }
             ItemSlotData selectedSlot = inventoryItems[Random.Range(0,inventoryItems.Count)];
-            ItemPreset preset = ItemManager.GetItemPresetFromCode(selectedSlot.code);
+            string dropItemName = selectedSlot.itemName;
 
-            if(selectedSlot.code == 0){
+            if(selectedSlot.itemData.isNone()){
                 continue;
             }
             if(selectedSlot.amount == 1){
                 selectedSlot.amount = 0;
-                selectedSlot.code = 0;
+                selectedSlot.itemName = "None";
             }else{
                 selectedSlot.amount -= 1;
             }
@@ -135,8 +135,8 @@ public class PlayerMovement : MonoBehaviour{
 
             GameObject itemObject = Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            itemPickup.itemData = ItemPickupData.create(preset);
-            itemPickup.itemData.leftSecond = 12;
+            itemPickup.itemPickupData = ItemPickupData.create(ItemData.Instant(dropItemName));
+            itemPickup.itemPickupData.leftSecond = 12;
             itemPickup.IconSpriteUpdate();
             itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);
             itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);

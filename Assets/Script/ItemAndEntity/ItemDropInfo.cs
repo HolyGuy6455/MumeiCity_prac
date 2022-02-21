@@ -2,7 +2,7 @@ using UnityEngine;
 
 [System.Serializable]
 public class ItemDropInfo{
-    public ItemPreset preset;
+    public ItemData data;
     public float chance;
     public ItemDropType itemDropType;
     public enum ItemDropType{
@@ -32,7 +32,7 @@ public class ItemDropInfo{
 
             GameObject itemObject = GameObject.Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location+popForce/10,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            itemPickup.itemData = ItemPickupData.create(preset);
+            itemPickup.itemPickupData = ItemPickupData.create(data);
             itemPickup.IconSpriteUpdate();
             
             itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);

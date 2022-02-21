@@ -110,12 +110,7 @@ public class PersonBehavior : MonoBehaviour
             if(itemTag == null)
                 return true;
 
-            List<string> pickupItemTags = itemPickup.itemData.itemPreset.tags;
-            foreach (string tag in pickupItemTags){
-                if(itemTag.CompareTo(tag) == 0)
-                    return true;
-            }
-            return false;
+            return itemPickup.itemPickupData.itemData.isThisTag(itemTag);
         };
 
         GameObject nearestItem = sence.FindNearest();
@@ -180,7 +175,7 @@ public class PersonBehavior : MonoBehaviour
 
     // 아이템을 갖다 넣기
     void PutInItem(){
-        this.personData.items = this.personData.items.FindAll(item => item.code != 0);
+        this.personData.items = this.personData.items.FindAll(item => !item.itemData.isNone());
 
         if(this.personData.items.Count > 0){
             ItemSlotData itemSlotData = this.personData.items[0];
@@ -261,8 +256,7 @@ public class PersonBehavior : MonoBehaviour
                 // }
                 ItemSlotData[] buildingItems = value.buildingData.items;
                 foreach (ItemSlotData itemSlot in buildingItems){
-                    ItemPreset itemPreset =  ItemManager.GetItemPresetFromCode(itemSlot.code);
-                    if(itemPreset.tags.Contains(itemTag)){
+                    if(itemSlot.itemData.isThisTag(itemTag)){
                         return true;
                     }
                 }
@@ -293,8 +287,8 @@ public class PersonBehavior : MonoBehaviour
         ItemSlotData[] buildingItems = buildingObject.buildingData.items;
         ItemSlotData taken = null;
         foreach (ItemSlotData itemSlot in buildingItems){
-            ItemPreset itemPreset =  ItemManager.GetItemPresetFromCode(itemSlot.code);
-            if(itemPreset.tags.Contains(itemTag)){
+            ItemData itemData = ItemData.Instant(itemSlot.itemName);
+            if(itemData.isThisTag(itemTag)){
                 taken = itemSlot;
                 break;
             }
@@ -304,10 +298,10 @@ public class PersonBehavior : MonoBehaviour
             return;
         }
 
-        this.personData.items.Add(ItemSlotData.Create(taken.itemPreset));
+        this.personData.items.Add(ItemSlotData.Create(taken.itemData));
         taken.amount--;
         if(taken.amount <= 0){
-            taken.code = 0;
+            taken.itemName = "None";
         }
         UpdateItemView();
         ThisTask.Succeed();
@@ -315,24 +309,24 @@ public class PersonBehavior : MonoBehaviour
     [Task]
     void ConsumeItemByTag(string itemTag){
         this.personData.items = this.personData.items.FindAll(item =>
-            (item.code != 0) && (item.itemPreset.tags.Contains(itemTag))
+            (!item.itemData.isNone()) && (item.itemData.isThisTag(itemTag))
         );
 
         if(this.personData.items.Count > 0){
-            ItemPreset itemPreset = ItemManager.GetItemPresetFromCode(this.personData.items[0].code);
+            ItemData itemData = ItemData.Instant(this.personData.items[0].itemName);
             switch (itemTag){
                 case "Food":
-                    this.personData.stamina += itemPreset.efficiency;
+                    this.personData.stamina += itemData.efficiency;
                     break;
                 case "Gift":
-                    this.personData.happiness += itemPreset.efficiency;
+                    this.personData.happiness += itemData.efficiency;
                     break;
                 default:
                     break;
             }
             this.personData.items[0].amount -= 1;
             if(this.personData.items[0].amount <= 0){
-                this.personData.items[0].code = 0;
+                this.personData.items[0].itemName = "None";
             }
             UpdateItemView();
             ThisTask.Succeed();
@@ -416,14 +410,14 @@ public class PersonBehavior : MonoBehaviour
     }
 
     public void UpdateItemView(){
-        this.personData.items = this.personData.items.FindAll(item => item.code != 0);
+        this.personData.items = this.personData.items.FindAll(item => !item.itemData.isNone());
 
         int length = this.personData.items.Count;
         // Debug.Log("length? : "+length);
         for (int i = 0; i < length; i++){
             pocketItemSlots[i].SetActive(true);
             pocketItemSlots[i].transform.localPosition = new Vector3(((float)-length+1)/4 + ((float)i)/2,0.5f,0);
-            pocketItemSlots[i].GetComponent<SpriteRenderer>().sprite = this.personData.items[i].itemPreset.itemSprite;
+            pocketItemSlots[i].GetComponent<SpriteRenderer>().sprite = this.personData.items[i].itemData.itemSprite;
         }
         for (int i = length; i < pocketItemSlots.Count; i++){
             pocketItemSlots[i].SetActive(false);

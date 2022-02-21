@@ -104,7 +104,7 @@ public class BuildingManager : MonoBehaviour {
         List<NecessaryResource> materialList = nowBuilding.resourceList;
         bool doWeHaveMaterialEnough = true;
         foreach (NecessaryResource material in materialList){
-            if(inventoryManager.GetItemAmount(material.preset.name) < material.amount){
+            if(inventoryManager.GetItemAmount(material.itemDataName) < material.amount){
                 doWeHaveMaterialEnough = false;
                 Debug.Log("Not Enough Material");
                 break;
@@ -116,7 +116,7 @@ public class BuildingManager : MonoBehaviour {
         }
         // 재료가 있다면 재료를 소모한다
         foreach (NecessaryResource material in materialList){
-            inventoryManager.ConsumeItem(material.preset.name,material.amount);
+            inventoryManager.ConsumeItem(material.itemDataName,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다
         Vector3 location = new Vector3();
@@ -143,7 +143,7 @@ public class BuildingManager : MonoBehaviour {
         const int itemSpace = 4;
         buildingData.items = new ItemSlotData[itemSpace];
         for (int i = 0; i < itemSpace; i++){
-            buildingData.items[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+            buildingData.items[i] = ItemSlotData.Create(ItemData.Instant("None"));
         }
         switch (nowBuilding.name){
             case "ForesterHut":

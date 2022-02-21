@@ -22,20 +22,20 @@ public class InventoryUI : MonoBehaviour{
     public void LoadItemSlotData(){
         ItemSlotData[] itemSlotData = GameManager.Instance.inventory.itemData;
         for (int i = 0; i < itemSlots.Length; i++){
-            itemSlots[i].data = itemSlotData[i];
+            itemSlots[i].itemSlotData = itemSlotData[i];
             itemSlots[i].UpdateUI();
         }
     }
 
     private void OnFocusSlot(ItemSlot inventorySlot, PointerEventData eventData){
-        if(inventorySlot.data.code == 0){
+        if(inventorySlot.itemSlotData.itemData.isNone()){
             return;
         }
-        ItemInfoImage.sprite = inventorySlot.data.itemPreset.itemSprite;
-        ItemInfoName.text = inventorySlot.data.itemPreset.name;
-        ItemInfoText.text = inventorySlot.data.itemPreset.info;
+        ItemInfoImage.sprite = inventorySlot.itemSlotData.itemData.itemSprite;
+        ItemInfoName.text = inventorySlot.itemSlotData.itemData.itemName;
+        ItemInfoText.text = inventorySlot.itemSlotData.itemData.info;
 
-        itemTags[0].UpdateUI(inventorySlot.data.itemPreset.tags[0]);
+        itemTags[0].UpdateUI(inventorySlot.itemSlotData.itemData.tag);
     }
 
     private void OnClickSlot(ItemSlot inventorySlot, PointerEventData eventData){

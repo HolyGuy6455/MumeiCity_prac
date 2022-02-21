@@ -9,17 +9,17 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public InventorySlotEvent onClickCallback;
     public Image icon;
     [UnityEngine.Serialization.FormerlySerializedAs("amount")] public Text amountText;
-    public ItemSlotData data;
+    public ItemSlotData itemSlotData;
 
     public void UpdateUI(){
-        if(data == null || data.code == 0){
+        if(itemSlotData == null || itemSlotData.itemData.isNone()){
             icon.sprite = null;
             icon.enabled = false;
             amountText.text = "";
         }else{
-            icon.sprite = ItemManager.GetItemPresetFromCode(data.code).itemSprite;
+            icon.sprite = ItemData.Instant(itemSlotData.itemName).itemSprite;
             icon.enabled = true;
-            amountText.text = data.amount.ToString();
+            amountText.text = itemSlotData.amount.ToString();
         }
     }
 

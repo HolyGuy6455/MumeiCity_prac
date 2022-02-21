@@ -12,10 +12,10 @@ public class Inventory : MonoBehaviour {
     int itemSpace = 20;
 
     private void Start() {
-        itemHeldInHand = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+        itemHeldInHand = ItemSlotData.Create(ItemData.Instant("None"));
         itemData = new ItemSlotData[itemSpace];
         for (int i = 0; i < itemSpace; i++){
-            itemData[i] = ItemSlotData.Create(ItemManager.GetItemPresetFromCode(0));
+            itemData[i] = ItemSlotData.Create(ItemData.Instant("None"));
         }
     }
 
@@ -25,9 +25,8 @@ public class Inventory : MonoBehaviour {
 
     public int GetItemAmount(string itemName){
         int result = 0;
-        byte findingCode = ItemManager.GetCodeFromItemName(itemName);
         for (int i = 0; i < itemData.Length; i++){
-            if(itemData[i].code == findingCode){
+            if(itemData[i].itemData.isThisName(itemName)){
                 result += itemData[i].amount;
             }
         }
@@ -38,10 +37,8 @@ public class Inventory : MonoBehaviour {
         if(GetItemAmount(itemName) < amount)
             return false;
 
-        byte findingCode = ItemManager.GetCodeFromItemName(itemName);
-
         for (int i = 0; i < itemData.Length; i++){
-            if(itemData[i] != null && itemData[i].code == findingCode){
+            if(itemData[i] != null && itemData[i].itemData.isThisName(itemName)){
                 if(itemData[i].amount > amount){
                     itemData[i].amount -= amount;
                     amount = 0;
@@ -58,12 +55,12 @@ public class Inventory : MonoBehaviour {
     public bool AddItem(ItemSlotData addedItemData){
         bool result = false;
 
-        if(addedItemData.code == 0){
+        if(addedItemData.itemData.isNone()){
             return false;
         }
 
         for (int i = 0; i < itemData.Length; i++){
-            if(itemData[i].code == addedItemData.code){
+            if(itemData[i].itemData.isThisName(addedItemData.itemName)){
                 itemData[i].amount += addedItemData.amount;
                 result = true;
                 break;
@@ -72,7 +69,7 @@ public class Inventory : MonoBehaviour {
 
         if(result == false){
             for (int i = 0; i < itemData.Length; i++){
-                if(itemData[i].code == 0){
+                if(itemData[i].itemData.isNone()){
                     itemData[i] = addedItemData;
                     result = true;
                     break;
@@ -83,22 +80,25 @@ public class Inventory : MonoBehaviour {
     }
 
     public void ClickLeft(ItemSlot inventorySlot){
-        if(itemHeldInHand.code != 0 && inventorySlot.data.code != 0 &&itemHeldInHand.code == inventorySlot.data.code){
-            itemHeldInHand.amount += inventorySlot.data.amount;
-            inventorySlot.data.code = 0;
-            inventorySlot.data.amount = 0;
+        if(!itemHeldInHand.itemData.isNone()
+        && !inventorySlot.itemSlotData.itemData.isNone() 
+        && itemHeldInHand.itemData.isThisName(inventorySlot.itemSlotData.itemName))
+        {
+            itemHeldInHand.amount += inventorySlot.itemSlotData.amount;
+            inventorySlot.itemSlotData.itemName = "None";
+            inventorySlot.itemSlotData.amount = 0;
         }else{
-            ItemSlotData.Swap(itemHeldInHand,inventorySlot.data);
+            ItemSlotData.Swap(itemHeldInHand,inventorySlot.itemSlotData);
             inventorySlot.UpdateUI();
         }
-        itemHeldInHandImage.sprite = itemHeldInHand.itemPreset.itemSprite;
-        itemHeldInHandAmount.text = (itemHeldInHand.code==0) ? "" : itemHeldInHand.amount.ToString();
+        itemHeldInHandImage.sprite = itemHeldInHand.itemData.itemSprite;
+        itemHeldInHandAmount.text = (itemHeldInHand.itemData.isNone()) ? "" : itemHeldInHand.amount.ToString();
     }
 
     public List<ItemSlotData> GetDataList(){
         List<ItemSlotData> result = new List<ItemSlotData>();
         for (int i = 0; i < itemData.Length; i++){
-            if(itemData[i].code == 0){
+            if(itemData[i].itemData.isNone()){
                 continue;
             }
             result.Add(itemData[i]);

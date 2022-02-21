@@ -2,6 +2,6 @@ using System;
 
 [Serializable]
 public class NecessaryResource{
-    public ItemPreset preset;
+    public string itemDataName;
     public int amount;
 }

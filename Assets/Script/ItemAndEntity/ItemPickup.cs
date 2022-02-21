@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ItemPickup : MonoBehaviour
 {
-    public ItemPickupData itemData;
+    public ItemPickupData itemPickupData;
     [SerializeField] SpriteRenderer spriteRenderer;
     [SerializeField] TimeEventQueueTicket disapearEvent;
     [SerializeField] Animator animator;
@@ -18,9 +18,9 @@ public class ItemPickup : MonoBehaviour
         if(animator == null){
             return true;
         }
-        itemData.leftSecond -= 1;
-        animator.SetInteger("LeftSecond",itemData.leftSecond);
-        if(itemData.leftSecond < 0){
+        itemPickupData.leftSecond -= 1;
+        animator.SetInteger("LeftSecond",itemPickupData.leftSecond);
+        if(itemPickupData.leftSecond < 0){
             Destroy(this.gameObject);
         }
         return false;
@@ -28,9 +28,9 @@ public class ItemPickup : MonoBehaviour
 
     [ContextMenu("UpdateItemData")]
     public void IconSpriteUpdate(){
-        if(itemData == null)
+        if(itemPickupData == null)
             return;
-        spriteRenderer.sprite = itemData.itemPreset.itemSprite;
+        spriteRenderer.sprite = itemPickupData.itemData.itemSprite;
     }
 
     public void PickUp(){
@@ -43,6 +43,6 @@ public class ItemPickup : MonoBehaviour
     }
 
     public ItemSlotData ProcessToItemSlotData(){
-        return ItemSlotData.Create(itemData.itemPreset);
+        return ItemSlotData.Create(itemPickupData.itemData);
     }
 }

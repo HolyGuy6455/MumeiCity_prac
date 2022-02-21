@@ -41,7 +41,7 @@ public class SaveLoadManager : MonoBehaviour{
         // 아이템 위치 저장하기
         GameObject itemPickupParent = GameManager.Instance.itemManager.itemPickupParent;
         foreach (Transform childTransform in itemPickupParent.transform){
-            ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().itemData;
+            ItemPickupData itemPickupData = childTransform.GetComponent<ItemPickup>().itemPickupData;
             itemPickupData.position = childTransform.position;
             saveForm.itemPickupDatas.Add(itemPickupData);
         }
@@ -159,7 +159,7 @@ public class SaveLoadManager : MonoBehaviour{
             // 아이템 데이터로 픽업아이템을 생성한다
             GameObject itemObject = Instantiate(itemPickupPrefab,location,Quaternion.identity);
             ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
-            itemPickup.itemData = data;
+            itemPickup.itemPickupData = data;
             itemPickup.IconSpriteUpdate();
             itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
         }
