@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;
-    public BuildingData interactingBuilding;
+    public BuildingObject interactingBuilding;
     public Interactable nearestInteractable;
     public PersonBehavior nearestPerson;
     [SerializeField] InteractUI interactUI;
@@ -196,22 +196,22 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameTab.HOUSE:
-                interactingBuilding = buildingObject.buildingData;
+                interactingBuilding = buildingObject;
                 taskUIAnimator.SetInteger("SelectedUI",4);
                 break;
 
             case GameTab.SUPERINTENDENT:
-                interactingBuilding = buildingObject.buildingData;
+                interactingBuilding = buildingObject;
                 taskUIAnimator.SetInteger("SelectedUI",3);
                 break;
 
             case GameTab.MANUFACTURER:
-                interactingBuilding = buildingObject.buildingData;
+                interactingBuilding = buildingObject;
                 taskUIAnimator.SetInteger("SelectedUI",5);
                 break;
 
             case GameTab.LABORATORY:
-                interactingBuilding = buildingObject.buildingData;
+                interactingBuilding = buildingObject;
                 taskUIAnimator.SetInteger("SelectedUI",6);
                 break;
 

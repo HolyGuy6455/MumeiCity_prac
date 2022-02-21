@@ -15,7 +15,6 @@ public class BuildingPreset : ScriptableObject {
     [TextArea] public string info;
     public List<string> attributes;
     public int workTier;
-    public List<TaskPreset> taskPresets;
     public ToolType buildTool;
     public List<EffectiveTool> removalTool;
     public int buildToolIndex;

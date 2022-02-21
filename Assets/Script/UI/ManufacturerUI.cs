@@ -4,23 +4,26 @@ using System.Collections.Generic;
 
 public class ManufacturerUI : CommonTaskUI{
     [SerializeField] ManufacturerTaskUI[] manufacturerTaskUIArray;
-    [SerializeField] BuildingData buildingData;
+    [SerializeField] BuildingObject buildingObj;
     [SerializeField] SuperintendentData superintendentData;
     [SerializeField] Slider[] processBars;
+    WorkPlace workPlace;
 
     public override void UpdateUI(){
         base.UpdateUI();
-        buildingData = GameManager.Instance.interactingBuilding;
-        superintendentData = buildingData.mediocrityData as SuperintendentData;
-        List<TaskPreset> taskPresets = buildingData.buildingPreset.taskPresets;
-        for (int i = 0; i < taskPresets.Count; i++){
-            TaskPreset taskPreset = taskPresets[i];
+        buildingObj = GameManager.Instance.interactingBuilding;
+        superintendentData = buildingObj.buildingData.mediocrityData as SuperintendentData;
+        workPlace = buildingObj.GetComponent<WorkPlace>();
+        if(workPlace == null){
+            return;
+        }
+        for (int i = 0; i < workPlace.taskInfos.Count; i++){
+            TaskInfo taskPreset = workPlace.taskInfos[i];
             ManufacturerTaskUI taskUI = manufacturerTaskUIArray[i];
             taskUI.taskTitle.text = "- "+taskPreset.name+" -";
             taskUI.guideIamge.sprite = taskPreset.guideSprite;
             // taskUI.toggle.isOn = superintendentData.workList[i];
             List<NecessaryResource> resources = taskPreset.necessaryResources;
-            // 이런 더러운 코드 쓰는건 별로 안좋아하지만.....
             taskUI.resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
             taskUI.resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
             taskUI.resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
@@ -31,14 +34,17 @@ public class ManufacturerUI : CommonTaskUI{
         if(GameManager.Instance.presentGameTab != GameManager.GameTab.MANUFACTURER){
             return;
         }
-        if(buildingData == null){
+        if(buildingObj == null){
             return;
         }
-        ManufacturerData manufacturerData = buildingData.mediocrityData as ManufacturerData;
+        ManufacturerData manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
+        if(workPlace == null){
+            return;
+        }
         for (int i = 0; i < 3; i++){
             try{
-                TaskPreset taskPreset = buildingData.buildingPreset.taskPresets[i];
-                int requiredTime = taskPreset.requiredTime;
+                TaskInfo taskInfo = workPlace.taskInfos[i];
+                int requiredTime = taskInfo.requiredTime;
                 int dueDate = manufacturerData.dueDate[i];
                 int presentTime = GameManager.Instance.timeManager._timeValue;
                 int remainingTime = dueDate-presentTime;
@@ -54,12 +60,12 @@ public class ManufacturerUI : CommonTaskUI{
     }
 
     public void Manufacture(int index){
-        string ticketName = "building_"+buildingData.id+"_make_"+index;
-        Debug.Log(ticketName);
-        TaskPreset taskPreset = buildingData.buildingPreset.taskPresets[index];
-        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskPreset.requiredTime,ticketName, ManufactureComplete);
+        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
 
-        ManufacturerData manufacturerData = buildingData.mediocrityData as ManufacturerData;
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
+
+        ManufacturerData manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
         manufacturerData.amount[index] += 1;
         manufacturerData.dueDate[index] = ticket._delay;
     }
@@ -69,7 +75,7 @@ public class ManufacturerUI : CommonTaskUI{
         BuildingObject buildingObject = GameManager.Instance.buildingManager.FindBuildingObjectWithID(int.Parse(stringSplit[1]));
         BuildingData buildingData = buildingObject.buildingData;
         int index = int.Parse(stringSplit[3]);
-        NecessaryResource resultItem = buildingData.buildingPreset.taskPresets[index].resultItem;
+        NecessaryResource resultItem = workPlace.taskInfos[index].resultItem;
 
         ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(resultItem.itemDataName));
         itemSlotData.amount = resultItem.amount;

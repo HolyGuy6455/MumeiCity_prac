@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
-[CreateAssetMenu(fileName = "Task", menuName = "MumeiCity/Task", order = 0)]
-public class TaskPreset : ScriptableObject {
+[Serializable]
+public class TaskInfo {
+    public string name;
     public Sprite guideSprite = null;
     [TextArea] public string info;
     public TaskType taskType;

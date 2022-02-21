@@ -37,7 +37,7 @@ public class HouseUI : CommonTaskUI{
 
     public override void UpdateUI(){
         base.UpdateUI();
-        houseData = GameManager.Instance.interactingBuilding.mediocrityData as HouseData;
+        houseData = GameManager.Instance.interactingBuilding.buildingData.mediocrityData as HouseData;
         // Debug.Log("houseData "+houseData);
     }
 }

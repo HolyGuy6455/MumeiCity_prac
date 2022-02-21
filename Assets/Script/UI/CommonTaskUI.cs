@@ -14,7 +14,7 @@ public class CommonTaskUI : MonoBehaviour{
     }
 
     public virtual void UpdateUI(){
-        ItemSlotData[] itemSlotData = GameManager.Instance.interactingBuilding.items;
+        ItemSlotData[] itemSlotData = GameManager.Instance.interactingBuilding.buildingData.items;
         for (int i = 0; i < itemSlotData.Length; i++){
             StorageSlots[i].itemSlotData = itemSlotData[i];
             StorageSlots[i].UpdateUI();

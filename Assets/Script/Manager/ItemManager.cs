@@ -26,6 +26,9 @@ public class ItemManager : MonoBehaviour {
     }
 
     public ItemData GetItemData(string name){
+        if(name.CompareTo("")==0){
+            return dataDictionary["None"];    
+        }
         return dataDictionary[name];
     }
     

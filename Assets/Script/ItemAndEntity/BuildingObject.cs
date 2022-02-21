@@ -8,10 +8,8 @@ public class BuildingObject : MonoBehaviour
 {
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
-    // public GameObject spriteObject;
     public GameObject shadowObject;
     public List<EffectiveTool> removalTool;
-    
     [SerializeField] Animator animator;
  
     private void Start() {
@@ -23,12 +21,13 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionX = ((int)Mathf.Round(this.transform.position.x));
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
+        WorkPlace workPlace = this.GetComponent<WorkPlace>();
 
         switch (buildingData.buildingPreset.name){
             case "ForesterHut":
                 SuperintendentData superintendentData = new SuperintendentData();
                 buildingData.mediocrityData = superintendentData;
-                superintendentData.workList = new bool[buildingData.buildingPreset.taskPresets.Count];
+                superintendentData.workList = new bool[workPlace.taskInfos.Count];
                 break;
             case "Tent":
                 buildingData.mediocrityData = new HouseData(12);

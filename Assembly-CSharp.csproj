@@ -52,7 +52,6 @@
      <Compile Include="Assets\Script\ItemAndEntity\IHeraingEar.cs" />
      <Compile Include="Assets\Script\Data\MediocrityData.cs" />
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
-     <Compile Include="Assets\Script\Data\TaskPreset.cs" />
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
      <Compile Include="Assets\Script\UI\TaskUIBundle.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentUI.cs" />
@@ -139,6 +138,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\Data\TaskInfo.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

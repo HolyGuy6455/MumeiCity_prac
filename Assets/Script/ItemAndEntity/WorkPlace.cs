@@ -6,7 +6,7 @@ public class WorkPlace : MonoBehaviour{
     [SerializeField] BuildingObject buildingObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
     [SerializeField] bool hiringPerson;
-    public List<TaskPreset> taskPresets;
+    public List<TaskInfo> taskInfos;
     public int workTier;
     private void Start() {
         buildingObject = this.GetComponent<BuildingObject>();
@@ -30,7 +30,7 @@ public class WorkPlace : MonoBehaviour{
     }
 
     public void ShowWindow(){
-        GameManager.Instance.interactingBuilding = this.buildingObject.buildingData;
+        GameManager.Instance.interactingBuilding = this.buildingObject;
         GameManager.Instance.ChangeGameTab(gameTab);
     }
 }
