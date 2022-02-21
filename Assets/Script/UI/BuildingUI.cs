@@ -31,8 +31,8 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     void UpdateUI(){
-        Tool nowUsing = GameManager.Instance.GetToolNowHold();
-        buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing.toolType);
+        ToolType nowUsing = GameManager.Instance.GetToolNowHold();
+        buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing);
         int minCount = Mathf.Max(buildingDataList.Count,5);
         int selectedTool = GameManager.Instance._selectedTool;
 

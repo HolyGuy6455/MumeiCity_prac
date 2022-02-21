@@ -10,18 +10,18 @@ public class Hittable : MonoBehaviour
     public Collider hitBoxCollider;
     public UnityEvent DeadEventHandler;
     public UnityEvent HitEventHandler;
-    [SerializeField] Dictionary<Tool.ToolType, EffectiveTool> effectiveToolDictionary;
+    [SerializeField] Dictionary<ToolType, EffectiveTool> effectiveToolDictionary;
     [SerializeField] int effectiveToolDictionaryLength;
 
     public void SetEffectiveTool(List<EffectiveTool> list){
-        effectiveToolDictionary = new Dictionary<Tool.ToolType, EffectiveTool>();
+        effectiveToolDictionary = new Dictionary<ToolType, EffectiveTool>();
         foreach (EffectiveTool effectiveTool in list){
             effectiveToolDictionary[effectiveTool.tool] = effectiveTool;
         }
         effectiveToolDictionaryLength = effectiveToolDictionary.Count;
     }
 
-    public void Hit(Tool.ToolType tool){
+    public void Hit(ToolType tool){
         Debug.Log("hit - " + this);
         int damage = 0;
         if(effectiveToolDictionary != null && effectiveToolDictionary.ContainsKey(tool)){

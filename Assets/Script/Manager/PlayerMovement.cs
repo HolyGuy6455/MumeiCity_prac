@@ -24,20 +24,19 @@ public class PlayerMovement : MonoBehaviour{
     public bool stop;
     [SerializeField] float ITEM_DROP_RANGE = 10.0f;
     [SerializeField] float ITEM_DROP_JUMP = 10.0f;
-    Dictionary<string,int> toolActionDictionary;
+    Dictionary<ToolType,int> toolActionDictionary;
 
     // [SerializeField] Sence sence;
 
-    void Start()
-    {
+    void Awake(){
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
-        toolActionDictionary = new Dictionary<string, int>();
-        toolActionDictionary["Axe"] = 1;
-        toolActionDictionary["Knife"] = 2;
-        toolActionDictionary["FryingPan"] = 3;
-        toolActionDictionary["Pickaxe"] = 4;
-        toolActionDictionary["Shovel"] = 5;
-        toolActionDictionary["Hammer"] = 6;
+        toolActionDictionary = new Dictionary<ToolType, int>();
+        toolActionDictionary[ToolType.AXE] = 1;
+        toolActionDictionary[ToolType.KNIFE] = 2;
+        toolActionDictionary[ToolType.FRYINGPAN] = 3;
+        toolActionDictionary[ToolType.PICKAXE] = 4;
+        toolActionDictionary[ToolType.SHOVEL] = 5;
+        toolActionDictionary[ToolType.HAMMER] = 6;
     }
 
     void Update()
@@ -82,9 +81,9 @@ public class PlayerMovement : MonoBehaviour{
 
     public void OnAttack(InputAction.CallbackContext value){
         if(value.started && !GameManager.Instance.mouseOnUI){
-            Tool toolNowHold = GameManager.Instance.GetToolNowHold();
-            if(toolActionDictionary.ContainsKey(toolNowHold.name)){
-                animator.SetInteger("ActCode",toolActionDictionary[toolNowHold.name]);
+            ToolType toolNowHold = GameManager.Instance.GetToolNowHold();
+            if(toolActionDictionary.ContainsKey(toolNowHold)){
+                animator.SetInteger("ActCode",toolActionDictionary[toolNowHold]);
             }
         }else if(value.canceled){
             animator.SetInteger("ActCode",0);
@@ -168,12 +167,6 @@ public class PlayerMovement : MonoBehaviour{
             rigidBody.AddForce(new Vector3(movement.x * jumpRange,1.0f * jumpPower,movement.z * jumpRange),ForceMode.Impulse);
             isJump = false;
         }
-
-        // Vector3 lightAndShadowPosition = new Vector3();
-        // lightAndShadowPosition.x = -this.transform.position.x;
-        // lightAndShadowPosition.y = -this.transform.position.z;
-        // GameManager.Instance.buildingManager.lightAndShadow.transform.localPosition = lightAndShadowPosition;
-        // this.transform.position = Vector3.Lerp(this.transform.position,Input.mousePosition,Time.deltaTime * 10);
     }
 
     void SlowDown(float slowSpeed){

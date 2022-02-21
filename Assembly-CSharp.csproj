@@ -91,6 +91,7 @@
      <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />
      <Compile Include="Assets\Script\Manager\SaveLoadManager.cs" />
+     <Compile Include="Assets\Script\ToolType.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\BuildingObject.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\HitCollision.cs" />
      <Compile Include="Assets\Script\UI\HouseUI.cs" />
@@ -113,7 +114,7 @@
      <Compile Include="Assets\SimpleNote\Example\SimpleNoteExample.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\HelpBoxAttribute.cs" />
-     <Compile Include="Assets\Script\Tool.cs" />
+     <Compile Include="Assets\Script\UI\AchievementUI.cs" />
      <Compile Include="Assets\Script\AI\RabbitBehavior.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\MessageType.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
@@ -138,7 +139,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\AchievementUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

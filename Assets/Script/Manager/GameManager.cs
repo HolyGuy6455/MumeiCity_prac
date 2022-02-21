@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     public delegate void UpdateUI();
     private static GameManager singleton_instance = null;
     public Transform PlayerTransform;
-    public List<Tool> tools = new List<Tool>();
     [SerializeField] int selectedTool = 0;
     [SerializeField] HitCollision hitCollision;
     [SerializeField] HitCollision heatCollision;
@@ -26,11 +25,13 @@ public class GameManager : MonoBehaviour
     public AchievementManager achievementManager;
     public TaskUIBundle taskUIBundle;
     [SerializeField] private Animator taskUIAnimator;
-
     [SerializeField] PlayerInput playerInput;
-    
+
     public Animator pauseAnimator;
     bool gameIsPause = false;
+
+    [SerializeField] ToolType[] tools;
+    [SerializeField] Sprite[] toolSprites;
     
     public Sprite emptySprite;
     public enum GameTab
@@ -232,20 +233,20 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Tool GetToolNowHold(){
+    public ToolType GetToolNowHold(){
         return tools[this.selectedTool];
     }
 
     public void SelectTool(int index){
-        if(index < 0 || index > tools.ToArray().Length -1){
+        if(index < 0 || index > tools.Length -1){
             Debug.Log("Wrong Tool Index!");
             return;
         }
         this.selectedTool = index;
-        ToolView.sprite = tools[index].icon;
-        hitCollision.tool = tools[this.selectedTool].toolType;
+        ToolView.sprite = toolSprites[index];
+        hitCollision.tool = tools[this.selectedTool];
 
-        if(GetToolNowHold().toolType == Tool.ToolType.LANTERN){
+        if(GetToolNowHold() == ToolType.LANTERN){
             heatCollision.gameObject.SetActive(true);
         }else{
             heatCollision.gameObject.SetActive(false);
@@ -256,7 +257,7 @@ public class GameManager : MonoBehaviour
         if(!value.performed){
             return;
         }
-        if(selectedTool > tools.ToArray().Length -2){
+        if(selectedTool > tools.Length -2){
             SelectTool(0);
         }else{
             SelectTool(selectedTool+1);
@@ -271,7 +272,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         if(selectedTool < 1){
-            SelectTool(tools.ToArray().Length-1);
+            SelectTool(tools.Length-1);
         }else{
             SelectTool(selectedTool-1);
         }

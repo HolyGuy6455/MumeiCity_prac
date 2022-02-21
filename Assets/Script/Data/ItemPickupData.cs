@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [Serializable]
-public class ItemPickupData : MediocrityData{
+public class ItemPickupData{
     public string itemName;
     public Vector3 position;
     public int leftSecond = 30;

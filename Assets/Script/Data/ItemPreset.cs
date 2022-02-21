@@ -23,6 +23,7 @@ public class ItemData{
     }
 
     public static ItemData Instant(string name){
-        return ItemData.Instant(name);
+        
+        return GameManager.Instance.itemManager.GetItemData(name);
     }
 }

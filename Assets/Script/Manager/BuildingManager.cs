@@ -75,7 +75,7 @@ public class BuildingManager : MonoBehaviour {
         return null;
     }
 
-    public static List<BuildingPreset> GetGroupedListByBuildType(Tool.ToolType toolType){
+    public static List<BuildingPreset> GetGroupedListByBuildType(ToolType toolType){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
         List<BuildingPreset> result = buildingManager.buildingPresets;
         result = result.FindAll(buildingPreset => buildingPreset.buildTool == toolType);

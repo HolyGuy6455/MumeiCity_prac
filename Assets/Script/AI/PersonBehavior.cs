@@ -29,14 +29,6 @@ public class PersonBehavior : MonoBehaviour
 
      */
 
-    // Update is called once per frame
-    void Update(){
-        if(GameManager.Instance.GetToolNowHold().name == "Shovel"){
-            LoseMyTarget();
-            return;
-        }
-    }
-
     // 목표를 향해 이동한다
     [Task]
     void MoveToDestination(){
@@ -191,16 +183,16 @@ public class PersonBehavior : MonoBehaviour
 
     [Task]
     void ChangeTool(string tool_name){
-        Tool.ToolType toolType = Tool.ToolType.NONE;
+        ToolType toolType = ToolType.NONE;
         switch (tool_name){
             case "Axe" : 
-                toolType = Tool.ToolType.AXE;
+                toolType = ToolType.AXE;
                 break;
             case "Pickaxe" : 
-                toolType = Tool.ToolType.PICKAXE;
+                toolType = ToolType.PICKAXE;
                 break;
             case "Knife" : 
-                toolType = Tool.ToolType.KNIFE;
+                toolType = ToolType.KNIFE;
                 break;
             
             default:
@@ -229,7 +221,7 @@ public class PersonBehavior : MonoBehaviour
         if(nearestTree != null){
             // think = "Going Chop Chop " + nearestTree;
             animator.SetInteger("ThinkCode",2);
-            // hitBoxCollision.tool = Tool.ToolType.AXE;
+            // hitBoxCollision.tool = ToolType.AXE;
             this.target = nearestTree;
             aIDestination.target = this.target.transform;
             this.target.GetComponent<Hittable>().DeadEventHandler.AddListener(LoseMyTarget);

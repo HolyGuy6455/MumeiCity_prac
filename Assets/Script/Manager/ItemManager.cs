@@ -14,6 +14,11 @@ public class ItemManager : MonoBehaviour {
     }
 
     private void Awake() {
+        Initiate();
+    }
+
+    [ContextMenu("Initiate")]
+    private void Initiate() {
         dataDictionary = new Dictionary<string, ItemData>();
         foreach (ItemData item in itemDataList){
             dataDictionary[item.itemName] = item;

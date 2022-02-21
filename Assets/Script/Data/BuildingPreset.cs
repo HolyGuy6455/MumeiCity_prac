@@ -16,7 +16,7 @@ public class BuildingPreset : ScriptableObject {
     public List<string> attributes;
     public int workTier;
     public List<TaskPreset> taskPresets;
-    public Tool.ToolType buildTool;
+    public ToolType buildTool;
     public List<EffectiveTool> removalTool;
     public int buildToolIndex;
     public List<NecessaryResource> resourceList = new List<NecessaryResource>();
@@ -31,10 +31,10 @@ public class BuildingPreset : ScriptableObject {
 
 [Serializable]
 public class EffectiveTool{
-    public Tool.ToolType tool;
+    public ToolType tool;
     public int damage = 5;
     public int minHP = 0;
-    public EffectiveTool(Tool.ToolType tool, int damage){
+    public EffectiveTool(ToolType tool, int damage){
         this.tool = tool;
         this.damage = damage;
     }
