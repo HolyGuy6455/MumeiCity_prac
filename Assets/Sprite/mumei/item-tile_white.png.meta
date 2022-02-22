@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 8b5a5ea8c4f3a4549ae69648b9367613
+guid: d2d92d12469ccbd42b5f964bd8ff288b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3641790706908085109
-    second: item-tile_intact_0
+      213: -7724286915326970363
+    second: item-tile_white_0
   - first:
-      213: 1865831923744839107
-    second: item-tile_intact_1
+      213: 2983446336387174257
+    second: item-tile_white_1
   - first:
-      213: -7863788883630224525
-    second: item-tile_intact_2
+      213: -6449345917352428439
+    second: item-tile_white_2
   - first:
-      213: 1945427201201725609
-    second: item-tile_intact_3
+      213: -2138424352365366163
+    second: item-tile_white_3
   - first:
-      213: -922826136318648465
-    second: item-tile_intact_4
+      213: -1502950557723526755
+    second: item-tile_white_4
   - first:
-      213: 7392823972359815709
-    second: item-tile_intact_5
+      213: 7608649360862547801
+    second: item-tile_white_5
   - first:
-      213: -877760214868127473
-    second: item-tile_intact_6
+      213: -5637793922081619761
+    second: item-tile_white_6
   - first:
-      213: -7004078333653220321
-    second: item-tile_intact_7
+      213: 725738859235008596
+    second: item-tile_white_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -115,7 +115,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: item-tile_intact_0
+      name: item-tile_white_0
       rect:
         serializedVersion: 2
         x: 0
@@ -123,20 +123,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57b33975a5d3a8230800000000000000
-      internalID: 3641790706908085109
+      spriteID: 506fcbcb9f1ddc490800000000000000
+      internalID: -7724286915326970363
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_1
+      name: item-tile_white_1
       rect:
         serializedVersion: 2
         x: 43
@@ -144,20 +144,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3c51561cf34c4e910800000000000000
-      internalID: 1865831923744839107
+      spriteID: 17f4ccec2a4576920800000000000000
+      internalID: 2983446336387174257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_2
+      name: item-tile_white_2
       rect:
         serializedVersion: 2
         x: 86
@@ -165,20 +165,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 37b0e8aaca53ed290800000000000000
-      internalID: -7863788883630224525
+      spriteID: 96cb79aee025f76a0800000000000000
+      internalID: -6449345917352428439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_3
+      name: item-tile_white_3
       rect:
         serializedVersion: 2
         x: 129
@@ -186,20 +186,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a0e2007bbb8ffa10800000000000000
-      internalID: 1945427201201725609
+      spriteID: d64b732a16ac252e0800000000000000
+      internalID: -2138424352365366163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_4
+      name: item-tile_white_4
       rect:
         serializedVersion: 2
         x: 0
@@ -207,20 +207,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f6fd743b4867133f0800000000000000
-      internalID: -922826136318648465
+      spriteID: d99f9e34e62742be0800000000000000
+      internalID: -1502950557723526755
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_5
+      name: item-tile_white_5
       rect:
         serializedVersion: 2
         x: 43
@@ -228,20 +228,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d12cf77eb36989660800000000000000
-      internalID: 7392823972359815709
+      spriteID: 95f07b6084a579960800000000000000
+      internalID: 7608649360862547801
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_6
+      name: item-tile_white_6
       rect:
         serializedVersion: 2
         x: 86
@@ -249,20 +249,20 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0190d23cb191d3f0800000000000000
-      internalID: -877760214868127473
+      spriteID: fc008755c4882c1b0800000000000000
+      internalID: -5637793922081619761
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: item-tile_intact_7
+      name: item-tile_white_7
       rect:
         serializedVersion: 2
         x: 129
@@ -270,14 +270,14 @@ TextureImporter:
         width: 43
         height: 56
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f14079f5dd38cce90800000000000000
-      internalID: -7004078333653220321
+      spriteID: 4506668b5a7521a00800000000000000
+      internalID: 725738859235008596
       vertices: []
       indices: 
       edges: []

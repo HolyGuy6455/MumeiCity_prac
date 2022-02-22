@@ -10,7 +10,8 @@ public class Interactable : MonoBehaviour {
     public enum InteractType
     {
         ITEM,
-        BUILDING
+        BUILDING,
+        OPEN_CHEST
     }
     public void Interact(){
         if (!this.gameObject.activeSelf)

@@ -8,9 +8,10 @@ public class InteractUI : MonoBehaviour
     [SerializeField] RectTransform UIRectTransform;
     [SerializeField] new Camera camera;
     [SerializeField] Animator animator;
-    [SerializeField] Image actingImage;
+    [SerializeField] Image actingImage_1;
+    [SerializeField] Image actingImage_2;
     [SerializeField] List<InteractTypeSprite> interactTypeIcons;
-    Dictionary<Interactable.InteractType,Sprite> _interactTypeIconsDictionary = new Dictionary<Interactable.InteractType, Sprite>();
+    Dictionary<Interactable.InteractType,InteractTypeSprite> _interactTypeIconsDictionary;
     public bool visible{
         get{
             return animator.GetBool("isVisible");
@@ -20,17 +21,11 @@ public class InteractUI : MonoBehaviour
         }
     }
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
+        _interactTypeIconsDictionary = new Dictionary<Interactable.InteractType, InteractTypeSprite>();
         foreach (InteractTypeSprite item in interactTypeIcons){
-            _interactTypeIconsDictionary[item.interactType] = item.sprite;
+            _interactTypeIconsDictionary[item.interactType] = item;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void MoveUIPositionFromTransform(Transform targetTransform){
@@ -39,12 +34,15 @@ public class InteractUI : MonoBehaviour
     }
 
     public void UpdateIcon(Interactable.InteractType interactType){
-        actingImage.sprite = _interactTypeIconsDictionary[interactType];
+        InteractTypeSprite spriteSet = _interactTypeIconsDictionary[interactType];
+        actingImage_1.sprite = spriteSet.actingSprite_1;
+        actingImage_2.sprite = spriteSet.actingSprite_2;
     }
 }
 
 [System.Serializable]
 public class InteractTypeSprite{
     public Interactable.InteractType interactType;
-    public Sprite sprite;
+    public Sprite actingSprite_1;
+    public Sprite actingSprite_2;
 }

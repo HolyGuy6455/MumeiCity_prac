@@ -112,7 +112,7 @@ Transform:
   m_GameObject: {fileID: 2784014845858301317}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4, y: -1, z: 13}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8452383201890241515}
   - {fileID: 1905626158582306845}
@@ -142,23 +142,26 @@ MonoBehaviour:
     code: 0
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 8671496713637769634}
   shadowObject: {fileID: 8359408129419388895}
-  removalTool: []
+  removalTool:
+  - tool: 4
+    damage: 3
+    minHP: 0
   animator: {fileID: 4472483454100044105}
 --- !u!114 &1416925517860207757
 MonoBehaviour:
@@ -173,8 +176,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 4472483454100044105}
-  HP: 10
-  HPMax: 10
+  HP: 9
+  HPMax: 9
   hitBoxCollider: {fileID: 6541050517502627668}
   DeadEventHandler:
     m_PersistentCalls:
@@ -253,13 +256,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
+  - itemName: Wood
     chance: 1.3
     itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
+  - itemName: Pinecone
     chance: 1
     itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
+  - itemName: Pinecone
     chance: 0.3
     itemDropType: 2
 --- !u!1 &3439620993046583489
@@ -453,4 +456,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -690446
+  m_InstanceId: -24142
