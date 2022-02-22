@@ -66,6 +66,7 @@
      <Compile Include="Assets\Script\LevelLoader.cs" />
      <Compile Include="Assets\Script\Data\ManufacturerData.cs" />
      <Compile Include="Assets\Script\Data\PersonData.cs" />
+     <Compile Include="Assets\Script\Data\TaskInfo.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerTaskUI.cs" />
      <Compile Include="Assets\Script\Manager\GridMapManager.cs" />
      <Compile Include="Assets\Script\UI\BuildingArticle.cs" />
@@ -138,7 +139,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Data\TaskInfo.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />
