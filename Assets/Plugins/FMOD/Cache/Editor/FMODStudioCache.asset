@@ -1,5 +1,77 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7445855729388270092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/BGM/BGM_MIX
+  m_EditorClassIdentifier: 
+  Path: event:/BGM/BGM_MIX
+  Guid:
+    Data1: 782171598
+    Data2: 1248001370
+    Data3: 1145663394
+    Data4: -1921116829
+  Banks:
+  - {fileID: -4118517468268974819}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: -6503630672584187063}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 187036
+--- !u!114 &-6503630672584187063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM_MIX/DayOrNight
+  m_EditorClassIdentifier: 
+  Name: DayOrNight
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2681485430
+    data2: 3336257558
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-4118517468268974819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/BGM.bank
+  m_EditorClassIdentifier: 
+  Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
+  Name: BGM
+  StudioPath: bank:/BGM
+  lastModified: 637812387157014315
+  FileSizes:
+  - Name: Desktop
+    Value: 4536192
+  Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,13 +87,15 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: 3242873661414235142}
   - {fileID: 8720329037629250828}
-  EditorEvents: []
+  - {fileID: -4118517468268974819}
+  EditorEvents:
+  - {fileID: -7445855729388270092}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637786636789980208
+  cacheTime: 637812387157083843
   cacheVersion: 10
 --- !u!114 &3242873661414235142
 MonoBehaviour:
@@ -38,10 +112,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637786636789980208
+  lastModified: 637812387157083843
   FileSizes:
   - Name: Desktop
-    Value: 712
+    Value: 858
   Exists: 1
 --- !u!114 &8720329037629250828
 MonoBehaviour:
@@ -58,7 +132,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637786636789940289
+  lastModified: 637812387157053927
   FileSizes:
   - Name: Desktop
     Value: 1036

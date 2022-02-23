@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class TimeManager : MonoBehaviour{
     public delegate bool TimeEvent(string args = "");
@@ -15,6 +16,7 @@ public class TimeManager : MonoBehaviour{
     [SerializeField] int timeInDay;
     [SerializeField] int elapsedDate;
     [SerializeField] List<TimeEventQueueTicket> waitingList = new List<TimeEventQueueTicket>();
+    [SerializeField] StudioEventEmitter studioEventEmitter;
 
     float blendValue;
     public float _blendValue{get{return blendValue;}}
@@ -85,6 +87,7 @@ public class TimeManager : MonoBehaviour{
         }
         dayTime = (blendValue<0.5);
         daylightAnimator.SetFloat("Blend",blendValue);
+        studioEventEmitter.SetParameter("DayOrNight",blendValue);
 
         List<TimeEventQueueTicket> invokeList = new List<TimeEventQueueTicket>();
 

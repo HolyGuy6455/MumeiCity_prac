@@ -1,12 +1,14 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
 public class SaveLoadManager : MonoBehaviour{
     [TextArea] public string savefile;
-    [SerializeField] string _fileName = "01.save";
+    // [SerializeField] string _fileName = "01.save";
     [SerializeField] GameObject itemPickupPrefab;
+    public SaveMetaFile saveMetaFile;
+    public PauseUI pauseUI;
     class SaveForm {
         public int timeValue;
         public Vector3 playerPosition = new Vector3();
@@ -18,9 +20,65 @@ public class SaveLoadManager : MonoBehaviour{
         public int lastBuildingID;
         public int lastPersonID;
     }
+    [Serializable]
+    public class SaveMetaFile{
+        public List<string> metaName;
+    }
+
+    private void Awake() {
+        LoadTheMeta();
+    }
+
+    public void SetMetaTitle(int index){
+        saveMetaFile.metaName[index] = DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"));
+        SaveTheMeta();
+        pauseUI.UpdateUI();
+    }
+
+    public void SaveTheMeta(){
+        string metaStr = JsonUtility.ToJson(saveMetaFile,true);
+        try{
+            // C:\Users\사용자\AppData\LocalLow\DefaultCompany
+            string path = Application.persistentDataPath + "/" + "meta.json";
+            File.WriteAllText(path, metaStr);
+        }
+        catch (FileNotFoundException e){
+            Debug.Log("The file was not found:" + e.Message);
+        }
+        catch (DirectoryNotFoundException e){
+            Debug.Log("The directory was not found: " + e.Message);
+        }
+        catch (IOException e){
+            Debug.Log("The file could not be opened:" + e.Message);
+        }
+    }
+
+    public void LoadTheMeta(){
+        string metaStr = "";
+        try{
+            string path = Application.persistentDataPath + "/" + "meta.json";
+            if (File.Exists(path)){
+                metaStr = File.ReadAllText(path);
+            }
+        }
+        catch (FileNotFoundException e){
+            Debug.Log("The file was not found:" + e.Message);
+            SaveTheMeta();
+            return;
+        }
+        catch (DirectoryNotFoundException e){
+            Debug.Log("The directory was not found: " + e.Message);
+        }
+        catch (IOException e){
+            Debug.Log("The file could not be opened:" + e.Message);
+        }
+
+        saveMetaFile = JsonUtility.FromJson<SaveMetaFile>(metaStr);
+        pauseUI.UpdateUI();
+    }
 
 
-    public void SaveTheGame(){
+    public void SaveTheGame(string fileName){
         SaveForm saveForm = new SaveForm();
 
         // 시간을 저장
@@ -66,7 +124,7 @@ public class SaveLoadManager : MonoBehaviour{
         savefile = JsonUtility.ToJson(saveForm,true);
         try{
             // C:\Users\사용자\AppData\LocalLow\DefaultCompany
-            string path = Application.persistentDataPath + "/" + _fileName;
+            string path = Application.persistentDataPath + "/" + fileName;
             File.WriteAllText(path, savefile);
         }
         catch (FileNotFoundException e){
@@ -80,9 +138,9 @@ public class SaveLoadManager : MonoBehaviour{
         }
     }
 
-    public void LoadTheGame(){
+    public void LoadTheGame(string fileName){
         try{
-            string path = Application.persistentDataPath + "/" + _fileName;
+            string path = Application.persistentDataPath + "/" + fileName;
             if (File.Exists(path)){
                 savefile = File.ReadAllText(path);
             }
@@ -138,7 +196,7 @@ public class SaveLoadManager : MonoBehaviour{
             }
 
             // 건물을 생성하고 데이터로 초기화한다
-            GameObject Built =  Instantiate(buildingsPrefab,location,Quaternion.identity);
+            GameObject Built;
             if(buildingPreset.prefab != null){
                 Built = Instantiate(buildingPreset.prefab,location,Quaternion.identity);
             }else{

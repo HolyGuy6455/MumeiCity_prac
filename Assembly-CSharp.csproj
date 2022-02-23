@@ -43,6 +43,7 @@
      <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\Note.cs" />
      <Compile Include="Assets\Script\UI\LaboratoryUI.cs" />
+     <Compile Include="Assets\Script\Manager\MousePointer.cs" />
      <Compile Include="Assets\Script\UI\InventoryUI.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Dialogue.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\AI.cs" />
@@ -139,7 +140,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Manager\MousePointer.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

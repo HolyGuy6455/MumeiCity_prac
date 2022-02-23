@@ -52,6 +52,13 @@ public class BuildingObject : MonoBehaviour
 
         Hittable hittable = GetComponent<Hittable>();
         hittable.SetEffectiveTool(removalTool);
+
+        if(shadowObject != null){
+            Vector3 shadowPostion = new Vector3();
+            shadowPostion.x = this.transform.position.x;
+            shadowPostion.y = (this.transform.position.y+this.transform.position.z);
+            shadowObject.transform.position = shadowPostion;
+        }
     }
 
     [ContextMenu("Manual Initialize")]
