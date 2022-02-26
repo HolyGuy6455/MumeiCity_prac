@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -0.6100869, y: 0.05110403, z: 0.0000008923509}
   m_ShapePathHash: 1701793275
   m_Mesh: {fileID: 0}
-  m_InstanceId: -5840
+  m_InstanceId: -5846
 --- !u!1 &3590947315448464182
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 8067213202750440805}
   - component: {fileID: 4777446104109645985}
   - component: {fileID: 6198235387806672771}
+  - component: {fileID: 114987358}
   m_Layer: 8
   m_Name: Forge
   m_TagString: Building
@@ -297,16 +298,16 @@ MonoBehaviour:
     code: 13
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
@@ -371,6 +372,27 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114987358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557064219298774125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTab: 6
+  buildingObject: {fileID: 3026869230249500146}
+  hiringEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  hiringPerson: 0
+  jobID: 2
+  taskInfos: []
 --- !u!1 &7376713694307776016
 GameObject:
   m_ObjectHideFlags: 0

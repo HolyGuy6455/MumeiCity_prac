@@ -1,0 +1,876 @@
+fileFormatVersion: 2
+guid: 51112b3971af6cd4785f36c90126f7c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -2648069533430052375
+    second: owl_pal_Idle_0
+  - first:
+      213: -5599003099722588160
+    second: owl_pal_Idle_1
+  - first:
+      213: -4644721137701829776
+    second: owl_pal_pick_0
+  - first:
+      213: 4560689877449715183
+    second: owl_pal_pick_1
+  - first:
+      213: -9016866179195665084
+    second: owl_pal_move_0
+  - first:
+      213: 7730741270418472201
+    second: owl_pal_move_1
+  - first:
+      213: -6869355857486235976
+    second: owl_pal_hurray_0
+  - first:
+      213: -7034808112863420542
+    second: owl_pal_hurray_1
+  - first:
+      213: 4743885268570871626
+    second: owl_pal_sleep_0
+  - first:
+      213: -663269775278343029
+    second: owl_pal_sleep_1
+  - first:
+      213: -2238173918914550669
+    second: owl_pal_sleep_2
+  - first:
+      213: 7600452890655041074
+    second: owl_pal_sleep_3
+  - first:
+      213: 7823411350215574253
+    second: owl_pal_sleep_4
+  - first:
+      213: -8992852875819301516
+    second: owl_pal_sleep_5
+  - first:
+      213: 1725867118443878669
+    second: owl_pal_work_0
+  - first:
+      213: -5294189647284301051
+    second: owl_pal_work_1
+  - first:
+      213: 4046469518970872284
+    second: owl_pal_work_2
+  - first:
+      213: 2533988531019252988
+    second: owl_pal_work_3
+  - first:
+      213: 4562712677519354216
+    second: owl_pal_work_4
+  - first:
+      213: 6304395534980485659
+    second: owl_pal_work_5
+  - first:
+      213: -8155941235020837160
+    second: owl_pal_egg_0
+  - first:
+      213: 752179748353474446
+    second: owl_pal_egg_1
+  - first:
+      213: 7392627397933847979
+    second: owl_pal_egg_2
+  - first:
+      213: -6121979837812568147
+    second: owl_pal_egg_3
+  - first:
+      213: 8228472690543256637
+    second: owl_pal_egg_4
+  - first:
+      213: -8736174515371102318
+    second: owl_pal_egg_5
+  - first:
+      213: -8293536280462044367
+    second: owl_pal_hat_0
+  - first:
+      213: 139894379219873103
+    second: owl_pal_hat_1
+  - first:
+      213: 7046017312829538180
+    second: owl_pal_hat_2
+  - first:
+      213: 2796902265556822881
+    second: owl_pal_hat_3
+  - first:
+      213: 1123390193752153843
+    second: owl_pal_hat_4
+  - first:
+      213: 1831127614015921574
+    second: owl_pal_hat_5
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 72
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: owl_pal_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 340
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e90e571aca204bd0800000000000000
+      internalID: -2648069533430052375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 340
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00069b878585c42b0800000000000000
+      internalID: -5599003099722588160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_pick_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 340
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 073c88aebb2aa8fb0800000000000000
+      internalID: -4644721137701829776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_pick_1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 340
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fed2c1ca743da4f30800000000000000
+      internalID: 4560689877449715183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_move_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 272
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4450fc1cbf7add280800000000000000
+      internalID: -9016866179195665084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_move_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 272
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90dbeb9e93c194b60800000000000000
+      internalID: 7730741270418472201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hurray_0
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 272
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b6b8c63e352ba0a0800000000000000
+      internalID: -6869355857486235976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hurray_1
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 272
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28f5db91b475f5e90800000000000000
+      internalID: -7034808112863420542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a471060848aa5d140800000000000000
+      internalID: 4743885268570871626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8cf74e47a79bc6f0800000000000000
+      internalID: -663269775278343029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 374ed89dda860f0e0800000000000000
+      internalID: -2238173918914550669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 236a59792ab3a7960800000000000000
+      internalID: 7600452890655041074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de2cb5d3c27529c60800000000000000
+      internalID: 7823411350215574253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_sleep_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 204
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 475c073a4f7f23380800000000000000
+      internalID: -8992852875819301516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d09df5c000383f710800000000000000
+      internalID: 1725867118443878669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503911cc0924786b0800000000000000
+      internalID: -5294189647284301051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd164b0a692f72830800000000000000
+      internalID: 4046469518970872284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf40150b4298a2320800000000000000
+      internalID: 2533988531019252988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86966b38103025f30800000000000000
+      internalID: 4562712677519354216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_work_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 136
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1212124656bd7750800000000000000
+      internalID: 6304395534980485659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8de4f95a8a640de80800000000000000
+      internalID: -8155941235020837160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ff9d3fe77407a00800000000000000
+      internalID: 752179748353474446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba5daaa5373e79660800000000000000
+      internalID: 7392627397933847979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf041de5cb5a0ba0800000000000000
+      internalID: -6121979837812568147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3465d3d058613270800000000000000
+      internalID: 8228472690543256637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_egg_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 68
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29f2c73809fd2c680800000000000000
+      internalID: -8736174515371102318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133de37a1b077ec80800000000000000
+      internalID: -8293536280462044367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_1
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d697b523101f100800000000000000
+      internalID: 139894379219873103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_2
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48ff4742a6b78c160800000000000000
+      internalID: 7046017312829538180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_3
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16beff9bac790d620800000000000000
+      internalID: 2796902265556822881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_4
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe11c2ed65179f00800000000000000
+      internalID: 1123390193752153843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_5
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6add3dbfcd8796910800000000000000
+      internalID: 1831127614015921574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

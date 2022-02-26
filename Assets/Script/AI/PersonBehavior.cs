@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Pathfinding;
 using Panda;
 
@@ -17,6 +18,7 @@ public class PersonBehavior : MonoBehaviour
     [SerializeField] TimeEventQueueTicket sleepEvent;
     [SerializeField] string think;
     [SerializeField] HitCollision hitCollision;
+    [SerializeField] SpriteRenderer hatSprite;
     public PersonData personData = new PersonData();
     
     /*
@@ -380,7 +382,7 @@ public class PersonBehavior : MonoBehaviour
             ThisTask.Fail();
             return;
         }
-        int workTier = buildingObject.buildingData.buildingPreset.workTier;
+        int workTier = PeopleManager.Instance.GetJobInfo(personData.jobID).workTier;
         if(workTier < 1){
             ThisTask.Succeed();
             return;
@@ -421,6 +423,10 @@ public class PersonBehavior : MonoBehaviour
         // if(this.personData.stamina < 1000){
         //     this.personData.stamina += 5;
         // }
+
+        if(personData.growth < 1.0f){
+            personData.growth += 0.05f;
+        }
         return false;
     }
 
@@ -428,5 +434,9 @@ public class PersonBehavior : MonoBehaviour
         if(this.personData.stamina > 0){
             this.personData.stamina -= amount;
         }
+    }
+
+    public void UpdateHatImage(){
+        this.hatSprite.sprite = PeopleManager.Instance.GetJobInfo(personData.jobID).hatImage;
     }
 }

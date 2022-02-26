@@ -12,29 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Tent
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 3710798525690343477, guid: daf8fe1ed0cf0bd47894118fa4702be2, type: 3}
+  prefab: {fileID: 3710798525690343477, guid: daf8fe1ed0cf0bd47894118fa4702be2, type: 3}
   scale: {x: 2, y: 2, z: 2}
   relativeLocation: {x: 0, y: 0, z: 2}
   sprite: {fileID: -6752567909215077633, guid: 90ccf450cfa071a4d948e80bf6d7e0f3, type: 3}
-  healthPointMax: 10
   info: You can sleep here.
   attributes: []
-  interactable: 1
-  workplace: 0
   workTier: 0
-  gameTab: 3
-  taskPresets: []
-  lightSourceIntensity: 2
   buildTool: 3
   removalTool:
   - tool: 9
     damage: 2
+    minHP: 0
   buildToolIndex: 0
   resourceList:
-  - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
+  - itemDataName: 
     amount: 5
-  dropAmounts: []
   grownPreset: {fileID: 0}
-  ruinPreset: {fileID: 0}
   growUpTerm: 0
-  brokenStyle: 1

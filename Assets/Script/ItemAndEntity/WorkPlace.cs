@@ -6,8 +6,8 @@ public class WorkPlace : MonoBehaviour{
     [SerializeField] BuildingObject buildingObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
     [SerializeField] bool hiringPerson;
+    [SerializeField] int jobID;
     public List<TaskInfo> taskInfos;
-    public int workTier;
     private void Start() {
         buildingObject = this.GetComponent<BuildingObject>();
         if(hiringPerson){
@@ -19,10 +19,12 @@ public class WorkPlace : MonoBehaviour{
     private bool HirePerson(string ticketName){
         if(hiringPerson && buildingObject.buildingData.workerID == 0){
             List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
-            people = people.FindAll(person=> (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
+            people = people.FindAll(person => (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
             if(people.Count > 0){
                 people[0].personData.workplaceID = this.buildingObject.buildingData.id;
                 this.buildingObject.buildingData.workerID = people[0].personData.id;
+                people[0].personData.jobID = jobID;
+                people[0].UpdateHatImage();
             }
         }
         buildingObject.buildingData.mediocrityData.SaveMediocrityData();

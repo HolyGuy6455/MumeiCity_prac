@@ -15,10 +15,17 @@ public class PeopleManager : MonoBehaviour
     [SerializeField] int staminaEnough;
     [SerializeField] int staminaHunger;
     [SerializeField] int[] happinessStep;
+    public List<JobInfo> jobInfos;
     public int _staminaMax{get{return staminaMax;}}
     public int _staminaEnough{get{return staminaEnough;}}
     public int _staminaHunger{get{return staminaHunger;}}
     public int[] _happinessStep{get{return happinessStep;}}
+
+    public static PeopleManager Instance{
+        get{
+            return GameManager.Instance.peopleManager;
+        }
+    }
     private void Start() {
         List<PersonBehavior> buildingList = GetWholePeopleList();
         foreach (PersonBehavior person in buildingList){
@@ -50,6 +57,10 @@ public class PeopleManager : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public JobInfo GetJobInfo(int index){
+        return jobInfos[index];
     }
 
     // 매일 아침마다 단체로 이사를 한다
@@ -129,6 +140,7 @@ public class PeopleManager : MonoBehaviour
                         newBorn.personData.id = lastID++;
                         personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
                         happyPerson_1st = null;
+                        newBorn.personData.growth = 0.0f;
                     }
                 }
             }

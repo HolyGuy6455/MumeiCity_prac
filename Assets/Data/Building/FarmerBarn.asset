@@ -12,24 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: FarmerBarn
   m_EditorClassIdentifier: 
+  prefab: {fileID: 7491841603656974066, guid: 443a88ceda159794992c6e5ad3097cf3, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: 0}
-  healthPointMax: 10
+  sprite: {fileID: 21300000, guid: 8ad86dc1b92698740b06702352fa65b7, type: 3}
   info: 
   attributes: []
-  interactable: 1
-  workplace: 1
-  workTier: 0
-  gameTab: 4
-  taskPresets: []
-  lightSourceIntensity: 0
   buildTool: 5
   removalTool: []
   buildToolIndex: 0
   resourceList: []
-  dropAmounts: []
   grownPreset: {fileID: 0}
-  ruinPreset: {fileID: 0}
   growUpTerm: 0
-  brokenStyle: 0

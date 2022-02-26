@@ -12,34 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Tree
   m_EditorClassIdentifier: 
+  prefab: {fileID: 2784014845858301317, guid: 125ae7e0db3112b468899f06af3f9825, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
   sprite: {fileID: 9163872656599509061, guid: 83b77d3925d8bf04e89c77b85dccdda4, type: 3}
-  healthPointMax: 10
   info: You can cut this.
   attributes:
   - Log
-  interactable: 0
-  workplace: 0
   workTier: 0
-  lightSourceIntensity: 0
   buildTool: 0
   removalTool:
   - tool: 4
     damage: 3
+    minHP: 0
   buildToolIndex: 0
   resourceList: []
-  dropAmounts:
-  - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
-    chance: 1.3
-    itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
-    chance: 1
-    itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
-    chance: 0.3
-    itemDropType: 2
   grownPreset: {fileID: 0}
-  ruinPreset: {fileID: 0}
   growUpTerm: 0
-  brokenStyle: 2

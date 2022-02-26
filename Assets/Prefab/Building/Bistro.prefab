@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 3418408168731127072}
   - component: {fileID: 200474364167891172}
   - component: {fileID: 1621385521478750150}
+  - component: {fileID: 787474963}
   m_Layer: 8
   m_Name: Bistro
   m_TagString: Building
@@ -142,16 +143,16 @@ MonoBehaviour:
     code: 11
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
@@ -219,6 +220,27 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &787474963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1908260287097672744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTab: 5
+  buildingObject: {fileID: 0}
+  hiringEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  hiringPerson: 1
+  jobID: 3
+  taskInfos: []
 --- !u!1 &2799978589421985365
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +454,7 @@ MonoBehaviour:
   - {x: 0.08555889, y: 0.464355, z: -0.000005982739}
   m_ShapePathHash: 1440245004
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4562
+  m_InstanceId: -4710
 --- !u!1 &8165382617575320435
 GameObject:
   m_ObjectHideFlags: 0

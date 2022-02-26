@@ -154,7 +154,7 @@ MonoBehaviour:
   - {x: -0.43273354, y: -0.07699342, z: -0.00000019652147}
   m_ShapePathHash: 1840678541
   m_Mesh: {fileID: 0}
-  m_InstanceId: -5786
+  m_InstanceId: -5756
 --- !u!1 &3419896558221182436
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,16 +453,16 @@ MonoBehaviour:
     code: 3
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
@@ -546,5 +546,15 @@ MonoBehaviour:
     delay: 0
     idString: 
   hiringPerson: 1
-  taskPresets: []
-  workTier: 0
+  jobID: 1
+  taskInfos:
+  - name: 
+    guideSprite: {fileID: 0}
+    info: 
+    taskType: 0
+    necessaryResources: []
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: 
+    requiredTime: 0

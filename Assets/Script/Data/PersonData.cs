@@ -10,6 +10,8 @@ public class PersonData : MediocrityData {
     public int stamina;
     public int happiness;
     public int workplaceID;
+    public int jobID;
     public int homeID;
     public bool sleep;
+    public float growth = 1.0f;
 }

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class MousePointer : MonoBehaviour {
     [SerializeField] RectTransform mousePointerTransform;
     private void Awake() {
-        // Cursor.visible = false;
+        Cursor.visible = false;
     }
 
     public void OnMouseMove(InputAction.CallbackContext value){

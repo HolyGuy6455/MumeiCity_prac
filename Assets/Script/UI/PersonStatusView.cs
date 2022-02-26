@@ -10,12 +10,15 @@ public class PersonStatusView : MonoBehaviour{
     [SerializeField] Image happinessImage;
     [SerializeField] Image happinessBGImage;
     [SerializeField] Image personImage;
+    [SerializeField] Image hatImage;
     [SerializeField] PersonData personData;
     public void UpdateUI(PersonData personData){
         this.personData = personData;
         staminaImage.fillAmount = ((float)personData.stamina)/1000.0f;
         happinessImage.fillAmount = ((float)personData.happiness)/100.0f;
         animator.SetBool("IsWorking",!personData.sleep);
+        animator.SetFloat("Growth",personData.growth);
+        hatImage.sprite = PeopleManager.Instance.GetJobInfo(personData.jobID).hatImage;
     }
 
     public void SetVisible(bool visible){
@@ -24,5 +27,6 @@ public class PersonStatusView : MonoBehaviour{
         happinessImage.enabled = visible;
         happinessBGImage.enabled = visible;
         personImage.enabled = visible;
+        hatImage.enabled = visible;
     }
 }
