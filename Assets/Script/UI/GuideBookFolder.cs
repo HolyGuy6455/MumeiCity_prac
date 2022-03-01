@@ -6,7 +6,7 @@ public class GuideBookFolder : MonoBehaviour{
     [SerializeField] Image closeImage;
     [SerializeField] GameObject childObject;
     [SerializeField] RectTransform rect;
-    bool isActivated;
+    [SerializeField] bool isActivated;
 
     private void Start() {
         Activate(false);
@@ -36,7 +36,6 @@ public class GuideBookFolder : MonoBehaviour{
         if(isActivated){
             foreach (RectTransform transform in childObject.transform){
                 newSize.y += transform.sizeDelta.y;
-                Debug.Log(transform.sizeDelta.y);
             }
         }
         rect.sizeDelta = newSize;
@@ -45,5 +44,6 @@ public class GuideBookFolder : MonoBehaviour{
         if(parentFolder != null){
             parentFolder.Resize();
         }
+        GuideBookUI.Instance.UpdateUI();
     }
 }

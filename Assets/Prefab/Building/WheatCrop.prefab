@@ -225,23 +225,29 @@ MonoBehaviour:
     code: 12
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 7276000818628053225}
   shadowObject: {fileID: 7542474977515167380}
-  removalTool: []
+  removalTool:
+  - tool: 2
+    damage: 8
+    minHP: 9
+  - tool: 5
+    damage: 10
+    minHP: 0
   animator: {fileID: 2503896259768582146}
 --- !u!114 &1082898147767748038
 MonoBehaviour:
@@ -291,9 +297,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: 0df0db71be9efec4b93c7ae81c381419, type: 2}
-    chance: 0
-    itemDropType: 0
+  - itemName: Wheat
+    chance: 1
+    itemDropType: 2
 --- !u!95 &2503896259768582146
 Animator:
   serializedVersion: 3
@@ -339,11 +345,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bfaf547fe2de434e8141bdeb1f587fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  growupEvent:
+  restoreEvent:
     startTime: 0
     delay: 0
     idString: 
-  restorationTerm: 1
+  restorationTerm: 2
   hittable: {fileID: 1082898147767748038}
 --- !u!1 &5847605276904702869
 GameObject:
@@ -454,4 +460,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1377802
+  m_InstanceId: -6200

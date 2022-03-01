@@ -55,7 +55,7 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -7438
+  m_InstanceId: -6380
 --- !u!1 &2885028526968154516
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,6 +152,79 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &3419578347904371463
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9171224806828836947}
+  - component: {fileID: 6302352451135041779}
+  - component: {fileID: 8167717213152320495}
+  m_Layer: 0
+  m_Name: InteractTrigger
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9171224806828836947
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419578347904371463}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12, y: 1, z: -15}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_Children: []
+  m_Father: {fileID: 4837827576469051085}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &6302352451135041779
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419578347904371463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8167717213152320495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3419578347904371463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef798977ef76e4c4c971e243e7d80a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactType: 1
+  _interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
+        m_MethodName: ChangeGameTab
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Manufacturer
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &4837827576469051087
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +239,7 @@ GameObject:
   - component: {fileID: 6598002484801399299}
   - component: {fileID: 5753554789514612001}
   - component: {fileID: 1429265463561309734}
+  - component: {fileID: 2464356784723725537}
   m_Layer: 8
   m_Name: Campfire
   m_TagString: Building
@@ -189,6 +263,7 @@ Transform:
   - {fileID: 8578527939890690681}
   - {fileID: 5672504395836058323}
   - {fileID: 2854202959069130912}
+  - {fileID: 9171224806828836947}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -213,23 +288,26 @@ MonoBehaviour:
     code: 2
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 2150183074733892328}
   shadowObject: {fileID: 1261906382727459989}
-  removalTool: []
+  removalTool:
+  - tool: 4
+    damage: 5
+    minHP: 0
   animator: {fileID: 6598002484801399299}
 --- !u!114 &8514136512318992327
 MonoBehaviour:
@@ -249,7 +327,19 @@ MonoBehaviour:
   hitBoxCollider: {fileID: 4559857815604927518}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1429265463561309734}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
@@ -300,15 +390,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: 628a7927bd073274ab04d0d30ae91e9e, type: 2}
-    chance: 1.3
-    itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
+  - itemName: Wood
     chance: 1
     itemDropType: 1
-  - preset: {fileID: 11400000, guid: af39703b93e789143921d8979371d969, type: 2}
-    chance: 0.3
-    itemDropType: 2
+--- !u!114 &2464356784723725537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837827576469051087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTab: 5
+  buildingObject: {fileID: 0}
+  hiringEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  hiringPerson: 0
+  jobID: 0
+  taskInfos:
+  - name: Grilling meat
+    guideSprite: {fileID: 21300000, guid: 2ff821a9a0194c343a2c123a3e719ce1, type: 3}
+    info: 
+    taskType: 2
+    necessaryResources:
+    - itemDataName: Meat
+      amount: 1
+    resultItem:
+      itemDataName: GrilledMeat
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 10
+  - name: Grilling Salmon
+    guideSprite: {fileID: 21300000, guid: 03d287558d29b814aa17035350681066, type: 3}
+    info: 
+    taskType: 2
+    necessaryResources:
+    - itemDataName: Carrot
+      amount: 1
+    resultItem:
+      itemDataName: GrilledSalmon
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 10
 --- !u!1 &5126214079010727799
 GameObject:
   m_ObjectHideFlags: 0

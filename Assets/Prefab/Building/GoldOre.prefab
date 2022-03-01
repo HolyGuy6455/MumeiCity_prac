@@ -55,7 +55,7 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4254
+  m_InstanceId: -7342
 --- !u!1 &2466113469888165308
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,33 +249,26 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
-    code: 9
+    code: 8
     items:
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     - content: 
-      code: 0
+      itemName: 
       amount: 0
     workerID: 0
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 1722124480028966592}
   shadowObject: {fileID: 1996214080351234237}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 5881731106126444075}
 --- !u!114 &8942038923740689391
 MonoBehaviour:
@@ -291,6 +284,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 5881731106126444075}
   HP: 9
+  HPMax: 10
   hitBoxCollider: {fileID: 3852571698584404022}
   DeadEventHandler:
     m_PersistentCalls:
@@ -369,10 +363,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
+  - itemName: Gold
     chance: 0.3
     itemDropType: 2
-  - preset: {fileID: 11400000, guid: ed696c3738e0b7348a1f290511d5c028, type: 2}
+  - itemName: Gold
     chance: 0.3
     itemDropType: 1
 --- !u!1 &8481303569880236186

@@ -262,11 +262,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7b356dffe8b87349bdf8ee29348336f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 2227754005024566347}
+  guideBookUI: {fileID: 0}
   openImage: {fileID: 6334790619178116061}
   closeImage: {fileID: 3851326310254570376}
   childObject: {fileID: 2630826036656250140}
   rect: {fileID: 6002738787375554949}
+  isActivated: 0
 --- !u!1 &6532570698643580441
 GameObject:
   m_ObjectHideFlags: 0

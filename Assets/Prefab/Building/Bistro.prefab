@@ -240,7 +240,47 @@ MonoBehaviour:
     idString: 
   hiringPerson: 1
   jobID: 3
-  taskInfos: []
+  taskInfos:
+  - name: Makeing Bread
+    guideSprite: {fileID: 21300000, guid: e533d7e8dfd120348a174768896ae827, type: 3}
+    info: 
+    taskType: 2
+    necessaryResources:
+    - itemDataName: Wheat
+      amount: 1
+    resultItem:
+      itemDataName: Bread
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 10
+  - name: Makeing VegetableSoup
+    guideSprite: {fileID: 21300000, guid: e430654c8aaa5984a8c013994fd02258, type: 3}
+    info: 
+    taskType: 2
+    necessaryResources:
+    - itemDataName: Carrot
+      amount: 1
+    - itemDataName: Cabage
+      amount: 1
+    - itemDataName: Beetroot
+      amount: 1
+    resultItem:
+      itemDataName: VegetableSoup
+      amount: 5
+    resultUpgrade: 
+    requiredTime: 10
+  - name: Makeing Icewine
+    guideSprite: {fileID: 21300000, guid: e430654c8aaa5984a8c013994fd02258, type: 3}
+    info: 
+    taskType: 2
+    necessaryResources:
+    - itemDataName: Grape
+      amount: 1
+    resultItem:
+      itemDataName: Icewine
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 10
 --- !u!1 &2799978589421985365
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,7 +433,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Laboratory
+          m_StringArgument: Manufacturer
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!1 &5250030829315520114
@@ -454,7 +494,7 @@ MonoBehaviour:
   - {x: 0.08555889, y: 0.464355, z: -0.000005982739}
   m_ShapePathHash: 1440245004
   m_Mesh: {fileID: 0}
-  m_InstanceId: -4710
+  m_InstanceId: -5588
 --- !u!1 &8165382617575320435
 GameObject:
   m_ObjectHideFlags: 0
