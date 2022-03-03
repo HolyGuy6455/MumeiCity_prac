@@ -22,24 +22,38 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
         WorkPlace workPlace = this.GetComponent<WorkPlace>();
+        
+        if(workPlace != null){
+            switch (workPlace._gameTab){
+                case GameManager.GameTab.SUPERINTENDENT:
+                    SuperintendentData superintendentData = new SuperintendentData();
+                    superintendentData.workList = new bool[workPlace.taskInfos.Count];
+                    buildingData.mediocrityData = superintendentData;
+                    break;
 
-        switch (buildingData.buildingPreset.name){
-            case "ForesterHut":
-                SuperintendentData superintendentData = new SuperintendentData();
-                buildingData.mediocrityData = superintendentData;
-                superintendentData.workList = new bool[workPlace.taskInfos.Count];
-                break;
-            case "Tent":
-                buildingData.mediocrityData = new HouseData(12);
-                break;
-            case "Bistro":
-                ManufacturerData manufacturerData = new ManufacturerData();
-                buildingData.mediocrityData = manufacturerData;
-                manufacturerData.amount = new int[3];
-                manufacturerData.dueDate = new int[3];
-                break;
-            default:
-                break;
+                case GameManager.GameTab.MANUFACTURER:
+                    ManufacturerData manufacturerData = new ManufacturerData();
+                    manufacturerData.amount = new int[workPlace.taskInfos.Count];
+                    manufacturerData.dueDate = new int[workPlace.taskInfos.Count];
+                    buildingData.mediocrityData = manufacturerData;
+                    break;
+
+                case GameManager.GameTab.LABORATORY:
+                    LaboratoryData laboratoryData = new LaboratoryData();
+                    laboratoryData.dueDate = new int[workPlace.taskInfos.Count];
+                    break;
+
+                default:
+                    break;
+            }
+        }else{
+            switch (buildingData.buildingPreset.name){
+                case "Tent":
+                    buildingData.mediocrityData = new HouseData(12);
+                    break;
+                default:
+                    break;
+            }
         }
         Initialize(this.buildingData);
     }

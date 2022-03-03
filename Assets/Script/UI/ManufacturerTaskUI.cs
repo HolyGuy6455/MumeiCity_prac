@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using System.Collections.Generic;
 
 public class ManufacturerTaskUI : MonoBehaviour{
     public Text taskTitle;
@@ -10,8 +10,34 @@ public class ManufacturerTaskUI : MonoBehaviour{
     public ResourceView resourceView3;
     public Button submitButton;
     public Button cancleButton;
-    public void ValueChanged(bool value){
-        Debug.Log(value);
+    public Slider processBars;
+    public Image numberCounter;
+    public List<Sprite> numberCounterSprite;
+
+    public int requiredTime;
+    public int dueDate;
+    public int presentTime;
+    public int remainingTime;
+    public void ChangeValue(float value){
+        processBars.gameObject.SetActive( (value != 0) );
+        processBars.value = value;
+    }
+    public void UpdateUI(TaskInfo taskInfo){
+        if(taskInfo == null){
+            this.gameObject.SetActive(false);
+            return;
+        }
+        this.gameObject.SetActive(true);
+        taskTitle.text = "- "+taskInfo.name+" -";
+        guideIamge.sprite = taskInfo.guideSprite;
+        List<NecessaryResource> resources = taskInfo.necessaryResources;
+        resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
+        resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
+        resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+    }
+
+    public void UpdateUI_Counter(int value){
+        numberCounter.sprite = numberCounterSprite[value];
     }
     
 }

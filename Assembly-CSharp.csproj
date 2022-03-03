@@ -101,6 +101,7 @@
      <Compile Include="Assets\Script\UI\GuideBookUI.cs" />
      <Compile Include="Assets\Script\UI\TagSlot.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentTaskUI.cs" />
+     <Compile Include="Assets\Script\Data\JobInfo.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\WorkPlace.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
@@ -140,7 +141,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Data\JobInfo.cs" />
+     <Compile Include="Assets\Script\UI\LaboratoryTaskUI.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

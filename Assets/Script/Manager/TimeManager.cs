@@ -52,10 +52,23 @@ public class TimeManager : MonoBehaviour{
                 return null;
             }
         }
-        // 이유는 모르겠지만, 딜레이를 1초씩 더한다;; 그래서 1 뺌
-        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue + delay - 1, idString, delay, timeEvent);
+        TimeEventQueueTicket result = new TimeEventQueueTicket(this.timeValue, idString, delay, timeEvent);
         waitingList.Add(result);
         return result;
+    }
+
+    public TimeEventQueueTicket GetTicket(string idString){
+        foreach (TimeEventQueueTicket queueTicket in waitingList){
+            if(queueTicket._idString == idString){
+                return queueTicket;
+            }
+        }
+        return null;
+    }
+
+    public void RemoveTimeEventQueueTicket(string idString){
+        TimeEventQueueTicket ticket = GetTicket(idString);
+        waitingList.Remove(ticket);
     }
 
     void Start(){
@@ -99,10 +112,10 @@ public class TimeManager : MonoBehaviour{
 
         foreach (TimeEventQueueTicket ticket in invokeList){
             bool isDone = false;
+            waitingList.Remove(ticket);
             if(ticket._timeEvent != null){
                 isDone = ticket._timeEvent.Invoke(ticket._idString);
             }
-            waitingList.Remove(ticket);
             if(!isDone){
                 AddTimeEventQueueTicket(ticket._delay,ticket._idString,ticket._timeEvent);
             }

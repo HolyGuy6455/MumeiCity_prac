@@ -12,10 +12,11 @@ public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public ItemSlotData itemSlotData;
 
     public void UpdateUI(){
-        if(itemSlotData == null || itemSlotData.itemData.isNone()){
+        if(itemSlotData == null || itemSlotData.itemData.isNone() || itemSlotData.amount == 0){
             icon.sprite = null;
             icon.enabled = false;
             amountText.text = "";
+            itemSlotData.itemName = "None";
         }else{
             icon.sprite = ItemData.Instant(itemSlotData.itemName).itemSprite;
             icon.enabled = true;

@@ -29,7 +29,10 @@ public class ItemManager : MonoBehaviour {
         if(name.CompareTo("")==0){
             return dataDictionary["None"];    
         }
-        return dataDictionary[name];
+        if(!dataDictionary.ContainsKey(name)){
+            Debug.Log(name + " is not found in the item dictionary");
+        }
+        return dataDictionary[name];    
     }
     
 }

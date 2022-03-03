@@ -8,6 +8,7 @@ public class WorkPlace : MonoBehaviour{
     [SerializeField] bool hiringPerson;
     [SerializeField] int jobID;
     public List<TaskInfo> taskInfos;
+    public GameManager.GameTab _gameTab{get{return gameTab;}}
     private void Start() {
         buildingObject = this.GetComponent<BuildingObject>();
         if(hiringPerson){

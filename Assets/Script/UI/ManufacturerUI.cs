@@ -5,28 +5,22 @@ using System.Collections.Generic;
 public class ManufacturerUI : CommonTaskUI{
     [SerializeField] ManufacturerTaskUI[] manufacturerTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
-    [SerializeField] SuperintendentData superintendentData;
-    [SerializeField] Slider[] processBars;
+    [SerializeField] ManufacturerData manufacturerData;
+
     WorkPlace workPlace;
 
     public override void UpdateUI(){
         base.UpdateUI();
         buildingObj = GameManager.Instance.interactingBuilding;
-        superintendentData = buildingObj.buildingData.mediocrityData as SuperintendentData;
         workPlace = buildingObj.GetComponent<WorkPlace>();
         if(workPlace == null){
             return;
         }
         for (int i = 0; i < workPlace.taskInfos.Count; i++){
-            TaskInfo taskPreset = workPlace.taskInfos[i];
-            ManufacturerTaskUI taskUI = manufacturerTaskUIArray[i];
-            taskUI.taskTitle.text = "- "+taskPreset.name+" -";
-            taskUI.guideIamge.sprite = taskPreset.guideSprite;
-            // taskUI.toggle.isOn = superintendentData.workList[i];
-            List<NecessaryResource> resources = taskPreset.necessaryResources;
-            taskUI.resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
-            taskUI.resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
-            taskUI.resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+            manufacturerTaskUIArray[i].UpdateUI(workPlace.taskInfos[i]);
+        }
+        for (int i = workPlace.taskInfos.Count; i < 3; i++){
+            manufacturerTaskUIArray[i].UpdateUI(null);
         }
     }
 
@@ -37,11 +31,11 @@ public class ManufacturerUI : CommonTaskUI{
         if(buildingObj == null){
             return;
         }
-        ManufacturerData manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
+        manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
         if(workPlace == null){
             return;
         }
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < workPlace.taskInfos.Count; i++){
             try{
                 TaskInfo taskInfo = workPlace.taskInfos[i];
                 int requiredTime = taskInfo.requiredTime;
@@ -49,7 +43,11 @@ public class ManufacturerUI : CommonTaskUI{
                 int presentTime = GameManager.Instance.timeManager._timeValue;
                 int remainingTime = dueDate-presentTime;
                 float remainingPercent = (float)remainingTime/(float)requiredTime;
-                processBars[i].value = 1.0f-remainingPercent;
+                if(dueDate <= presentTime){
+                    remainingPercent = 1.0f;
+                }
+                manufacturerTaskUIArray[i].ChangeValue(1.0f-remainingPercent);
+                manufacturerTaskUIArray[i].UpdateUI_Counter(manufacturerData.amount[i]);
             }
             catch (System.Exception){
                 // do nothing
@@ -60,14 +58,60 @@ public class ManufacturerUI : CommonTaskUI{
     }
 
     public void Manufacture(int index){
+        if(manufacturerData.amount[index] >= 5){
+            // 주문 5개 이상은 안받습니다
+            return;
+        }
+
+        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
+        TimeManager timeManager = GameManager.Instance.timeManager;
+        
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+        // 재료가 충분히 있나요
+        Inventory inventory = GameManager.Instance.inventory;
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            int havingAmountValue = inventory.GetItemAmount(necessary.itemDataName);
+            if(havingAmountValue < necessary.amount){
+                Debug.Log("Not Enough Item!");
+                return;
+            }
+        }
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            inventory.ConsumeItem(necessary.itemDataName,necessary.amount);
+        }
+        // 첫번째로 만들고 있는거 완성 예약
+        TimeEventQueueTicket ticket = timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
+        manufacturerTaskUIArray[index].ChangeValue(0.01f);
+
+        manufacturerData.amount[index] += 1;
+        if(ticket != null){
+            manufacturerData.dueDate[index] = ticket._delay + timeManager._timeValue;
+        }
+
+        manufacturerTaskUIArray[index].UpdateUI(taskInfo);
+    }
+
+    public void Cancle(int index){
+        TimeManager timeManager = GameManager.Instance.timeManager;
         string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
 
         TaskInfo taskInfo = workPlace.taskInfos[index];
-        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
 
-        ManufacturerData manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
-        manufacturerData.amount[index] += 1;
-        manufacturerData.dueDate[index] = ticket._delay;
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(necessary.itemDataName));
+            itemSlotData.amount = necessary.amount;
+            GameManager.Instance.inventory.AddItem(itemSlotData);
+        }
+
+        if(manufacturerData.amount[index] > 1){
+            manufacturerData.amount[index] -= 1;
+        }else{
+            timeManager.RemoveTimeEventQueueTicket(ticketName);
+            manufacturerData.dueDate[index] = timeManager._timeValue;
+            manufacturerData.amount[index] = 0;
+        }
+
+        manufacturerTaskUIArray[index].UpdateUI(taskInfo);
     }
 
     public bool ManufactureComplete(string ticketName){
@@ -80,6 +124,17 @@ public class ManufacturerUI : CommonTaskUI{
         ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(resultItem.itemDataName));
         itemSlotData.amount = resultItem.amount;
         buildingData.AddItem(itemSlotData);
+
+        // 만약 예약이 1개 이상 남아있다면, 다음 작업 이어서 하기
+        manufacturerData.amount[index] -= 1;
+        Debug.Log("Remain : " + manufacturerData.amount[index]);
+        if(manufacturerData.amount[index] > 0){
+            Manufacture(index);
+            manufacturerData.amount[index] -= 1;
+        }
+
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+        manufacturerTaskUIArray[index].UpdateUI(taskInfo);
 
         UpdateUI();
         return true;

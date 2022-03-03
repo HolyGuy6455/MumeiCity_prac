@@ -8,6 +8,7 @@ public class Inventory : MonoBehaviour {
     
     [SerializeField] Image itemHeldInHandImage;
     [SerializeField] Text itemHeldInHandAmount;
+    [SerializeField] InventoryUI inventoryUI;
     public ItemSlotData[] itemData;
     int itemSpace = 20;
 
@@ -49,6 +50,7 @@ public class Inventory : MonoBehaviour {
                 
             }
         }
+        inventoryUI.LoadItemSlotData();
         return true;
     }
     
@@ -76,6 +78,7 @@ public class Inventory : MonoBehaviour {
                 }
             }
         }
+        inventoryUI.LoadItemSlotData();
         return result;
     }
 

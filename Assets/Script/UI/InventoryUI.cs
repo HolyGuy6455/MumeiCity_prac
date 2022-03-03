@@ -10,7 +10,7 @@ public class InventoryUI : MonoBehaviour{
     [SerializeField] Text ItemInfoText;
     [SerializeField] TagSlot[] itemTags;
 
-    void Start(){
+    void Awake(){
         itemSlots = this.GetComponentsInChildren<ItemSlot>();
         foreach (ItemSlot slot in itemSlots){
             slot.onFocusCallback += OnFocusSlot;
