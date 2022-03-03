@@ -14,10 +14,6 @@ public class ManufacturerTaskUI : MonoBehaviour{
     public Image numberCounter;
     public List<Sprite> numberCounterSprite;
 
-    public int requiredTime;
-    public int dueDate;
-    public int presentTime;
-    public int remainingTime;
     public void ChangeValue(float value){
         processBars.gameObject.SetActive( (value != 0) );
         processBars.value = value;

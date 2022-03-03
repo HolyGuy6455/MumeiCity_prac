@@ -6,6 +6,7 @@ public class SuperintendentUI : CommonTaskUI{
     [SerializeField] SuperintendentTaskUI[] superintendentTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
     [SerializeField] SuperintendentData superintendentData;
+    [SerializeField] Text titleText;
 
     public override void UpdateUI(){
         base.UpdateUI();
@@ -16,16 +17,16 @@ public class SuperintendentUI : CommonTaskUI{
             return;
         }
         for (int i = 0; i < workPlace.taskInfos.Count; i++){
-            TaskInfo taskInfo = workPlace.taskInfos[i];
-            SuperintendentTaskUI taskUI = superintendentTaskUIArray[i];
-            taskUI.taskTitle.text = "- "+taskInfo.name+" -";
-            taskUI.guideIamge.sprite = taskInfo.guideSprite;
-            taskUI.toggle.isOn = superintendentData.workList[i];
-            List<NecessaryResource> resources = taskInfo.necessaryResources;
-            // 이런 더러운 코드 쓰는건 별로 안좋아하지만.....
-            taskUI.resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
-            taskUI.resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
-            taskUI.resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+            superintendentTaskUIArray[i].ChangeValue(superintendentData.workList[i]);
+            superintendentTaskUIArray[i].UpdateUI(workPlace.taskInfos[i]);
         }
+        for (int i = workPlace.taskInfos.Count; i < 3; i++){
+            superintendentTaskUIArray[i].UpdateUI(null);
+        }
+        titleText.text = buildingObj.buildingData.buildingPreset.name;
+    }
+
+    public void Permit(int index){
+        superintendentData.workList[index] = superintendentTaskUIArray[index].toggle.isOn;
     }
 }

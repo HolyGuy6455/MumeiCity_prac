@@ -3,10 +3,10 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 
 public class LaboratoryUI : CommonTaskUI{
-    [SerializeField] LaboratoryTaskUI[] manufacturerTaskUIArray;
+    [SerializeField] LaboratoryTaskUI[] laboratoryTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
     [SerializeField] LaboratoryData laboratoryData;
-    [SerializeField] Slider[] processBars;
+    [SerializeField] Text titleText;
     WorkPlace workPlace;
 
     public override void UpdateUI(){
@@ -17,15 +17,12 @@ public class LaboratoryUI : CommonTaskUI{
             return;
         }
         for (int i = 0; i < workPlace.taskInfos.Count; i++){
-            TaskInfo taskPreset = workPlace.taskInfos[i];
-            LaboratoryTaskUI taskUI = manufacturerTaskUIArray[i];
-            taskUI.taskTitle.text = "- "+taskPreset.name+" -";
-            taskUI.guideIamge.sprite = taskPreset.guideSprite;
-            List<NecessaryResource> resources = taskPreset.necessaryResources;
-            taskUI.resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
-            taskUI.resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
-            taskUI.resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+            laboratoryTaskUIArray[i].UpdateUI(workPlace.taskInfos[i]);
         }
+        for (int i = workPlace.taskInfos.Count; i < 3; i++){
+            laboratoryTaskUIArray[i].UpdateUI(null);
+        }
+        titleText.text = buildingObj.buildingData.buildingPreset.name;
     }
 
     private void Update() {
@@ -50,7 +47,7 @@ public class LaboratoryUI : CommonTaskUI{
                 if(dueDate <= presentTime){
                     remainingPercent = 0.0f;
                 }
-                processBars[i].value = 1.0f-remainingPercent;
+                laboratoryTaskUIArray[i].ChangeValue(1.0f-remainingPercent);
             }
             catch (System.Exception){
                 // do nothing
@@ -60,15 +57,50 @@ public class LaboratoryUI : CommonTaskUI{
         }
     }
 
-    public void Manufacture(int index){
+    public void Research(int index){
+        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
+        TimeManager timeManager = GameManager.Instance.timeManager;
+        
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+        // 재료가 충분히 있나요
+        Inventory inventory = GameManager.Instance.inventory;
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            int havingAmountValue = inventory.GetItemAmount(necessary.itemDataName);
+            if(havingAmountValue < necessary.amount){
+                Debug.Log("Not Enough Item!");
+                return;
+            }
+        }
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            inventory.ConsumeItem(necessary.itemDataName,necessary.amount);
+        }
+        // 첫번째로 만들고 있는거 완성 예약
+        TimeEventQueueTicket ticket = timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
+        laboratoryTaskUIArray[index].ChangeValue(0.01f);
+
+        if(ticket != null){
+            laboratoryData.dueDate[index] = ticket._delay + timeManager._timeValue;
+        }
+
+        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
+    }
+
+    public void Cancle(int index){
+        TimeManager timeManager = GameManager.Instance.timeManager;
         string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
 
         TaskInfo taskInfo = workPlace.taskInfos[index];
-        TimeEventQueueTicket ticket = GameManager.Instance.timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
 
-        ManufacturerData manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
-        manufacturerData.amount[index] += 1;
-        manufacturerData.dueDate[index] = ticket._delay;
+        foreach (NecessaryResource necessary in taskInfo.necessaryResources){
+            ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(necessary.itemDataName));
+            itemSlotData.amount = necessary.amount;
+            GameManager.Instance.inventory.AddItem(itemSlotData);
+        }
+
+        timeManager.RemoveTimeEventQueueTicket(ticketName);
+        laboratoryData.dueDate[index] = timeManager._timeValue;
+
+        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
     }
 
     public bool ManufactureComplete(string ticketName){
@@ -81,6 +113,9 @@ public class LaboratoryUI : CommonTaskUI{
         ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(resultItem.itemDataName));
         itemSlotData.amount = resultItem.amount;
         buildingData.AddItem(itemSlotData);
+
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
 
         UpdateUI();
         return true;

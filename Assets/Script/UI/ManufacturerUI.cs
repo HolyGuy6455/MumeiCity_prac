@@ -6,6 +6,7 @@ public class ManufacturerUI : CommonTaskUI{
     [SerializeField] ManufacturerTaskUI[] manufacturerTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
     [SerializeField] ManufacturerData manufacturerData;
+    [SerializeField] Text titleText;
 
     WorkPlace workPlace;
 
@@ -22,6 +23,7 @@ public class ManufacturerUI : CommonTaskUI{
         for (int i = workPlace.taskInfos.Count; i < 3; i++){
             manufacturerTaskUIArray[i].UpdateUI(null);
         }
+        titleText.text = buildingObj.buildingData.buildingPreset.name;
     }
 
     private void Update() {
