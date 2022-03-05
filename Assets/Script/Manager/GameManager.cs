@@ -73,8 +73,6 @@ public class GameManager : MonoBehaviour
             return null;
         }
     }
-    
-    
 
     private void Start() {
         interactableSenseFilter = delegate(GameObject gameObject){
@@ -378,5 +376,20 @@ public class GameManager : MonoBehaviour
     public void QuitGame(){
         Application.Quit();
         UnityEditor.EditorApplication.isPlaying = false;
+    }
+
+    public void SetResolution(Resolution resolution){
+        switch (resolution)
+        {
+            case Resolution.R_720_1280:
+                Screen.SetResolution(720, 1280, false);
+                break;
+            default:
+                break;
+        }
+    }
+    public enum Resolution{
+        BASIC,
+        R_720_1280
     }
 }

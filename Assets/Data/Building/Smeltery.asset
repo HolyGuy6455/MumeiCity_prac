@@ -18,13 +18,14 @@ MonoBehaviour:
   sprite: {fileID: 5770067619390753283, guid: e09b85c1cdf54bc4ca14849a335f8240, type: 3}
   info: Dig up minerals and store them here.
   attributes: []
-  workTier: 1
   buildTool: 8
   removalTool:
   - tool: 9
     damage: 2
     minHP: 0
   buildToolIndex: 0
-  resourceList: []
+  resourceList:
+  - itemDataName: Iron
+    amount: 3
   grownPreset: {fileID: 0}
   growUpTerm: 0

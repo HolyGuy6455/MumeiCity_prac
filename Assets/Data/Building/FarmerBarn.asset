@@ -21,6 +21,10 @@ MonoBehaviour:
   buildTool: 5
   removalTool: []
   buildToolIndex: 0
-  resourceList: []
+  resourceList:
+  - itemDataName: Wood
+    amount: 10
+  - itemDataName: Iron
+    amount: 2
   grownPreset: {fileID: 0}
   growUpTerm: 0

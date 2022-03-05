@@ -18,16 +18,14 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: a87380d43063dee4a95fe4683dd945cc, type: 3}
   info: Cut down the tree and store it here.
   attributes: []
-  workTier: 1
-  taskPresets:
-  - {fileID: 11400000, guid: ccd45acbae7b55b46a02be7f04a2449c, type: 2}
-  - {fileID: 11400000, guid: 84d44582e84dd7f4aa981728c928bbde, type: 2}
   buildTool: 4
   removalTool:
   - tool: 9
     damage: 2
     minHP: 0
   buildToolIndex: 0
-  resourceList: []
+  resourceList:
+  - itemDataName: Wood
+    amount: 10
   grownPreset: {fileID: 0}
   growUpTerm: 0

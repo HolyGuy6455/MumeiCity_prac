@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 344425581}
   m_Layer: 0
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,7 +183,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Gold
-    chance: 1
+    chance: 3
+    itemDropType: 1
+  - itemName: Meat
+    chance: 3
+    itemDropType: 1
+  - itemName: Iron
+    chance: 20
+    itemDropType: 1
+  - itemName: Wood
+    chance: 30
     itemDropType: 1
 --- !u!114 &344425581
 MonoBehaviour:

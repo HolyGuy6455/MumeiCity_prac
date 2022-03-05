@@ -26,7 +26,7 @@ MonoBehaviour:
     minHP: 0
   buildToolIndex: 0
   resourceList:
-  - itemDataName: 
-    amount: 10
+  - itemDataName: Wood
+    amount: 3
   grownPreset: {fileID: 0}
   growUpTerm: 0

@@ -10,11 +10,13 @@ public class PauseUI : MonoBehaviour{
     [SerializeField] Text saveTitle_1;
     [SerializeField] Text saveTitle_2;
     [SerializeField] Text saveTitle_3;
+    [SerializeField] List<string> order;
 
     private void Awake() {
         orderIndex = new Dictionary<string, int>();
-        orderIndex["Root"] = 0;
-        orderIndex["SaveAndLoad"] = 1;
+        for (int i = 0; i < order.Count; i++){
+            orderIndex[order[i]] = i;
+        }
     }
 
     public void SetOrder(string orderStr){

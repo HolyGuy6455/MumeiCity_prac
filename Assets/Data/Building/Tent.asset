@@ -18,7 +18,6 @@ MonoBehaviour:
   sprite: {fileID: -6752567909215077633, guid: 90ccf450cfa071a4d948e80bf6d7e0f3, type: 3}
   info: You can sleep here.
   attributes: []
-  workTier: 0
   buildTool: 3
   removalTool:
   - tool: 9
@@ -26,7 +25,7 @@ MonoBehaviour:
     minHP: 0
   buildToolIndex: 0
   resourceList:
-  - itemDataName: 
+  - itemDataName: Wood
     amount: 5
   grownPreset: {fileID: 0}
   growUpTerm: 0

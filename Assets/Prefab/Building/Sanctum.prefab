@@ -153,7 +153,7 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  hiringPerson: 0
+  hiringPerson: 1
   jobID: 6
   taskInfos: []
 --- !u!1 &1149636927118658330
@@ -299,10 +299,10 @@ MonoBehaviour:
   _interactEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeGameTab
-        m_Mode: 5
+      - m_Target: {fileID: 805277189}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -459,7 +459,7 @@ MonoBehaviour:
   - {x: -0.3389659, y: 0.5601748, z: -0.0000014057675}
   m_ShapePathHash: -940193657
   m_Mesh: {fileID: 0}
-  m_InstanceId: -5794
+  m_InstanceId: -742772
 --- !u!1 &7918360850403852616
 GameObject:
   m_ObjectHideFlags: 0

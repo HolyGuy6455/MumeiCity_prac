@@ -7,6 +7,7 @@ public class TaskUIBundle : MonoBehaviour{
     [SerializeField] SuperintendentUI superintendentUI;
     [SerializeField] HouseUI houseUI;
     [SerializeField] ManufacturerUI manufacturerUI;
+    [SerializeField] LaboratoryUI laboratoryUI;
     [SerializeField] AchievementUI achievementUI;
 
 
@@ -24,6 +25,9 @@ public class TaskUIBundle : MonoBehaviour{
                 break;
            case "Manufacturer":
                 manufacturerUI.UpdateUI();
+                break;
+            case "Laboratory":
+                laboratoryUI.UpdateUI();
                 break;
             case "Achievement":
                 achievementUI.UpdateUI();

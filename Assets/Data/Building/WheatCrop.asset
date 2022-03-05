@@ -18,8 +18,6 @@ MonoBehaviour:
   sprite: {fileID: 9092517261266139881, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   info: 
   attributes: []
-  workTier: 0
-  taskPresets: []
   buildTool: 5
   removalTool:
   - tool: 2
@@ -29,6 +27,8 @@ MonoBehaviour:
     damage: 10
     minHP: 0
   buildToolIndex: 0
-  resourceList: []
+  resourceList:
+  - itemDataName: Wheat
+    amount: 1
   grownPreset: {fileID: 0}
   growUpTerm: 3

@@ -12,6 +12,13 @@ public class LaboratoryTaskUI : MonoBehaviour{
     public Button cancleButton;
     public GameObject doneObject;
     public Slider processBars;
+
+    public int requiredTime;
+    public int dueDate;
+    public int presentTime;
+    public int remainingTime;
+    public float remainingPercent;
+
     public void ChangeValue(float value){
         processBars.gameObject.SetActive( (value != 0) );
         processBars.value = value;

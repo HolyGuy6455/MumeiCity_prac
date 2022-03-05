@@ -1,5 +1,78 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &959594547
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 959594548}
+  - component: {fileID: 959594550}
+  - component: {fileID: 959594549}
+  m_Layer: 0
+  m_Name: InteractTrigger
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &959594548
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959594547}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3236139841592598875}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &959594550
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959594547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &959594549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959594547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef798977ef76e4c4c971e243e7d80a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactType: 1
+  _interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 97854281}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Superintedent
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1173488030999046948
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +250,7 @@ GameObject:
   - component: {fileID: 1865110965418170449}
   - component: {fileID: 3772519827397156245}
   - component: {fileID: 2311126292262517431}
+  - component: {fileID: 97854281}
   m_Layer: 8
   m_Name: FoodStorage
   m_TagString: Building
@@ -199,6 +273,7 @@ Transform:
   - {fileID: 1169245059681123521}
   - {fileID: 1785522440582581743}
   - {fileID: 2410189099500379461}
+  - {fileID: 959594548}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -297,6 +372,37 @@ CapsuleCollider:
   m_Height: 3
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &97854281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3236139841592598873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameTab: 4
+  buildingObject: {fileID: 0}
+  hiringEvent:
+    startTime: 0
+    delay: 0
+    idString: 
+  hiringPerson: 0
+  jobID: 0
+  taskInfos:
+  - name: Meal Time
+    guideSprite: {fileID: 21300000, guid: 96284890f1c954a4698f5245195c8596, type: 3}
+    info: 
+    taskType: 3
+    necessaryResources: []
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: 
+    requiredTime: 0
 --- !u!1 &5171206243520699906
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,4 +512,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: -5502
+  m_InstanceId: -742472

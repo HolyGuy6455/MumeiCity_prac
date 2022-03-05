@@ -13,8 +13,13 @@ public class AchievementManager : MonoBehaviour {
         }
     }
 
-    public void addTrial(string achievementName, int count){
-        dictionary[achievementName].trialNumber += count;
+    public void AddTrial(string achievementName, int value){
+        dictionary[achievementName].trialNumber += value;
+        GameManager.Instance.taskUIBundle.LoadTaskUIData("Achievement");
+    }
+
+    public void SetTrial(string achievementName, int value){
+        dictionary[achievementName].trialNumber = value;
         GameManager.Instance.taskUIBundle.LoadTaskUIData("Achievement");
     }
 
@@ -29,5 +34,4 @@ public class Achievement{
     public string name;
     public int trialNumber;
     public int goalNumber;
-    public bool hidden;
 }

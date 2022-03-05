@@ -64,10 +64,6 @@ public class ManufacturerUI : CommonTaskUI{
             // 주문 5개 이상은 안받습니다
             return;
         }
-
-        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
-        TimeManager timeManager = GameManager.Instance.timeManager;
-        
         TaskInfo taskInfo = workPlace.taskInfos[index];
         // 재료가 충분히 있나요
         Inventory inventory = GameManager.Instance.inventory;
@@ -81,16 +77,22 @@ public class ManufacturerUI : CommonTaskUI{
         foreach (NecessaryResource necessary in taskInfo.necessaryResources){
             inventory.ConsumeItem(necessary.itemDataName,necessary.amount);
         }
-        // 첫번째로 만들고 있는거 완성 예약
+        TakeReservation(index);
+        manufacturerData.amount[index] += 1;
+        manufacturerTaskUIArray[index].UpdateUI(taskInfo);
+    }
+
+    private void TakeReservation(int index){
+        TimeManager timeManager = GameManager.Instance.timeManager;
+        TaskInfo taskInfo = workPlace.taskInfos[index];
+
+        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
         TimeEventQueueTicket ticket = timeManager.AddTimeEventQueueTicket(taskInfo.requiredTime,ticketName, ManufactureComplete);
         manufacturerTaskUIArray[index].ChangeValue(0.01f);
-
-        manufacturerData.amount[index] += 1;
+        
         if(ticket != null){
             manufacturerData.dueDate[index] = ticket._delay + timeManager._timeValue;
         }
-
-        manufacturerTaskUIArray[index].UpdateUI(taskInfo);
     }
 
     public void Cancle(int index){
@@ -121,7 +123,8 @@ public class ManufacturerUI : CommonTaskUI{
         BuildingObject buildingObject = GameManager.Instance.buildingManager.FindBuildingObjectWithID(int.Parse(stringSplit[1]));
         BuildingData buildingData = buildingObject.buildingData;
         int index = int.Parse(stringSplit[3]);
-        NecessaryResource resultItem = workPlace.taskInfos[index].resultItem;
+        WorkPlace workPlaceNow = buildingObject.GetComponent<WorkPlace>();
+        NecessaryResource resultItem = workPlaceNow.taskInfos[index].resultItem;
 
         ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(resultItem.itemDataName));
         itemSlotData.amount = resultItem.amount;
@@ -131,11 +134,10 @@ public class ManufacturerUI : CommonTaskUI{
         manufacturerData.amount[index] -= 1;
         Debug.Log("Remain : " + manufacturerData.amount[index]);
         if(manufacturerData.amount[index] > 0){
-            Manufacture(index);
-            manufacturerData.amount[index] -= 1;
+            TakeReservation(index);
         }
 
-        TaskInfo taskInfo = workPlace.taskInfos[index];
+        TaskInfo taskInfo = workPlaceNow.taskInfos[index];
         manufacturerTaskUIArray[index].UpdateUI(taskInfo);
 
         UpdateUI();

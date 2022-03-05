@@ -1,61 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1261906382727459989
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 9219854325834517335}
-  - component: {fileID: 4434847431213327604}
-  m_Layer: 0
-  m_Name: Shadow2D
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &9219854325834517335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261906382727459989}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4837827576469051085}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
---- !u!114 &4434847431213327604
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1261906382727459989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShadowGroup: 0
-  m_HasRenderer: 0
-  m_UseRendererSilhouette: 1
-  m_CastsShadows: 1
-  m_SelfShadows: 0
-  m_ApplyToSortingLayers: 557cc9c8b329443700000000c7aa927a
-  m_ShapePath:
-  - {x: -0.41305017, y: -0.39056894, z: -0.0000036481433}
-  - {x: 0.40463233, y: -0.3998057, z: -0.0000021312462}
-  - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
-  m_ShapePathHash: -871709738
-  m_Mesh: {fileID: 0}
-  m_InstanceId: -6380
 --- !u!1 &2885028526968154516
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,11 +122,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3419578347904371463}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12, y: 1, z: -15}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4837827576469051085}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!135 &6302352451135041779
 SphereCollider:
@@ -213,10 +157,10 @@ MonoBehaviour:
   _interactEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeGameTab
-        m_Mode: 5
+      - m_Target: {fileID: 2464356784723725537}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -259,7 +203,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1210696379432638625}
-  - {fileID: 9219854325834517335}
   - {fileID: 8578527939890690681}
   - {fileID: 5672504395836058323}
   - {fileID: 2854202959069130912}
@@ -303,7 +246,7 @@ MonoBehaviour:
     mediocrityData:
       content: 
   spriteRenderer: {fileID: 2150183074733892328}
-  shadowObject: {fileID: 1261906382727459989}
+  shadowObject: {fileID: 0}
   removalTool:
   - tool: 4
     damage: 5
@@ -354,7 +297,7 @@ Animator:
   m_GameObject: {fileID: 4837827576469051087}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d292f6cdb79d9d344ba53222cb33b9f8, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e6a1dad40063cd4781d7495492c1a02, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -422,7 +365,7 @@ MonoBehaviour:
     - itemDataName: Meat
       amount: 1
     resultItem:
-      itemDataName: GrilledMeat
+      itemDataName: Grilled Meat
       amount: 1
     resultUpgrade: 
     requiredTime: 10
@@ -467,7 +410,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4837827576469051085}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5517038249093403188
 MonoBehaviour:
@@ -539,7 +482,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 4837827576469051085}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &2733944483483801746
 SpriteRenderer:
@@ -621,7 +564,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4837827576469051085}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
 --- !u!212 &2150183074733892328
 SpriteRenderer:
@@ -663,7 +606,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: de2dd8db9cba0cb428255c909ee6e4bb, type: 3}
+  m_Sprite: {fileID: -4109412795537874883, guid: 40d2e18717871f84791d0a7f0f6997da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

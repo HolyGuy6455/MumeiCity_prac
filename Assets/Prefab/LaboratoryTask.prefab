@@ -1032,7 +1032,7 @@ MonoBehaviour:
   resourceView3: {fileID: 1553221407860310525}
   researchButton: {fileID: 911977969069453766}
   cancleButton: {fileID: 5403943919030483521}
-  doneObject: {fileID: 0}
+  doneObject: {fileID: 6532087225096598949}
   processBars: {fileID: 78620613356015762}
 --- !u!1 &6532087225096598949
 GameObject:

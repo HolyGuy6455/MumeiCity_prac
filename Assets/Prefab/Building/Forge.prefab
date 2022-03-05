@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -0.6100869, y: 0.05110403, z: 0.0000008923509}
   m_ShapePathHash: 1701793275
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6742
+  m_InstanceId: -743776
 --- !u!1 &3590947315448464182
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,9 +390,45 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  hiringPerson: 0
+  hiringPerson: 1
   jobID: 2
-  taskInfos: []
+  taskInfos:
+  - name: Crafting Shovel
+    guideSprite: {fileID: 21300000, guid: f736ea1bbd1ace84ba72ebb2bb148fae, type: 3}
+    info: 
+    taskType: 1
+    necessaryResources:
+    - itemDataName: Iron
+      amount: 3
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: unlockAxe
+    requiredTime: 50
+  - name: Crafting Skillet
+    guideSprite: {fileID: 21300000, guid: 1df3f807c105f7441aed7d58ae1022a6, type: 3}
+    info: 
+    taskType: 1
+    necessaryResources:
+    - itemDataName: Iron
+      amount: 5
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: unlockSkillet
+    requiredTime: 50
+  - name: Crafting Hammer
+    guideSprite: {fileID: 21300000, guid: 6b8badf8c2f5f754fbddcf9efdd2d30e, type: 3}
+    info: 
+    taskType: 1
+    necessaryResources:
+    - itemDataName: Iron
+      amount: 5
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: unlockHammer
+    requiredTime: 50
 --- !u!1 &7376713694307776016
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,10 +572,10 @@ MonoBehaviour:
   _interactEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ChangeGameTab
-        m_Mode: 5
+      - m_Target: {fileID: 114987358}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

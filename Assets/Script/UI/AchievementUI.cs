@@ -9,6 +9,7 @@ public class AchievementUI : MonoBehaviour{
     [SerializeField] GameObject KroniiEra;
     [SerializeField] GameObject SanaEra;
     [SerializeField] GameObject BaelzOrdeal;
+    [SerializeField] RectTransform eraTranstorm;
     [SerializeField] Text eraTitle;
     GameObject selectedObject;
     [SerializeField] string selected;
@@ -60,6 +61,9 @@ public class AchievementUI : MonoBehaviour{
         foreach (AchievementView achievementView in achievementViews){
             achievementView.UpdateUI();
         }
+        RectTransform selectedRectTransform = selectedObject.GetComponent<RectTransform>();
+        eraTranstorm.sizeDelta = selectedRectTransform.sizeDelta;
+        eraTranstorm.transform.localPosition = new Vector3(0,-eraTranstorm.sizeDelta.y/4);
         eraTitle.text = selected;
     }
 }

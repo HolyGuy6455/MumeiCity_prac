@@ -104,12 +104,19 @@ MonoBehaviour:
   m_SelfShadows: 0
   m_ApplyToSortingLayers: 557cc9c8b329443700000000c7aa927a
   m_ShapePath:
-  - {x: -0.41305017, y: -0.39056894, z: -0.0000036481433}
-  - {x: 0.40463233, y: -0.3998057, z: -0.0000021312462}
-  - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
-  m_ShapePathHash: -871709738
+  - {x: -0.44639206, y: -0.37329575, z: -0.0000045973948}
+  - {x: 0.43304873, y: -0.3753713, z: -0.0000028273148}
+  - {x: 0.43547535, y: -0.088984154, z: -0.00000031277557}
+  - {x: 0.51106787, y: -0.089298256, z: 0.000000045459373}
+  - {x: 0.37242126, y: 0.2444531, z: -0.00000054633495}
+  - {x: 0.17316914, y: 0.3414948, z: -0.0000051994716}
+  - {x: -0.23343563, y: 0.3482676, z: -0.00000028907843}
+  - {x: -0.41844082, y: 0.24041888, z: -0.0000006307987}
+  - {x: -0.49892855, y: -0.09267545, z: -0.0000009135237}
+  - {x: -0.4367342, y: -0.09225723, z: -0.00000019174135}
+  m_ShapePathHash: -621971847
   m_Mesh: {fileID: 0}
-  m_InstanceId: -5800
+  m_InstanceId: -743720
 --- !u!1 &6582110985806689423
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +235,7 @@ Transform:
   - {fileID: 6568698085303034730}
   - {fileID: 6041078656275780164}
   - {fileID: 7666248083278643950}
+  - {fileID: 3337926202276884655}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,7 +354,17 @@ MonoBehaviour:
     idString: 
   hiringPerson: 0
   jobID: 4
-  taskInfos: []
+  taskInfos:
+  - name: Harvest Wheat
+    guideSprite: {fileID: 21300000, guid: 091c6f6684ca40e478312c4f3ddc5f9e, type: 3}
+    info: 
+    taskType: 3
+    necessaryResources: []
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: 
+    requiredTime: 0
 --- !u!1 &7989788089465676726
 GameObject:
   m_ObjectHideFlags: 0
@@ -429,3 +447,76 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8548505448580243255
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3337926202276884655}
+  - component: {fileID: 4668571792713945606}
+  - component: {fileID: 5361391550588520222}
+  m_Layer: 0
+  m_Name: InteractTrigger
+  m_TagString: Interactable
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3337926202276884655
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548505448580243255}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7491841603656974064}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &4668571792713945606
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548505448580243255}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5361391550588520222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8548505448580243255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef798977ef76e4c4c971e243e7d80a49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactType: 1
+  _interactEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1738731366}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Interact
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Superintedent
+          m_BoolArgument: 0
+        m_CallState: 2

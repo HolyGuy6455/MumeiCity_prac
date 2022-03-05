@@ -36,4 +36,8 @@ public class WorkPlace : MonoBehaviour{
         GameManager.Instance.interactingBuilding = this.buildingObject;
         GameManager.Instance.ChangeGameTab(gameTab);
     }
+
+    public void Interact(){
+        GameManager.Instance.ChangeGameTab(gameTab);
+    }
 }

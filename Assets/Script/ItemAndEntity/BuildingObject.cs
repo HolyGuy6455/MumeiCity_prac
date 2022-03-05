@@ -41,6 +41,10 @@ public class BuildingObject : MonoBehaviour
                 case GameManager.GameTab.LABORATORY:
                     LaboratoryData laboratoryData = new LaboratoryData();
                     laboratoryData.dueDate = new int[workPlace.taskInfos.Count];
+                    for (int i = 0; i < workPlace.taskInfos.Count; i++){
+                        laboratoryData.dueDate[i] = int.MaxValue;
+                    }
+                    buildingData.mediocrityData = laboratoryData;
                     break;
 
                 default:
@@ -85,6 +89,10 @@ public class BuildingObject : MonoBehaviour
         if(gameManager != null){
             gameManager.buildingManager.astarPath.Scan();
         }
+    }
+
+    public void ChangeGameTab(string gametab){
+        GameManager.Instance.ChangeGameTab(gametab);
     }
 
 }

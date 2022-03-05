@@ -3,7 +3,7 @@ using System;
 [Serializable]
 public class LaboratoryData : MediocrityData{
     // 연구소 추가 정보
-    public int[] dueDate;
+    public int[] dueDate = new int[3];
 
     public override void ReloadMediocrityData(){
         string[] splitString = this.content.Split();

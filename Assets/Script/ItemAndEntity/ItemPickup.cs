@@ -37,7 +37,7 @@ public class ItemPickup : MonoBehaviour
         bool isItDone = GameManager.Instance.inventory.AddItem(this.ProcessToItemSlotData());
         GameManager.Instance.sence_.CleanReservation();
         if(isItDone){
-            GameManager.Instance.achievementManager.addTrial("PickUpItem",1);
+            GameManager.Instance.achievementManager.AddTrial("PickUpItem",1);
             Destroy(gameObject);
         }
     }
