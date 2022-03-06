@@ -12,6 +12,7 @@ public class ConstructionArea : MonoBehaviour
     [SerializeField] BoxCollider boxCollider;
     private BuildingPreset buildingData;
     public UnityEvent eventCallBack;
+    public bool show;
 
     public bool isThereObstacle(){
         bool result = (colliderOverlaped.Count != 0);
@@ -24,8 +25,7 @@ public class ConstructionArea : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update(){
         Vector3 newPosition = new Vector3();
         newPosition.x = Mathf.Round(followTransform.position.x + ((buildingData is null)?0:buildingData.relativeLocation.x));
         newPosition.y = Mathf.Round(followTransform.position.y + ((buildingData is null)?0:buildingData.relativeLocation.y));
@@ -35,7 +35,7 @@ public class ConstructionArea : MonoBehaviour
 
     public void SetBuildingData(BuildingPreset buildingData){
         this.buildingData = buildingData;
-        if(buildingData == null){
+        if(buildingData == null || !show){
             sprite.sprite = null;
             this.transform.localScale = new Vector3(1,1,1);
         }else{

@@ -2,8 +2,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class ItemSlot : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler
-{
+public class ItemSlot : MonoBehaviour, 
+                        IPointerEnterHandler, 
+                        IPointerClickHandler{
     public delegate void InventorySlotEvent(ItemSlot inventorySlot, PointerEventData eventData);
     public InventorySlotEvent onFocusCallback;
     public InventorySlotEvent onClickCallback;

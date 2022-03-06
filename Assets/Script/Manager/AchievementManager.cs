@@ -23,6 +23,11 @@ public class AchievementManager : MonoBehaviour {
         GameManager.Instance.taskUIBundle.LoadTaskUIData("Achievement");
     }
 
+    public bool isDone(string achievementName){
+        Achievement achievement = dictionary[achievementName];
+        return achievement.trialNumber >= achievement.goalNumber;
+    }
+
     public Achievement GetAchievementInfo(string name){
         return dictionary[name];
     }

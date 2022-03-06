@@ -20,7 +20,20 @@ public class WorkPlace : MonoBehaviour{
     private bool HirePerson(string ticketName){
         if(hiringPerson && buildingObject.buildingData.workerID == 0){
             List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
-            people = people.FindAll(person => (person != null)&&((person as PersonBehavior).personData.workplaceID == 0) );
+            people = people.FindAll(
+                delegate(PersonBehavior person){
+                    if(person == null){
+                        return false;
+                    }
+                    if(person.personData.growth < 1.0f){
+                        return false;
+                    }
+                    if(person.personData.workplaceID != 0){
+                        return false;
+                    }
+                    return true;
+                }
+            );
             if(people.Count > 0){
                 people[0].personData.workplaceID = this.buildingObject.buildingData.id;
                 this.buildingObject.buildingData.workerID = people[0].personData.id;

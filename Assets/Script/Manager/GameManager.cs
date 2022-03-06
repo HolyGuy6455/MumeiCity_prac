@@ -157,6 +157,12 @@ public class GameManager : MonoBehaviour
             case "Laboratory":
                 ChangeGameTab(GameTab.LABORATORY);
                 break;
+            case "GuideBook":
+                ChangeGameTab(GameTab.GUIDE_BOOK);
+                break;
+            case "Achievement":
+                ChangeGameTab(GameTab.ACHIEVEMENT);
+                break;
             default:
                 break;
         }
@@ -226,6 +232,7 @@ public class GameManager : MonoBehaviour
         }
 
         playerMovement.stop = !playerMovementEnabled;
+        buildingManager.constructionArea.show = buildingShow;
         if(!buildingShow){
             buildingManager.constructionArea.SetBuildingData(null);
         }
@@ -375,21 +382,26 @@ public class GameManager : MonoBehaviour
 
     public void QuitGame(){
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        // UnityEditor.EditorApplication.isPlaying = false;
     }
 
-    public void SetResolution(Resolution resolution){
+    public void SetResolution(string resolution){
         switch (resolution)
         {
-            case Resolution.R_720_1280:
-                Screen.SetResolution(720, 1280, false);
+            case "640_360":
+                Screen.SetResolution(640, 360, false);
+                break;
+            case "1024_576":
+                Screen.SetResolution(1024, 576, false);
+                break;
+            case "1600_900":
+                Screen.SetResolution(1600, 900, false);
+                break;
+            case "1920_1080":
+                Screen.SetResolution(1920, 1080, false);
                 break;
             default:
                 break;
         }
-    }
-    public enum Resolution{
-        BASIC,
-        R_720_1280
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -18,7 +19,21 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] Sprite selectedToolSprite;
     [SerializeField] Sprite otherToolSprite;
     [SerializeField] Button buildButton;
+    [SerializeField] GameObject ready;
+    [SerializeField] GameObject notReady;
+    [SerializeField] Image toolNotReady;
+    [SerializeField] Image buildingToolNeedsImage;
+    [SerializeField] Text buildingToolNeedsText;
     RectTransform buildingArticlesListRect;
+    [SerializeField] List<ToolInfo> toolInfos;
+    Dictionary<ToolType,ToolInfo> toolInfoDictionary;
+
+    void Awake() {
+        toolInfoDictionary = new Dictionary<ToolType, ToolInfo>();
+        foreach (ToolInfo info in toolInfos){
+            toolInfoDictionary[info.toolType] = info;
+        }
+    }
 
     // Start is called before the first frame update
     void Start(){
@@ -32,6 +47,19 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void UpdateUI(){
         ToolType nowUsing = GameManager.Instance.GetToolNowHold();
+        ToolInfo toolInfo = toolInfoDictionary[nowUsing];
+        bool isUnlock = GameManager.Instance.achievementManager.isDone(toolInfo.unlockKey);
+        if(!isUnlock){
+            ready.SetActive(false);
+            notReady.SetActive(true);
+            toolNotReady.sprite = toolInfo.toolSprite;
+            BuildingPreset buildingPreset = BuildingManager.GetBuildingPreset(toolInfo.buildingNeeds);
+            buildingToolNeedsText.text = buildingPreset.name;
+            buildingToolNeedsImage.sprite = buildingPreset.sprite;
+            return;
+        }
+        ready.SetActive(true);
+        notReady.SetActive(false);
         buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing);
         int minCount = Mathf.Max(buildingDataList.Count,5);
         int selectedTool = GameManager.Instance._selectedTool;
@@ -110,4 +138,13 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
+}
+
+[Serializable]
+public class ToolInfo{
+    public string name;
+    public ToolType toolType;
+    public Sprite toolSprite;
+    public string unlockKey;
+    public string buildingNeeds;
 }

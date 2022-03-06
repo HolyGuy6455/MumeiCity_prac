@@ -38,6 +38,7 @@
   <ItemGroup>
      <Compile Include="Assets\Script\Data\AnimalData.cs" />
      <Compile Include="Assets\Script\Data\HouseData.cs" />
+     <Compile Include="Assets\Script\UI\LaboratoryTaskUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
      <Compile Include="Assets\Script\UI\PersonStatusView.cs" />
@@ -141,7 +142,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\LaboratoryTaskUI.cs" />
+     <Compile Include="Assets\Script\UI\TooltipArea.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />
