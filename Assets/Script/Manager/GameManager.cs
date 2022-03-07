@@ -45,7 +45,6 @@ public class GameManager : MonoBehaviour
         LABORATORY,
         GUIDE_BOOK,
         ACHIEVEMENT
-
     }
     public GameTab presentGameTab;
     private GameTab pastGameTab;

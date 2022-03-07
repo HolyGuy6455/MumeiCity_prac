@@ -118,10 +118,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637822897173099009
+  lastModified: 637822998282302364
   FileSizes:
   - Name: Desktop
-    Value: 245600
+    Value: 378496
   Exists: 1
 --- !u!114 &-4657252325193411825
 MonoBehaviour:
@@ -188,39 +188,11 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 637822897172071758
+  lastModified: 637822998281075636
   FileSizes:
   - Name: Desktop
     Value: 5734400
   Exists: 1
---- !u!114 &-3874631876328282729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SFX/AxeAttack
-  m_EditorClassIdentifier: 
-  Path: event:/SFX/AxeAttack
-  Guid:
-    Data1: 865452042
-    Data2: 1117985956
-    Data3: -1169649745
-    Data4: 522165143
-  Banks:
-  - {fileID: -6474620243836053260}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters:
-  - {fileID: 5888056958512998297}
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-3521112743355119335
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,17 +299,45 @@ MonoBehaviour:
   - {fileID: 2977721817974072148}
   - {fileID: -9137506530490875230}
   - {fileID: -3521112743355119335}
-  - {fileID: -3874631876328282729}
   - {fileID: -39803659910999072}
   - {fileID: 4577416960149098711}
   - {fileID: 1105068503254670222}
+  - {fileID: 739709346965894061}
   EditorParameters: []
   MasterBanks:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637822897173348346
+  cacheTime: 637822998282601590
   cacheVersion: 10
+--- !u!114 &739709346965894061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SFX/HitSound
+  m_EditorClassIdentifier: 
+  Path: event:/SFX/HitSound
+  Guid:
+    Data1: 865452042
+    Data2: 1117985956
+    Data3: -1169649745
+    Data4: 522165143
+  Banks:
+  - {fileID: -6474620243836053260}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters:
+  - {fileID: 2122576408583811581}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &1105068503254670222
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +365,40 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &2122576408583811581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitSound/HitTarget
+  m_EditorClassIdentifier: 
+  Name: HitTarget
+  StudioPath: 
+  Min: 0
+  Max: 9
+  Default: 0
+  ID:
+    data1: 2459149060
+    data2: 565810938
+  Type: 2
+  IsGlobal: 0
+  Labels:
+  - None
+  - Whip
+  - Entity
+  - Stone
+  - Crop
+  - Wood
+  - Collapse
+  - Chest
+  - Whine
+  - Player
+  Exists: 1
 --- !u!114 &2977721817974072148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -408,10 +442,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637822897172480681
+  lastModified: 637822998281484542
   FileSizes:
   - Name: Desktop
-    Value: 1564
+    Value: 1562
   Exists: 1
 --- !u!114 &4577416960149098711
 MonoBehaviour:
@@ -440,34 +474,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &5888056958512998297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/AxeAttack/HitTarget
-  m_EditorClassIdentifier: 
-  Name: HitTarget
-  StudioPath: 
-  Min: 0
-  Max: 3
-  Default: 0
-  ID:
-    data1: 2459149060
-    data2: 565810938
-  Type: 2
-  IsGlobal: 0
-  Labels:
-  - None
-  - Wood
-  - Stone
-  - Crop
-  Exists: 1
 --- !u!114 &6510282880341464083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -507,7 +513,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Entity.bank
   Name: Entity
   StudioPath: bank:/Entity
-  lastModified: 637822897172390920
+  lastModified: 637822998281404753
   FileSizes:
   - Name: Desktop
     Value: 55552
@@ -527,7 +533,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 637822897173348346
+  lastModified: 637822998282601590
   FileSizes:
   - Name: Desktop
     Value: 16992
@@ -547,7 +553,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637822897172440779
+  lastModified: 637822998281454626
   FileSizes:
   - Name: Desktop
     Value: 1036

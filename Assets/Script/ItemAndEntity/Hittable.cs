@@ -34,6 +34,7 @@ public class Hittable : MonoBehaviour
             return;
         }
         HP -= damage;
+        // hitSound.TriggerOnce
 
         if(HP<=0){
             animator.SetBool("isDead",true);

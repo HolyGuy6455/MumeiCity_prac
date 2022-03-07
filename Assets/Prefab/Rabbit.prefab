@@ -216,6 +216,7 @@ Transform:
   - {fileID: 909571268550559593}
   - {fileID: 4351528188754311574}
   - {fileID: 5903050249437631355}
+  - {fileID: 4741186515283181678}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -268,7 +269,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 909571268637782953}
   HP: 1
+  HPMax: 10
   hitBoxCollider: {fileID: 909571268550559594}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 0
 --- !u!114 &992389515
 MonoBehaviour:
@@ -283,11 +291,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - preset: {fileID: 11400000, guid: 947a5abf120e257409c2703fbeca4401, type: 2}
+  - itemName: 
     chance: 0.8
     itemDropType: 1
-  - preset: {fileID: 11400000, guid: 48e9086d56adc764b8602b6b8c2f6659, type: 2}
-    chance: 0.3
+  - itemName: 
+    chance: 1
     itemDropType: 1
 --- !u!114 &1056327642
 MonoBehaviour:
@@ -406,14 +414,80 @@ MonoBehaviour:
   removalTool:
   - tool: 2
     damage: 3
+    minHP: 0
   - tool: 10
     damage: 3
+    minHP: 0
   animalData:
     animalName: 
+    position: {x: 0, y: 0, z: 0}
     cautionLevel: 0
   walkAroundRangeMin: 3
   walkAroundRangeMax: 5
   jumpPower: 7
+--- !u!1 &4429011072476486408
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4741186515283181678}
+  - component: {fileID: 878541178512805337}
+  m_Layer: 8
+  m_Name: HitSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4741186515283181678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429011072476486408}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.3699999, y: -1, z: 18.41}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 909571268637782959}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &878541178512805337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4429011072476486408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 865452042
+      Data2: 1117985956
+      Data3: -1169649745
+      Data4: 522165143
+    Path: event:/SFX/HitSound
+  Event: 
+  PlayEvent: 11
+  StopEvent: 12
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: HitTarget
+    Value: 8
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &7870593606876094272
 GameObject:
   m_ObjectHideFlags: 0
