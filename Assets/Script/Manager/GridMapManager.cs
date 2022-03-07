@@ -21,6 +21,7 @@ public class GridMapManager : MonoBehaviour{
     int xMax = 3;
     int yMax = 3;
     [SerializeField] bool[,] waterArray;
+    [SerializeField] float[,] heightArray;
 
     public enum GroundLevel{
         B1,
@@ -57,7 +58,7 @@ public class GridMapManager : MonoBehaviour{
         xMax = bounds.size.x;
         yMax = bounds.size.y;
         waterArray = new bool[xMax,yMax];
-
+        heightArray = new float[xMax,yMax];
 
         for (int x = 0; x < xMax; x++){
             for (int y = 0; y < yMax; y++){
@@ -67,6 +68,7 @@ public class GridMapManager : MonoBehaviour{
                 float defaultLevel = GetFloorHeight(x,y,true);
                 newGroundObject.transform.Translate(0,defaultLevel,0);
                 waterArray[x,y] = isWater(x,y);
+                heightArray[x,y] = defaultLevel;
             }
         }
         Vector3 origin = invisibleTilemap.origin;
@@ -155,5 +157,12 @@ public class GridMapManager : MonoBehaviour{
         int x = (int)(vector.x - groundParentLocation.x);
         int y = (int)((vector.z - groundParentLocation.z)/1.5f);
         return waterArray[x,y];
+    }
+
+    public float amIInCave(Vector3 vector){
+        Vector3 groundParentLocation = groundParent.transform.position;
+        int x = (int)(vector.x - groundParentLocation.x);
+        int y = (int)((vector.z - groundParentLocation.z)/1.5f);
+        return heightArray[x,y];
     }
 }

@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour{
     public Transform shadow;
     [SerializeField] Animator shadowAnimator;
     [SerializeField] bool isInWater;
+    [SerializeField] float playerHeight;
     RaycastHit hit;
     bool isRaycastHit;
     int groundLayerMask;
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] float ITEM_DROP_RANGE = 10.0f;
     [SerializeField] float ITEM_DROP_JUMP = 10.0f;
     Dictionary<ToolType,int> toolActionDictionary;
+    [SerializeField] FMODUnity.StudioEventEmitter footstepSound;
 
     // [SerializeField] Sence sence;
 
@@ -39,12 +41,12 @@ public class PlayerMovement : MonoBehaviour{
         toolActionDictionary[ToolType.HAMMER] = 6;
     }
 
-    void Update()
-    {
+    void Update(){
         if(stop){
             movement.x = 0;
             movement.z = 0;
         }
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
@@ -144,16 +146,20 @@ public class PlayerMovement : MonoBehaviour{
 
     void FixedUpdate() {
         isInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
+        playerHeight = GameManager.Instance.gridMapManager.amIInCave(rigidBody.transform.position);
 
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
         shadow.position = hit.point + new Vector3(0,0,-0.2f);
         if(isInWater && rigidBody.position.y < 0){
             shadow.position = new Vector3(shadow.position.x,0,shadow.position.z);
             shadowAnimator.SetBool("amIInWater",true);
+            footstepSound.SetParameter("OnGround",1);
+            
         }else{
             shadowAnimator.SetBool("amIInWater",false);
+            footstepSound.SetParameter("OnGround",0);
         }
-        
+        footstepSound.SetParameter("Cave",1-playerHeight);
 
         bool HorizontalRayCast = Physics.Raycast(this.transform.position, new Vector3(movement.x,0,0), 0.5f, groundLayerMask);
         bool VerticalRayCast = Physics.Raycast(this.transform.position, new Vector3(0,0,movement.z), 0.5f, groundLayerMask);
@@ -166,7 +172,14 @@ public class PlayerMovement : MonoBehaviour{
         if(isJump){
             rigidBody.AddForce(new Vector3(movement.x * jumpRange,1.0f * jumpPower,movement.z * jumpRange),ForceMode.Impulse);
             isJump = false;
+            footstepSound.SetParameter("isJump",1);
+            footstepSound.SetParameter("Movement",1);
+        }else if(rigidBody.velocity.y <= 0 && IsGrounded()){
+            float movementSpeed = movementTemp.magnitude / slowSpeed;
+            footstepSound.SetParameter("isJump",0);
+            footstepSound.SetParameter("Movement",movementSpeed);
         }
+
     }
 
     void SlowDown(float slowSpeed){

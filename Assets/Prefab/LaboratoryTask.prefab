@@ -1034,6 +1034,11 @@ MonoBehaviour:
   cancleButton: {fileID: 5403943919030483521}
   doneObject: {fileID: 6532087225096598949}
   processBars: {fileID: 78620613356015762}
+  requiredTime: 0
+  dueDate: 0
+  presentTime: 0
+  remainingTime: 0
+  remainingPercent: 0
 --- !u!1 &6532087225096598949
 GameObject:
   m_ObjectHideFlags: 0
