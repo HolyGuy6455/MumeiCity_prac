@@ -17,7 +17,8 @@ MonoBehaviour:
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: 9092517261266139881, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   info: 
-  attributes: []
+  attributes:
+  - Crop
   buildTool: 5
   removalTool:
   - tool: 2

@@ -139,6 +139,78 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_1",
+                    "type": "Button",
+                    "id": "f7bc4839-72da-4a93-8a48-5a7e3a92e5f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_2",
+                    "type": "Button",
+                    "id": "2c56e444-aa58-4f92-8881-de2a38cc5311",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_3",
+                    "type": "Button",
+                    "id": "69cdc430-ba59-4794-8fe8-b2f0c68828a1",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_4",
+                    "type": "Button",
+                    "id": "f99d0504-c052-4416-ae87-87d7a34e87fc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_5",
+                    "type": "Button",
+                    "id": "863699fc-43eb-4b29-81fc-a9ecf090d541",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_6",
+                    "type": "Button",
+                    "id": "da9d0a47-d8e4-4943-aa04-c9bd228598c9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_7",
+                    "type": "Button",
+                    "id": "57f5cfe7-95ee-4486-867f-929c95137b7f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "ToolShortcut_8",
+                    "type": "Button",
+                    "id": "607ae8ed-f093-4f74-91a6-6312957b98b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -321,7 +393,7 @@
                 {
                     "name": "",
                     "id": "89c60b93-bfa5-41da-9a28-ffd63212ac81",
-                    "path": "<Keyboard>/e",
+                    "path": "<Keyboard>/v",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -365,7 +437,7 @@
                 {
                     "name": "",
                     "id": "d1e1add7-f6e0-41eb-b732-ca42d85b38f0",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/x",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
@@ -546,6 +618,94 @@
                     "processors": "",
                     "groups": "Keyboard",
                     "action": "MousePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "57211f8f-a4f1-437d-984d-201d00aaa510",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6158f974-7df8-4486-93a2-6a40dfdcee1d",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0eb7abcb-c2e5-4ebd-a0b0-65e9f0ff8c66",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_3",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a7633f37-7357-47c0-a9ef-23d78623618b",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_4",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a10a5d49-3982-4def-b139-cff130fbfcb1",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_5",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "54d85f3e-c23e-4ba8-9d22-9920e145e507",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_6",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "58235e67-28a5-4cda-9259-9d6de17ca401",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_7",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3d5d0ee5-191c-4863-8565-1e4f70ec1420",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToolShortcut_8",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

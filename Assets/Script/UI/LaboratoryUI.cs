@@ -37,7 +37,7 @@ public class LaboratoryUI : CommonTaskUI{
         if(workPlace == null){
             return;
         }
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < workPlace.taskInfos.Count; i++){
             TaskInfo taskInfo = workPlace.taskInfos[i];
             int requiredTime = taskInfo.requiredTime;
             int dueDate = laboratoryData.dueDate[i];

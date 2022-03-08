@@ -73,7 +73,7 @@ MonoBehaviour:
   - {fileID: -4118517468268974819}
   IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters:
   - {fileID: -6503630672584187063}
   MinDistance: 1
@@ -118,10 +118,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637822998282302364
+  lastModified: 637823440566650650
   FileSizes:
   - Name: Desktop
-    Value: 378496
+    Value: 391200
   Exists: 1
 --- !u!114 &-4657252325193411825
 MonoBehaviour:
@@ -188,10 +188,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 637822998281075636
+  lastModified: 637823440565384034
   FileSizes:
   - Name: Desktop
-    Value: 5734400
+    Value: 5734528
   Exists: 1
 --- !u!114 &-3521112743355119335
 MonoBehaviour:
@@ -308,7 +308,7 @@ MonoBehaviour:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637822998282601590
+  cacheTime: 637823440566929898
   cacheVersion: 10
 --- !u!114 &739709346965894061
 MonoBehaviour:
@@ -380,7 +380,7 @@ MonoBehaviour:
   Name: HitTarget
   StudioPath: 
   Min: 0
-  Max: 9
+  Max: 10
   Default: 0
   ID:
     data1: 2459149060
@@ -398,6 +398,7 @@ MonoBehaviour:
   - Chest
   - Whine
   - Player
+  - Bang
   Exists: 1
 --- !u!114 &2977721817974072148
 MonoBehaviour:
@@ -442,7 +443,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637822998281484542
+  lastModified: 637823440565852784
   FileSizes:
   - Name: Desktop
     Value: 1562
@@ -513,7 +514,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Entity.bank
   Name: Entity
   StudioPath: bank:/Entity
-  lastModified: 637822998281404753
+  lastModified: 637823440565743094
   FileSizes:
   - Name: Desktop
     Value: 55552
@@ -533,7 +534,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 637822998282601590
+  lastModified: 637823440566929898
   FileSizes:
   - Name: Desktop
     Value: 16992
@@ -553,7 +554,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637822998281454626
+  lastModified: 637823440565792951
   FileSizes:
   - Name: Desktop
     Value: 1036

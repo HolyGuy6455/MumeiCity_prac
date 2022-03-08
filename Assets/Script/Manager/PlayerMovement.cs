@@ -1,12 +1,19 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour{
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] float slowSpeed = 1.0f;
     [SerializeField] float jumpPower = 7.0f;
     [SerializeField] float jumpRange = 3.0f;
+    public int stemina = 0;
+    public int steminaConsumption = 50;
+    public int steminaRechargeAmount = 10;
+    public int steminaMax = 100;
+    [SerializeField] TimeEventQueueTicket steminaRechargeEvent;
+    [SerializeField] Slider steminaGauge;
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] Animator animator;
     [SerializeField] bool isJump = false;
@@ -39,6 +46,9 @@ public class PlayerMovement : MonoBehaviour{
         toolActionDictionary[ToolType.PICKAXE] = 4;
         toolActionDictionary[ToolType.SHOVEL] = 5;
         toolActionDictionary[ToolType.HAMMER] = 6;
+
+        string ticketName = "Player_Stemina_Recharge";
+        steminaRechargeEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, SteminaRecharge);
     }
 
     void Update(){
@@ -75,7 +85,13 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public void OnJump(InputAction.CallbackContext value){
-        if(value.started && jumpCapable && IsGrounded()){
+        if(value.started && jumpCapable && IsGrounded() && (stemina >= steminaConsumption)){
+            isJump = true;
+        }
+    }
+
+    public void OnJump(){
+        if(jumpCapable && IsGrounded() && (stemina >= steminaConsumption)){
             isJump = true;
         }
     }
@@ -174,12 +190,23 @@ public class PlayerMovement : MonoBehaviour{
             isJump = false;
             footstepSound.SetParameter("isJump",1);
             footstepSound.SetParameter("Movement",1);
+            stemina -= steminaConsumption;
         }else if(rigidBody.velocity.y <= 0 && IsGrounded()){
             float movementSpeed = movementTemp.magnitude / slowSpeed;
             footstepSound.SetParameter("isJump",0);
             footstepSound.SetParameter("Movement",movementSpeed);
         }
 
+    }
+
+    public bool SteminaRecharge(string ticketName){
+        if(stemina + steminaRechargeAmount > steminaMax){
+            stemina = steminaMax;
+        }else{
+            stemina += steminaRechargeAmount;
+        }
+        steminaGauge.value = (float)stemina/(float)steminaMax;
+        return false;
     }
 
     void SlowDown(float slowSpeed){

@@ -377,7 +377,7 @@ MonoBehaviour:
   Preload: 0
   Params:
   - Name: HitTarget
-    Value: 6
+    Value: 7
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

@@ -21,4 +21,12 @@ public class CameraManager : MonoBehaviour {
     public void OnScroll(InputAction.CallbackContext value){
         zoomValue = value.ReadValue<float>();
     }
+
+    public void OnZoom(float value){
+        zoom += value;
+    }
+
+    public void test(InputAction.CallbackContext value){
+        Debug.Log(value.ReadValue<float>());
+    }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] HitCollision hitCollision;
     [SerializeField] HitCollision heatCollision;
     public SpriteRenderer ToolView;
+    public Image ToolUIImage;
     public PlayerMovement playerMovement;
     public Inventory inventory;
     public BuildingManager buildingManager;
@@ -25,13 +27,11 @@ public class GameManager : MonoBehaviour
     public AchievementManager achievementManager;
     public TaskUIBundle taskUIBundle;
     [SerializeField] private Animator taskUIAnimator;
-    [SerializeField] PlayerInput playerInput;
-
-    public Animator pauseAnimator;
-    bool gameIsPause = false;
+    public PlayerInput playerInput;
 
     [SerializeField] ToolType[] tools;
     [SerializeField] Sprite[] toolSprites;
+    [SerializeField] Sprite[] toolWhiteSprites;
     
     public Sprite emptySprite;
     public enum GameTab
@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public PersonBehavior nearestPerson;
     [SerializeField] InteractUI interactUI;
     [SerializeField] PersonInfoUI personInfoUI;
+    [SerializeField] PauseUI pauseUI;
     
     [SerializeField] Sence sence;
     public Sence sence_{get{return sence;}}
@@ -248,6 +249,7 @@ public class GameManager : MonoBehaviour
         }
         this.selectedTool = index;
         ToolView.sprite = toolSprites[index];
+        ToolUIImage.sprite = toolWhiteSprites[index];
         hitCollision.tool = tools[this.selectedTool];
 
         if(GetToolNowHold() == ToolType.LANTERN){
@@ -261,6 +263,10 @@ public class GameManager : MonoBehaviour
         if(!value.performed){
             return;
         }
+        OnNextTool();
+    }
+
+    public void OnNextTool(){
         if(selectedTool > tools.Length -2){
             SelectTool(0);
         }else{
@@ -275,6 +281,10 @@ public class GameManager : MonoBehaviour
         if(!value.performed){
             return;
         }
+        OnBeforeTool();
+    }
+
+    public void OnBeforeTool(){
         if(selectedTool < 1){
             SelectTool(tools.Length-1);
         }else{
@@ -322,11 +332,7 @@ public class GameManager : MonoBehaviour
             if(presentGameTab != GameTab.NORMAL){
                 OnExitTask(value);
             }else{
-                gameIsPause = true;
-                pauseAnimator.SetBool("isVisible",true);
-                Time.timeScale = 0;
-                playerMovement.enabled = false;
-                playerInput.SwitchCurrentActionMap("Pause");
+                pauseUI.Pause();
             }
         }
     }
@@ -360,17 +366,6 @@ public class GameManager : MonoBehaviour
         ChangeGameTab(GameTab.NORMAL);
     }
 
-    public void OnExitPause(InputAction.CallbackContext value){
-        if(value.performed){
-            gameIsPause = false;
-            pauseAnimator.SetBool("isVisible",false);
-            Time.timeScale = 1;
-            playerMovement.enabled = true;
-            playerInput.SwitchCurrentActionMap("PlayerControl");
-        }
-    }
-
-
     private void Awake() {
         singleton_instance = this;
     }
@@ -403,4 +398,5 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+
 }

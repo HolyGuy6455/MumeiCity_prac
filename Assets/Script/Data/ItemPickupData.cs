@@ -7,7 +7,7 @@ using System;
 public class ItemPickupData{
     public string itemName;
     public Vector3 position;
-    public int leftSecond = 30;
+    public int leftSecond = 300;
     public ItemData itemData{
         get{
             return ItemData.Instant(itemName);
@@ -17,7 +17,6 @@ public class ItemPickupData{
     public static ItemPickupData create(ItemData data){
         ItemPickupData result = new ItemPickupData();
         result.itemName = data.itemName;
-        result.leftSecond = 30;
         return result;
     }
 }
