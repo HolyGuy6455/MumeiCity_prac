@@ -98,21 +98,23 @@ public class ManufacturerUI : CommonTaskUI{
     public void Cancle(int index){
         TimeManager timeManager = GameManager.Instance.timeManager;
         string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
-
         TaskInfo taskInfo = workPlace.taskInfos[index];
+
+        if(manufacturerData.amount[index] <= 0){
+            // you can't do this!
+            return;
+        }else if(manufacturerData.amount[index] == 1){
+            timeManager.RemoveTimeEventQueueTicket(ticketName);
+            manufacturerData.dueDate[index] = timeManager._timeValue;
+            manufacturerData.amount[index] = 0;
+        }else{
+            manufacturerData.amount[index] -= 1;
+        }
 
         foreach (NecessaryResource necessary in taskInfo.necessaryResources){
             ItemSlotData itemSlotData = ItemSlotData.Create(ItemData.Instant(necessary.itemDataName));
             itemSlotData.amount = necessary.amount;
             GameManager.Instance.inventory.AddItem(itemSlotData);
-        }
-
-        if(manufacturerData.amount[index] > 1){
-            manufacturerData.amount[index] -= 1;
-        }else{
-            timeManager.RemoveTimeEventQueueTicket(ticketName);
-            manufacturerData.dueDate[index] = timeManager._timeValue;
-            manufacturerData.amount[index] = 0;
         }
 
         manufacturerTaskUIArray[index].UpdateUI(taskInfo);

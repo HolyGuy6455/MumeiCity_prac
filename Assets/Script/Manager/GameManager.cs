@@ -30,8 +30,10 @@ public class GameManager : MonoBehaviour
     public PlayerInput playerInput;
 
     [SerializeField] ToolType[] tools;
-    [SerializeField] Sprite[] toolSprites;
-    [SerializeField] Sprite[] toolWhiteSprites;
+    public int _selectedTool{get{return selectedTool;}}
+    [SerializeField] List<ToolInfo> toolInfos;
+    public Dictionary<ToolType,ToolInfo> toolInfoDictionary;
+    [SerializeField] Image toolBanished;
     
     public Sprite emptySprite;
     public enum GameTab
@@ -59,7 +61,7 @@ public class GameManager : MonoBehaviour
     public Sence sence_{get{return sence;}}
     Predicate<GameObject> interactableSenseFilter;
     Predicate<GameObject> personSenseFilter;
-    public int _selectedTool{get{return selectedTool;}}
+    
     public bool mouseOnUI;
     public static GameManager Instance{
         get{
@@ -71,6 +73,15 @@ public class GameManager : MonoBehaviour
                 return gameManagerObject.GetComponent<GameManager>();
             }
             return null;
+        }
+    }
+
+    private void Awake() {
+        singleton_instance = this;
+
+        toolInfoDictionary = new Dictionary<ToolType, ToolInfo>();
+        foreach (ToolInfo info in toolInfos){
+            toolInfoDictionary[info.toolType] = info;
         }
     }
 
@@ -238,8 +249,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public ToolType GetToolNowHold(){
-        return tools[this.selectedTool];
+    public ToolInfo GetToolInfoNowHold(){
+        return toolInfoDictionary[tools[this.selectedTool]];
     }
 
     public void SelectTool(int index){
@@ -248,11 +259,20 @@ public class GameManager : MonoBehaviour
             return;
         }
         this.selectedTool = index;
-        ToolView.sprite = toolSprites[index];
-        ToolUIImage.sprite = toolWhiteSprites[index];
-        hitCollision.tool = tools[this.selectedTool];
+        ToolInfo toolNowHold = GetToolInfoNowHold();
+        ToolUIImage.sprite = toolInfos[index].toolWhiteSprite;
+        if(toolNowHold.isItEnable()){
+            ToolView.sprite = toolInfos[index].toolSprite;
+            hitCollision.tool = tools[this.selectedTool];
+            toolBanished.enabled = false;
+        }else{
+            ToolView.sprite = emptySprite;
+            hitCollision.tool = ToolType.NONE;
+            toolBanished.enabled = true;
+        }
+        
 
-        if(GetToolNowHold() == ToolType.LANTERN){
+        if(toolNowHold.toolType == ToolType.LANTERN){
             heatCollision.gameObject.SetActive(true);
         }else{
             heatCollision.gameObject.SetActive(false);
@@ -366,10 +386,6 @@ public class GameManager : MonoBehaviour
         ChangeGameTab(GameTab.NORMAL);
     }
 
-    private void Awake() {
-        singleton_instance = this;
-    }
-
     public void SwitchActionMap(string actionMap){
         playerInput.SwitchCurrentActionMap(actionMap);
     }
@@ -399,4 +415,19 @@ public class GameManager : MonoBehaviour
         }
     }
 
+}
+
+
+[Serializable]
+public class ToolInfo{
+    public string name;
+    public ToolType toolType;
+    public Sprite toolSprite;
+    public Sprite toolIntactSprite;
+    public Sprite toolWhiteSprite;
+    public string unlockKey;
+    public string buildingNeeds;
+    public bool isItEnable(){
+        return GameManager.Instance.achievementManager.isDone(unlockKey);
+    }
 }

@@ -184,8 +184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 4.7744, y: 0}
+  m_SizeDelta: {x: 19.5488, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2232350687964109095
 CanvasRenderer:
@@ -441,6 +441,7 @@ MonoBehaviour:
   AchievementName: 
   progressSlider: {fileID: 4972118528051648831}
   text: {fileID: 2845450307719020327}
+  fillImage: {fileID: 8529352184923600693}
 --- !u!1 &4582114821308372431
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +609,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.43
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

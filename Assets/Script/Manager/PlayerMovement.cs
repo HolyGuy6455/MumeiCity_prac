@@ -99,9 +99,11 @@ public class PlayerMovement : MonoBehaviour{
 
     public void OnAttack(InputAction.CallbackContext value){
         if(value.started && !GameManager.Instance.mouseOnUI){
-            ToolType toolNowHold = GameManager.Instance.GetToolNowHold();
-            if(toolActionDictionary.ContainsKey(toolNowHold)){
-                animator.SetInteger("ActCode",toolActionDictionary[toolNowHold]);
+            ToolInfo toolNowHold = GameManager.Instance.GetToolInfoNowHold();
+            if(!toolNowHold.isItEnable()){
+                animator.SetInteger("ActCode",0);
+            }else if(toolActionDictionary.ContainsKey(toolNowHold.toolType)){
+                animator.SetInteger("ActCode",toolActionDictionary[toolNowHold.toolType]);
             }
         }else if(value.canceled){
             animator.SetInteger("ActCode",0);

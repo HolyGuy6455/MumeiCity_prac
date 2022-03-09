@@ -25,15 +25,6 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     [SerializeField] Image buildingToolNeedsImage;
     [SerializeField] Text buildingToolNeedsText;
     RectTransform buildingArticlesListRect;
-    [SerializeField] List<ToolInfo> toolInfos;
-    Dictionary<ToolType,ToolInfo> toolInfoDictionary;
-
-    void Awake() {
-        toolInfoDictionary = new Dictionary<ToolType, ToolInfo>();
-        foreach (ToolInfo info in toolInfos){
-            toolInfoDictionary[info.toolType] = info;
-        }
-    }
 
     // Start is called before the first frame update
     void Start(){
@@ -46,13 +37,12 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     void UpdateUI(){
-        ToolType nowUsing = GameManager.Instance.GetToolNowHold();
-        ToolInfo toolInfo = toolInfoDictionary[nowUsing];
+        ToolInfo toolInfo = GameManager.Instance.GetToolInfoNowHold();
         bool isUnlock = GameManager.Instance.achievementManager.isDone(toolInfo.unlockKey);
         if(!isUnlock){
             ready.SetActive(false);
             notReady.SetActive(true);
-            toolNotReady.sprite = toolInfo.toolSprite;
+            toolNotReady.sprite = toolInfo.toolIntactSprite;
             BuildingPreset buildingPreset = BuildingManager.GetBuildingPreset(toolInfo.buildingNeeds);
             buildingToolNeedsText.text = buildingPreset.name;
             buildingToolNeedsImage.sprite = buildingPreset.sprite;
@@ -60,7 +50,7 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
         ready.SetActive(true);
         notReady.SetActive(false);
-        buildingDataList = BuildingManager.GetGroupedListByBuildType(nowUsing);
+        buildingDataList = BuildingManager.GetGroupedListByBuildType(toolInfo.toolType);
         int minCount = Mathf.Max(buildingDataList.Count,5);
         int selectedTool = GameManager.Instance._selectedTool;
 
@@ -138,13 +128,4 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         }
     }
 
-}
-
-[Serializable]
-public class ToolInfo{
-    public string name;
-    public ToolType toolType;
-    public Sprite toolSprite;
-    public string unlockKey;
-    public string buildingNeeds;
 }

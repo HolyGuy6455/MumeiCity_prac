@@ -170,6 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5041921781802770509}
+  achievementStr: TreasureHunter01
 --- !u!114 &344425577
 MonoBehaviour:
   m_ObjectHideFlags: 0

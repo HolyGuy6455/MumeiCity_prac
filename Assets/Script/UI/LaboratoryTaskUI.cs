@@ -18,12 +18,15 @@ public class LaboratoryTaskUI : MonoBehaviour{
     public int presentTime;
     public int remainingTime;
     public float remainingPercent;
+    public TaskInfo taskInfo;
 
     public void ChangeValue(float value){
         processBars.gameObject.SetActive( (value != 0) );
         processBars.value = value;
+        UpdateUI();
     }
-    public void UpdateUI(TaskInfo taskInfo){
+
+    public void UpdateUI(){
         if(taskInfo == null){
             this.gameObject.SetActive(false);
             return;

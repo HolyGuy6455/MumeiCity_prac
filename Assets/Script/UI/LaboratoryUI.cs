@@ -18,10 +18,12 @@ public class LaboratoryUI : CommonTaskUI{
             return;
         }
         for (int i = 0; i < workPlace.taskInfos.Count; i++){
-            laboratoryTaskUIArray[i].UpdateUI(workPlace.taskInfos[i]);
+            laboratoryTaskUIArray[i].taskInfo = workPlace.taskInfos[i];
+            laboratoryTaskUIArray[i].UpdateUI();
         }
         for (int i = workPlace.taskInfos.Count; i < 3; i++){
-            laboratoryTaskUIArray[i].UpdateUI(null);
+            laboratoryTaskUIArray[i].taskInfo = null;
+            laboratoryTaskUIArray[i].UpdateUI();
         }
         titleText.text = buildingObj.buildingData.buildingPreset.name;
     }
@@ -78,7 +80,8 @@ public class LaboratoryUI : CommonTaskUI{
             laboratoryData.dueDate[index] = ticket._delay + timeManager._timeValue;
         }
 
-        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
+        laboratoryTaskUIArray[index].taskInfo = taskInfo;
+        laboratoryTaskUIArray[index].UpdateUI();
     }
 
     public void Cancle(int index){
@@ -94,9 +97,11 @@ public class LaboratoryUI : CommonTaskUI{
         }
 
         timeManager.RemoveTimeEventQueueTicket(ticketName);
-        laboratoryData.dueDate[index] = timeManager._timeValue;
+        laboratoryData.dueDate[index] = int.MaxValue;
 
-        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
+        laboratoryTaskUIArray[index].taskInfo = taskInfo;
+        laboratoryTaskUIArray[index].ChangeValue(0.0f);
+        laboratoryTaskUIArray[index].UpdateUI();
     }
 
     public bool ResearchComplete(string ticketName){
@@ -108,8 +113,9 @@ public class LaboratoryUI : CommonTaskUI{
 
         GameManager.Instance.achievementManager.AddTrial(taskInfo.resultUpgrade,1);
 
-        laboratoryTaskUIArray[index].UpdateUI(taskInfo);
+        laboratoryTaskUIArray[index].taskInfo = taskInfo;
         laboratoryTaskUIArray[index].ChangeValue(1.0f);
+        laboratoryTaskUIArray[index].UpdateUI();
 
         UpdateUI();
         return true;
