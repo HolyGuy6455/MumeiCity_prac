@@ -161,7 +161,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.385
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -388,8 +388,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.000015258789, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 5.1909, y: 0}
+  m_SizeDelta: {x: 20.3819, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7232604385049298824
 CanvasRenderer:
@@ -1039,6 +1039,17 @@ MonoBehaviour:
   presentTime: 0
   remainingTime: 0
   remainingPercent: 0
+  taskInfo:
+    name: 
+    guideSprite: {fileID: 0}
+    info: 
+    taskType: 0
+    necessaryResources: []
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: 
+    requiredTime: 0
 --- !u!1 &6532087225096598949
 GameObject:
   m_ObjectHideFlags: 0

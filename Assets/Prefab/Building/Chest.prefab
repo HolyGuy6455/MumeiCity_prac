@@ -187,20 +187,20 @@ MonoBehaviour:
   - itemName: Gold
     chance: 3
     itemDropType: 1
-  - itemName: Meat
-    chance: 3
-    itemDropType: 1
-  - itemName: Iron
-    chance: 20
-    itemDropType: 1
-  - itemName: Wood
+  - itemName: Wine
     chance: 30
     itemDropType: 1
+  - itemName: Iron
+    chance: 3
+    itemDropType: 1
+  - itemName: Wood
+    chance: 3
+    itemDropType: 1
   - itemName: Bronze
-    chance: 10
+    chance: 3
     itemDropType: 1
   - itemName: Wheat
-    chance: 10
+    chance: 3
     itemDropType: 1
 --- !u!114 &344425581
 MonoBehaviour:
@@ -237,6 +237,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 0}
+  deadSound: {fileID: 1685700760083398180}
 --- !u!1 &5041921782567252255
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7102083590753752368
 Transform:
   m_ObjectHideFlags: 0
@@ -371,7 +373,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -379,6 +381,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 7
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

@@ -513,7 +513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7155835118101769438
 Transform:
   m_ObjectHideFlags: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -557,6 +557,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 5
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -763,6 +765,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 6430377753659019885}
+  deadSound: {fileID: 7160518413698261255}
 --- !u!114 &3277956011162691618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,7 +904,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5354786991168820023
 Transform:
   m_ObjectHideFlags: 0
@@ -936,14 +940,16 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
   - Name: HitTarget
     Value: 4
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20

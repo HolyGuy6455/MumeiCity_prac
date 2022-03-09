@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &862170372
 Transform:
   m_ObjectHideFlags: 0
@@ -52,12 +52,14 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
+  - Name: Distance
+    Value: 1
   - Name: HitTarget
     Value: 5
   OverrideAttenuation: 0
@@ -161,7 +163,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &469440902218438042
 Transform:
   m_ObjectHideFlags: 0
@@ -197,12 +199,14 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
+  - Name: Distance
+    Value: 1
   - Name: HitTarget
     Value: 6
   OverrideAttenuation: 0
@@ -372,7 +376,7 @@ MonoBehaviour:
   shadowObject: {fileID: 8359408129419388895}
   removalTool:
   - tool: 4
-    damage: 3
+    damage: 2
     minHP: 0
   - tool: 2
     damage: 3
@@ -425,6 +429,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 862170373}
+  deadSound: {fileID: 9187196167468811683}
 --- !u!95 &4472483454100044105
 Animator:
   serializedVersion: 3
@@ -472,7 +478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Wood
-    chance: 1.3
+    chance: 0.8
     itemDropType: 1
   - itemName: Pinecone
     chance: 1
@@ -674,7 +680,7 @@ MonoBehaviour:
   - {x: -0.080964565, y: 0.19896016, z: -0.000009891887}
   m_ShapePathHash: 20645832
   m_Mesh: {fileID: 0}
-  m_InstanceId: -6958
+  m_InstanceId: -7360
 --- !u!1 &8430105927444471031
 GameObject:
   m_ObjectHideFlags: 0

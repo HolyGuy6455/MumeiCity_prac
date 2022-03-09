@@ -28,6 +28,8 @@ public class PersonBehavior : MonoBehaviour
      3 : 아이템을 저장하러 직장으로 복귀
      4 : 퇴근
      5 : 필요한 아이템을 꺼내러 간다
+     6 : 낮잠(...)
+     7 : 춤추기
 
      */
 
@@ -189,12 +191,15 @@ public class PersonBehavior : MonoBehaviour
         switch (tool_name){
             case "Axe" : 
                 toolType = ToolType.AXE;
+                animator.SetFloat("Tool",0.1f);
                 break;
             case "Pickaxe" : 
                 toolType = ToolType.PICKAXE;
+                animator.SetFloat("Tool",0.2f);
                 break;
             case "Knife" : 
                 toolType = ToolType.KNIFE;
+                animator.SetFloat("Tool",0.3f);
                 break;
             
             default:
@@ -302,6 +307,7 @@ public class PersonBehavior : MonoBehaviour
     }
     [Task]
     void ConsumeItemByTag(string itemTag){
+        Debug.Log("ConsumeItemByTag " + itemTag);
         this.personData.items = this.personData.items.FindAll(item =>
             (!item.itemData.isNone()) && (item.itemData.isThisTag(itemTag))
         );
@@ -368,6 +374,10 @@ public class PersonBehavior : MonoBehaviour
             ThisTask.Fail();
             return;
         }
+        BuildingObject house =  GameManager.Instance.buildingManager.FindBuildingObjectWithID(personData.homeID);
+        if(house != null){
+            this.transform.position = house.transform.position + new Vector3(0,0,-2);
+        }
         this.personData.sleep = false;
         animator.SetBool("Sleep",false);
         ThisTask.Succeed();
@@ -390,6 +400,20 @@ public class PersonBehavior : MonoBehaviour
         int happiness = this.personData.happiness;
         int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier-1];
         ThisTask.Complete( happiness > happinessNeeds );
+    }
+
+    [Task]
+    void AmIAdult(){
+        animator.SetBool("AmIAdult",(personData.growth >= 1.0f));
+        ThisTask.Complete(personData.growth >= 1.0f);
+    }
+    [Task]
+    void NapAct(){
+        animator.SetInteger("ThinkCode",6);
+    }
+    [Task]
+    void DanceAct(){
+        animator.SetInteger("ThinkCode",7);
     }
 
     void LoseMyTarget() {
@@ -423,10 +447,27 @@ public class PersonBehavior : MonoBehaviour
         // if(this.personData.stamina < 1000){
         //     this.personData.stamina += 5;
         // }
+        if(personData.homeID == 0){
+            List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
+            houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
 
-        if(personData.growth < 1.0f){
-            personData.growth += 0.05f;
+            foreach (BuildingObject house in houseList){
+                HouseData houseData = house.buildingData.mediocrityData as HouseData;
+                for (int i = 0; i < houseData.personIDList.Length; i++){
+                    if(houseData.personIDList[i] == 0){
+                        // Debug.Log("집을 찾았어요 : " + house.buildingData.id);
+                        houseData.personIDList[i] = personData.id;
+                        personData.homeID = house.buildingData.id;
+                        break;
+                    }
+                }
+            }
+        }else{
+            if(personData.growth < 1.0f){
+                personData.growth += 0.0005f;
+            }
         }
+
         return false;
     }
 

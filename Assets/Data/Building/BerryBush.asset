@@ -12,28 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: BerryBush
   m_EditorClassIdentifier: 
+  prefab: {fileID: 2630836244311422939, guid: 2ce755f755f763141a6dcf4ddb1a180e, type: 3}
   scale: {x: 1, y: 1, z: 1}
-  relativeLocation: {x: 0, y: 0, z: 1}
-  sprite: {fileID: 21300000, guid: 25d380ef0276aa5498210953a52f1bf0, type: 3}
-  spriteBroken: {fileID: 0}
-  healthPointMax: 10
+  relativeLocation: {x: 0, y: 0, z: -1}
+  sprite: {fileID: 3118291411418976509, guid: a88294335f945a74eb1d9786dcf1a319, type: 3}
   info: You can pick fruits here.
   attributes:
   - Fruit
-  interactable: 0
-  workplace: 0
-  workTier: 0
-  lightSourceIntensity: 0
-  buildTool: 6
+  buildTool: 5
   removalTool:
   - tool: 2
     damage: 1
+    minHP: 0
   buildToolIndex: 0
   resourceList: []
-  dropAmounts:
-  - preset: {fileID: 11400000, guid: 327a9c1c77a8a8d458575cd52896c90e, type: 2}
-    chance: 1
-    itemDropType: 1
-  - preset: {fileID: 11400000, guid: 327a9c1c77a8a8d458575cd52896c90e, type: 2}
-    chance: 0.3
-    itemDropType: 2
+  grownPreset: {fileID: 0}
+  growUpTerm: 0

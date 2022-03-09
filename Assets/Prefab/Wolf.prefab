@@ -198,6 +198,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 5699677417068668559}
+  deadSound: {fileID: 5699677417068668559}
 --- !u!114 &2884450615327130499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +346,7 @@ MonoBehaviour:
   targetMarker: {fileID: 0}
   jumpCapable: 0
   moveCapable: 0
+  growlSound: {fileID: 8073459042829063476}
 --- !u!1 &2637089247252857293
 GameObject:
   m_ObjectHideFlags: 0
@@ -624,7 +627,7 @@ MonoBehaviour:
     Path: event:/Entity/Animal/Wolf
   Event: 
   PlayEvent: 11
-  StopEvent: 12
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0

@@ -25,6 +25,13 @@ public class RabbitBehavior : AnimalBehavior{
         ThisTask.Succeed();
     }
 
+    [Task]
+    public override void RandomMove(){
+        base.RandomMove();
+        Jump();
+        ThisTask.Succeed();
+    }
+
     public void Jump(){
         if(!jumpCapable){
             return;

@@ -10,4 +10,9 @@ tree("Root")
                 Wait 0.5
                 PanicRunaway
                 Wait 1.0	
-        Idle
+        sequence
+            race 
+                RandomMove
+                Wait 0.5
+            Idle
+            Wait 3.0

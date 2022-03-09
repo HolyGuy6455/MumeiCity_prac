@@ -154,7 +154,7 @@ MonoBehaviour:
   - {x: -0.43273354, y: -0.07699342, z: -0.00000019652147}
   m_ShapePathHash: 1840678541
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8552
+  m_InstanceId: -9694
 --- !u!1 &3419896558221182436
 GameObject:
   m_ObjectHideFlags: 0
@@ -401,14 +401,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7433636542972463361}
-  - component: {fileID: 4006875936338799446}
+  - component: {fileID: 6200147933617975167}
   m_Layer: 8
   m_Name: HitSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7433636542972463361
 Transform:
   m_ObjectHideFlags: 0
@@ -423,7 +423,7 @@ Transform:
   m_Father: {fileID: 8673263103075239740}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4006875936338799446
+--- !u!114 &6200147933617975167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -444,14 +444,16 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
   - Name: HitTarget
     Value: 5
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -464,14 +466,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1439613441057948606}
-  - component: {fileID: 7765320535389729407}
+  - component: {fileID: 6806246506329970592}
   m_Layer: 8
   m_Name: DeadSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1439613441057948606
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +488,7 @@ Transform:
   m_Father: {fileID: 8673263103075239740}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7765320535389729407
+--- !u!114 &6806246506329970592
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,7 +509,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -515,6 +517,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 6
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -625,6 +629,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 1
+  hitSound: {fileID: 6200147933617975167}
+  deadSound: {fileID: 6806246506329970592}
 --- !u!95 &6984559753434299378
 Animator:
   serializedVersion: 3

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using FMODUnity;
 
 public class Hittable : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class Hittable : MonoBehaviour
     public UnityEvent HitEventHandler;
     [SerializeField] Dictionary<ToolType, EffectiveTool> effectiveToolDictionary;
     [SerializeField] int effectiveToolDictionaryLength;
+    [SerializeField] StudioEventEmitter hitSound;
+    [SerializeField] StudioEventEmitter deadSound;
 
     public void SetEffectiveTool(List<EffectiveTool> list){
         effectiveToolDictionary = new Dictionary<ToolType, EffectiveTool>();
@@ -29,16 +32,22 @@ public class Hittable : MonoBehaviour
                 damage = effectiveToolDictionary[tool].damage;
             }
         }
+        float distance = Vector3.Distance(GameManager.Instance.PlayerTransform.position,this.transform.position);
+        hitSound.SetParameter("Distance",distance/20.0f);
+        deadSound.SetParameter("Distance",distance/20.0f);
+        
+        Debug.Log("Distance!! " + (distance/20.0f));
         Debug.Log("damage - " + damage);
         if(damage == 0){
             return;
         }
         HP -= damage;
-        // hitSound.TriggerOnce
+        hitSound.EventInstance.start();
 
         if(HP<=0){
             animator.SetBool("isDead",true);
             animator.SetFloat("hp",(float)HP/(float)HPMax);
+            deadSound.EventInstance.start();
             return;
         }
         if(!(HitEventHandler is null)){

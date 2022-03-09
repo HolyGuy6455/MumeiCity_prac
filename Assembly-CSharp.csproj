@@ -108,6 +108,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
      <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />
+     <Compile Include="Assets\Script\UI\TooltipArea.cs" />
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
@@ -142,7 +143,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\UI\TooltipArea.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\MobSpawner.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

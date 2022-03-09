@@ -15,11 +15,10 @@ MonoBehaviour:
   prefab: {fileID: 2784014845858301317, guid: 125ae7e0db3112b468899f06af3f9825, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 1}
-  sprite: {fileID: 9163872656599509061, guid: 83b77d3925d8bf04e89c77b85dccdda4, type: 3}
+  sprite: {fileID: 515973572167350326, guid: 96676219f79195749ba52fe4ec875afd, type: 3}
   info: You can cut this.
   attributes:
   - Log
-  workTier: 0
   buildTool: 0
   removalTool:
   - tool: 4

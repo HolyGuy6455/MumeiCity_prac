@@ -278,6 +278,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 878541178512805337}
+  deadSound: {fileID: 878541178512805337}
 --- !u!114 &992389515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,7 +443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4741186515283181678
 Transform:
   m_ObjectHideFlags: 0

@@ -134,6 +134,12 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
     public virtual void BeCautionedGraterThan(int cautionLevel){
         ThisTask.Complete( this.animalData.cautionLevel > cautionLevel );
     }
+    [Task]
+    public virtual void CalmDown(){
+        if(this.animalData.cautionLevel > 0){
+            this.animalData.cautionLevel -= 1;
+        }
+    } 
     // 길들여진 상태인가
     [Task]
     public virtual void BeTamed(){

@@ -70,7 +70,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &54055197436984305
 Transform:
   m_ObjectHideFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -114,6 +114,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 6
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -133,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7292173111724544215
 Transform:
   m_ObjectHideFlags: 0
@@ -169,14 +171,16 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
   - Name: HitTarget
     Value: 2
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -242,7 +246,7 @@ MonoBehaviour:
   - {x: -0.4367342, y: -0.09225723, z: -0.00000019174135}
   m_ShapePathHash: -621971847
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8598
+  m_InstanceId: -9752
 --- !u!1 &6582110985806689423
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,11 +431,25 @@ MonoBehaviour:
   hitBoxCollider: {fileID: 1989722644753822755}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1659181270688178029}
+        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
+        m_MethodName: Demolish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 4724973919480602357}
+  deadSound: {fileID: 4553580497941615177}
 --- !u!95 &9172676851595395646
 Animator:
   serializedVersion: 3
@@ -483,7 +501,7 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  hiringPerson: 0
+  hiringPerson: 1
   jobID: 4
   taskInfos:
   - name: Harvest Wheat

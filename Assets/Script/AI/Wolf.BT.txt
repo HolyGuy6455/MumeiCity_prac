@@ -19,16 +19,18 @@ tree("Root")
                         
                 while SearchPreyToHunt
                     tree("InCaution")
-            Idle
-            Wait 3.0
+                sequence
+                    Idle
+                    Wait 3.0
 
 
 tree("InCaution")
     sequence
-        Runaway 5.0
-        Wait 1.0
         GoCloser 3.0
         LockTarget
         Wait 0.5
         Attack
         Wait 1.0
+        Runaway 5.0
+        Wait 1.0
+        CalmDown

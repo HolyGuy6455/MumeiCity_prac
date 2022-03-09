@@ -120,9 +120,6 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update() {
-        // if(Input.GetButtonDown("Building")){
-        //     ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
-        // }
         sence.filter = interactableSenseFilter;
         GameObject nearestInteractableObject = sence.FindNearest();
         if(nearestInteractableObject != null){
@@ -276,6 +273,9 @@ public class GameManager : MonoBehaviour
             heatCollision.gameObject.SetActive(true);
         }else{
             heatCollision.gameObject.SetActive(false);
+        }
+        if(buildingManager.onToolChangedCallback != null){
+            buildingManager.onToolChangedCallback.Invoke();
         }
     }
 

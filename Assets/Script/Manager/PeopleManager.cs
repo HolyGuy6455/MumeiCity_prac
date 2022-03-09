@@ -141,6 +141,10 @@ public class PeopleManager : MonoBehaviour
                         personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
                         happyPerson_1st = null;
                         newBorn.personData.growth = 0.0f;
+
+                        GameManager.Instance.achievementManager.AddTrial("population_20",1);
+                        GameManager.Instance.achievementManager.AddTrial("population_billion",1);
+                        // GameManager.Instance.peopleManager.ResetHouseInfomation();
                     }
                 }
             }

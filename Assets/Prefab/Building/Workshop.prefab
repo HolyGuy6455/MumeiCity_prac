@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1300102594483872486
 Transform:
   m_ObjectHideFlags: 0
@@ -52,14 +52,16 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
   - Name: HitTarget
     Value: 5
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -170,6 +172,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 3370411311378682498}
+  deadSound: {fileID: 3144017368976933431}
 --- !u!95 &2263775840767185561
 Animator:
   serializedVersion: 3
@@ -513,7 +517,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &739577891205151396
 Transform:
   m_ObjectHideFlags: 0
@@ -549,7 +553,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -557,6 +561,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 6
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -621,7 +627,7 @@ MonoBehaviour:
   - {x: -0.28054768, y: 0.13032162, z: -0.000000080608864}
   m_ShapePathHash: -933109051
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8058
+  m_InstanceId: -9054
 --- !u!1 &7850884964902981902
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,6 +54,7 @@ public class BuildingObject : MonoBehaviour
             switch (buildingData.buildingPreset.name){
                 case "Tent":
                     buildingData.mediocrityData = new HouseData(12);
+                    // GameManager.Instance.peopleManager.ResetHouseInfomation();
                     break;
                 default:
                     break;
@@ -93,6 +94,10 @@ public class BuildingObject : MonoBehaviour
 
     public void ChangeGameTab(string gametab){
         GameManager.Instance.ChangeGameTab(gametab);
+    }
+
+    public void Demolish(){
+        GameManager.Instance.achievementManager.AddTrial("demolish",1);
     }
 
 }

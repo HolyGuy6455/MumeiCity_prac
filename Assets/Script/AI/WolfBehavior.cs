@@ -11,6 +11,7 @@ public class WolfBehavior : AnimalBehavior{
     [SerializeField] GameObject targetMarker;
     [SerializeField] bool jumpCapable;
     [SerializeField] bool moveCapable;
+    [SerializeField] FMODUnity.StudioEventEmitter growlSound;
     IAstarAI ai;
     static List<string> preyList = new List<string>{"Rabbit","Reindeer"};
 
@@ -38,6 +39,10 @@ public class WolfBehavior : AnimalBehavior{
         }else if(movementX >= 0.01f){
             spriteTransform.localScale = new Vector3(1f,1f,1f);
         }
+
+        float distanceFromPlayer = Vector3.Distance(GameManager.Instance.PlayerTransform.position, this.transform.position);
+        growlSound.SetParameter("Distance",distanceFromPlayer/20);
+        animator.SetFloat("Tension", animalData.cautionLevel );
     }
 
     // 길찾기 없이 도망치기
@@ -190,10 +195,10 @@ public class WolfBehavior : AnimalBehavior{
     }
 
     public override void Hear(string soundSource){
+        
         if(animalData.cautionLevel == 0){
             // animator.SetTrigger("Notice");
             animalData.cautionLevel = 1;
-            animator.SetFloat("Tension", animalData.cautionLevel );
             this.jumpCapable = false;
             Debug.Log("Notice!");
 

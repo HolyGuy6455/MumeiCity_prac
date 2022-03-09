@@ -102,11 +102,25 @@ MonoBehaviour:
   hitBoxCollider: {fileID: 9132314440707998525}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8225276331069384819}
+        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
+        m_MethodName: Demolish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 1
+  hitSound: {fileID: 4844587207881853866}
+  deadSound: {fileID: 7194875115803586211}
 --- !u!95 &1903739865422558496
 Animator:
   serializedVersion: 3
@@ -180,14 +194,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7577346157156131327}
-  - component: {fileID: 8634386621236450378}
+  - component: {fileID: 4844587207881853866}
   m_Layer: 8
   m_Name: HitSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7577346157156131327
 Transform:
   m_ObjectHideFlags: 0
@@ -202,7 +216,7 @@ Transform:
   m_Father: {fileID: 205137619275696622}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8634386621236450378
+--- !u!114 &4844587207881853866
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,14 +237,16 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
-  StopEvent: 12
+  PlayEvent: 1
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
   Params:
   - Name: HitTarget
     Value: 2
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -316,14 +332,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1265220564909239385}
-  - component: {fileID: 3743198975400245810}
+  - component: {fileID: 7194875115803586211}
   m_Layer: 8
   m_Name: DeadSound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1265220564909239385
 Transform:
   m_ObjectHideFlags: 0
@@ -338,7 +354,7 @@ Transform:
   m_Father: {fileID: 205137619275696622}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3743198975400245810
+--- !u!114 &7194875115803586211
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -359,7 +375,7 @@ MonoBehaviour:
       Data4: 522165143
     Path: event:/SFX/HitSound
   Event: 
-  PlayEvent: 11
+  PlayEvent: 1
   StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -367,6 +383,8 @@ MonoBehaviour:
   Params:
   - Name: HitTarget
     Value: 6
+  - Name: Distance
+    Value: 1
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -607,7 +625,7 @@ MonoBehaviour:
   - {x: -0.48273754, y: -0.30011702, z: 0.000000025882226}
   m_ShapePathHash: 1247074776
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8010
+  m_InstanceId: -8994
 --- !u!1 &7634181049630045879
 GameObject:
   m_ObjectHideFlags: 0
