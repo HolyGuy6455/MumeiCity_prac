@@ -224,19 +224,42 @@ public class PersonBehavior : MonoBehaviour
                 BuildingPreset preset = buildingObject.buildingData.buildingPreset;
                 return preset.attributes.Contains(tag);
             };
-        GameObject nearestTree = sence.FindNearest();
-        if(nearestTree != null){
-            // think = "Going Chop Chop " + nearestTree;
+        if(sence.whatTheySee.Count == 0){
+            ThisTask.Fail();
+        }
+        foreach (GameObject targetObj in sence.whatTheySee){
+            BuildingObject buildingObject = targetObj.GetComponent<BuildingObject>();
+            Hittable hittable = targetObj.GetComponent<Hittable>();
+            EffectiveTool effectiveTool = null;
+
+            if(hittable == null){
+                continue;
+            }
+            foreach (EffectiveTool effective in buildingObject.removalTool){
+                if(effective.tool == hitCollision.tool){
+                    effectiveTool = effective;
+                    break;
+                }
+            }
+            if(effectiveTool == null){
+                continue;
+            }
+
+            if(hittable.HP < effectiveTool.minHP){
+                continue;
+            }
+            
+            // EffectiveTool effectiveTool 
             animator.SetInteger("ThinkCode",2);
-            // hitBoxCollision.tool = ToolType.AXE;
-            this.target = nearestTree;
+            this.target = targetObj;
             aIDestination.target = this.target.transform;
             this.target.GetComponent<Hittable>().DeadEventHandler.AddListener(LoseMyTarget);
             animator.SetBool("HasAGoal",true);
             ThisTask.Succeed();
-        }else{
-            ThisTask.Fail();
+            return;
         }
+        ThisTask.Fail();
+        // 미친코드다;;; 반복문의 끝에 return이 있다니;;
     }
 
     // 필요한 아이템 찾기

@@ -479,7 +479,7 @@ MonoBehaviour:
   dropAmounts:
   - itemName: Wood
     chance: 0.8
-    itemDropType: 1
+    itemDropType: 2
   - itemName: Pinecone
     chance: 1
     itemDropType: 1
