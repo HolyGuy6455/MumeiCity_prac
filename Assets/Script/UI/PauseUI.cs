@@ -13,6 +13,7 @@ public class PauseUI : MonoBehaviour{
     [SerializeField] Text saveTitle_3;
     [SerializeField] List<string> orderList;
     [SerializeField] string orderStr;
+    [SerializeField] Image mousePointerImage;
 
     private void Awake() {
         orderIndex = new Dictionary<string, int>();
@@ -42,6 +43,8 @@ public class PauseUI : MonoBehaviour{
         Time.timeScale = 0;
         GameManager.Instance.playerMovement.enabled = false;
         GameManager.Instance.playerInput.SwitchCurrentActionMap("Pause");
+        Cursor.visible = true;
+        mousePointerImage.enabled = false;
     }
 
     public void PauseCancle(){
@@ -49,6 +52,8 @@ public class PauseUI : MonoBehaviour{
         Time.timeScale = 1;
         GameManager.Instance.playerMovement.enabled = true;
         GameManager.Instance.playerInput.SwitchCurrentActionMap("PlayerControl");
+        Cursor.visible = false;
+        mousePointerImage.enabled = true;
     }
 
     public void OnExitPause(InputAction.CallbackContext value){

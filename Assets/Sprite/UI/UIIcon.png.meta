@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: 4495214580369114748
     second: UIIcon_4
+  - first:
+      213: 9056122867626727076
+    second: UIIcon_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -198,7 +201,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -206,6 +209,27 @@ TextureImporter:
       bones: []
       spriteID: c76ce0c18d5326e30800000000000000
       internalID: 4495214580369114748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIIcon_5
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6de2744cfcdad70800000000000000
+      internalID: 9056122867626727076
       vertices: []
       indices: 
       edges: []

@@ -118,6 +118,10 @@ public class PlayerMovement : MonoBehaviour{
         }
     }
 
+    public void OnCrouch(bool value){
+        animator.SetFloat("Crouch", (value)?-1:1);
+    }
+
     public bool IsGrounded() {
         return Physics.Raycast(this.transform.position, Vector3.down, 1.2f, groundLayerMask);
     }
