@@ -216,7 +216,8 @@ MonoBehaviour:
   itemPickupData:
     itemName: Berry
     position: {x: 0, y: 0, z: 0}
-    leftSecond: 300
+    leftSecond: 100
+    ID: 0
   spriteRenderer: {fileID: 8891392639584434882}
   disapearEvent:
     startTime: 0

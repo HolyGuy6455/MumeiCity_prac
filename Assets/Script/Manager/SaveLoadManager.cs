@@ -8,7 +8,10 @@ public class SaveLoadManager : MonoBehaviour{
     // [SerializeField] string _fileName = "01.save";
     [SerializeField] GameObject itemPickupPrefab;
     public SaveMetaFile saveMetaFile;
+    public ManufacturerUI manufacturerUI;
+    public LaboratoryUI laboratoryUI;
     public PauseUI pauseUI;
+    private Dictionary<string, TimeManager.TimeEvent> rebindDictionary;
     class SaveForm {
         public int timeValue;
         public Vector3 playerPosition = new Vector3();
@@ -19,6 +22,7 @@ public class SaveLoadManager : MonoBehaviour{
         public List<AnimalData> animalsData = new List<AnimalData>();
         public int lastBuildingID;
         public int lastPersonID;
+        public List<TimeEventQueueTicket> timeEventQueueTickets;
     }
     [Serializable]
     public class SaveMetaFile{
@@ -94,6 +98,7 @@ public class SaveLoadManager : MonoBehaviour{
         GameObject[] buildingObjects = GameObject.FindGameObjectsWithTag("Building");
         foreach (GameObject buildingObj in buildingObjects){
             BuildingData buildingData = buildingObj.GetComponent<BuildingObject>().buildingData;
+            buildingData.mediocrityData.SaveMediocrityData();
             saveForm.buildingDatas.Add(buildingData);
         }
         // 아이템 위치 저장하기
@@ -120,11 +125,14 @@ public class SaveLoadManager : MonoBehaviour{
             saveForm.animalsData.Add(animalBehavior.animalData);
         }
 
+        saveForm.timeEventQueueTickets = GameManager.Instance.timeManager._waitingList;
+
         // 실제 파일로 저장
         savefile = JsonUtility.ToJson(saveForm,true);
         try{
-            // C:\Users\사용자\AppData\LocalLow\DefaultCompany
+            // C:/Users/user/AppData/LocalLow/HolyGuy6455/MumeiNoToshi
             string path = Application.persistentDataPath + "/" + fileName;
+            Debug.Log("path : " + path);
             File.WriteAllText(path, savefile);
         }
         catch (FileNotFoundException e){
@@ -157,6 +165,9 @@ public class SaveLoadManager : MonoBehaviour{
         // string에서 데이터를 읽어들임
         SaveForm saveForm = JsonUtility.FromJson<SaveForm>(savefile);
 
+        // 새로 생성한 객체들과 끊어진 타임 티켓과 연결시켜줄 녀석
+        rebindDictionary = new Dictionary<string, TimeManager.TimeEvent>();
+
         // 시간을 불러온다
         GameManager.Instance.timeManager._timeValue = saveForm.timeValue;
         // 플레이어의 위치를 불러온다
@@ -182,18 +193,6 @@ public class SaveLoadManager : MonoBehaviour{
             location.x = buildingData.positionX;
             location.y = buildingData.positionY;
             location.z = buildingData.positionZ;
-            // MediocrityData의 컨텐츠로부터 반대로 값을 가져온다
-            switch (buildingPreset.name)
-            {
-                case "ForesterHut":
-                    buildingData.mediocrityData = new SuperintendentData();
-                    break;
-                case "Tent":
-                    buildingData.mediocrityData = new HouseData(4);
-                    break;
-                default:
-                    break;
-            }
 
             // 건물을 생성하고 데이터로 초기화한다
             GameObject Built;
@@ -203,7 +202,35 @@ public class SaveLoadManager : MonoBehaviour{
                 Built = Instantiate(buildingsPrefab,location,Quaternion.identity);
             }
             Built.transform.SetParent(buildingsParent.transform);
+            BuildingObject buildingObject = Built.GetComponent<BuildingObject>();
+            
+            buildingObject.Initialize(buildingData);
+
+            AddRebindInfo<Restoration>(Built);
+            AddRebindInfo<WorkPlace>(Built);
+
+            WorkPlace workPlace = Built.GetComponent<WorkPlace>();
+            if(workPlace != null){
+                switch (workPlace._gameTab){
+                    case GameManager.GameTab.MANUFACTURER:
+                        for (int i = 0; i < 3; i++){
+                            string ticketName = "building_"+buildingObject.buildingData.id+"_make_"+i;
+                            AddRebindInfo(ticketName, manufacturerUI.ManufactureComplete);
+                        }
+                        break;
+                    case GameManager.GameTab.LABORATORY:
+                        for (int i = 0; i < 3; i++){
+                            string ticketName = "building_"+buildingObject.buildingData.id+"_research_"+i;
+                            AddRebindInfo(ticketName, manufacturerUI.ManufactureComplete);
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
+
+        int lastItemID = 1;
 
         // 맵에 남아있는 아이템을 전부 없앤다
         foreach (Transform childTransform in GameManager.Instance.itemManager.itemPickupParent.transform){
@@ -220,7 +247,13 @@ public class SaveLoadManager : MonoBehaviour{
             itemPickup.itemPickupData = data;
             itemPickup.IconSpriteUpdate();
             itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
+
+            AddRebindInfo<ItemPickup>(itemObject);
+            if(itemPickup.itemPickupData.ID > lastItemID){
+                lastItemID = itemPickup.itemPickupData.ID;
+            }
         }
+        GameManager.Instance.itemManager.lastID = lastItemID;
 
         // 맵에 남아있는 사람을 전부 없앤다. 학살의 시간이다!
         GameObject[] peopleObjects = GameObject.FindGameObjectsWithTag("Person");
@@ -238,6 +271,8 @@ public class SaveLoadManager : MonoBehaviour{
             personCommonAI.personData = data;
             personCommonAI.UpdateItemView();
             personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
+
+            AddRebindInfo<PersonBehavior>(personObject);
         }
 
         // 맵에 남아있는 동물을 전부 없앤다.
@@ -257,6 +292,33 @@ public class SaveLoadManager : MonoBehaviour{
             animalObject.transform.SetParent(GameManager.Instance.mobManager.theMotherOfNature.transform);
         }
 
+        PlayerMovement playerMovement = GameManager.Instance.playerMovement;
+        AddRebindInfo("Player_Stemina_Recharge", playerMovement.SteminaRecharge);
 
+        List<TimeEventQueueTicket> tickets = saveForm.timeEventQueueTickets;
+        foreach (TimeEventQueueTicket ticket in tickets){
+            if(rebindDictionary.ContainsKey(ticket._idString)){
+                ticket._timeEvent = rebindDictionary[ticket._idString];
+            }else{
+                Debug.Log("ticket._idString - " + ticket._idString);
+            }
+        }
+
+        GameManager.Instance.timeManager._waitingList = tickets;
+    }
+
+    void AddRebindInfo<T>(GameObject gameObject) where T : MonoBehaviour, ITiemEventRebindInfo{
+        T objNeedsRebind = gameObject.GetComponent<T>();
+        if(objNeedsRebind == null){
+            return;
+        }
+        Dictionary<string, TimeManager.TimeEvent> rebindInfos = objNeedsRebind.GetDictionary();
+        foreach (string key in rebindInfos.Keys){
+            rebindDictionary[key] = rebindInfos[key];
+        }
+    }
+
+    void AddRebindInfo(string key, TimeManager.TimeEvent timeEvent){
+        rebindDictionary[key] = timeEvent;
     }
 }

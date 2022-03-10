@@ -7,7 +7,7 @@ public class ManufacturerUI : CommonTaskUI{
     [SerializeField] BuildingObject buildingObj;
     [SerializeField] ManufacturerData manufacturerData;
     [SerializeField] Text titleText;
-
+    
     WorkPlace workPlace;
 
     public override void UpdateUI(){
@@ -93,6 +93,7 @@ public class ManufacturerUI : CommonTaskUI{
         if(ticket != null){
             manufacturerData.dueDate[index] = ticket._delay + timeManager._timeValue;
         }
+        manufacturerData.SaveMediocrityData();
     }
 
     public void Cancle(int index){
@@ -117,6 +118,7 @@ public class ManufacturerUI : CommonTaskUI{
             GameManager.Instance.inventory.AddItem(itemSlotData);
         }
 
+        manufacturerData.SaveMediocrityData();
         manufacturerTaskUIArray[index].UpdateUI(taskInfo);
     }
 
@@ -145,4 +147,5 @@ public class ManufacturerUI : CommonTaskUI{
         UpdateUI();
         return true;
     }
+
 }

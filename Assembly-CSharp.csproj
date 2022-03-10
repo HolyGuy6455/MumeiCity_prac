@@ -59,6 +59,7 @@
      <Compile Include="Assets\Script\UI\SuperintendentUI.cs" />
      <Compile Include="Assets\Script\Data\SuperintendentData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\MobSpawner.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
      <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
      <Compile Include="Assets\Script\AI\ReindeerBehavior.cs" />
@@ -143,7 +144,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\ItemAndEntity\MobSpawner.cs" />
+     <Compile Include="Assets\Script\TiemEventRebinder.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

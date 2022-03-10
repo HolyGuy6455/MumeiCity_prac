@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 [Serializable]
 public class ManufacturerData : MediocrityData{
@@ -12,7 +13,7 @@ public class ManufacturerData : MediocrityData{
         string[] splitString_DueDate = splitString[1].Split();
         amount = new int[splitString_Amount.Length];
         dueDate = new int[splitString_DueDate.Length];
-        for (int i = 0; i < amount.Length; i++){
+        for (int i = 0; i < amount.Length - 1; i++){
             amount[i] = int.Parse(splitString_Amount[i]);
             dueDate[i] = int.Parse(splitString_DueDate[i]);
         }

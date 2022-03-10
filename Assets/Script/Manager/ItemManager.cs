@@ -6,11 +6,17 @@ public class ItemManager : MonoBehaviour {
     public GameObject itemPickupPrefab;
     public GameObject itemPickupParent;
     Dictionary<string,ItemData> dataDictionary;
+    public int lastID = 1;
 
     public static ItemManager Instance{
         get{
             return GameManager.Instance.itemManager;
         }
+    }
+
+    public int IssueIDOne(){
+        lastID++;
+        return lastID;
     }
 
     private void Awake() {

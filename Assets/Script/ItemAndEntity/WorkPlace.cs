@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkPlace : MonoBehaviour{
+public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
     [SerializeField] GameManager.GameTab gameTab;
     [SerializeField] BuildingObject buildingObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
@@ -53,4 +53,15 @@ public class WorkPlace : MonoBehaviour{
     public void Interact(){
         GameManager.Instance.ChangeGameTab(gameTab);
     }
+
+    public Dictionary<string, TimeManager.TimeEvent> GetDictionary(){
+        Dictionary<string, TimeManager.TimeEvent> result = new Dictionary<string, TimeManager.TimeEvent>();
+
+        BuildingObject buildingObject = this.GetComponent<BuildingObject>();
+        string ticketName = "building_"+buildingObject.buildingData.id+"_hire";
+        result[ticketName] = HirePerson;
+
+        return result;
+    }
+
 }

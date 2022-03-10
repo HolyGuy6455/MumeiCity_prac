@@ -1,6 +1,7 @@
 using UnityEngine;
+using System.Collections.Generic;
 
-public class ItemPickup : MonoBehaviour
+public class ItemPickup : MonoBehaviour, ITiemEventRebindInfo
 {
     public ItemPickupData itemPickupData;
     [SerializeField] SpriteRenderer spriteRenderer;
@@ -10,7 +11,10 @@ public class ItemPickup : MonoBehaviour
 
     void Start() {
         IconSpriteUpdate();
-        ticketName = "ItemPickup_"+this.GetInstanceID()+"_Update";
+        if(itemPickupData.ID == 0){
+            itemPickupData.ID = GameManager.Instance.itemManager.IssueIDOne();
+        }
+        ticketName = "ItemPickup_"+itemPickupData.ID+"_Update";
         disapearEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1,ticketName, UpdatePerSecond);
     }
 
@@ -44,5 +48,14 @@ public class ItemPickup : MonoBehaviour
 
     public ItemSlotData ProcessToItemSlotData(){
         return ItemSlotData.Create(itemPickupData.itemData);
+    }
+
+    public Dictionary<string, TimeManager.TimeEvent> GetDictionary(){
+        Dictionary<string, TimeManager.TimeEvent> result = new Dictionary<string, TimeManager.TimeEvent>();
+
+        string ticketName = "ItemPickup_"+itemPickupData.ID+"_Update";
+        result[ticketName] = UpdatePerSecond;
+
+        return result;
     }
 }

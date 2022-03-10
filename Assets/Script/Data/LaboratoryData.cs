@@ -7,7 +7,7 @@ public class LaboratoryData : MediocrityData{
 
     public override void ReloadMediocrityData(){
         string[] splitString = this.content.Split();
-        for (int i = 0; i < dueDate.Length; i++){
+        for (int i = 0; i < dueDate.Length - 1; i++){
             dueDate[i] = int.Parse(splitString[i]);
         }
     }

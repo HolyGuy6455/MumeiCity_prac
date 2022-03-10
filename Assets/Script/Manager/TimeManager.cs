@@ -17,6 +17,14 @@ public class TimeManager : MonoBehaviour{
     [SerializeField] int elapsedDate;
     [SerializeField] List<TimeEventQueueTicket> waitingList = new List<TimeEventQueueTicket>();
     [SerializeField] StudioEventEmitter studioEventEmitter;
+    public List<TimeEventQueueTicket> _waitingList{
+        get{
+            return waitingList;
+        }
+        set{
+            waitingList = value;
+        }
+    }
 
     float blendValue;
     public float _blendValue{get{return blendValue;}}
@@ -165,7 +173,14 @@ public class TimeEventQueueTicket{
     public int _delay{get{return delay;}}
 
     public string _idString{get{return idString;}}
-    public TimeManager.TimeEvent _timeEvent{get{return timeEvent;}}
+    public TimeManager.TimeEvent _timeEvent{
+        get{
+            return timeEvent;
+        }
+        set{
+            timeEvent = value;
+        }
+    }
     
     public TimeEventQueueTicket(int startTime, string idString, int delay, TimeManager.TimeEvent timeEvent){
         this.startTime = startTime;

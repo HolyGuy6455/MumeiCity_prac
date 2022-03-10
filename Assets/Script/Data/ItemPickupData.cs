@@ -8,6 +8,7 @@ public class ItemPickupData{
     public string itemName;
     public Vector3 position;
     public int leftSecond = 300;
+    public int ID;
     public ItemData itemData{
         get{
             return ItemData.Instant(itemName);

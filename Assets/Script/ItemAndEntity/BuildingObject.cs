@@ -12,7 +12,7 @@ public class BuildingObject : MonoBehaviour
     public List<EffectiveTool> removalTool;
     [SerializeField] Animator animator;
  
-    private void Start() {
+    private void Awake() {
         // TODO
         // 내가 에디터에서 만들때와 BuildingManager에서 만들때
         // Initilize()의 실행 시점이 달라야하는데 그렇지않아 문제가 생긴다
@@ -66,9 +66,18 @@ public class BuildingObject : MonoBehaviour
     // 오브젝트의 초기화
     public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
+        MediocrityData mediocrityData = this.buildingData.mediocrityData;
         this.buildingData = buildingData;
         spriteRenderer.sprite = buildingPreset.sprite;
 
+        mediocrityData.content = buildingData.mediocrityData.content;
+        this.buildingData.mediocrityData = mediocrityData;
+        if(this.buildingData.mediocrityData.content != null){
+            if(this.buildingData.mediocrityData.content.CompareTo("") != 0){
+                buildingData.mediocrityData.ReloadMediocrityData();
+            }
+        }
+        
         Hittable hittable = GetComponent<Hittable>();
         hittable.SetEffectiveTool(removalTool);
 

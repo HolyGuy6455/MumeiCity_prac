@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Pathfinding;
 using Panda;
 
-public class PersonBehavior : MonoBehaviour
+public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
 {
     
     [SerializeField] AIDestinationSetter aIDestination; 
@@ -502,5 +502,14 @@ public class PersonBehavior : MonoBehaviour
 
     public void UpdateHatImage(){
         this.hatSprite.sprite = PeopleManager.Instance.GetJobInfo(personData.jobID).hatImage;
+    }
+
+    public Dictionary<string, TimeManager.TimeEvent> GetDictionary(){
+        Dictionary<string, TimeManager.TimeEvent> result = new Dictionary<string, TimeManager.TimeEvent>();
+
+        string ticketName = "person_"+this.personData.id+"_sleep";
+        result[ticketName] = SleepAndRecharging;
+
+        return result;
     }
 }

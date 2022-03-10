@@ -56,7 +56,7 @@ public class LaboratoryUI : CommonTaskUI{
     }
 
     public void Research(int index){
-        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
+        string ticketName = "building_"+buildingObj.buildingData.id+"_research_"+index;
         TimeManager timeManager = GameManager.Instance.timeManager;
         
         TaskInfo taskInfo = workPlace.taskInfos[index];
@@ -86,7 +86,7 @@ public class LaboratoryUI : CommonTaskUI{
 
     public void Cancle(int index){
         TimeManager timeManager = GameManager.Instance.timeManager;
-        string ticketName = "building_"+buildingObj.buildingData.id+"_make_"+index;
+        string ticketName = "building_"+buildingObj.buildingData.id+"_research_"+index;
 
         TaskInfo taskInfo = workPlace.taskInfos[index];
 
@@ -120,4 +120,5 @@ public class LaboratoryUI : CommonTaskUI{
         UpdateUI();
         return true;
     }
+
 }
