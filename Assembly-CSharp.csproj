@@ -84,6 +84,7 @@
      <Compile Include="Assets\SimpleNote\Scripts\SimpleNoteAttribute.cs" />
      <Compile Include="Assets\Script\PlayerLight.cs" />
      <Compile Include="Assets\Script\AI\WolfBehavior.cs" />
+     <Compile Include="Assets\Script\TiemEventRebinder.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\00_ChangeColor\Assets\MyCube.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Hittable.cs" />
      <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
@@ -114,7 +115,6 @@
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
      <Compile Include="Assets\Script\Data\ItemPreset.cs" />
-     <Compile Include="Assets\Script\UI\MineUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ConstructionArea.cs" />
      <Compile Include="Assets\SimpleNote\Example\SimpleNoteExample.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
@@ -144,7 +144,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\TiemEventRebinder.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

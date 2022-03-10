@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 public class CommonTaskUI : MonoBehaviour{
     [SerializeField] GameObject StorageSlotParent;
     [SerializeField] ItemSlot[] StorageSlots;
+    [SerializeField] GameObject mainView;
+    [SerializeField] GameObject unableView;
     // Start is called before the first frame update
     protected virtual void Start(){
         foreach (ItemSlot slot in StorageSlots){
@@ -18,6 +20,22 @@ public class CommonTaskUI : MonoBehaviour{
         for (int i = 0; i < itemSlotData.Length; i++){
             StorageSlots[i].itemSlotData = itemSlotData[i];
             StorageSlots[i].UpdateUI();
+        }
+
+        BuildingObject buildingObj = GameManager.Instance.interactingBuilding;
+        WorkPlace workPlace = buildingObj.GetComponent<WorkPlace>();
+        if(workPlace == null){
+            return;
+        }
+        if(!workPlace.hiringPerson){
+            return;    
+        }
+        if(buildingObj.buildingData.workerID == 0){
+            mainView.SetActive(false);
+            unableView.SetActive(true);
+        }else{
+            mainView.SetActive(true);
+            unableView.SetActive(false);
         }
     }
 

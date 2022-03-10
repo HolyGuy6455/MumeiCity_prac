@@ -5,7 +5,7 @@ public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
     [SerializeField] GameManager.GameTab gameTab;
     [SerializeField] BuildingObject buildingObject;
     [SerializeField] TimeEventQueueTicket hiringEvent;
-    [SerializeField] bool hiringPerson;
+    public bool hiringPerson;
     [SerializeField] int jobID;
     public List<TaskInfo> taskInfos;
     public GameManager.GameTab _gameTab{get{return gameTab;}}
