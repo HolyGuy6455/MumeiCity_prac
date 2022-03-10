@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: BeetrootCrop
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4182747428758371534, guid: 13189fb311266a6479fb08ca89239d03, type: 3}
+  prefab: {fileID: 6548202627446777679, guid: c59a02ca74ec32b4887aad07c1f7d361, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: -2834508011195022660, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}

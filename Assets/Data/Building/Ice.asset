@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Ice
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 73012586528943119, guid: c1a6fa04ead3b594faf8734d8e83894e, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: -7560284153744367771, guid: 14183a9761d699d48883d720ecd7d42d, type: 3}

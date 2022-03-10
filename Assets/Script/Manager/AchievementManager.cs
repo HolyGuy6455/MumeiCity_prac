@@ -32,6 +32,17 @@ public class AchievementManager : MonoBehaviour {
         return dictionary[name];
     }
 
+    public List<Achievement> GenerateSaveForm(){
+        return new List<Achievement>(dictionary.Values);
+    }
+
+    public void ReloadSaveform(List<Achievement> list){
+        dictionary = new Dictionary<string, Achievement>();
+        foreach (Achievement achievement in list){
+            dictionary[achievement.name] = achievement;
+        }
+    }
+
 }
 
 [Serializable]

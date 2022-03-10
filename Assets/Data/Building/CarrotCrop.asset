@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: CarrotCrop
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4182747428758371534, guid: 13189fb311266a6479fb08ca89239d03, type: 3}
+  prefab: {fileID: 8082191773218286963, guid: 05affbf03f997a74788c98d6393f607a, type: 3}
   scale: {x: 1, y: 1, z: 1}
   relativeLocation: {x: 0, y: 0, z: 0}
   sprite: {fileID: 2758947669739957514, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}

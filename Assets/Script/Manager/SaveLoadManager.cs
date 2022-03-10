@@ -23,6 +23,7 @@ public class SaveLoadManager : MonoBehaviour{
         public int lastBuildingID;
         public int lastPersonID;
         public List<TimeEventQueueTicket> timeEventQueueTickets;
+        public List<Achievement> achievements;
     }
     [Serializable]
     public class SaveMetaFile{
@@ -125,7 +126,9 @@ public class SaveLoadManager : MonoBehaviour{
             saveForm.animalsData.Add(animalBehavior.animalData);
         }
 
+        // 타임티켓이랑 진행과제 저장
         saveForm.timeEventQueueTickets = GameManager.Instance.timeManager._waitingList;
+        saveForm.achievements = GameManager.Instance.achievementManager.GenerateSaveForm();
 
         // 실제 파일로 저장
         savefile = JsonUtility.ToJson(saveForm,true);
@@ -295,6 +298,7 @@ public class SaveLoadManager : MonoBehaviour{
         PlayerMovement playerMovement = GameManager.Instance.playerMovement;
         AddRebindInfo("Player_Stemina_Recharge", playerMovement.SteminaRecharge);
 
+        // 타임 티켓 복구
         List<TimeEventQueueTicket> tickets = saveForm.timeEventQueueTickets;
         foreach (TimeEventQueueTicket ticket in tickets){
             if(rebindDictionary.ContainsKey(ticket._idString)){
@@ -303,6 +307,8 @@ public class SaveLoadManager : MonoBehaviour{
                 Debug.Log("ticket._idString - " + ticket._idString);
             }
         }
+        // 진행과제 복구
+        GameManager.Instance.achievementManager.ReloadSaveform(saveForm.achievements);
 
         GameManager.Instance.timeManager._waitingList = tickets;
     }
