@@ -46,8 +46,10 @@ public class BuildingManager : MonoBehaviour {
 
     public List<BuildingObject> wholeBuildingList(){
         List<BuildingObject> result = new List<BuildingObject>();
-        foreach (Transform childTransform in buildingsParent.transform){
-            BuildingObject buildingObject = childTransform.GetComponent<BuildingObject>();
+        GameObject[] objs = GameObject.FindGameObjectsWithTag("Building");
+
+        foreach (GameObject child in objs){
+            BuildingObject buildingObject = child.GetComponent<BuildingObject>();
             result.Add(buildingObject);
         }
         return result;
@@ -117,12 +119,8 @@ public class BuildingManager : MonoBehaviour {
             inventoryManager.ConsumeItem(material.itemDataName,material.amount);
         }
         // 현재 플레이어 위치를 기준으로 건설을 한다
-        Vector3 location = new Vector3();
-        location.x = Mathf.Round(constructionArea.transform.position.x);
-        location.y = Mathf.Round(constructionArea.transform.position.y);
-        location.z = Mathf.Round(constructionArea.transform.position.z);
+        Vector3 location = constructionArea.GetBuildingLocation();
 
-        Debug.Log("Build Position "+location);
         GameObject Built;
         if(nowBuilding.prefab != null){
             Built = Instantiate(nowBuilding.prefab,location,Quaternion.identity);
@@ -145,10 +143,10 @@ public class BuildingManager : MonoBehaviour {
         }
         switch (nowBuilding.name){
             case "ForesterHut":
-                buildingData.mediocrityData = new SuperintendentData();
+                buildingData.facilityFunction = new SuperintendentFunction(3);
                 break;
             case "Tent":
-                buildingData.mediocrityData = new HouseData(4);
+                buildingData.facilityFunction = new HouseFunction(12);
                 break;
             default:
                 break;

@@ -21,30 +21,26 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionX = ((int)Mathf.Round(this.transform.position.x));
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
-        WorkPlace workPlace = this.GetComponent<WorkPlace>();
         
+        Initialize(this.buildingData);
+    }
+
+    // 오브젝트의 초기화
+    public void Initialize(BuildingData inputBuildingData){
+        this.buildingData = inputBuildingData;
+        WorkPlace workPlace = this.GetComponent<WorkPlace>();
         if(workPlace != null){
             switch (workPlace._gameTab){
                 case GameManager.GameTab.SUPERINTENDENT:
-                    SuperintendentData superintendentData = new SuperintendentData();
-                    superintendentData.workList = new bool[workPlace.taskInfos.Count];
-                    buildingData.mediocrityData = superintendentData;
+                    this.buildingData.facilityFunction = new SuperintendentFunction(workPlace.taskInfos.Count);
                     break;
 
                 case GameManager.GameTab.MANUFACTURER:
-                    ManufacturerData manufacturerData = new ManufacturerData();
-                    manufacturerData.amount = new int[workPlace.taskInfos.Count];
-                    manufacturerData.dueDate = new int[workPlace.taskInfos.Count];
-                    buildingData.mediocrityData = manufacturerData;
+                    this.buildingData.facilityFunction = new ManufacturerFunction(workPlace.taskInfos.Count);
                     break;
 
                 case GameManager.GameTab.LABORATORY:
-                    LaboratoryData laboratoryData = new LaboratoryData();
-                    laboratoryData.dueDate = new int[workPlace.taskInfos.Count];
-                    for (int i = 0; i < workPlace.taskInfos.Count; i++){
-                        laboratoryData.dueDate[i] = int.MaxValue;
-                    }
-                    buildingData.mediocrityData = laboratoryData;
+                    this.buildingData.facilityFunction = new LaboratoryFunction(workPlace.taskInfos.Count);
                     break;
 
                 default:
@@ -53,31 +49,26 @@ public class BuildingObject : MonoBehaviour
         }else{
             switch (buildingData.buildingPreset.name){
                 case "Tent":
-                    buildingData.mediocrityData = new HouseData(12);
-                    // GameManager.Instance.peopleManager.ResetHouseInfomation();
+                    this.buildingData.facilityFunction = new HouseFunction(12);
+                    break;
+                case "Chest":
+                    this.buildingData.facilityFunction = new ChestFunction();
                     break;
                 default:
                     break;
             }
         }
-        Initialize(this.buildingData);
-    }
 
-    // 오브젝트의 초기화
-    public void Initialize(BuildingData buildingData){
         BuildingPreset buildingPreset = buildingData.buildingPreset;
-        MediocrityData mediocrityData = this.buildingData.mediocrityData;
-        this.buildingData = buildingData;
         spriteRenderer.sprite = buildingPreset.sprite;
 
-        mediocrityData.content = buildingData.mediocrityData.content;
-        this.buildingData.mediocrityData = mediocrityData;
-        if(this.buildingData.mediocrityData.content != null){
-            if(this.buildingData.mediocrityData.content.CompareTo("") != 0){
-                buildingData.mediocrityData.ReloadMediocrityData();
+        if(this.buildingData.facilityFunction != null){
+            if(this.buildingData.content == null || this.buildingData.content.CompareTo("") == 0){
+                buildingData.facilityFunction.SaveMediocrityData(buildingData);
             }
+            buildingData.facilityFunction.ReloadMediocrityData(buildingData);
         }
-        
+
         Hittable hittable = GetComponent<Hittable>();
         hittable.SetEffectiveTool(removalTool);
 

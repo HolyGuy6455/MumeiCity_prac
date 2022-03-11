@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: Forge
   m_EditorClassIdentifier: 
   prefab: {fileID: 6557064219298774125, guid: 078d41a86eeb1f14e81d4fda8abe6fd9, type: 3}
-  scale: {x: 3, y: 2, z: 2}
-  relativeLocation: {x: 0, y: 0, z: 0}
+  scale: {x: 2, y: 2, z: 2}
+  spriteScale: 2
+  relativeLocation: {x: 0, y: 2, z: 2}
   sprite: {fileID: 21300000, guid: 95e8eb7ccaa97ed41bfa7f72ba2f300a, type: 3}
   info: 
   attributes: []

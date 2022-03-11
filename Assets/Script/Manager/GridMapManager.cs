@@ -27,6 +27,7 @@ public class GridMapManager : MonoBehaviour{
         B1,
         F1,
         F2,
+        F3,
         STAIR,
         WATER
     }
@@ -104,6 +105,9 @@ public class GridMapManager : MonoBehaviour{
                 break;
             case GroundLevel.F2:
                 result = 2.0f;
+                break;
+            case GroundLevel.F3:
+                result = 3.0f;
                 break;
             case GroundLevel.STAIR:
                 if(recurrence){

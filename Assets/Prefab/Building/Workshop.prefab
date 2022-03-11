@@ -234,7 +234,9 @@ MonoBehaviour:
     taskType: 1
     necessaryResources:
     - itemDataName: Bronze
-      amount: 3
+      amount: 12
+    - itemDataName: Wood
+      amount: 1
     resultItem:
       itemDataName: 
       amount: 0
@@ -246,7 +248,9 @@ MonoBehaviour:
     taskType: 1
     necessaryResources:
     - itemDataName: Bronze
-      amount: 5
+      amount: 20
+    - itemDataName: Wood
+      amount: 1
     resultItem:
       itemDataName: 
       amount: 0
@@ -259,6 +263,8 @@ MonoBehaviour:
     necessaryResources:
     - itemDataName: Thread
       amount: 5
+    - itemDataName: Wood
+      amount: 10
     resultItem:
       itemDataName: 
       amount: 0
@@ -627,7 +633,7 @@ MonoBehaviour:
   - {x: -0.28054768, y: 0.13032162, z: -0.000000080608864}
   m_ShapePathHash: -933109051
   m_Mesh: {fileID: 0}
-  m_InstanceId: -9054
+  m_InstanceId: 293520
 --- !u!1 &7850884964902981902
 GameObject:
   m_ObjectHideFlags: 0

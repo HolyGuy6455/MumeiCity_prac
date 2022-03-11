@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2630836244311422939, guid: 2ce755f755f763141a6dcf4ddb1a180e, type: 3}
   scale: {x: 1, y: 1, z: 1}
-  relativeLocation: {x: 0, y: 0, z: -1}
+  spriteScale: 1
+  relativeLocation: {x: 0, y: 1, z: -1}
   sprite: {fileID: 3118291411418976509, guid: a88294335f945a74eb1d9786dcf1a319, type: 3}
   info: You can pick fruits here.
   attributes:
@@ -25,6 +26,8 @@ MonoBehaviour:
     damage: 1
     minHP: 0
   buildToolIndex: 0
-  resourceList: []
+  resourceList:
+  - itemDataName: Berry
+    amount: 2
   grownPreset: {fileID: 0}
   growUpTerm: 0

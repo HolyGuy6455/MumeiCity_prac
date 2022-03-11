@@ -41,7 +41,7 @@ public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
                 people[0].UpdateHatImage();
             }
         }
-        buildingObject.buildingData.mediocrityData.SaveMediocrityData();
+        // buildingObject.buildingData.mediocrityData.SaveMediocrityData();
         return false;
     }
 

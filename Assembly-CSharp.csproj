@@ -37,7 +37,6 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Data\AnimalData.cs" />
-     <Compile Include="Assets\Script\Data\HouseData.cs" />
      <Compile Include="Assets\Script\UI\LaboratoryTaskUI.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemPickup.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\ShooterGameController.cs" />
@@ -52,22 +51,20 @@
      <Compile Include="Assets\Script\Manager\TimeManager.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\01_Move\Assets\Move.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\IHeraingEar.cs" />
-     <Compile Include="Assets\Script\Data\MediocrityData.cs" />
      <Compile Include="Assets\Script\UI\PauseUI.cs" />
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
      <Compile Include="Assets\Script\UI\TaskUIBundle.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentUI.cs" />
-     <Compile Include="Assets\Script\Data\SuperintendentData.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\MobSpawner.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\WaypointPath.cs" />
      <Compile Include="Assets\Script\Data\ItemPickupData.cs" />
      <Compile Include="Assets\Script\AI\ReindeerBehavior.cs" />
+     <Compile Include="Assets\Script\Data\IFacilityFunction.cs" />
      <Compile Include="Assets\Script\AI\AnimalBehavior.cs" />
      <Compile Include="Assets\Script\TilemapStart.cs" />
      <Compile Include="Assets\Script\UI\PersonInfoUI.cs" />
      <Compile Include="Assets\Script\LevelLoader.cs" />
-     <Compile Include="Assets\Script\Data\ManufacturerData.cs" />
      <Compile Include="Assets\Script\Data\PersonData.cs" />
      <Compile Include="Assets\Script\Data\TaskInfo.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerTaskUI.cs" />
@@ -90,6 +87,7 @@
      <Compile Include="Assets\Script\UI\ToolTypeButton.cs" />
      <Compile Include="Assets\Script\UI\AchievementView.cs" />
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
+     <Compile Include="Assets\Script\Data\ManufacturerFunction.cs" />
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
      <Compile Include="Assets\Script\Manager\MobManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
@@ -114,9 +112,11 @@
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
      <Compile Include="Assets\Script\EmotionScript.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ItemDroper.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\AchievementAlert.cs" />
      <Compile Include="Assets\Script\Data\ItemPreset.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\ConstructionArea.cs" />
      <Compile Include="Assets\SimpleNote\Example\SimpleNoteExample.cs" />
+     <Compile Include="Assets\Script\Data\SuperintendentFunction.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Patroller.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\HelpBoxAttribute.cs" />
      <Compile Include="Assets\Script\UI\AchievementUI.cs" />
@@ -124,12 +124,12 @@
      <Compile Include="Assets\SimpleNote\Scripts\MessageType.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Interactable.cs" />
      <Compile Include="Assets\Script\UI\GuideBookDescription.cs" />
-     <Compile Include="Assets\Script\Data\LaboratoryData.cs" />
      <Compile Include="Assets\Script\Manager\BuildingManager.cs" />
      <Compile Include="Assets\Script\UI\GuideBookFolder.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
      <Compile Include="Assets\Script\UI\ItemSlot.cs" />
      <Compile Include="Assets\Script\AI\PersonBehavior.cs" />
+     <Compile Include="Assets\Script\Data\LaboratoryFunction.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\SimpleNoteManager.cs" />
      <Compile Include="Assets\Script\Manager\ItemManager.cs" />
@@ -144,6 +144,8 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
+     <Compile Include="Assets\Script\Data\ChestFunction.cs" />
+     <Compile Include="Assets\Script\Data\HouseFunction.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

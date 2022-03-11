@@ -27,10 +27,7 @@ public class CommonTaskUI : MonoBehaviour{
         if(workPlace == null){
             return;
         }
-        if(!workPlace.hiringPerson){
-            return;    
-        }
-        if(buildingObj.buildingData.workerID == 0){
+        if(workPlace.hiringPerson && buildingObj.buildingData.workerID == 0){
             mainView.SetActive(false);
             unableView.SetActive(true);
         }else{

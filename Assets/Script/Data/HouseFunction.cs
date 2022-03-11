@@ -1,27 +1,27 @@
 using System;
 
 [Serializable]
-public class HouseData : MediocrityData{
+public class HouseFunction : IFacilityFunction{
     public int[] personIDList;
 
-    public HouseData(int personIDListLength){
+    public HouseFunction(int personIDListLength){
         personIDList = new int[personIDListLength];
     }
 
-    public override void ReloadMediocrityData(){
-        string[] splitString = content.Split();
+    public void ReloadMediocrityData(BuildingData buildingData){
+        string[] splitString = buildingData.content.Split();
         personIDList = new int[splitString.Length];
         for (int i = 0; i < splitString.Length; i++){
             personIDList[i] = int.Parse(splitString[i]);
         }
     }
 
-    public override void SaveMediocrityData(){
+    public void SaveMediocrityData(BuildingData buildingData){
         string result = "";
         for (int i = 0; i < this.personIDList.Length; i++){
             result += this.personIDList[i];
             result += " ";
         }
-        this.content = result;
+        buildingData.content = result;
     }
 }

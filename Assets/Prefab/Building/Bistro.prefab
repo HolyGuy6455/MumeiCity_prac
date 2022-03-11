@@ -398,7 +398,7 @@ MonoBehaviour:
       itemDataName: Bread
       amount: 1
     resultUpgrade: 
-    requiredTime: 30
+    requiredTime: 200
   - name: Makeing VegetableSoup
     guideSprite: {fileID: 21300000, guid: e430654c8aaa5984a8c013994fd02258, type: 3}
     info: 
@@ -414,7 +414,7 @@ MonoBehaviour:
       itemDataName: VegetableSoup
       amount: 5
     resultUpgrade: 
-    requiredTime: 150
+    requiredTime: 800
   - name: Makeing Wine
     guideSprite: {fileID: 21300000, guid: b92942c685e7cd34485423b4c73a8298, type: 3}
     info: 
@@ -640,7 +640,7 @@ MonoBehaviour:
   - {x: 0.08555889, y: 0.464355, z: -0.000005982739}
   m_ShapePathHash: 1440245004
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8286
+  m_InstanceId: -9894
 --- !u!1 &8165382617575320435
 GameObject:
   m_ObjectHideFlags: 0

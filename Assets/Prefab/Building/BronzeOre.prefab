@@ -191,7 +191,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: -8346
+  m_InstanceId: 293360
 --- !u!1 &2699476889224436141
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Bronze
-    chance: 0.3
+    chance: 1.5
     itemDropType: 2
   - itemName: Bronze
     chance: 0.3

@@ -10,6 +10,7 @@ public class BuildingPreset : ScriptableObject {
     public GameObject prefab;
     // public string buildingName;
     public Vector3 scale = new Vector3(1,1,1);
+    public float spriteScale = 1.0f;
     public Vector3 relativeLocation;
     public Sprite sprite;
     [TextArea] public string info;

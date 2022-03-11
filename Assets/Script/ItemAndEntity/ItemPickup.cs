@@ -42,6 +42,9 @@ public class ItemPickup : MonoBehaviour, ITiemEventRebindInfo
         GameManager.Instance.sence_.CleanReservation();
         if(isItDone){
             GameManager.Instance.achievementManager.AddTrial("PickUpItem",1);
+            if(itemPickupData.itemName.CompareTo("Berry") == 0){
+                GameManager.Instance.achievementManager.AddTrial("GetBerry",1);
+            }
             Destroy(gameObject);
         }
     }

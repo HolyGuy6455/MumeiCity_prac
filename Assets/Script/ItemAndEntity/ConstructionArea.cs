@@ -10,11 +10,15 @@ public class ConstructionArea : MonoBehaviour
     [SerializeField] private List<Collider> colliderOverlaped = new List<Collider>();
     [SerializeField] List<string> overlapTag = new List<string>();
     [SerializeField] BoxCollider boxCollider;
+    // [SerializeField] UnityEvent buildingUICheck;
     private BuildingPreset buildingData;
     public UnityEvent eventCallBack;
     public bool show;
 
     public bool isThereObstacle(){
+        if(GameManager.Instance.gridMapManager.amIInWater(this.transform.position)){
+            return false;
+        }
         bool result = (colliderOverlaped.Count != 0);
         if(result){
             sprite.color = new Color(1.0f,0.5f,0.5f,0.5f);
@@ -27,9 +31,12 @@ public class ConstructionArea : MonoBehaviour
     // Update is called once per frame
     void Update(){
         Vector3 newPosition = new Vector3();
-        newPosition.x = Mathf.Round(followTransform.position.x + ((buildingData is null)?0:buildingData.relativeLocation.x));
-        newPosition.y = Mathf.Round(followTransform.position.y + ((buildingData is null)?0:buildingData.relativeLocation.y));
-        newPosition.z = Mathf.Round(followTransform.position.z + ((buildingData is null)?0:buildingData.relativeLocation.z));
+        newPosition.x = Mathf.Round(followTransform.position.x);// + ((buildingData is null)?0:buildingData.relativeLocation.x));
+        newPosition.y = Mathf.Round(followTransform.position.y);// + ((buildingData is null)?0:buildingData.relativeLocation.y));
+        newPosition.z = Mathf.Round(followTransform.position.z);// + ((buildingData is null)?0:buildingData.relativeLocation.z));
+        if(Vector3.Distance(this.transform.position,newPosition) >= 1){
+            eventCallBack.Invoke();
+        }
         this.transform.position = newPosition;
     }
 
@@ -37,11 +44,19 @@ public class ConstructionArea : MonoBehaviour
         this.buildingData = buildingData;
         if(buildingData == null || !show){
             sprite.sprite = null;
-            this.transform.localScale = new Vector3(1,1,1);
+            boxCollider.size = new Vector3(1,1,1);
+            boxCollider.center = new Vector3();
         }else{
             sprite.sprite = buildingData.sprite;
-            this.transform.localScale = buildingData.scale;
+            boxCollider.size = buildingData.scale;
+            boxCollider.center = buildingData.relativeLocation;
+            sprite.transform.localPosition = buildingData.relativeLocation;
+            sprite.transform.localScale = new Vector3(1,1,1) * buildingData.spriteScale;
         }
+    }
+
+    public Vector3 GetBuildingLocation(){
+        return this.transform.position + buildingData.relativeLocation;
     }
 
     private void OnTriggerEnter(Collider other) {

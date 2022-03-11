@@ -99,7 +99,8 @@ public class SaveLoadManager : MonoBehaviour{
         GameObject[] buildingObjects = GameObject.FindGameObjectsWithTag("Building");
         foreach (GameObject buildingObj in buildingObjects){
             BuildingData buildingData = buildingObj.GetComponent<BuildingObject>().buildingData;
-            buildingData.mediocrityData.SaveMediocrityData();
+            if(buildingData.facilityFunction != null)
+                buildingData.facilityFunction.SaveMediocrityData(buildingData);
             saveForm.buildingDatas.Add(buildingData);
         }
         // 아이템 위치 저장하기

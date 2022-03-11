@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 4837827576469051087, guid: b64cae45134eba4438c081ddd52c9cb1, type: 3}
   scale: {x: 1, y: 1, z: 1}
-  relativeLocation: {x: 0, y: 0, z: -1}
+  spriteScale: 1
+  relativeLocation: {x: 0, y: 1, z: -1}
   sprite: {fileID: -4109412795537874883, guid: 40d2e18717871f84791d0a7f0f6997da, type: 3}
   info: It's warm here.
   attributes: []

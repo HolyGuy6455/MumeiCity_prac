@@ -170,6 +170,7 @@ public class WolfBehavior : AnimalBehavior{
         }
         Destroy(targetObject);
         animalData.cautionLevel -= 5;
+        GameManager.Instance.achievementManager.AddTrial("FeedWolf",1);
         ThisTask.Succeed();
     }
 

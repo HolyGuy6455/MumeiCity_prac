@@ -472,10 +472,10 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
         // }
         if(personData.homeID == 0){
             List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
-            houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
+            houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
 
             foreach (BuildingObject house in houseList){
-                HouseData houseData = house.buildingData.mediocrityData as HouseData;
+                HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
                 for (int i = 0; i < houseData.personIDList.Length; i++){
                     if(houseData.personIDList[i] == 0){
                         // Debug.Log("집을 찾았어요 : " + house.buildingData.id);

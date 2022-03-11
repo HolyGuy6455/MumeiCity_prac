@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 8082191773218286963, guid: 05affbf03f997a74788c98d6393f607a, type: 3}
   scale: {x: 1, y: 1, z: 1}
-  relativeLocation: {x: 0, y: 0, z: 0}
+  spriteScale: 1
+  relativeLocation: {x: 0, y: 1, z: -1}
   sprite: {fileID: 2758947669739957514, guid: fb42fbeb7b511c341a7fb79cab353fed, type: 3}
   info: 
   attributes:

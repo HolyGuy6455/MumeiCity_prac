@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] InteractUI interactUI;
     [SerializeField] PersonInfoUI personInfoUI;
     [SerializeField] PauseUI pauseUI;
+    public GuideBookUI guideBookUI;
     
     [SerializeField] Sence sence;
     public Sence sence_{get{return sence;}}
@@ -110,7 +111,7 @@ public class GameManager : MonoBehaviour
         };
         sence.filter = interactableSenseFilter;
 
-        SelectTool(0);
+        SelectTool(1);
     }
 
     private void OnValidate () {

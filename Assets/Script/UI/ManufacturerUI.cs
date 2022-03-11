@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class ManufacturerUI : CommonTaskUI{
     [SerializeField] ManufacturerTaskUI[] manufacturerTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
-    [SerializeField] ManufacturerData manufacturerData;
+    [SerializeField] ManufacturerFunction manufacturerData;
     [SerializeField] Text titleText;
     
     WorkPlace workPlace;
@@ -33,7 +33,7 @@ public class ManufacturerUI : CommonTaskUI{
         if(buildingObj == null){
             return;
         }
-        manufacturerData = buildingObj.buildingData.mediocrityData as ManufacturerData;
+        manufacturerData = buildingObj.buildingData.facilityFunction as ManufacturerFunction;
         if(workPlace == null){
             return;
         }
@@ -93,7 +93,7 @@ public class ManufacturerUI : CommonTaskUI{
         if(ticket != null){
             manufacturerData.dueDate[index] = ticket._delay + timeManager._timeValue;
         }
-        manufacturerData.SaveMediocrityData();
+        manufacturerData.SaveMediocrityData(buildingObj.buildingData);
     }
 
     public void Cancle(int index){
@@ -118,7 +118,7 @@ public class ManufacturerUI : CommonTaskUI{
             GameManager.Instance.inventory.AddItem(itemSlotData);
         }
 
-        manufacturerData.SaveMediocrityData();
+        manufacturerData.SaveMediocrityData(buildingObj.buildingData);
         manufacturerTaskUIArray[index].UpdateUI(taskInfo);
     }
 

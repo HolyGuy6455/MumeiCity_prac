@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -0.6100869, y: 0.05110403, z: 0.0000008923509}
   m_ShapePathHash: 1701793275
   m_Mesh: {fileID: 0}
-  m_InstanceId: -9962
+  m_InstanceId: -11634
 --- !u!1 &3590947315448464182
 GameObject:
   m_ObjectHideFlags: 0
@@ -483,36 +483,42 @@ MonoBehaviour:
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
-      amount: 3
+      amount: 16
+    - itemDataName: Wood
+      amount: 1
     resultItem:
       itemDataName: 
       amount: 0
     resultUpgrade: unlockShovel
-    requiredTime: 10
+    requiredTime: 500
   - name: Crafting Skillet
     guideSprite: {fileID: 21300000, guid: 1df3f807c105f7441aed7d58ae1022a6, type: 3}
     info: 
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
-      amount: 5
+      amount: 20
+    - itemDataName: Wood
+      amount: 1
     resultItem:
       itemDataName: 
       amount: 0
     resultUpgrade: unlockSkillet
-    requiredTime: 50
+    requiredTime: 1500
   - name: Crafting Hammer
     guideSprite: {fileID: 21300000, guid: 6b8badf8c2f5f754fbddcf9efdd2d30e, type: 3}
     info: 
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
-      amount: 5
+      amount: 20
+    - itemDataName: Wood
+      amount: 1
     resultItem:
       itemDataName: 
       amount: 0
     resultUpgrade: unlockHammer
-    requiredTime: 50
+    requiredTime: 1500
 --- !u!1 &7376713694307776016
 GameObject:
   m_ObjectHideFlags: 0

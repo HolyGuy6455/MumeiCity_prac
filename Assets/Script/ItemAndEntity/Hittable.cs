@@ -47,7 +47,6 @@ public class Hittable : MonoBehaviour
         if(HP<=0){
             animator.SetBool("isDead",true);
             animator.SetFloat("hp",(float)HP/(float)HPMax);
-            deadSound.EventInstance.start();
             return;
         }
         if(!(HitEventHandler is null)){
@@ -59,6 +58,12 @@ public class Hittable : MonoBehaviour
         }
         animator.SetFloat("hp",(float)HP/(float)HPMax);
     } 
+
+    public void DeadSound(){
+        float distance = Vector3.Distance(GameManager.Instance.PlayerTransform.position,this.transform.position);
+        deadSound.SetParameter("Distance",distance/20.0f);
+        deadSound.EventInstance.start();
+    }
 
     public void Dead(){
         if(!(DeadEventHandler is null))

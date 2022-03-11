@@ -66,7 +66,7 @@ public class PeopleManager : MonoBehaviour
     // 매일 아침마다 단체로 이사를 한다
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
-        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
+        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
         List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
         // Debug.Log("집의 갯수는 "+ houseList.Count);
 
@@ -79,7 +79,7 @@ public class PeopleManager : MonoBehaviour
             }
             // Debug.Log("저는 집이 없어요");
             foreach (BuildingObject house in houseList){
-                HouseData houseData = house.buildingData.mediocrityData as HouseData;
+                HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
                 for (int i = 0; i < houseData.personIDList.Length; i++){
                     if(houseData.personIDList[i] == 0){
                         // Debug.Log("집을 찾았어요 : " + house.buildingData.id);
@@ -115,9 +115,9 @@ public class PeopleManager : MonoBehaviour
         }
         // 행복한 사람이 둘 이상 있는 집을 찾아 애를 낳게 한다
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
-        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.mediocrityData is HouseData);
+        houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
         foreach (BuildingObject house in houseList){
-            HouseData houseData = house.buildingData.mediocrityData as HouseData;
+            HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
             if(houseData == null){
                 continue;
             }

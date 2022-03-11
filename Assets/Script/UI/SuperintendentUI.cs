@@ -5,13 +5,15 @@ using System.Collections.Generic;
 public class SuperintendentUI : CommonTaskUI{
     [SerializeField] SuperintendentTaskUI[] superintendentTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
-    [SerializeField] SuperintendentData superintendentData;
+    [SerializeField] SuperintendentFunction superintendentData;
     [SerializeField] Text titleText;
 
     public override void UpdateUI(){
         base.UpdateUI();
         buildingObj = GameManager.Instance.interactingBuilding;
-        superintendentData = buildingObj.buildingData.mediocrityData as SuperintendentData;
+        superintendentData = buildingObj.buildingData.facilityFunction as SuperintendentFunction;
+        Debug.Log("workList 2 " + superintendentData.workList);
+        superintendentData.ReloadMediocrityData(buildingObj.buildingData);
         WorkPlace workPlace = buildingObj.GetComponent<WorkPlace>();
         if(workPlace == null){
             return;

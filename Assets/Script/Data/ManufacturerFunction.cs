@@ -1,14 +1,17 @@
 using System;
-using UnityEngine;
 
-[Serializable]
-public class ManufacturerData : MediocrityData{
+public class ManufacturerFunction : IFacilityFunction{
     // 아이템 생산하는곳 추가정보
-    public int[] amount = new int[3];
-    public int[] dueDate  = new int[3];
+    public int[] amount;
+    public int[] dueDate;
 
-    public override void ReloadMediocrityData(){
-        string[] splitString = this.content.Split('/');
+    public ManufacturerFunction(int value){
+        amount = new int[value];
+        dueDate = new int[value];
+    }
+
+    public void ReloadMediocrityData(BuildingData buildingData){
+        string[] splitString = buildingData.content.Split('/');
         string[] splitString_Amount = splitString[0].Split();
         string[] splitString_DueDate = splitString[1].Split();
         amount = new int[splitString_Amount.Length];
@@ -19,7 +22,7 @@ public class ManufacturerData : MediocrityData{
         }
     }
 
-    public override void SaveMediocrityData(){
+    public void SaveMediocrityData(BuildingData buildingData){
         string result = "";
         for (int i = 0; i < amount.Length; i++){
             result += amount[i];
@@ -30,6 +33,6 @@ public class ManufacturerData : MediocrityData{
             result += dueDate[i];
             result += " ";
         }
-        this.content = result;
+        buildingData.content = result;
     }
 }

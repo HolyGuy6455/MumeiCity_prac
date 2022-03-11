@@ -4,7 +4,7 @@ using System;
  * 각 건물이 가지고 있는 정보이자, 저장 포맷
  */
 [Serializable]
-public class BuildingData : MediocrityData {
+public class BuildingData {
     public int id;
     public int positionX;
     public int positionY;
@@ -12,7 +12,8 @@ public class BuildingData : MediocrityData {
     public byte code;
     public ItemSlotData[] items;
     public int workerID;
-    public MediocrityData mediocrityData;
+    public IFacilityFunction facilityFunction;
+    public string content;
     
 
     public BuildingPreset buildingPreset{
@@ -41,15 +42,5 @@ public class BuildingData : MediocrityData {
         }
         return false;
     }
-
-    // public bool ReduceItem(byte ItemCode, int amount){
-    //     for (int i = 0; i < 4; i++){
-    //         if(items[i].code == ItemCode && items[i].amount > amount){
-    //             items[i].amount -= amount;
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
 
 }

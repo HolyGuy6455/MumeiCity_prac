@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class LaboratoryUI : CommonTaskUI{
     [SerializeField] LaboratoryTaskUI[] laboratoryTaskUIArray;
     [SerializeField] BuildingObject buildingObj;
-    [SerializeField] LaboratoryData laboratoryData;
+    [SerializeField] LaboratoryFunction laboratoryData;
     [SerializeField] Text titleText;
     
     WorkPlace workPlace;
@@ -35,7 +35,7 @@ public class LaboratoryUI : CommonTaskUI{
         if(buildingObj == null){
             return;
         }
-        laboratoryData = buildingObj.buildingData.mediocrityData as LaboratoryData;
+        laboratoryData = buildingObj.buildingData.facilityFunction as LaboratoryFunction;
         if(workPlace == null){
             return;
         }
