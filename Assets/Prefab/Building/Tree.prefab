@@ -139,6 +139,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 0
     items:
     - itemName: 
@@ -153,13 +154,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 8671496713637769634}
   shadowObject: {fileID: 8359408129419388895}
-  removalTool:
-  - tool: 4
-    damage: 2
-    minHP: 0
-  - tool: 2
-    damage: 3
-    minHP: 5
   animator: {fileID: 4472483454100044105}
 --- !u!114 &1416925517860207757
 MonoBehaviour:
@@ -176,14 +170,14 @@ MonoBehaviour:
   animator: {fileID: 4472483454100044105}
   HP: 9
   HPMax: 9
-  removalTool:
+  hitBoxCollider: {fileID: 6541050517502627668}
+  effectiveTools:
   - tool: 4
-    damage: 2
+    damage: 3
     minHP: 0
   - tool: 2
     damage: 3
-    minHP: 5
-  hitBoxCollider: {fileID: 6541050517502627668}
+    minHP: 6
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -214,7 +208,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  effectiveToolDictionaryLength: 0
+      - m_Target: {fileID: 6222858049546265626}
+        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
+        m_MethodName: RefreshHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   studioEventEmitter: {fileID: 5029584519235325197}
   dead: 6
 --- !u!95 &4472483454100044105
@@ -264,14 +269,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Wood
-    chance: 0.8
+    chance: 0.5
+    itemDropType: 2
+  - itemName: Wood
+    chance: 0.5
+    itemDropType: 2
+  - itemName: Pinecone
+    chance: 0.3
     itemDropType: 2
   - itemName: Pinecone
     chance: 1
     itemDropType: 1
-  - itemName: Pinecone
-    chance: 0.3
-    itemDropType: 2
 --- !u!114 &5029584519235325197
 MonoBehaviour:
   m_ObjectHideFlags: 0

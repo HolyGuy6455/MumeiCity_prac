@@ -58,11 +58,15 @@ public class PauseUI : MonoBehaviour{
 
     public void OnExitPause(InputAction.CallbackContext value){
         if(value.performed){
-            if(orderStr == "Root"){
-                PauseCancle();
-            }else{
-                SetOrder("Root");
-            }
+            OnExitPause();
+        }
+    }
+
+    public void OnExitPause(){
+        if(orderStr == "Root"){
+            PauseCancle();
+        }else{
+            SetOrder("Root");
         }
     }
     

@@ -249,6 +249,7 @@ GameObject:
   - component: {fileID: 4864346320451539370}
   - component: {fileID: 465074838002911549}
   - component: {fileID: 3156140812890098937}
+  - component: {fileID: -5299708748508894013}
   - component: {fileID: 4576983839096843227}
   - component: {fileID: 6073846245174396351}
   m_Layer: 8
@@ -295,6 +296,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 1
     items:
     - itemName: 
@@ -309,10 +311,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 7893386317663568914}
   shadowObject: {fileID: 7052421782272381551}
-  removalTool:
-  - tool: 4
-    damage: 4
-    minHP: 0
   animator: {fileID: 3156140812890098937}
 --- !u!114 &465074838002911549
 MonoBehaviour:
@@ -329,18 +327,29 @@ MonoBehaviour:
   animator: {fileID: 3156140812890098937}
   HP: 10
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 6704551878968758241}
+  effectiveTools:
   - tool: 4
     damage: 4
     minHP: 0
-  hitBoxCollider: {fileID: 6704551878968758241}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -5299708748508894013}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 1
   studioEventEmitter: {fileID: 6073846245174396351}
   dead: 6
 --- !u!95 &3156140812890098937
@@ -362,6 +371,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5299708748508894013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3710798525690343477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Wood
+    chance: 4
+    itemDropType: 1
+  - itemName: Wood
+    chance: 0.5
+    itemDropType: 1
 --- !u!136 &4576983839096843227
 CapsuleCollider:
   m_ObjectHideFlags: 0

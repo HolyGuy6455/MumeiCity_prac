@@ -59,6 +59,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 17
     items:
     - itemName: 
@@ -73,10 +74,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 6425687179940551282}
   shadowObject: {fileID: 6159074104633052175}
-  removalTool:
-  - tool: 4
-    damage: 4
-    minHP: 0
   animator: {fileID: 2263775840767185561}
 --- !u!114 &3662014061803312989
 MonoBehaviour:
@@ -93,18 +90,29 @@ MonoBehaviour:
   animator: {fileID: 2263775840767185561}
   HP: 10
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 0}
+  effectiveTools:
   - tool: 4
     damage: 4
     minHP: 0
-  hitBoxCollider: {fileID: 0}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7151346969498729040}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 0
   studioEventEmitter: {fileID: 4383521003237786031}
   dead: 6
 --- !u!95 &2263775840767185561
@@ -203,7 +211,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Wood
-    chance: 9
+    chance: 8.5
+    itemDropType: 1
+  - itemName: Wood
+    chance: 0.5
     itemDropType: 1
 --- !u!65 &5134349761075195250
 BoxCollider:

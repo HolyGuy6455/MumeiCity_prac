@@ -449,6 +449,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 3
     items:
     - itemName: 
@@ -463,10 +464,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 2785485470998049561}
   shadowObject: {fileID: 3097849207957955940}
-  removalTool:
-  - tool: 4
-    damage: 4
-    minHP: 0
   animator: {fileID: 6984559753434299378}
 --- !u!114 &5572850865691131446
 MonoBehaviour:
@@ -483,18 +480,41 @@ MonoBehaviour:
   animator: {fileID: 6984559753434299378}
   HP: 10
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 0}
+  effectiveTools:
   - tool: 4
     damage: 4
     minHP: 0
-  hitBoxCollider: {fileID: 0}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6970605539961458331}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2072059263}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Dismiss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 1
   studioEventEmitter: {fileID: 548941023093440088}
   dead: 6
 --- !u!95 &6984559753434299378
@@ -562,6 +582,12 @@ MonoBehaviour:
   dropAmounts:
   - itemName: Wood
     chance: 8
+    itemDropType: 1
+  - itemName: Wood
+    chance: 0.5
+    itemDropType: 1
+  - itemName: Wood
+    chance: 0.5
     itemDropType: 1
 --- !u!114 &548941023093440088
 MonoBehaviour:

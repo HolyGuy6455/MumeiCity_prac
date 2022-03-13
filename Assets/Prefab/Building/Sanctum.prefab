@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2196302345499558623}
   - component: {fileID: 734859203887539709}
   - component: {fileID: 805277189}
+  - component: {fileID: -2578632852604692790}
   - component: {fileID: -7950132947716405195}
   m_Layer: 8
   m_Name: Sanctum
@@ -58,6 +59,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 14
     items:
     - itemName: 
@@ -72,10 +74,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 6358230590402234932}
   shadowObject: {fileID: 6082450216074878025}
-  removalTool:
-  - tool: 9
-    damage: 4
-    minHP: 0
   animator: {fileID: 2196302345499558623}
 --- !u!114 &3729630413674792731
 MonoBehaviour:
@@ -92,11 +90,11 @@ MonoBehaviour:
   animator: {fileID: 2196302345499558623}
   HP: 10
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 8839963070991905986}
+  effectiveTools:
   - tool: 9
     damage: 4
     minHP: 0
-  hitBoxCollider: {fileID: 8839963070991905986}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -112,10 +110,33 @@ MonoBehaviour:
           m_StringArgument: demolish
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -2578632852604692790}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 805277189}
+        m_TargetAssemblyTypeName: WorkPlace, Assembly-CSharp
+        m_MethodName: Dismiss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 0
   studioEventEmitter: {fileID: -7950132947716405195}
   dead: 6
 --- !u!95 &2196302345499558623
@@ -172,6 +193,25 @@ MonoBehaviour:
   hiringPerson: 1
   jobID: 6
   taskInfos: []
+--- !u!114 &-2578632852604692790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 489044737926790675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Stone
+    chance: 9.5
+    itemDropType: 1
+  - itemName: Gold
+    chance: 3
+    itemDropType: 1
 --- !u!114 &-7950132947716405195
 MonoBehaviour:
   m_ObjectHideFlags: 0

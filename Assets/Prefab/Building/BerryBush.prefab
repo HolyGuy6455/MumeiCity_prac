@@ -308,6 +308,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 5
     items:
     - itemName: 
@@ -322,14 +323,8 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 8824536502650487804}
   shadowObject: {fileID: 8512577385372439937}
-  removalTool:
-  - tool: 2
-    damage: 2
-    minHP: 4
-  - tool: 5
-    damage: 10
-    minHP: 0
   animator: {fileID: 4337284619949443863}
+  removalTool: []
 --- !u!114 &1263746919949504211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -345,14 +340,14 @@ MonoBehaviour:
   animator: {fileID: 4337284619949443863}
   HP: 9
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 6405859930209451274}
+  effectiveTools:
   - tool: 2
-    damage: 2
+    damage: 3
     minHP: 4
-  - tool: 5
+  - tool: 2
     damage: 10
     minHP: 0
-  hitBoxCollider: {fileID: 6405859930209451274}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -383,7 +378,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  effectiveToolDictionaryLength: 0
+      - m_Target: {fileID: 6087843109235414596}
+        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
+        m_MethodName: RefreshHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   studioEventEmitter: {fileID: 0}
   dead: 4
 --- !u!95 &4337284619949443863

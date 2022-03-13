@@ -9,6 +9,7 @@ public class BuildingData {
     public int positionX;
     public int positionY;
     public int positionZ;
+    public int hp;
     public byte code;
     public ItemSlotData[] items;
     public int workerID;

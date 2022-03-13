@@ -337,6 +337,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 8
     items:
     - itemName: 
@@ -351,13 +352,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 1722124480028966592}
   shadowObject: {fileID: 1996214080351234237}
-  removalTool:
-  - tool: 8
-    damage: 2
-    minHP: 5
-  - tool: 9
-    damage: 5
-    minHP: 0
   animator: {fileID: 5881731106126444075}
 --- !u!114 &8942038923740689391
 MonoBehaviour:
@@ -374,14 +368,14 @@ MonoBehaviour:
   animator: {fileID: 5881731106126444075}
   HP: 9
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 2274774476168218674}
+  effectiveTools:
   - tool: 8
     damage: 2
     minHP: 5
   - tool: 9
     damage: 5
     minHP: 0
-  hitBoxCollider: {fileID: 2274774476168218674}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -412,7 +406,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  effectiveToolDictionaryLength: 0
   studioEventEmitter: {fileID: 8190777461153195431}
   dead: 3
 --- !u!95 &5881731106126444075
@@ -449,6 +442,9 @@ MonoBehaviour:
   dropAmounts:
   - itemName: Gold
     chance: 0.8
+    itemDropType: 2
+  - itemName: Stone
+    chance: 1.2
     itemDropType: 2
   - itemName: Gold
     chance: 1

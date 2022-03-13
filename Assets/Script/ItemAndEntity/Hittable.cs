@@ -8,12 +8,11 @@ public class Hittable : MonoBehaviour
     public Animator animator;
     public int HP = 10;
     public int HPMax = 10;
-    public List<EffectiveTool> removalTool;
     public Collider hitBoxCollider;
+    public List<EffectiveTool> effectiveTools;
     public UnityEvent DeadEventHandler;
     public UnityEvent HitEventHandler;
     [SerializeField] Dictionary<ToolType, EffectiveTool> effectiveToolDictionary;
-    [SerializeField] int effectiveToolDictionaryLength;
     [SerializeField] StudioEventEmitter studioEventEmitter;
     [SerializeField] HitSound dead;
     enum HitSound{
@@ -31,7 +30,8 @@ public class Hittable : MonoBehaviour
     }
 
     private void Awake() {
-        animator.SetFloat("hp",(float)HP/(float)HPMax);
+        Refresh();
+        SetEffectiveTool(effectiveTools);
     }
 
     public void SetEffectiveTool(List<EffectiveTool> list){
@@ -39,7 +39,6 @@ public class Hittable : MonoBehaviour
         foreach (EffectiveTool effectiveTool in list){
             effectiveToolDictionary[effectiveTool.tool] = effectiveTool;
         }
-        effectiveToolDictionaryLength = effectiveToolDictionary.Count;
     }
 
     public void Hit(ToolType tool){
@@ -62,7 +61,8 @@ public class Hittable : MonoBehaviour
 
         if(HP<=0){
             animator.SetBool("isDead",true);
-            animator.SetFloat("hp",(float)HP/(float)HPMax);
+            studioEventEmitter.SetParameter("HitTarget",(int)dead);
+            Refresh();
             return;
         }
         if(!(HitEventHandler is null)){
@@ -72,14 +72,8 @@ public class Hittable : MonoBehaviour
         if(damage != 0){
             animator.SetTrigger("Hit");
         }
-        animator.SetFloat("hp",(float)HP/(float)HPMax);
+        Refresh();
     } 
-
-    public void DeadSound(){
-        float distance = Vector3.Distance(GameManager.Instance.PlayerTransform.position,this.transform.position);
-        studioEventEmitter.SetParameter("Distance",distance/20.0f);
-        studioEventEmitter.SetParameter("HitTarget",(int)dead);
-    }
 
     public void Dead(){
         GameManager.Instance.buildingManager.astarPath.Scan();
@@ -101,6 +95,10 @@ public class Hittable : MonoBehaviour
         if(HP < HPMax){
             HP += value;
         }
+        Refresh();
+    }
+
+    public void Refresh(){
         animator.SetFloat("hp",(float)HP/(float)HPMax);
     }
     

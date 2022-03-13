@@ -228,6 +228,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 2
     items:
     - itemName: 
@@ -242,11 +243,11 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 2150183074733892328}
   shadowObject: {fileID: 0}
+  animator: {fileID: 6598002484801399299}
   removalTool:
   - tool: 4
     damage: 5
     minHP: 0
-  animator: {fileID: 6598002484801399299}
 --- !u!114 &8514136512318992327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,10 +263,6 @@ MonoBehaviour:
   animator: {fileID: 6598002484801399299}
   HP: 10
   HPMax: 10
-  removalTool:
-  - tool: 4
-    damage: 5
-    minHP: 0
   hitBoxCollider: {fileID: 4559857815604927518}
   DeadEventHandler:
     m_PersistentCalls:
@@ -285,7 +282,10 @@ MonoBehaviour:
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 1
+  effectiveTools:
+  - tool: 4
+    damage: 5
+    minHP: 0
   studioEventEmitter: {fileID: 2748191092015464562}
   dead: 5
 --- !u!95 &6598002484801399299

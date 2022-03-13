@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 156989480886724842}
   - component: {fileID: 5176988053753114749}
   - component: {fileID: 7665339277029062073}
+  - component: {fileID: 8868909446229310329}
   - component: {fileID: 9090703452544553627}
   - component: {fileID: 7478606839452177798}
   - component: {fileID: 932967703048475176}
@@ -339,6 +340,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 10
     items:
     - itemName: 
@@ -353,11 +355,11 @@ MonoBehaviour:
     content: 'f '
   spriteRenderer: {fileID: 3181490932839349586}
   shadowObject: {fileID: 2338247900696767279}
+  animator: {fileID: 7665339277029062073}
   removalTool:
   - tool: 9
     damage: 5
     minHP: 0
-  animator: {fileID: 7665339277029062073}
 --- !u!114 &5176988053753114749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,17 +375,17 @@ MonoBehaviour:
   animator: {fileID: 7665339277029062073}
   HP: 1
   HPMax: 10
-  removalTool:
-  - tool: 9
-    damage: 5
-    minHP: 0
   hitBoxCollider: {fileID: 1060544655490958244}
+  effectiveTools:
+  - tool: 4
+    damage: 10
+    minHP: 0
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 156989480886724842}
-        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
-        m_MethodName: Demolish
+      - m_Target: {fileID: 8868909446229310329}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -396,7 +398,6 @@ MonoBehaviour:
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 1
   studioEventEmitter: {fileID: 932967703048475176}
   dead: 5
 --- !u!95 &7665339277029062073
@@ -418,6 +419,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8868909446229310329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274092955239123317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Pinecone
+    chance: 1
+    itemDropType: 1
 --- !u!136 &9090703452544553627
 CapsuleCollider:
   m_ObjectHideFlags: 0

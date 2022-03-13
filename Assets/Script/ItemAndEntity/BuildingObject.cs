@@ -10,6 +10,7 @@ public class BuildingObject : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public GameObject shadowObject;
     [SerializeField] Animator animator;
+    Hittable hittable;
  
     private void Awake() {
         // TODO
@@ -26,6 +27,9 @@ public class BuildingObject : MonoBehaviour
         for (int i = 0; i < itemSpace; i++){
             buildingData.items[i] = ItemSlotData.Create(ItemData.Instant("None"));
         }
+
+        hittable = GetComponent<Hittable>();
+        buildingData.hp = hittable.HP;
 
         Initialize(this.buildingData);
     }
@@ -80,6 +84,8 @@ public class BuildingObject : MonoBehaviour
             shadowPostion.y = (this.transform.position.y+this.transform.position.z);
             shadowObject.transform.position = shadowPostion;
         }
+
+        hittable.HP = buildingData.hp;
     }
 
     [ContextMenu("Manual Initialize")]
@@ -89,6 +95,10 @@ public class BuildingObject : MonoBehaviour
 
     public void ChangeGameTab(string gametab){
         GameManager.Instance.ChangeGameTab(gametab);
+    }
+
+    public void RefreshHP(){
+        buildingData.hp = hittable.HP;
     }
 
     public void Demolish(){

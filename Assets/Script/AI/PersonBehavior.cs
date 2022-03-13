@@ -235,7 +235,7 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
             if(hittable == null){
                 continue;
             }
-            foreach (EffectiveTool effective in hittable.removalTool){
+            foreach (EffectiveTool effective in hittable.effectiveTools){
                 if(effective.tool == hitCollision.tool){
                     effectiveTool = effective;
                     break;
@@ -245,7 +245,7 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
                 continue;
             }
 
-            if(hittable.HP < effectiveTool.minHP){
+            if(hittable.HP <= effectiveTool.minHP){
                 continue;
             }
             

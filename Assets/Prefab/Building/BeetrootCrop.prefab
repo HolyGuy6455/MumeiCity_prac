@@ -193,6 +193,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 18
     items:
     - itemName: 
@@ -207,14 +208,8 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 300181007790396264}
   shadowObject: {fileID: 0}
-  removalTool:
-  - tool: 2
-    damage: 7
-    minHP: 8
-  - tool: 5
-    damage: 10
-    minHP: 0
   animator: {fileID: 4786298744377383811}
+  removalTool: []
 --- !u!114 &8058280142525210183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,17 +225,22 @@ MonoBehaviour:
   animator: {fileID: 4786298744377383811}
   HP: 1
   HPMax: 10
-  removalTool:
-  - tool: 2
-    damage: 7
-    minHP: 8
-  - tool: 5
-    damage: 10
-    minHP: 0
   hitBoxCollider: {fileID: 1063786545494445913}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5597511061799039907}
+        m_TargetAssemblyTypeName: ItemDroper, Assembly-CSharp
+        m_MethodName: DropItemWhenDestroy
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -256,7 +256,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  effectiveToolDictionaryLength: 0
+      - m_Target: {fileID: 3035748533590312656}
+        m_TargetAssemblyTypeName: BuildingObject, Assembly-CSharp
+        m_MethodName: RefreshHP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  effectiveTools:
+  - tool: 2
+    damage: 8
+    minHP: 9
+  - tool: 2
+    damage: 10
+    minHP: 0
   studioEventEmitter: {fileID: 7903174804777068225}
   dead: 4
 --- !u!114 &5597511061799039907

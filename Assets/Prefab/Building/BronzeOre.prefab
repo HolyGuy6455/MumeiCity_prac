@@ -61,7 +61,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1979190
+  m_InstanceId: 2139016
 --- !u!1 &2699476889224436141
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,7 +186,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5937200866895562579, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  m_Sprite: {fileID: -336711030326400945, guid: 14183a9761d699d48883d720ecd7d42d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 9
     items:
     - itemName: 
@@ -351,13 +352,6 @@ MonoBehaviour:
     content: 
   spriteRenderer: {fileID: 1200532385360597713}
   shadowObject: {fileID: 2088800436412990636}
-  removalTool:
-  - tool: 3
-    damage: 2
-    minHP: 5
-  - tool: 9
-    damage: 5
-    minHP: 0
   animator: {fileID: 6264236086901086778}
 --- !u!114 &8887734881415831550
 MonoBehaviour:
@@ -374,14 +368,14 @@ MonoBehaviour:
   animator: {fileID: 6264236086901086778}
   HP: 9
   HPMax: 10
-  removalTool:
+  hitBoxCollider: {fileID: 3186913827458189460}
+  effectiveTools:
   - tool: 3
     damage: 2
     minHP: 5
   - tool: 9
     damage: 5
     minHP: 0
-  hitBoxCollider: {fileID: 3186913827458189460}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -412,7 +406,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  effectiveToolDictionaryLength: 0
   studioEventEmitter: {fileID: 8301880005166637788}
   dead: 6
 --- !u!95 &6264236086901086778
@@ -590,7 +583,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3751032848796065094, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  m_Sprite: {fileID: -1303110711307934212, guid: 14183a9761d699d48883d720ecd7d42d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -674,7 +667,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -3751032848796065094, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  m_Sprite: {fileID: -1303110711307934212, guid: 14183a9761d699d48883d720ecd7d42d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

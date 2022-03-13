@@ -392,8 +392,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void SetResolution(string resolution){
-        switch (resolution)
-        {
+        switch (resolution){
             case "640_360":
                 Screen.SetResolution(640, 360, false);
                 break;

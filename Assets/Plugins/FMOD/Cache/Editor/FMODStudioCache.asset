@@ -143,7 +143,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637828246900759084
+  lastModified: 637828339157441939
   FileSizes:
   - Name: Desktop
     Value: 393152
@@ -237,7 +237,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 637828246899018089
+  lastModified: 637828339156215129
   FileSizes:
   - Name: Desktop
     Value: 6054720
@@ -354,9 +354,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BGM_MIX/BGM_Voulume
+  m_Name: parameter:/BGM_MIX/BGM_Volume
   m_EditorClassIdentifier: 
-  Name: BGM_Voulume
+  Name: BGM_Volume
   StudioPath: 
   Min: 0
   Max: 1
@@ -483,7 +483,7 @@ MonoBehaviour:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637828246901408114
+  cacheTime: 637828339157718549
   cacheVersion: 10
 --- !u!114 &739709346965894061
 MonoBehaviour:
@@ -553,10 +553,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/BGM_Voulume
+  m_Name: parameter:/BGM_Volume
   m_EditorClassIdentifier: 
-  Name: BGM_Voulume
-  StudioPath: parameter:/BGM_Voulume
+  Name: BGM_Volume
+  StudioPath: parameter:/BGM_Volume
   Min: 0
   Max: 1
   Default: 1
@@ -645,10 +645,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637828246899626865
+  lastModified: 637828339156703824
   FileSizes:
   - Name: Desktop
-    Value: 1680
+    Value: 1678
   Exists: 1
 --- !u!114 &4455831660971163497
 MonoBehaviour:
@@ -764,7 +764,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Entity.bank
   Name: Entity
   StudioPath: bank:/Entity
-  lastModified: 637828246899536980
+  lastModified: 637828339156564205
   FileSizes:
   - Name: Desktop
     Value: 57184
@@ -784,7 +784,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 637828246901408114
+  lastModified: 637828339157718549
   FileSizes:
   - Name: Desktop
     Value: 16992
@@ -804,8 +804,8 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637828246899586560
+  lastModified: 637828339156633989
   FileSizes:
   - Name: Desktop
-    Value: 1386
+    Value: 1384
   Exists: 1
