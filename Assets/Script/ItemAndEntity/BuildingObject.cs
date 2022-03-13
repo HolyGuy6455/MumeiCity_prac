@@ -9,7 +9,6 @@ public class BuildingObject : MonoBehaviour
     public BuildingData buildingData;
     public SpriteRenderer spriteRenderer;
     public GameObject shadowObject;
-    public List<EffectiveTool> removalTool;
     [SerializeField] Animator animator;
  
     private void Awake() {
@@ -75,9 +74,6 @@ public class BuildingObject : MonoBehaviour
             buildingData.facilityFunction.ReloadMediocrityData(buildingData);
         }
 
-        Hittable hittable = GetComponent<Hittable>();
-        hittable.SetEffectiveTool(removalTool);
-
         if(shadowObject != null){
             Vector3 shadowPostion = new Vector3();
             shadowPostion.x = this.transform.position.x;
@@ -89,13 +85,6 @@ public class BuildingObject : MonoBehaviour
     [ContextMenu("Manual Initialize")]
     void ManualInitialize(){
         Initialize(this.buildingData);
-    }
-
-    private void OnDestroy() {
-        GameManager gameManager = GameManager.Instance;
-        if(gameManager != null){
-            gameManager.buildingManager.astarPath.Scan();
-        }
     }
 
     public void ChangeGameTab(string gametab){

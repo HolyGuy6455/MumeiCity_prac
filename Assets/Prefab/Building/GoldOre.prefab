@@ -1,70 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1398482370854131758
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1853003180272172750}
-  - component: {fileID: 8624543239775602641}
-  m_Layer: 8
-  m_Name: HitSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1853003180272172750
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398482370854131758}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 1, z: 60}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5265729990061034213}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8624543239775602641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1398482370854131758}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 3
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1996214080351234237
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,72 +61,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: -10638
---- !u!1 &2072160989466274536
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2129996844133868663}
-  - component: {fileID: 6711135939835979594}
-  m_Layer: 8
-  m_Name: DeadSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2129996844133868663
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072160989466274536}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 1, z: 60}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5265729990061034213}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6711135939835979594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2072160989466274536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 3
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_InstanceId: 1984170
 --- !u!1 &2466113469888165308
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,7 +72,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1944863425446036617}
   - component: {fileID: 359329878345151625}
-  - component: {fileID: 3852571698584404022}
+  - component: {fileID: 2274774476168218674}
   m_Layer: 6
   m_Name: HitBoxCollider
   m_TagString: HitBox
@@ -232,8 +102,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2466113469888165308}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!136 &3852571698584404022
-CapsuleCollider:
+--- !u!135 &2274774476168218674
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -242,9 +112,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4556759108670263433
 GameObject:
@@ -422,9 +291,10 @@ GameObject:
   - component: {fileID: 4174105865879251832}
   - component: {fileID: 8942038923740689391}
   - component: {fileID: 5881731106126444075}
-  - component: {fileID: 5037399958005174537}
   - component: {fileID: 3822184445568981510}
   - component: {fileID: 3113587859522014416}
+  - component: {fileID: 3148606430964498268}
+  - component: {fileID: 8190777461153195431}
   m_Layer: 8
   m_Name: GoldOre
   m_TagString: Building
@@ -447,8 +317,6 @@ Transform:
   - {fileID: 8485709288302729087}
   - {fileID: 9024587755052721745}
   - {fileID: 4938201097334765307}
-  - {fileID: 1853003180272172750}
-  - {fileID: 2129996844133868663}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -465,28 +333,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 8
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 1722124480028966592}
   shadowObject: {fileID: 1996214080351234237}
   removalTool:
@@ -512,7 +374,14 @@ MonoBehaviour:
   animator: {fileID: 5881731106126444075}
   HP: 9
   HPMax: 10
-  hitBoxCollider: {fileID: 3852571698584404022}
+  removalTool:
+  - tool: 8
+    damage: 2
+    minHP: 5
+  - tool: 9
+    damage: 5
+    minHP: 0
+  hitBoxCollider: {fileID: 2274774476168218674}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -544,8 +413,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 8624543239775602641}
-  deadSound: {fileID: 6711135939835979594}
+  studioEventEmitter: {fileID: 8190777461153195431}
+  dead: 3
 --- !u!95 &5881731106126444075
 Animator:
   serializedVersion: 3
@@ -565,20 +434,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &5037399958005174537
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5265729990061034215}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.4
-  m_Height: 3
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3822184445568981510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -616,6 +471,54 @@ MonoBehaviour:
     idString: 
   restorationTerm: 200
   hittable: {fileID: 8942038923740689391}
+  grownPrefab: {fileID: 0}
+--- !u!135 &3148606430964498268
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265729990061034215}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8190777461153195431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5265729990061034215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 865452042
+      Data2: 1117985956
+      Data3: -1169649745
+      Data4: 522165143
+    Path: event:/SFX/HitSound
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Distance
+    Value: 1
+  - Name: HitTarget
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &6505904396839497009
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +626,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8481303569880236186}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.25, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2394222251434606917}

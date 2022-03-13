@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1143741368000297544}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.25, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3710798525690343479}
@@ -250,6 +250,7 @@ GameObject:
   - component: {fileID: 465074838002911549}
   - component: {fileID: 3156140812890098937}
   - component: {fileID: 4576983839096843227}
+  - component: {fileID: 6073846245174396351}
   m_Layer: 8
   m_Name: Tent
   m_TagString: Building
@@ -274,8 +275,6 @@ Transform:
   - {fileID: 465074836887832416}
   - {fileID: 1583946969616589248}
   - {fileID: 5993448056576308019}
-  - {fileID: 8052636454665039089}
-  - {fileID: 6101870339889008708}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -292,28 +291,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 1
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 7893386317663568914}
   shadowObject: {fileID: 7052421782272381551}
   removalTool:
@@ -336,7 +329,11 @@ MonoBehaviour:
   animator: {fileID: 3156140812890098937}
   HP: 10
   HPMax: 10
-  hitBoxCollider: {fileID: 5700382384327604964}
+  removalTool:
+  - tool: 4
+    damage: 4
+    minHP: 0
+  hitBoxCollider: {fileID: 6704551878968758241}
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls: []
@@ -344,8 +341,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 1
-  hitSound: {fileID: 1957552698429606947}
-  deadSound: {fileID: 5318599830057685195}
+  studioEventEmitter: {fileID: 6073846245174396351}
+  dead: 6
 --- !u!95 &3156140812890098937
 Animator:
   serializedVersion: 3
@@ -376,47 +373,16 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.4
-  m_Height: 3
+  m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &5354185921402224971
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8052636454665039089}
-  - component: {fileID: 1957552698429606947}
-  m_Layer: 8
-  m_Name: HitSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8052636454665039089
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354185921402224971}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.5, z: 11.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 3710798525690343479}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1957552698429606947
+--- !u!114 &6073846245174396351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5354185921402224971}
+  m_GameObject: {fileID: 3710798525690343477}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -437,10 +403,10 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params:
-  - Name: HitTarget
-    Value: 5
   - Name: Distance
     Value: 1
+  - Name: HitTarget
+    Value: 5
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -455,7 +421,7 @@ GameObject:
   - component: {fileID: 6958427445598436955}
   - component: {fileID: 9119893153763495515}
   - component: {fileID: 1196811029197328893}
-  - component: {fileID: 5700382384327604964}
+  - component: {fileID: 6704551878968758241}
   m_Layer: 6
   m_Name: HitBoxCollider
   m_TagString: HitBox
@@ -526,85 +492,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5700382384327604964
-CapsuleCollider:
+--- !u!135 &6704551878968758241
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6365173132157259630}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.2
-  m_Height: 1
-  m_Direction: 1
+  serializedVersion: 2
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &6525867678007585172
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6101870339889008708}
-  - component: {fileID: 5318599830057685195}
-  m_Layer: 8
-  m_Name: DeadSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6101870339889008708
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6525867678007585172}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3, y: -0.5, z: 11.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 3710798525690343479}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5318599830057685195
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6525867678007585172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 6
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &7052421782272381551
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,7 +562,7 @@ MonoBehaviour:
   - {x: -0.009836197, y: 0.40825912, z: -0.00000498081}
   m_ShapePathHash: -177651129
   m_Mesh: {fileID: 0}
-  m_InstanceId: -7654
+  m_InstanceId: 1986530
 --- !u!1 &7458169046356105762
 GameObject:
   m_ObjectHideFlags: 0

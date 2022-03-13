@@ -29,9 +29,7 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
 
     public virtual void Start() {
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
-        // aIPath.destination = new Vector3(0,0,0);
         hittable.HP = hpMax;
-        hittable.SetEffectiveTool(removalTool);
     }
     public virtual void Update() {
         animator.SetBool("isGrounded",IsGrounded());

@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 344425577}
   - component: {fileID: 344425581}
   - component: {fileID: 1762462543056677702}
+  - component: {fileID: 5256679866113794843}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Building
@@ -108,7 +109,6 @@ Transform:
   m_Children:
   - {fileID: 5041921782567252254}
   - {fileID: 5041921781413712827}
-  - {fileID: 7102083590753752368}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -144,7 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
@@ -152,8 +151,7 @@ MonoBehaviour:
     code: 15
     items: []
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 5041921782567252253}
   shadowObject: {fileID: 0}
   removalTool: []
@@ -249,8 +247,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 1685700760083398180}
-  deadSound: {fileID: 1685700760083398180}
+  studioEventEmitter: {fileID: 5256679866113794843}
+  dead: 7
 --- !u!114 &1762462543056677702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,6 +261,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c2182a590d8a44cb9a6f20f3bef5c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5256679866113794843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041921781802770496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 865452042
+      Data2: 1117985956
+      Data3: -1169649745
+      Data4: 522165143
+    Path: event:/SFX/HitSound
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Distance
+    Value: 1
+  - Name: HitTarget
+    Value: 7
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &5041921782567252255
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,68 +377,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &5832131676980546170
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7102083590753752368}
-  - component: {fileID: 1685700760083398180}
-  m_Layer: 8
-  m_Name: DeadSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7102083590753752368
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832131676980546170}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -6.749, y: -1, z: 13}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 5041921781802770511}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1685700760083398180
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5832131676980546170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 7
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

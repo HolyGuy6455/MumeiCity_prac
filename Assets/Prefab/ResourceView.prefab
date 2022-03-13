@@ -67,10 +67,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 81c89dd5bcf203a4484f59251df8acdf, type: 3}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 5
     m_AlignByGeometry: 0
@@ -133,7 +133,12 @@ MonoBehaviour:
   resourceName: {fileID: 4950758359481107896}
   resourceImage: {fileID: 4950758358627546091}
   resourceAmount: {fileID: 8074411795159770622}
-  itemPreset: {fileID: 0}
+  itemData:
+    itemName: 
+    itemSprite: {fileID: 0}
+    info: 
+    tag: 
+    efficiency: 0
 --- !u!1 &4950758358627546088
 GameObject:
   m_ObjectHideFlags: 0

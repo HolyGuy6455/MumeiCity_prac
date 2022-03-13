@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Campfire
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 4837827576469051087, guid: b64cae45134eba4438c081ddd52c9cb1, type: 3}
   scale: {x: 1, y: 1, z: 1}
   spriteScale: 1
@@ -20,13 +21,6 @@ MonoBehaviour:
   info: It's warm here.
   attributes: []
   buildTool: 3
-  removalTool:
-  - tool: 4
-    damage: 3
-    minHP: 0
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Wood
     amount: 1
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

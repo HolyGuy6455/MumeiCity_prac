@@ -68,7 +68,10 @@ public class GridMapManager : MonoBehaviour{
                 newGroundObject.transform.SetParent(groundParent.transform);
                 float defaultLevel = GetFloorHeight(x,y,true);
                 newGroundObject.transform.Translate(0,defaultLevel,0);
-                waterArray[x,y] = isWater(x,y);
+                if(GetGroundLevel(x,y) == GroundLevel.STAIR){
+                    newGroundObject.transform.Rotate(0.1f,0.0f,0.0f);
+                }
+                waterArray[x,y] = GetGroundLevel(x,y) == GroundLevel.WATER;
                 heightArray[x,y] = defaultLevel;
             }
         }
@@ -80,13 +83,13 @@ public class GridMapManager : MonoBehaviour{
         groundParent.transform.localScale = new Vector3(1.0f,1.0f,1.5f);
     }
 
-    private bool isWater(int x, int y){
+    private GroundLevel GetGroundLevel(int x, int y){
         TileBase tile = allTiles[x + y * xMax];
         GroundLevel groundLevel = GroundLevel.B1;
         if(tile != null){
             groundLevel = groundDictionary[tile as Tile];
         }
-        return groundLevel == GroundLevel.WATER;
+        return groundLevel;
     }
 
     private float GetFloorHeight(int x, int y, bool recurrence){

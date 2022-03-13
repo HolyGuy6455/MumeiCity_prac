@@ -61,7 +61,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: -19532
+  m_InstanceId: 1984330
 --- !u!1 &3687321023497511679
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,71 +116,6 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!1 &4110457010394047701
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4195474836311083829}
-  - component: {fileID: 8194046743470715766}
-  m_Layer: 8
-  m_Name: DeadSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4195474836311083829
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4110457010394047701}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 27.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 6341413844693212582}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8194046743470715766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4110457010394047701}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 3
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &5657985917226539724
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,6 +295,7 @@ GameObject:
   - component: {fileID: 6123465438067951178}
   - component: {fileID: 7857121962394569626}
   - component: {fileID: 405525961}
+  - component: {fileID: 7346940990995660795}
   m_Layer: 8
   m_Name: IronOre
   m_TagString: Building
@@ -382,8 +318,6 @@ Transform:
   - {fileID: 7264816847787065404}
   - {fileID: 7795552226329145618}
   - {fileID: 6168410273184899512}
-  - {fileID: 2154545829266447494}
-  - {fileID: 4195474836311083829}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -441,6 +375,13 @@ MonoBehaviour:
   animator: {fileID: 4661929898688078184}
   HP: 9
   HPMax: 10
+  removalTool:
+  - tool: 8
+    damage: 2
+    minHP: 4
+  - tool: 9
+    damage: 5
+    minHP: 0
   hitBoxCollider: {fileID: 2622658770182051701}
   DeadEventHandler:
     m_PersistentCalls:
@@ -473,8 +414,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 2565446574691303826}
-  deadSound: {fileID: 8194046743470715766}
+  studioEventEmitter: {fileID: 7346940990995660795}
+  dead: 3
 --- !u!95 &4661929898688078184
 Animator:
   serializedVersion: 3
@@ -545,45 +486,14 @@ MonoBehaviour:
     idString: 
   restorationTerm: 200
   hittable: {fileID: 0}
-  grownPreset: {fileID: 0}
---- !u!1 &6623030901741384009
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2154545829266447494}
-  - component: {fileID: 2565446574691303826}
-  m_Layer: 8
-  m_Name: HitSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2154545829266447494
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6623030901741384009}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0.5, z: 27.5}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_Children: []
-  m_Father: {fileID: 6341413844693212582}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2565446574691303826
+  grownPrefab: {fileID: 0}
+--- !u!114 &7346940990995660795
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6623030901741384009}
+  m_GameObject: {fileID: 6341413844693212580}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
@@ -604,10 +514,10 @@ MonoBehaviour:
   TriggerOnce: 0
   Preload: 0
   Params:
-  - Name: HitTarget
-    Value: 3
   - Name: Distance
     Value: 1
+  - Name: HitTarget
+    Value: 3
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -636,7 +546,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7251146577881700313}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.25, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6410153625569768209}

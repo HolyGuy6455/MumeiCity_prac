@@ -235,7 +235,7 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
             if(hittable == null){
                 continue;
             }
-            foreach (EffectiveTool effective in buildingObject.removalTool){
+            foreach (EffectiveTool effective in hittable.removalTool){
                 if(effective.tool == hitCollision.tool){
                     effectiveTool = effective;
                     break;

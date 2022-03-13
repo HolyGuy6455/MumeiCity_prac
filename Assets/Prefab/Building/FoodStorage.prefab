@@ -357,28 +357,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 4
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 8222590624084874622}
   shadowObject: {fileID: 9099892129007649539}
   removalTool:
@@ -401,6 +395,10 @@ MonoBehaviour:
   animator: {fileID: 3772519827397156245}
   HP: 10
   HPMax: 10
+  removalTool:
+  - tool: 4
+    damage: 4
+    minHP: 0
   hitBoxCollider: {fileID: 5804471420586093448}
   DeadEventHandler:
     m_PersistentCalls:
@@ -409,8 +407,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 4541205662058322425}
-  deadSound: {fileID: 8726120842888288615}
+  studioEventEmitter: {fileID: 0}
+  dead: 0
 --- !u!95 &3772519827397156245
 Animator:
   serializedVersion: 3

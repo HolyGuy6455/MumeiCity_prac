@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1006754198084286433}
   - component: {fileID: 9015051458918005998}
   - component: {fileID: 7144233619442264632}
+  - component: {fileID: 2946876567330126969}
   m_Layer: 8
   m_Name: Ice
   m_TagString: Building
@@ -37,8 +38,6 @@ Transform:
   - {fileID: 4455061317530775959}
   - {fileID: 3831722941817864377}
   - {fileID: 907693795348320275}
-  - {fileID: 5883941481153009702}
-  - {fileID: 6169792750574650015}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -55,28 +54,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 21
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 6914980489671759912}
   shadowObject: {fileID: 6026730168766352981}
   removalTool:
@@ -99,6 +92,10 @@ MonoBehaviour:
   animator: {fileID: 1851223875007615171}
   HP: 9
   HPMax: 10
+  removalTool:
+  - tool: 3
+    damage: 2
+    minHP: 0
   hitBoxCollider: {fileID: 9036420447752546014}
   DeadEventHandler:
     m_PersistentCalls:
@@ -131,8 +128,8 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 4584749533431816505}
-  deadSound: {fileID: 7590102679805703015}
+  studioEventEmitter: {fileID: 2946876567330126969}
+  dead: 3
 --- !u!95 &1851223875007615171
 Animator:
   serializedVersion: 3
@@ -197,6 +194,41 @@ MonoBehaviour:
     idString: 
   restorationTerm: 100
   hittable: {fileID: 3749321522372842759}
+  grownPrefab: {fileID: 0}
+--- !u!114 &2946876567330126969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73012586528943119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 865452042
+      Data2: 1117985956
+      Data3: -1169649745
+      Data4: 522165143
+    Path: event:/SFX/HitSound
+  Event: 
+  PlayEvent: 1
+  StopEvent: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  Params:
+  - Name: Distance
+    Value: 1
+  - Name: HitTarget
+    Value: 3
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
 --- !u!1 &583875166031343947
 GameObject:
   m_ObjectHideFlags: 0
@@ -386,7 +418,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4441500998723430002}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 0.25, z: -0.25}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 7577651047307257773}
@@ -506,137 +538,7 @@ MonoBehaviour:
   - {x: -0.3772831, y: -0.35476846, z: 0.00000920436}
   m_ShapePathHash: 930238005
   m_Mesh: {fileID: 0}
-  m_InstanceId: -1979994
---- !u!1 &6111682084555328512
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6169792750574650015}
-  - component: {fileID: 7590102679805703015}
-  m_Layer: 8
-  m_Name: DeadSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6169792750574650015
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6111682084555328512}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 1, z: 60}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 73012586528943117}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7590102679805703015
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6111682084555328512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 3
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!1 &6591208579069198022
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5883941481153009702}
-  - component: {fileID: 4584749533431816505}
-  m_Layer: 8
-  m_Name: HitSound
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5883941481153009702
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591208579069198022}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 36, y: 1, z: 60}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 73012586528943117}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4584749533431816505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6591208579069198022}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 865452042
-      Data2: 1117985956
-      Data3: -1169649745
-      Data4: 522165143
-    Path: event:/SFX/HitSound
-  Event: 
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: HitTarget
-    Value: 3
-  - Name: Distance
-    Value: 1
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
+  m_InstanceId: 1984836
 --- !u!1 &7649821552451015508
 GameObject:
   m_ObjectHideFlags: 0

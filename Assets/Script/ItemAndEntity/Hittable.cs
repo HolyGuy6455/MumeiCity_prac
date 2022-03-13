@@ -8,13 +8,31 @@ public class Hittable : MonoBehaviour
     public Animator animator;
     public int HP = 10;
     public int HPMax = 10;
+    public List<EffectiveTool> removalTool;
     public Collider hitBoxCollider;
     public UnityEvent DeadEventHandler;
     public UnityEvent HitEventHandler;
     [SerializeField] Dictionary<ToolType, EffectiveTool> effectiveToolDictionary;
     [SerializeField] int effectiveToolDictionaryLength;
-    [SerializeField] StudioEventEmitter hitSound;
-    [SerializeField] StudioEventEmitter deadSound;
+    [SerializeField] StudioEventEmitter studioEventEmitter;
+    [SerializeField] HitSound dead;
+    enum HitSound{
+        NONE    = 0,
+        WHIP    = 1,
+        ENTITY  = 2,
+        STONE   = 3,
+        CROP    = 4,
+        WOOD    = 5,
+        COLLAPSE= 6,
+        CHEST   = 7,
+        WHINE   = 8,
+        PLAYER  = 9,
+        BANG    = 10
+    }
+
+    private void Awake() {
+        animator.SetFloat("hp",(float)HP/(float)HPMax);
+    }
 
     public void SetEffectiveTool(List<EffectiveTool> list){
         effectiveToolDictionary = new Dictionary<ToolType, EffectiveTool>();
@@ -25,7 +43,6 @@ public class Hittable : MonoBehaviour
     }
 
     public void Hit(ToolType tool){
-        Debug.Log("hit - " + this);
         int damage = 0;
         if(effectiveToolDictionary != null && effectiveToolDictionary.ContainsKey(tool)){
             if(effectiveToolDictionary[tool].minHP < HP){
@@ -33,16 +50,15 @@ public class Hittable : MonoBehaviour
             }
         }
         float distance = Vector3.Distance(GameManager.Instance.PlayerTransform.position,this.transform.position);
-        hitSound.SetParameter("Distance",distance/20.0f);
-        deadSound.SetParameter("Distance",distance/20.0f);
+        if(studioEventEmitter != null)
+            studioEventEmitter.SetParameter("Distance",distance/20.0f);
         
-        Debug.Log("Distance!! " + (distance/20.0f));
-        Debug.Log("damage - " + damage);
         if(damage == 0){
             return;
         }
         HP -= damage;
-        hitSound.EventInstance.start();
+        if(studioEventEmitter != null)
+            studioEventEmitter.EventInstance.start();
 
         if(HP<=0){
             animator.SetBool("isDead",true);
@@ -61,11 +77,12 @@ public class Hittable : MonoBehaviour
 
     public void DeadSound(){
         float distance = Vector3.Distance(GameManager.Instance.PlayerTransform.position,this.transform.position);
-        deadSound.SetParameter("Distance",distance/20.0f);
-        deadSound.EventInstance.start();
+        studioEventEmitter.SetParameter("Distance",distance/20.0f);
+        studioEventEmitter.SetParameter("HitTarget",(int)dead);
     }
 
     public void Dead(){
+        GameManager.Instance.buildingManager.astarPath.Scan();
         if(!(DeadEventHandler is null))
             DeadEventHandler.Invoke();
         Destroy(this.gameObject);

@@ -33,8 +33,8 @@ public class ConstructionArea : MonoBehaviour
     void Update(){
         Vector3 newPosition = new Vector3();
         newPosition.x = Mathf.Round(followTransform.position.x);// + ((buildingData is null)?0:buildingData.relativeLocation.x));
-        newPosition.y = Mathf.Round(followTransform.position.y);// + ((buildingData is null)?0:buildingData.relativeLocation.y));
-        newPosition.z = Mathf.Round(followTransform.position.z);// + ((buildingData is null)?0:buildingData.relativeLocation.z));
+        newPosition.y = Mathf.Round(followTransform.position.y) + 0.01f;// + ((buildingData is null)?0:buildingData.relativeLocation.y));
+        newPosition.z = Mathf.Round(followTransform.position.z) + 0.01f;// + ((buildingData is null)?0:buildingData.relativeLocation.z));
         if(Vector3.Distance(this.transform.position,newPosition) >= 1){
             eventCallBack.Invoke();
         }
@@ -57,7 +57,11 @@ public class ConstructionArea : MonoBehaviour
     }
 
     public Vector3 GetBuildingLocation(){
-        return this.transform.position + buildingData.relativeLocation;
+        Vector3 newPosition = new Vector3();
+        newPosition.x = Mathf.Round(this.transform.position.x);
+        newPosition.y = Mathf.Round(this.transform.position.y);
+        newPosition.z = Mathf.Round(this.transform.position.z);
+        return newPosition + buildingData.relativeLocation;
     }
 
     private void OnTriggerEnter(Collider other) {

@@ -11,7 +11,6 @@ public class HitCollision : MonoBehaviour{
             hittable.Hit(tool);
         }
         if(tool == ToolType.CLAW && other.tag == "Player"){
-            // Debug.Log("Player Hurt");
             GameManager.Instance.playerMovement.Hurt();
         }
     }

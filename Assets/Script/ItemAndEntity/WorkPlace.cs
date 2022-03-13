@@ -64,4 +64,11 @@ public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
         return result;
     }
 
+    public void Dismiss(){
+        PersonBehavior person = PeopleManager.FindPersonWithID(this.buildingObject.buildingData.workerID);
+        person.personData.workplaceID = 0;
+        person.personData.jobID = 0;
+        person.UpdateHatImage();
+    }
+
 }

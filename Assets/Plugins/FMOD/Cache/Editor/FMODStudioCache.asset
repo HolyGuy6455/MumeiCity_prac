@@ -76,6 +76,7 @@ MonoBehaviour:
   IsOneShot: 0
   Parameters:
   - {fileID: -6503630672584187063}
+  - {fileID: -1638547263165984223}
   MinDistance: 1
   MaxDistance: 20
   Length: 190451
@@ -142,10 +143,34 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637824679481482145
+  lastModified: 637828246900759084
   FileSizes:
   - Name: Desktop
-    Value: 391616
+    Value: 393152
+  Exists: 1
+--- !u!114 &-5263301791662459293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitSound/Pan
+  m_EditorClassIdentifier: 
+  Name: Pan
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1646800450
+    data2: 129005443
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &-4657252325193411825
 MonoBehaviour:
@@ -212,10 +237,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 637824679480016337
+  lastModified: 637828246899018089
   FileSizes:
   - Name: Desktop
-    Value: 6054240
+    Value: 6054720
   Exists: 1
 --- !u!114 &-3521112743355119335
 MonoBehaviour:
@@ -242,9 +267,131 @@ MonoBehaviour:
   IsOneShot: 1
   Parameters:
   - {fileID: 5915783847917498635}
+  - {fileID: -1651167077679476403}
+  - {fileID: -3510079359376528655}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-3510079359376528655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wolf/Pan
+  m_EditorClassIdentifier: 
+  Name: Pan
+  StudioPath: 
+  Min: -1
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1646800450
+    data2: 129005443
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-2018668430111890731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/FootStep/SFX_Volume
+  m_EditorClassIdentifier: 
+  Name: SFX_Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 224980823
+    data2: 1003337325
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1651167077679476403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Wolf/SFX_Volume
+  m_EditorClassIdentifier: 
+  Name: SFX_Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 224980823
+    data2: 1003337325
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1638547263165984223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM_MIX/BGM_Voulume
+  m_EditorClassIdentifier: 
+  Name: BGM_Voulume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 1983541469
+    data2: 2361414048
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
+--- !u!114 &-1069311845910853811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/HitSound/SFX_Volume
+  m_EditorClassIdentifier: 
+  Name: SFX_Volume
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 224980823
+    data2: 1003337325
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &-375234937867030431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +444,7 @@ MonoBehaviour:
   - {fileID: -8056120720038959727}
   - {fileID: -375234937867030431}
   - {fileID: -4657252325193411825}
+  - {fileID: -2018668430111890731}
   MinDistance: 1
   MaxDistance: 20
   Length: 15000
@@ -328,12 +476,14 @@ MonoBehaviour:
   - {fileID: 4577416960149098711}
   - {fileID: 1105068503254670222}
   - {fileID: 739709346965894061}
-  EditorParameters: []
+  EditorParameters:
+  - {fileID: 1634332849986106385}
+  - {fileID: 4455831660971163497}
   MasterBanks:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637824679481761425
+  cacheTime: 637828246901408114
   cacheVersion: 10
 --- !u!114 &739709346965894061
 MonoBehaviour:
@@ -361,6 +511,8 @@ MonoBehaviour:
   Parameters:
   - {fileID: 2122576408583811581}
   - {fileID: -6860711940852027802}
+  - {fileID: -5263301791662459293}
+  - {fileID: -1069311845910853811}
   MinDistance: 1
   MaxDistance: 20
   Length: 0
@@ -391,6 +543,30 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &1634332849986106385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/BGM_Voulume
+  m_EditorClassIdentifier: 
+  Name: BGM_Voulume
+  StudioPath: parameter:/BGM_Voulume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 1983541469
+    data2: 2361414048
+  Type: 0
+  IsGlobal: 1
+  Labels: []
+  Exists: 1
 --- !u!114 &2122576408583811581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,10 +645,34 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637824679480464875
+  lastModified: 637828246899626865
   FileSizes:
   - Name: Desktop
-    Value: 1562
+    Value: 1680
+  Exists: 1
+--- !u!114 &4455831660971163497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/SFX_Volume
+  m_EditorClassIdentifier: 
+  Name: SFX_Volume
+  StudioPath: parameter:/SFX_Volume
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 224980823
+    data2: 1003337325
+  Type: 0
+  IsGlobal: 1
+  Labels: []
   Exists: 1
 --- !u!114 &4577416960149098711
 MonoBehaviour:
@@ -564,10 +764,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Entity.bank
   Name: Entity
   StudioPath: bank:/Entity
-  lastModified: 637824679480385385
+  lastModified: 637828246899536980
   FileSizes:
   - Name: Desktop
-    Value: 55968
+    Value: 57184
   Exists: 1
 --- !u!114 &8108689350536625824
 MonoBehaviour:
@@ -584,7 +784,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 637824679481761425
+  lastModified: 637828246901408114
   FileSizes:
   - Name: Desktop
     Value: 16992
@@ -604,8 +804,8 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637824679480435256
+  lastModified: 637828246899586560
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 1386
   Exists: 1
