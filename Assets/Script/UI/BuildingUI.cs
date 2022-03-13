@@ -109,7 +109,7 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     public void OnBuildButtonClick(){
-        GameManager.Instance.buildingManager.Build();
+        GameManager.Instance.buildingManager.BuildOnProcess();
         UpdateInfomation();
     }
 

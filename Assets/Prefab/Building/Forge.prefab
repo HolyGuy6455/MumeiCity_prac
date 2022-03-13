@@ -58,7 +58,7 @@ MonoBehaviour:
   - {x: -0.6100869, y: 0.05110403, z: 0.0000008923509}
   m_ShapePathHash: 1701793275
   m_Mesh: {fileID: 0}
-  m_InstanceId: -11634
+  m_InstanceId: 2359598
 --- !u!1 &3590947315448464182
 GameObject:
   m_ObjectHideFlags: 0
@@ -316,6 +316,7 @@ GameObject:
   - component: {fileID: 4777446104109645985}
   - component: {fileID: 6198235387806672771}
   - component: {fileID: 114987358}
+  - component: {fileID: 5538133492703764324}
   m_Layer: 8
   m_Name: Forge
   m_TagString: Building
@@ -357,28 +358,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 13
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 291266932780222538}
   shadowObject: {fileID: 603205880858041911}
   removalTool:
@@ -504,7 +499,7 @@ MonoBehaviour:
       itemDataName: 
       amount: 0
     resultUpgrade: unlockSkillet
-    requiredTime: 1500
+    requiredTime: 1000
   - name: Crafting Hammer
     guideSprite: {fileID: 21300000, guid: 6b8badf8c2f5f754fbddcf9efdd2d30e, type: 3}
     info: 
@@ -518,7 +513,23 @@ MonoBehaviour:
       itemDataName: 
       amount: 0
     resultUpgrade: unlockHammer
-    requiredTime: 1500
+    requiredTime: 1000
+--- !u!114 &5538133492703764324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557064219298774125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Iron
+    chance: 4
+    itemDropType: 1
 --- !u!1 &7376713694307776016
 GameObject:
   m_ObjectHideFlags: 0

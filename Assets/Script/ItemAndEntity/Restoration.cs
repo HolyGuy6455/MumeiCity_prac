@@ -5,6 +5,7 @@ public class Restoration : MonoBehaviour, ITiemEventRebindInfo{
     [SerializeField] TimeEventQueueTicket restoreEvent;
     [SerializeField] int restorationTerm;
     [SerializeField] Hittable hittable;
+    [SerializeField] GameObject grownPrefab;
 
     private void Start() {
         BuildingObject buildingObject = this.GetComponent<BuildingObject>();
@@ -18,6 +19,11 @@ public class Restoration : MonoBehaviour, ITiemEventRebindInfo{
             return false;
         }
         hittable.Restore(1);
+        if(grownPrefab != null && hittable.HP >= hittable.HPMax){
+            Vector3 location = this.transform.position;
+            Destroy(this.gameObject);
+            GameObject Built = Instantiate(grownPrefab,location,Quaternion.identity);
+        }
         return false;
     }
 

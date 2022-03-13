@@ -23,7 +23,7 @@ public class ResourceView : MonoBehaviour{
 
             int resourceAmountValue = buildingMaterial.amount;
             int havingAmountValue = GameManager.Instance.inventory.GetItemAmount(itemData.itemName);
-            string resourceAmountString = resourceAmountValue.ToString() + "/" + havingAmountValue.ToString();
+            string resourceAmountString = havingAmountValue.ToString() + "/" + resourceAmountValue.ToString();
             Color textColor = (resourceAmountValue>havingAmountValue)? Color.red : Color.white;
 
             resourceAmount.text = resourceAmountString;

@@ -19,6 +19,7 @@ public class ConstructionArea : MonoBehaviour
         if(GameManager.Instance.gridMapManager.amIInWater(this.transform.position)){
             return false;
         }
+        colliderOverlaped = colliderOverlaped.FindAll(value => value != null);
         bool result = (colliderOverlaped.Count != 0);
         if(result){
             sprite.color = new Color(1.0f,0.5f,0.5f,0.5f);

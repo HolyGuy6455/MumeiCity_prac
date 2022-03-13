@@ -355,28 +355,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 2
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 2150183074733892328}
   shadowObject: {fileID: 0}
   removalTool:
@@ -508,10 +502,10 @@ MonoBehaviour:
     info: 
     taskType: 2
     necessaryResources:
-    - itemDataName: Carrot
+    - itemDataName: Salmon
       amount: 1
     resultItem:
-      itemDataName: GrilledSalmon
+      itemDataName: Grilled Salmon
       amount: 1
     resultUpgrade: 
     requiredTime: 10

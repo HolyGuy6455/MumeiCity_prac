@@ -536,6 +536,7 @@ GameObject:
   - component: {fileID: 6984559753434299378}
   - component: {fileID: 8405493452037397712}
   - component: {fileID: 2072059263}
+  - component: {fileID: 6970605539961458331}
   m_Layer: 8
   m_Name: ForesterHut
   m_TagString: Building
@@ -577,28 +578,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 3
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 2785485470998049561}
   shadowObject: {fileID: 3097849207957955940}
   removalTool:
@@ -695,3 +690,19 @@ MonoBehaviour:
       amount: 0
     resultUpgrade: 
     requiredTime: 0
+--- !u!114 &6970605539961458331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673263103075239742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Wood
+    chance: 8
+    itemDropType: 1

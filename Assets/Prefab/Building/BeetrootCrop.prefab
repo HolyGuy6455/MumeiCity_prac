@@ -255,28 +255,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 18
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 300181007790396264}
   shadowObject: {fileID: 0}
   removalTool:
@@ -389,7 +383,7 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  restorationTerm: 10
+  restorationTerm: 100
   hittable: {fileID: 8058280142525210183}
 --- !u!1 &6977194269030873158
 GameObject:

@@ -318,22 +318,14 @@ public class GameManager : MonoBehaviour
     
     public void OnInteract(InputAction.CallbackContext value){
         if(value.performed){
-            if(presentGameTab == GameTab.BUILDING){
-                GameManager.Instance.buildingManager.Build();
-            }else{
-                Interactable interactable = GameManager.Instance.nearestInteractable;
-                if(interactable != null){
-                    interactable.Interact();
-                }
+            Interactable interactable = GameManager.Instance.nearestInteractable;
+            if(interactable != null){
+                interactable.Interact();
             }
         }
     }
 
     public void OnInventory(InputAction.CallbackContext value){
-        if(value.started)
-            Debug.Log("OnInventory started");
-        if(value.performed)
-            Debug.Log("OnInventory performed");
         if(!value.performed){
             return;
         }
@@ -344,8 +336,11 @@ public class GameManager : MonoBehaviour
         if(!value.performed){
             return;
         }
-        Debug.Log("presentGameTab - " + presentGameTab);
-        ChangeGameTab((presentGameTab != GameTab.BUILDING) ? GameTab.BUILDING : GameTab.NORMAL);
+        if(presentGameTab == GameTab.BUILDING){
+            GameManager.Instance.buildingManager.BuildOnProcess();
+        }else{
+            ChangeGameTab(GameTab.BUILDING);
+        }
     }
 
     public void OnMenu(InputAction.CallbackContext value){

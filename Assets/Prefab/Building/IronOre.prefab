@@ -61,7 +61,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: -3666
+  m_InstanceId: -19532
 --- !u!1 &3687321023497511679
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,7 +359,6 @@ GameObject:
   - component: {fileID: 4661929898688078184}
   - component: {fileID: 6123465438067951178}
   - component: {fileID: 7857121962394569626}
-  - component: {fileID: 1827173947}
   - component: {fileID: 405525961}
   m_Layer: 8
   m_Name: IronOre
@@ -401,28 +400,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 7
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 501215514693609859}
   shadowObject: {fileID: 766001081979027454}
   removalTool:
@@ -534,24 +527,6 @@ MonoBehaviour:
   - itemName: Iron
     chance: 1
     itemDropType: 1
---- !u!114 &1827173947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6341413844693212580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bfaf547fe2de434e8141bdeb1f587fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  restoreEvent:
-    startTime: 0
-    delay: 0
-    idString: 
-  restorationTerm: 2
-  hittable: {fileID: 0}
 --- !u!114 &405525961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -570,6 +545,7 @@ MonoBehaviour:
     idString: 
   restorationTerm: 200
   hittable: {fileID: 0}
+  grownPreset: {fileID: 0}
 --- !u!1 &6623030901741384009
 GameObject:
   m_ObjectHideFlags: 0

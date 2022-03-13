@@ -338,7 +338,7 @@
                 {
                     "name": "",
                     "id": "c3ee9003-d781-426a-8450-8450d4fc4fb9",
-                    "path": "<Keyboard>/leftShift",
+                    "path": "<Keyboard>/leftCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",

@@ -21,7 +21,13 @@ public class BuildingObject : MonoBehaviour
         buildingData.positionX = ((int)Mathf.Round(this.transform.position.x));
         buildingData.positionY = ((int)Mathf.Round(this.transform.position.y));
         buildingData.positionZ = ((int)Mathf.Round(this.transform.position.z));
-        
+
+        const int itemSpace = 4;
+        buildingData.items = new ItemSlotData[itemSpace];
+        for (int i = 0; i < itemSpace; i++){
+            buildingData.items[i] = ItemSlotData.Create(ItemData.Instant("None"));
+        }
+
         Initialize(this.buildingData);
     }
 

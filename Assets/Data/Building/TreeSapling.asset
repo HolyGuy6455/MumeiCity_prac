@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: TreeSapling
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 8274092955239123317, guid: 8912829aa6b3e44408b571bc1d401668, type: 3}
   scale: {x: 1, y: 1, z: 1}
   spriteScale: 1
   relativeLocation: {x: 0, y: 1, z: -1}

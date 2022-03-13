@@ -14,24 +14,28 @@ public class ChestFunction : IFacilityFunction{
             itemDropInfo.itemDropType = ItemDropInfo.ItemDropType.DESTROY;
             dropAmounts.Add(itemDropInfo);
         }
-        Debug.Log("chest load " + buildingData.id);
         BuildingObject building = GameManager.Instance.buildingManager.FindBuildingObjectWithID(buildingData.id);
         ItemDroper itemDroper = building.GetComponent<ItemDroper>();
         itemDroper.InitializeItemDrop(dropAmounts);
     }
 
     public void SaveMediocrityData(BuildingData buildingData){
-        Debug.Log("chest save " + buildingData.id);
         BuildingObject building = GameManager.Instance.buildingManager.FindBuildingObjectWithID(buildingData.id);
-        ItemDroper itemDroper = building.GetComponent<ItemDroper>();
-        List<ItemDropInfo> dropAmounts = itemDroper.GetDropInfos();
-        string result = "";
-        for (int i = 0; i < dropAmounts.Count; i++){
-            result += dropAmounts[i].itemName;
-            result += "-";
-            result += dropAmounts[i].chance;
-            result += "/";
+        try{
+            ItemDroper itemDroper = building.GetComponent<ItemDroper>();
+            List<ItemDropInfo> dropAmounts = itemDroper.GetDropInfos();
+            string result = "";
+            for (int i = 0; i < dropAmounts.Count; i++){
+                result += dropAmounts[i].itemName;
+                result += "-";
+                result += dropAmounts[i].chance;
+                result += "/";
+            }
+            buildingData.content = result;
         }
-        buildingData.content = result;
+        catch (System.NullReferenceException){
+            return;
+        }
+        
     }
 }

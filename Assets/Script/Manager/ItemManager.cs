@@ -35,6 +35,9 @@ public class ItemManager : MonoBehaviour {
         if(name.CompareTo("")==0){
             return dataDictionary["None"];    
         }
+        if(dataDictionary == null){
+            Initiate();
+        }
         if(!dataDictionary.ContainsKey(name)){
             Debug.Log(name + " is not found in the item dictionary");
         }

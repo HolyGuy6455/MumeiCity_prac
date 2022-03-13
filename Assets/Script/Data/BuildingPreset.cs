@@ -7,8 +7,8 @@ using System;
  */
 [CreateAssetMenu(fileName = "Building", menuName = "MumeiCity/Building", order = 0)]
 public class BuildingPreset : ScriptableObject {
+    public string buildingName;
     public GameObject prefab;
-    // public string buildingName;
     public Vector3 scale = new Vector3(1,1,1);
     public float spriteScale = 1.0f;
     public Vector3 relativeLocation;
@@ -16,16 +16,21 @@ public class BuildingPreset : ScriptableObject {
     [TextArea] public string info;
     public List<string> attributes;
     public ToolType buildTool;
-    public List<EffectiveTool> removalTool;
-    public int buildToolIndex;
     public List<NecessaryResource> resourceList = new List<NecessaryResource>();
-    public BuildingPreset grownPreset;
-    public int growUpTerm = 0;
-    public byte code{
-        get{
-            return BuildingManager.GetBuildingCode(this);
-        }
-    }
+}
+
+[Serializable]
+public class BuildingPreset2nd {
+    public string name;
+    public GameObject prefab;
+    public float spriteScale = 1.0f;
+    public Vector3 scale = new Vector3(1,1,1);
+    public Vector3 relativeLocation;
+    public Sprite sprite;
+    public string info;
+    public List<string> attributes;
+    public ToolType buildTool;
+    public List<NecessaryResource> resourceList = new List<NecessaryResource>();
 }
 
 [Serializable]

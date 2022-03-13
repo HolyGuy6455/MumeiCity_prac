@@ -343,6 +343,7 @@ GameObject:
   - component: {fileID: 9172676851595395646}
   - component: {fileID: 7711164401024607516}
   - component: {fileID: 1738731366}
+  - component: {fileID: 6048967548113910272}
   m_Layer: 8
   m_Name: FarmerBarn
   m_TagString: Building
@@ -384,28 +385,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 16
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 4111162690899249877}
   shadowObject: {fileID: 3843828438481050792}
   removalTool:
@@ -514,6 +509,25 @@ MonoBehaviour:
       amount: 0
     resultUpgrade: 
     requiredTime: 0
+--- !u!114 &6048967548113910272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7491841603656974066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Wood
+    chance: 8
+    itemDropType: 1
+  - itemName: Iron
+    chance: 1
+    itemDropType: 1
 --- !u!1 &7989788089465676726
 GameObject:
   m_ObjectHideFlags: 0

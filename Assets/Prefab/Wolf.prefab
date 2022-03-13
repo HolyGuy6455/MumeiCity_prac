@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 2884450615405833685}
   - component: {fileID: 2884450615405833686}
   - component: {fileID: 3890507549040716745}
+  - component: {fileID: 1978374237}
   m_Layer: 0
   m_Name: Wolf
   m_TagString: Animal
@@ -193,7 +194,19 @@ MonoBehaviour:
   hitBoxCollider: {fileID: 2637089246024183138}
   DeadEventHandler:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1978374237}
+        m_TargetAssemblyTypeName: AchievementAlert, Assembly-CSharp
+        m_MethodName: Alert
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: KillWolf
+          m_BoolArgument: 0
+        m_CallState: 2
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
@@ -347,6 +360,18 @@ MonoBehaviour:
   jumpCapable: 0
   moveCapable: 0
   growlSound: {fileID: 8073459042829063476}
+--- !u!114 &1978374237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2637089246129936806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c2182a590d8a44cb9a6f20f3bef5c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2637089247252857293
 GameObject:
   m_ObjectHideFlags: 0

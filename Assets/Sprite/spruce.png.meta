@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: 1267750343808626270
     second: spruce_2
+  - first:
+      213: 1280556433293860001
+    second: spruce_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -158,6 +161,27 @@ TextureImporter:
       bones: []
       spriteID: e5ea79a8834f79110800000000000000
       internalID: 1267750343808626270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spruce_3
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 36
+        width: 92
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac52599a4375c110800000000000000
+      internalID: 1280556433293860001
       vertices: []
       indices: 
       edges: []

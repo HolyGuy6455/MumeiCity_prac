@@ -79,6 +79,7 @@ GameObject:
   - component: {fileID: 2263775840767185561}
   - component: {fileID: 802458734712681915}
   - component: {fileID: 6712168608528008038}
+  - component: {fileID: -7151346969498729040}
   m_Layer: 8
   m_Name: Workshop
   m_TagString: Building
@@ -120,28 +121,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 17
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 6425687179940551282}
   shadowObject: {fileID: 6159074104633052175}
   removalTool:
@@ -270,6 +265,22 @@ MonoBehaviour:
       amount: 0
     resultUpgrade: unlockFishingrod
     requiredTime: 50
+--- !u!114 &-7151346969498729040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565543580047224405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Wood
+    chance: 9
+    itemDropType: 1
 --- !u!1 &1589400079607179962
 GameObject:
   m_ObjectHideFlags: 0

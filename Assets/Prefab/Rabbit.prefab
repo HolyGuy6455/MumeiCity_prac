@@ -293,10 +293,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - itemName: 
+  - itemName: Meat
     chance: 0.8
     itemDropType: 1
-  - itemName: 
+  - itemName: Rabbit Foot
     chance: 1
     itemDropType: 1
 --- !u!114 &1056327642

@@ -698,28 +698,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 12
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 7276000818628053225}
   shadowObject: {fileID: 0}
   removalTool:
@@ -810,8 +804,8 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4182747428758371534}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   m_Radius: 0.4
   m_Height: 3
   m_Direction: 1
@@ -832,7 +826,7 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  restorationTerm: 10
+  restorationTerm: 100
   hittable: {fileID: 1082898147767748038}
 --- !u!1 &5954958624568028981
 GameObject:

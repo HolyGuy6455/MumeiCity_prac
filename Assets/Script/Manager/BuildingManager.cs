@@ -8,7 +8,8 @@ using Pathfinding;
 public class BuildingManager : MonoBehaviour {
     public GameManager.UpdateUI onToolChangedCallback;
     public GameObject constructureSample;
-    [SerializeField] List<BuildingPreset> buildingPresets;
+    // [SerializeField] List<BuildingPreset> buildingPresets;
+    [SerializeField] List<BuildingPreset> buildingPresetList;
     public ConstructionArea constructionArea;
     [SerializeField] BuildingPreset nowBuilding;
     public GameObject buildingsParent;
@@ -57,19 +58,19 @@ public class BuildingManager : MonoBehaviour {
 
     public static byte GetBuildingCode(BuildingPreset buildingPreset){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        return ((byte)buildingManager.buildingPresets.IndexOf(buildingPreset));
+        return ((byte)buildingManager.buildingPresetList.IndexOf(buildingPreset));
     }
 
     public static BuildingPreset GetBuildingPreset(byte buildingCode){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
         // BuildingManager buildingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<BuildingManager>();
         int index = (int)buildingCode;
-        return buildingManager.buildingPresets[index];
+        return buildingManager.buildingPresetList[index];
     }
 
     public static BuildingPreset GetBuildingPreset(string name){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        foreach (BuildingPreset buildingPreset in buildingManager.buildingPresets){
+        foreach (BuildingPreset buildingPreset in buildingManager.buildingPresetList){
             if(buildingPreset.name.CompareTo(name) == 0){
                 return buildingPreset;
             }
@@ -79,7 +80,7 @@ public class BuildingManager : MonoBehaviour {
 
     public static List<BuildingPreset> GetGroupedListByBuildType(ToolType toolType){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        List<BuildingPreset> result = buildingManager.buildingPresets;
+        List<BuildingPreset> result = buildingManager.buildingPresetList;
         result = result.FindAll(buildingPreset => buildingPreset.buildTool == toolType);
         return result;
     }
@@ -89,7 +90,7 @@ public class BuildingManager : MonoBehaviour {
         constructionArea.SetBuildingData(buildingData);
     }
 
-    public bool Build(){
+    public bool BuildOnProcess(){
         // 장애물이 있으면 못지어요
         if(constructionArea.isThereObstacle()){
             return false;
@@ -128,34 +129,21 @@ public class BuildingManager : MonoBehaviour {
             Built = Instantiate(constructureSample,location,Quaternion.identity);
         }
         
-
         Built.transform.SetParent(buildingsParent.transform);
 
         // 해당 건물이 가질 Building Data를 생성한다
         BuildingObject BuiltObject = Built.GetComponent<BuildingObject>();
         BuildingData buildingData = BuiltObject.buildingData;
-        buildingData.code = GetBuildingCode(nowBuilding);
         buildingData.id = lastID++;
-        const int itemSpace = 4;
-        buildingData.items = new ItemSlotData[itemSpace];
-        for (int i = 0; i < itemSpace; i++){
-            buildingData.items[i] = ItemSlotData.Create(ItemData.Instant("None"));
-        }
-        switch (nowBuilding.name){
-            case "ForesterHut":
-                buildingData.facilityFunction = new SuperintendentFunction(3);
-                break;
-            case "Tent":
-                buildingData.facilityFunction = new HouseFunction(12);
-                break;
-            default:
-                break;
-        }
         
         // 경로 재설정
         astarPath.Scan();
 
         return true;
+    }
+
+    public void BuildWithoutProcess(){
+        
     }
 
 }

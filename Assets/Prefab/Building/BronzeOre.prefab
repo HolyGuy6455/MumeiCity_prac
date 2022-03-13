@@ -191,7 +191,7 @@ MonoBehaviour:
   - {x: -0.4812851, y: -0.09611697, z: -0.000000092580734}
   m_ShapePathHash: 665914079
   m_Mesh: {fileID: 0}
-  m_InstanceId: 293360
+  m_InstanceId: 2358646
 --- !u!1 &2699476889224436141
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,28 +465,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 9
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 1200532385360597713}
   shadowObject: {fileID: 2088800436412990636}
   removalTool:
@@ -614,7 +608,7 @@ MonoBehaviour:
     startTime: 0
     delay: 0
     idString: 
-  restorationTerm: 20
+  restorationTerm: 200
   hittable: {fileID: 8887734881415831550}
 --- !u!1 &6703202718097408288
 GameObject:

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1903739865422558496}
   - component: {fileID: 1018687110426497538}
   - component: {fileID: 675457542}
+  - component: {fileID: -527242742826852979}
   m_Layer: 8
   m_Name: Smeltery
   m_TagString: Building
@@ -55,28 +56,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 6
     items:
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
-    - content: 
-      itemName: 
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 6642067289307594187}
   shadowObject: {fileID: 5798543074204134326}
   removalTool:
@@ -185,6 +180,22 @@ MonoBehaviour:
       amount: 0
     resultUpgrade: 
     requiredTime: 0
+--- !u!114 &-527242742826852979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205137619275696620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2de89f76d1a7b5409917b57d2430c75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropAmounts:
+  - itemName: Iron
+    chance: 1
+    itemDropType: 1
 --- !u!1 &2748462871446896087
 GameObject:
   m_ObjectHideFlags: 0

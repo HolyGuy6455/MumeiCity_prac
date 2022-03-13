@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 68c9d36558d11dd418de55794765dab0, type: 3}
+  m_Sprite: {fileID: 8275807321014749288, guid: d54f361024203c34590bb7df02722305, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -133,39 +133,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildingData:
-    content: 
     id: 0
     positionX: 0
     positionY: 0
     positionZ: 0
     code: 4
     items:
-    - content: 
-      code: 0
+    - itemName: 
       amount: 0
-    - content: 
-      code: 0
+    - itemName: 
       amount: 0
-    - content: 
-      code: 0
+    - itemName: 
       amount: 0
-    - content: 
-      code: 0
+    - itemName: 
       amount: 0
     workerID: 0
-    mediocrityData:
-      content: 
+    content: 
   spriteRenderer: {fileID: 7781857390815142423}
-  spriteObject: {fileID: 696692001740905549}
   shadowObject: {fileID: 7470199815190508650}
-  hiringEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
-  growupEvent:
-    timeValue: 0
-    repeatTime: 0
-    idString: 
+  removalTool: []
   animator: {fileID: 3294552732431657724}
 --- !u!114 &841887544
 MonoBehaviour:
@@ -181,8 +167,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 3294552732431657724}
   HP: 10
+  HPMax: 10
   hitBoxCollider: {fileID: 5291611408930266337}
+  DeadEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
+  HitEventHandler:
+    m_PersistentCalls:
+      m_Calls: []
   effectiveToolDictionaryLength: 0
+  hitSound: {fileID: 0}
+  deadSound: {fileID: 0}
 --- !u!95 &3294552732431657724
 Animator:
   serializedVersion: 3
@@ -407,4 +402,4 @@ MonoBehaviour:
   - {x: 0.0016002655, y: 0.2639461, z: -0.000005137844}
   m_ShapePathHash: -871709738
   m_Mesh: {fileID: 0}
-  m_InstanceId: 66596
+  m_InstanceId: 273994
