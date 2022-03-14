@@ -85,8 +85,12 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public void OnJump(InputAction.CallbackContext value){
-        if(value.started && jumpCapable && IsGrounded() && (stemina >= steminaConsumption)){
-            isJump = true;
+        if(value.started){
+            if(GameManager.Instance.presentGameTab == GameManager.GameTab.BUILDING){
+                GameManager.Instance.buildingManager.BuildOnProcess();
+            }else{
+                OnJump();
+            }
         }
     }
 

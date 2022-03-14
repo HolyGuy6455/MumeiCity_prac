@@ -148,6 +148,9 @@ public class GameManager : MonoBehaviour
 
     public void ChangeGameTab(string gameTab){
         switch (gameTab){
+            case "Normal":
+                ChangeGameTab(GameTab.NORMAL);
+                break;
             case "Building":
                 ChangeGameTab(GameTab.BUILDING);
                 break;
@@ -337,7 +340,7 @@ public class GameManager : MonoBehaviour
             return;
         }
         if(presentGameTab == GameTab.BUILDING){
-            GameManager.Instance.buildingManager.BuildOnProcess();
+            ChangeGameTab(GameTab.NORMAL);
         }else{
             ChangeGameTab(GameTab.BUILDING);
         }

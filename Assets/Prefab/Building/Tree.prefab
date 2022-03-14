@@ -177,7 +177,7 @@ MonoBehaviour:
     minHP: 0
   - tool: 2
     damage: 3
-    minHP: 6
+    minHP: 5
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:

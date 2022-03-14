@@ -28,6 +28,11 @@ public class AchievementManager : MonoBehaviour {
         return achievement.trialNumber >= achievement.goalNumber;
     }
 
+    public float GetPercentage(string achievementName){
+        Achievement achievement = dictionary[achievementName];
+        return ((float)achievement.trialNumber/(float)achievement.goalNumber);
+    }
+
     public Achievement GetAchievementInfo(string name){
         return dictionary[name];
     }

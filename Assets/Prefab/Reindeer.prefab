@@ -399,15 +399,27 @@ MonoBehaviour:
   HP: 1
   HPMax: 10
   hitBoxCollider: {fileID: 8143549605510893814}
+  effectiveTools:
+  - tool: 2
+    damage: 2
+    minHP: 0
+  - tool: 4
+    damage: 3
+    minHP: 0
+  - tool: 10
+    damage: 3
+    minHP: 0
+  - tool: 6
+    damage: 1
+    minHP: 0
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls: []
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 0
-  hitSound: {fileID: 1901483927640090142}
-  deadSound: {fileID: 1901483927640090142}
+  studioEventEmitter: {fileID: 0}
+  dead: 0
 --- !u!95 &1518857398079707154
 Animator:
   serializedVersion: 3
