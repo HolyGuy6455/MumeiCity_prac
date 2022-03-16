@@ -9,7 +9,8 @@ public class BuildingManager : MonoBehaviour {
     public GameManager.UpdateUI onToolChangedCallback;
     public GameObject constructureSample;
     // [SerializeField] List<BuildingPreset> buildingPresets;
-    [SerializeField] List<BuildingPreset> buildingPresetList;
+    // [SerializeField] List<BuildingPresetOld> buildingPresetList;
+    [SerializeField] List<BuildingPreset> buildingPresets;
     public ConstructionArea constructionArea;
     [SerializeField] BuildingPreset nowBuilding;
     public GameObject buildingsParent;
@@ -58,19 +59,19 @@ public class BuildingManager : MonoBehaviour {
 
     public static byte GetBuildingCode(BuildingPreset buildingPreset){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        return ((byte)buildingManager.buildingPresetList.IndexOf(buildingPreset));
+        return ((byte)buildingManager.buildingPresets.IndexOf(buildingPreset));
     }
 
     public static BuildingPreset GetBuildingPreset(byte buildingCode){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
         // BuildingManager buildingManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<BuildingManager>();
         int index = (int)buildingCode;
-        return buildingManager.buildingPresetList[index];
+        return buildingManager.buildingPresets[index];
     }
 
     public static BuildingPreset GetBuildingPreset(string name){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        foreach (BuildingPreset buildingPreset in buildingManager.buildingPresetList){
+        foreach (BuildingPreset buildingPreset in buildingManager.buildingPresets){
             if(buildingPreset.name.CompareTo(name) == 0){
                 return buildingPreset;
             }
@@ -80,7 +81,7 @@ public class BuildingManager : MonoBehaviour {
 
     public static List<BuildingPreset> GetGroupedListByBuildType(ToolType toolType){
         BuildingManager buildingManager = GameManager.Instance.buildingManager;
-        List<BuildingPreset> result = buildingManager.buildingPresetList;
+        List<BuildingPreset> result = buildingManager.buildingPresets;
         result = result.FindAll(buildingPreset => buildingPreset.buildTool == toolType);
         return result;
     }

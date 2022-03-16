@@ -68,28 +68,29 @@ public class PeopleManager : MonoBehaviour
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
         houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
         List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
-        // Debug.Log("집의 갯수는 "+ houseList.Count);
+        Debug.Log("집의 갯수는 "+ houseList.Count);
+        
 
-        foreach (PersonBehavior person in people){
-            // Debug.Log("제 아이디는 "+person.personData.id);
-            if(person.personData.homeID != 0){
-                BuildingObject house =  GameManager.Instance.buildingManager.FindBuildingObjectWithID(person.personData.homeID);
-                // Debug.Log("제 집은 여기예요 "+house);
-                continue;
-            }
-            // Debug.Log("저는 집이 없어요");
-            foreach (BuildingObject house in houseList){
-                HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
-                for (int i = 0; i < houseData.personIDList.Length; i++){
-                    if(houseData.personIDList[i] == 0){
-                        // Debug.Log("집을 찾았어요 : " + house.buildingData.id);
-                        houseData.personIDList[i] = person.personData.id;
-                        person.personData.homeID = house.buildingData.id;
-                        break;
-                    }
-                }
-            }
-        }
+        // foreach (PersonBehavior person in people){
+        //     // Debug.Log("제 아이디는 "+person.personData.id);
+        //     if(person.personData.homeID != 0){
+        //         BuildingObject house =  GameManager.Instance.buildingManager.FindBuildingObjectWithID(person.personData.homeID);
+        //         // Debug.Log("제 집은 여기예요 "+house);
+        //         continue;
+        //     }
+        //     // Debug.Log("저는 집이 없어요");
+        //     foreach (BuildingObject house in houseList){
+        //         HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
+        //         for (int i = 0; i < houseData.personIDList.Length; i++){
+        //             if(houseData.personIDList[i] == 0){
+        //                 // Debug.Log("집을 찾았어요 : " + house.buildingData.id);
+        //                 houseData.personIDList[i] = person.personData.id;
+        //                 person.personData.homeID = house.buildingData.id;
+        //                 break;
+        //             }
+        //         }
+        //     }
+        // }
     }
 
     // 매일 아침마다 구인구직활동을 한다
