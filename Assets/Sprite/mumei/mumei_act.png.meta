@@ -72,6 +72,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -484,6 +485,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      mumei_act_fishing_0: 3603038930357684291
+      mumei_act_hammer_1: 3220746862230938773
+      mumei_act_knife_0: -5307905967876754969
+      mumei_act_shovel_1: 531285018150978159
+      mumei_act_shovel_0: 8773816070988435910
+      mumei_act_hammer_2: -448131796732902007
+      mumei_act_pick_1: -5209226193436181544
+      mumei_act_pan_1: 4571675981589174859
+      mumei_act_knife_1: 6730586229491544104
+      mumei_act_hurt: 1817384060956403649
+      mumei_act_axe_1: -1708959957443510224
+      mumei_act_fishing_1: -1210100116882013561
+      mumei_act_pick_0: -2394349255473296087
+      mumei_act_axe_0: 6861752428493763784
+      mumei_act_pan_0: -2928160769435106111
+      mumei_act_bucket: -6216216873835796948
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

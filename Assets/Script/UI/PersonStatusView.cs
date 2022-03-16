@@ -9,6 +9,7 @@ public class PersonStatusView : MonoBehaviour{
     [SerializeField] Image staminaBGImage;
     [SerializeField] Image happinessImage;
     [SerializeField] Image happinessBGImage;
+    [SerializeField] Image backGroundImage;
     [SerializeField] Image personImage;
     [SerializeField] Image hatImage;
     [SerializeField] PersonData personData;
@@ -26,7 +27,9 @@ public class PersonStatusView : MonoBehaviour{
         staminaBGImage.enabled = visible;
         happinessImage.enabled = visible;
         happinessBGImage.enabled = visible;
+        backGroundImage.enabled = visible;
         personImage.enabled = visible;
         hatImage.enabled = visible;
     }
+
 }

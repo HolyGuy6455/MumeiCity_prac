@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      bongtu_3: -3876773144643377841
+      bongtu_5: 480707542842082253
+      bongtu_1: -2502239802215172349
+      bongtu_0: -8448954205547723809
+      bongtu_2: -8047425156350980180
+      bongtu_4: 1765765024896574687
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

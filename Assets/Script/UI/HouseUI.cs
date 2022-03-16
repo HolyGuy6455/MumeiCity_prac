@@ -3,7 +3,7 @@ using UnityEngine;
 public class HouseUI : CommonTaskUI{
     [SerializeField] PersonStatusView[] personStatusViews;
     [SerializeField] GameObject PersonStatusViewParent;
-    [SerializeField] HouseFunction houseData;
+    [SerializeField] HouseFunction houseFunction;
     // Start is called before the first frame update
     protected override void Start(){
         base.Start();
@@ -15,15 +15,15 @@ public class HouseUI : CommonTaskUI{
         if(GameManager.Instance.presentGameTab != GameManager.GameTab.HOUSE){
             return;
         }
-        if(houseData == null){
+        if(houseFunction == null){
             return;
         }
         for (int i = 0; i < personStatusViews.Length; i++){
-            if(i >= houseData.personIDList.Length){
+            if(i >= houseFunction.personIDList.Length){
                 personStatusViews[i].SetVisible(false);
                 continue;
             }
-            int personID = houseData.personIDList[i];
+            int personID = houseFunction.personIDList[i];
             PersonBehavior person = PeopleManager.FindPersonWithID(personID);
             if(person != null){
                 personStatusViews[i].SetVisible(true);
@@ -37,7 +37,7 @@ public class HouseUI : CommonTaskUI{
 
     public override void UpdateUI(){
         base.UpdateUI();
-        houseData = GameManager.Instance.interactingBuilding.buildingData.facilityFunction as HouseFunction;
+        houseFunction = GameManager.Instance.interactingBuilding.buildingData.facilityFunction as HouseFunction;
         // Debug.Log("houseData "+houseData);
     }
 }

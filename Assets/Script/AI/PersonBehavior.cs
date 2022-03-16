@@ -384,11 +384,14 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
         // LoseMyTarget();
         this.personData.sleep = true;
         animator.SetBool("Sleep",true);
-        think = "Go to sleep! Good Night!";
-        if(sleepEvent == null || !sleepEvent.isThisValid()){
-            string ticketName = "person_"+this.personData.id+"_sleep";
-            sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, SleepAndRecharging);
+        if(personData.growth < 1.0f){
+            personData.growth += 0.002f;
         }
+        // think = "Go to sleep! Good Night!";
+        // if(sleepEvent == null || !sleepEvent.isThisValid()){
+        //     string ticketName = "person_"+this.personData.id+"_sleep";
+        //     sleepEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, SleepAndRecharging);
+        // }
         ThisTask.Succeed();
     }
     [Task]
@@ -429,6 +432,10 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
     void AmIAdult(){
         animator.SetBool("AmIAdult",(personData.growth >= 1.0f));
         ThisTask.Complete(personData.growth >= 1.0f);
+    }
+    [Task]
+    void AmIHomeless(){
+        ThisTask.Complete(personData.homeID == 0);
     }
     [Task]
     void NapAct(){
@@ -487,7 +494,7 @@ public class PersonBehavior : MonoBehaviour, ITiemEventRebindInfo
             }
         }else{
             if(personData.growth < 1.0f){
-                personData.growth += 0.0005f;
+                personData.growth += 0.002f;
             }
         }
 

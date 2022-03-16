@@ -48,9 +48,9 @@ public class BuildingObject : MonoBehaviour
                     this.buildingData.facilityFunction = new ManufacturerFunction(workPlace.taskInfos.Count);
                     break;
 
-                case GameManager.GameTab.LABORATORY:
-                    this.buildingData.facilityFunction = new LaboratoryFunction(workPlace.taskInfos.Count);
-                    break;
+                // case GameManager.GameTab.LABORATORY:
+                //     this.buildingData.facilityFunction = new LaboratoryFunction(workPlace.taskInfos.Count);
+                //     break;
 
                 default:
                     break;
@@ -58,7 +58,7 @@ public class BuildingObject : MonoBehaviour
         }else{
             switch (buildingData.buildingPreset.name){
                 case "Tent":
-                    this.buildingData.facilityFunction = new HouseFunction(12);
+                    this.buildingData.facilityFunction = new HouseFunction(6);
                     break;
                 case "Chest":
                     this.buildingData.facilityFunction = new ChestFunction();

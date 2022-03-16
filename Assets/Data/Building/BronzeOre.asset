@@ -12,19 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: BronzeOre
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 5646585162240206582, guid: b40469e4ee18eda4db014edac69f2586, type: 3}
   scale: {x: 1, y: 1, z: 1}
+  spriteScale: 1
   relativeLocation: {x: 0, y: 0, z: 0}
-  sprite: {fileID: -3751032848796065094, guid: 185ca66be86e9bc43b7c400b58ce8434, type: 3}
+  sprite: {fileID: -336711030326400945, guid: 14183a9761d699d48883d720ecd7d42d, type: 3}
   info: You can dig copper here.
   attributes:
   - Mining
   buildTool: 0
-  removalTool:
-  - tool: 3
-    damage: 4
-    minHP: 0
-  buildToolIndex: 0
   resourceList: []
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

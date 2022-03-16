@@ -204,6 +204,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1540,6 +1541,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      item_carry_Custom_42: 7736135145914925632
+      item_carry_Custom_51: 1453575701670486317
+      item_carry_Custom_19: -5566783943766169816
+      item_carry_Custom_30: -1449764167499997560
+      item_carry_Custom_17: -1226641373758596205
+      item_carry_Custom_38: 720539138044032115
+      item_carry_Custom_58: -8591552387375275320
+      item_carry_Custom_57: -5505439896245904218
+      item_carry_Custom_43: 4515126730836658710
+      item_carry_Custom_40: 1145853811450552117
+      item_carry_Custom_4: -1406492083293190097
+      item_carry_Custom_59: -2605607032793840702
+      item_carry_Custom_1: 3044876934687249555
+      item_carry_Custom_23: 3627791439860974479
+      item_carry_Custom_12: -377117328623680834
+      item_carry_Custom_50: 8309834431336042848
+      item_carry_Custom_45: -6953644669199302514
+      item_carry_Custom_56: 1758382115926906436
+      item_carry_Custom_21: -1328329953924396621
+      item_carry_Custom_29: -6149147519200025641
+      item_carry_Custom_13: 3670796896674375013
+      item_carry_Custom_8: 637694438316804550
+      item_carry_Custom_18: 2267454620325315894
+      item_carry_Custom_49: 7832126041150282294
+      item_carry_Custom_52: -2091393170068765030
+      item_carry_Custom_0: 4579119771779087733
+      item_carry_Custom_37: -1029778666609784036
+      item_carry_Custom_35: -1858915385369100310
+      item_carry_Custom_39: 9182393825541703703
+      item_carry_Custom_26: -9131043143979147587
+      item_carry_Custom_16: -2439315377197105784
+      item_carry_Custom_3: 1513240972384075044
+      item_carry_Custom_32: -3278849499399751554
+      item_carry_Custom_2: 8960614071814536336
+      item_carry_Custom_47: 6523915352755942097
+      item_carry_Custom_33: -8636487462122551274
+      item_carry_Custom_20: -4158027060003010382
+      item_carry_Custom_53: 1897177051110089597
+      item_carry_Custom_31: -3379171932715509296
+      item_carry_Custom_15: -4031243046753583223
+      item_carry_Custom_55: 5850446722972601092
+      item_carry_Custom_22: -4459465834035013072
+      item_carry_Custom_10: 9180539175401228313
+      item_carry_Custom_14: -7168321648932213732
+      item_carry_Custom_28: 1718276169667135531
+      item_carry_Custom_44: -4607673606975912232
+      item_carry_Custom_5: 7746276006911140221
+      item_carry_Custom_25: 4609489951016335164
+      item_carry_Custom_27: -4528113313681383981
+      item_carry_Custom_6: -518703377440304228
+      item_carry_Custom_34: 6794813159856373078
+      item_carry_Custom_41: 7593299513509277709
+      item_carry_Custom_36: -6310754310048332512
+      item_carry_Custom_9: 778771931807856203
+      item_carry_Custom_7: 7906695974853633288
+      item_carry_Custom_54: 4961905385453733387
+      item_carry_Custom_11: -1015950524980507336
+      item_carry_Custom_46: 4968731505776048113
+      item_carry_Custom_48: 7930742425729539689
+      item_carry_Custom_24: 516214720951973326
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

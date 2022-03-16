@@ -1,11 +1,11 @@
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class PlayerLight : MonoBehaviour{
     [SerializeField] GameObject player;
     [SerializeField] Color brightLight;
     [SerializeField] Color dimLight;
-    [SerializeField] Light2D light2D;
+    [SerializeField] UnityEngine.Rendering.Universal.Light2D light2D;
     [SerializeField] float transitionSpeed = 1.0f;
     [SerializeField] float innerRadiusMax = 1.0f;
     [SerializeField] float outerRadiusMax = 5.0f;

@@ -48,6 +48,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -292,6 +293,15 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      shining effect_6: 6397837475430997115
+      shining effect_3: -811201104182549334
+      shining effect_5: 7422509342964867511
+      shining effect_7: -1870457977838925688
+      shining effect_1: 3447747612774359950
+      shining effect_2: -8756138791655304241
+      shining effect_0: 571658415570871954
+      shining effect_4: -3172501494811046385
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

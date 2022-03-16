@@ -45,6 +45,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -268,6 +269,14 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      SM4001_nyknck_1: 1946250003899185576
+      SM4001_nyknck_0: -7763960021335770751
+      SM4001_nyknck_4: 920848375067613062
+      SM4001_nyknck_5: -1682737786712514830
+      SM4001_nyknck_3: -5109569301236950532
+      SM4001_nyknck_6: 9074568852102547608
+      SM4001_nyknck_2: 4843316131122377106
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

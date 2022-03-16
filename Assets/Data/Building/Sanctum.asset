@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Sanctum
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 489044737926790675, guid: e2298b32915929f41bec55e9cdf7c105, type: 3}
   scale: {x: 2, y: 3, z: 3}
   spriteScale: 2
-  relativeLocation: {x: 0, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 1, z: 2}
   sprite: {fileID: 21300000, guid: f757c2ff106333a4d8f5511780ee1741, type: 3}
   info: 
   attributes: []
   buildTool: 3
-  removalTool: []
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Gold
     amount: 3
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

@@ -165,6 +165,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -493,6 +494,19 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      wolf_tail_1: 6998637600249704698
+      wolf_run_2: -8080722903583579914
+      wolf_tail_3: -8452645642103243143
+      wolf_tail_2: 1418320197559665322
+      wolf_idle: -6005113249970170250
+      wolf_howling: -6008370877504939163
+      wolf_walk_2: 6455174744665006618
+      wolf_sit: 8832184378538893514
+      wolf_tention: 3930340403551510045
+      wolf_sleep: 1953967989295161197
+      wolf_run_1: 514627573456229228
+      wolf_walk_1: -4344588006180244999
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

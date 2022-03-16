@@ -2,7 +2,11 @@
 tree("Root")
 	fallback
 		while not AmIAdult
-			SleepAct
+			sequence
+				SleepAct
+				Wait 1.0
+		// while AmIHomeless
+// 
 		tree("DayWork")
 		tree("NightSleep")
 
@@ -13,23 +17,23 @@ tree("NightSleep")
 			sequence
 				DoIHaveItemMoreThan 0
 				tree("PutInItem") // 아이템 정리하고 마무리
-			sequence
-				not DoIHaveStaminaMoreThan 900
-				SearchingToTakeOutByTag "Food"	// 야식 챙겨야지
-				MoveToDestination	// 간다
-				TakeOutByTag "Food"	// 야식 꺼낸다
-				Wait 1.0			// 호와와 야식 구경하는거시에오
-				ConsumeItemByTag "Food"	// 와작 와작 마시썽
 			sequence		
 				GoToHome			// 집으로 가야지
 				MoveToDestination	// 간다
 				fallback
 					sequence
-						Wait 0.1
 						not AmIHappyToWork
 						TakeOutByTag "Gift"
 						ConsumeItemByTag "Gift"
-					SleepAct			// zzZ
+						Wait 1.0
+					sequence
+						not DoIHaveStaminaMoreThan 900
+						TakeOutByTag "Food"
+						ConsumeItemByTag "Food"
+						Wait 1.0
+					sequence
+						SleepAct			// zzZ
+						Wait 1.0
 
 // 낮에 하는 일
 tree("DayWork")
@@ -50,7 +54,11 @@ tree("DayWork")
 			tree("Smeltery")	// 광부의 일을 한다
 			tree("Sanctum")		// 성직자 일을 한다
 			tree("PutInItem")	// 할게 없으면 아이템을 직장에 넣는다
-			Wait 1.0	
+			sequence
+				GoToHome
+				Wait 1.0	
+				// race
+				// 	NapAct
 			
 tree("PutInItem")
 	sequence

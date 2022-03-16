@@ -12,23 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Bistro
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 1908260287097672744, guid: c2a409b8267abe448b3163ab5e715043, type: 3}
   scale: {x: 2, y: 2, z: 2}
   spriteScale: 2
-  relativeLocation: {x: 0, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 1, z: 2}
   sprite: {fileID: -3182273467554438379, guid: 3e6845079ebd22f4aa2631571725760c, type: 3}
   info: 
   attributes: []
   buildTool: 6
-  removalTool:
-  - tool: 9
-    damage: 5
-    minHP: 0
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Wood
     amount: 10
   - itemDataName: Iron
     amount: 3
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

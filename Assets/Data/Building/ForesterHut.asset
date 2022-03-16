@@ -12,21 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: ForesterHut
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 8673263103075239742, guid: 126cac0c29d261444a92e8a929bd1c3b, type: 3}
   scale: {x: 2, y: 2, z: 2}
   spriteScale: 2
-  relativeLocation: {x: 0, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 1, z: 2}
   sprite: {fileID: 21300000, guid: a87380d43063dee4a95fe4683dd945cc, type: 3}
   info: Cut down the tree and store it here.
   attributes: []
   buildTool: 4
-  removalTool:
-  - tool: 9
-    damage: 2
-    minHP: 0
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Wood
     amount: 10
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

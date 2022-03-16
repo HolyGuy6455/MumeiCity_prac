@@ -222,6 +222,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1684,6 +1685,73 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      crops_Custom_17: -860920464311374984
+      crops_Custom_59: 9092517261266139881
+      crops_Custom_9: 3292515508568345692
+      crops_Custom_0: 5121331912839721527
+      crops_Custom_27: 6785216308851881614
+      crops_Custom_33: -6193500869003934659
+      crops_Custom_34: -3414264216077157889
+      crops_Custom_8: -1867885570391821728
+      crops_Custom_55: -1263587646524983887
+      crops_Custom_11: -5415584937012518151
+      crops_Custom_42: -8931259707758428450
+      crops_Custom_32: -6764437926885275949
+      crops_Custom_35: 5612090954755588105
+      crops_Custom_39: -1059325387146002783
+      crops_Custom_12: 2383532110751973349
+      crops_Custom_25: 2030434270999136540
+      crops_Custom_58: -503199399894698946
+      crops_Custom_61: 9136368165185828203
+      crops_Custom_23: 7599715281694963430
+      crops_Custom_49: 5904633176270675748
+      crops_Custom_2: 2670913914863225768
+      crops_Custom_65: 119611121781512788
+      crops_Custom_4: 1423928680051812463
+      crops_Custom_30: 3011131277632073961
+      crops_Custom_24: -8212208815413507634
+      crops_Custom_18: -7758730725482014066
+      crops_Custom_7: -3947542542339939002
+      crops_Custom_62: -2250013841121007110
+      crops_Custom_44: -6050929643981173862
+      crops_Custom_51: -3108142975265049998
+      crops_Custom_37: -197381745247588724
+      crops_Custom_47: -2834508011195022660
+      crops_Custom_6: -1344757767842272101
+      crops_Custom_15: 4148430270225169459
+      crops_Custom_16: -5246560424103944085
+      crops_Custom_54: -1314004978636670257
+      crops_Custom_50: -3209160053433486213
+      crops_Custom_19: 4176026679321716604
+      crops_Custom_3: -3058935149921249991
+      crops_Custom_29: 760031020201540952
+      crops_Custom_21: 4237106565012383831
+      crops_Custom_40: 5296138524290350318
+      crops_Custom_43: -182915754116391457
+      crops_Custom_31: 5841520933180385663
+      crops_Custom_45: -7158970835231161614
+      crops_Custom_48: -8069797028307984914
+      crops_Custom_60: -6925343846672012320
+      crops_Custom_14: -4405429676442772083
+      crops_Custom_56: -4008148122699639826
+      crops_Custom_13: -9093148003632473521
+      crops_Custom_5: 2758947669739957514
+      crops_Custom_22: -8136035073882088017
+      crops_Custom_41: -7758777211590327250
+      crops_Custom_20: -7926157766049970080
+      crops_Custom_46: 827720932044056718
+      crops_Custom_36: -8943770064404488066
+      crops_Custom_1: -1450735117709544857
+      crops_Custom_64: -543383982114769277
+      crops_Custom_63: -1060564507100230684
+      crops_Custom_57: 3799258998740461277
+      crops_Custom_10: 4302117533557992069
+      crops_Custom_28: -3467149698100541044
+      crops_Custom_38: -8725512560743974919
+      crops_Custom_53: 8526723160744733683
+      crops_Custom_26: -3024210605449981436
+      crops_Custom_52: 5159179437023094793
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -42,6 +42,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -244,6 +245,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      shapeUI_5: -6394490980031739925
+      shapeUI_3: 8483230111651727208
+      shapeUI_4: -7871033492413968568
+      shapeUI_2: 3371526994438414989
+      shapeUI_1: 4742782805782824827
+      shapeUI_0: 6895970751038484715
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

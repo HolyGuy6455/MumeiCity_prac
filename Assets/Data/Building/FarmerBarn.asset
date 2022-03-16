@@ -12,20 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: FarmerBarn
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 7491841603656974066, guid: 443a88ceda159794992c6e5ad3097cf3, type: 3}
   scale: {x: 2, y: 2, z: 2}
   spriteScale: 2
-  relativeLocation: {x: 0, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 1, z: 2}
   sprite: {fileID: 21300000, guid: 8ad86dc1b92698740b06702352fa65b7, type: 3}
   info: 
   attributes: []
   buildTool: 5
-  removalTool: []
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Wood
     amount: 10
   - itemDataName: Iron
     amount: 2
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

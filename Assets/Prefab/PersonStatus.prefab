@@ -155,10 +155,10 @@ MonoBehaviour:
   staminaBGImage: {fileID: 2915927378098465589}
   happinessImage: {fileID: 2915927378865273143}
   happinessBGImage: {fileID: 2915927378078315705}
+  backGroundImage: {fileID: 2915927378577496920}
   personImage: {fileID: 2915927377162659418}
   hatImage: {fileID: 8175919755827185192}
   personData:
-    content: 
     id: 0
     position: {x: 0, y: 0, z: 0}
     items: []

@@ -54,6 +54,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -340,6 +341,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      mumei_Sheet_move_02: 2352544708806120410
+      mumei_Sheet_crouch_back_02: -5969064896400524074
+      mumei_Sheet_move_01: 8834226784525004959
+      mumei_Sheet_crouch_back_01: 4594006663807036837
+      mumei_Sheet_7: 1276459482037309246
+      mumei_Sheet_idle: 104391479226930884
+      mumei_Sheet_crouch_01: 25562765591826561
+      mumei_Sheet_idle_back: 6445266549829685541
+      mumei_Sheet_crouch_02: -5258623797199641396
+      mumei_Sheet_move_back_01: -1958739568561236504
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

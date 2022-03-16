@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1060,6 +1061,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Chests_35: -5551243756848148709
+      Chests_9: 5236488456088351095
+      Chests_11: 7216008947959435862
+      Chests_36: 306019228077802888
+      Chests_21: 5963925494821841628
+      Chests_34: 8979194171663796333
+      Chests_25: -3183026388073543195
+      Chests_20: 7300178513047545148
+      Chests_38: -4314903932029464055
+      Chests_5: -1802179983950446379
+      Chests_33: 9051588068059010620
+      Chests_37: -1687530539618711491
+      Chests_39: 1812896436559144138
+      Chests_27: -1996060571289559336
+      Chests_23: -312224517889611491
+      Chests_0: -2449109871443933174
+      Chests_17: 5562844786429219677
+      Chests_31: -19845329431778221
+      Chests_13: 1801722409445689703
+      Chests_15: 8739662009098844620
+      Chests_30: 8275807321014749288
+      Chests_16: 2709425995715903517
+      Chests_3: -4053942768373185649
+      Chests_7: -4060441317193980645
+      Chests_32: 2752540027807299940
+      Chests_18: 6160236920721206960
+      Chests_14: -599543446331425161
+      Chests_19: 1995731423199394604
+      Chests_29: 7671091839381734345
+      Chests_6: -1084450127189620018
+      Chests_10: 8328269760850406872
+      Chests_4: -135430852612788662
+      Chests_22: -1673166345236085840
+      Chests_1: 5974344645129229820
+      Chests_8: -2122276175899596696
+      Chests_12: 1897831010956803060
+      Chests_28: -5802675592677887326
+      Chests_26: -5534301720337078189
+      Chests_24: 2476424487301228213
+      Chests_2: 4751018836630378178
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

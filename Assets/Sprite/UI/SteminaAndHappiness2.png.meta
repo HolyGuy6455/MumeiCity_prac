@@ -51,6 +51,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -316,6 +317,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      stamina_3: 4675704845424019652
+      Happiness_0: 9011468886100489234
+      Happiness_4: -3467352974942800114
+      stamina_2: -4331662134072871732
+      Happiness_1: -834187685074818996
+      stamina_1: 6222030837186859262
+      Happiness_3: -2909357578335793868
+      stamina_0: 2169241967756648456
+      Happiness_2: 8342739502479295179
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

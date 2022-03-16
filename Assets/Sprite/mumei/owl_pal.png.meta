@@ -120,6 +120,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -868,6 +869,39 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      owl_pal_move_0: -9016866179195665084
+      owl_pal_hat_1: 139894379219873103
+      owl_pal_Idle_0: -2648069533430052375
+      owl_pal_work_5: 6304395534980485659
+      owl_pal_hat_5: 1831127614015921574
+      owl_pal_hurray_1: -7034808112863420542
+      owl_pal_hat_0: -8293536280462044367
+      owl_pal_hat_4: 1123390193752153843
+      owl_pal_hat_2: 7046017312829538180
+      owl_pal_egg_2: 7392627397933847979
+      owl_pal_work_3: 2533988531019252988
+      owl_pal_hat_3: 2796902265556822881
+      owl_pal_sleep_0: 4743885268570871626
+      owl_pal_work_4: 4562712677519354216
+      owl_pal_egg_4: 8228472690543256637
+      owl_pal_sleep_1: -663269775278343029
+      owl_pal_egg_0: -8155941235020837160
+      owl_pal_sleep_3: 7600452890655041074
+      owl_pal_hurray_0: -6869355857486235976
+      owl_pal_pick_1: 4560689877449715183
+      owl_pal_Idle_1: -5599003099722588160
+      owl_pal_egg_1: 752179748353474446
+      owl_pal_sleep_5: -8992852875819301516
+      owl_pal_egg_3: -6121979837812568147
+      owl_pal_sleep_2: -2238173918914550669
+      owl_pal_work_0: 1725867118443878669
+      owl_pal_move_1: 7730741270418472201
+      owl_pal_egg_5: -8736174515371102318
+      owl_pal_pick_0: -4644721137701829776
+      owl_pal_work_2: 4046469518970872284
+      owl_pal_sleep_4: 7823411350215574253
+      owl_pal_work_1: -5294189647284301051
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

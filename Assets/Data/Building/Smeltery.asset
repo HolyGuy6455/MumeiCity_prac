@@ -12,21 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59c5e541c491e034e99f038d9603f2da, type: 3}
   m_Name: Smeltery
   m_EditorClassIdentifier: 
+  buildingName: 
   prefab: {fileID: 205137619275696620, guid: a7d731452a115c84590917d796b8c42a, type: 3}
   scale: {x: 2, y: 2, z: 2}
   spriteScale: 2
-  relativeLocation: {x: 0, y: 2, z: 2}
+  relativeLocation: {x: 0, y: 1, z: 2}
   sprite: {fileID: 5770067619390753283, guid: e09b85c1cdf54bc4ca14849a335f8240, type: 3}
   info: Dig up minerals and store them here.
   attributes: []
   buildTool: 8
-  removalTool:
-  - tool: 9
-    damage: 2
-    minHP: 0
-  buildToolIndex: 0
   resourceList:
   - itemDataName: Iron
     amount: 3
-  grownPreset: {fileID: 0}
-  growUpTerm: 0

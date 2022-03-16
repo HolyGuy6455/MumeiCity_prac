@@ -116,7 +116,7 @@ MonoBehaviour:
   - {x: -0.4367342, y: -0.09225723, z: -0.00000019174135}
   m_ShapePathHash: -621971847
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1986828
+  m_InstanceId: 823720
 --- !u!1 &3274970532192868312
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,10 +356,6 @@ MonoBehaviour:
   spriteRenderer: {fileID: 3181490932839349586}
   shadowObject: {fileID: 2338247900696767279}
   animator: {fileID: 7665339277029062073}
-  removalTool:
-  - tool: 9
-    damage: 5
-    minHP: 0
 --- !u!114 &5176988053753114749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -410,7 +406,7 @@ Animator:
   m_GameObject: {fileID: 8274092955239123317}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0c55dfc6c6b476d4d8dc3d4d184877d8, type: 2}
+  m_Controller: {fileID: 9100000, guid: bb348d19c7bb2c6469e83bb91a468b79, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
