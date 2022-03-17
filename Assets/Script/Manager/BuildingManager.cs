@@ -28,7 +28,7 @@ public class BuildingManager : MonoBehaviour {
     [ContextMenu("Manual Issue ID")]
     void IssueID(){
         List<BuildingObject> buildingList = wholeBuildingList();
-        lastID = 0;
+        lastID = 1;
         foreach (BuildingObject buildingObject in buildingList){
             buildingObject.buildingData.id = lastID++;
         }

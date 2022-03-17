@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler{
+public class BuildingUI : MonoBehaviour{
     public List<BuildingPreset> buildingDataList;
 
     [SerializeField] Image[] toolButtonsSelectionImages;
@@ -111,13 +108,6 @@ public class BuildingUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnBuildButtonClick(){
         GameManager.Instance.buildingManager.BuildOnProcess();
         UpdateInfomation();
-    }
-
-    public void OnPointerEnter(PointerEventData eventData) {
-        GameManager.Instance.mouseOnUI = true;
-    }
-    public void OnPointerExit(PointerEventData eventData) {
-        GameManager.Instance.mouseOnUI = false;
     }
 
     public void CheckConstructionArea(){

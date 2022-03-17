@@ -275,8 +275,6 @@ public class SaveLoadManager : MonoBehaviour{
             personCommonAI.personData = data;
             personCommonAI.UpdateItemView();
             personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
-
-            AddRebindInfo<PersonBehavior>(personObject);
         }
 
         // 맵에 남아있는 동물을 전부 없앤다.

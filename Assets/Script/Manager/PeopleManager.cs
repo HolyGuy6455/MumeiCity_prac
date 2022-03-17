@@ -50,8 +50,8 @@ public class PeopleManager : MonoBehaviour
     }
 
     public static PersonBehavior FindPersonWithID(int id){
-        PeopleManager peopleManager = GameManager.Instance.peopleManager;
-        foreach (PersonBehavior person in peopleManager.people){
+        List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
+        foreach (PersonBehavior person in people){
             if(person.personData.id == id){
                 return person;
             }
@@ -63,12 +63,19 @@ public class PeopleManager : MonoBehaviour
         return jobInfos[index];
     }
 
-    // 매일 아침마다 단체로 이사를 한다
     public void ResetHouseInfomation(){
         List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
         houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
+        int room = 0;
+        foreach (BuildingObject house in houseList){
+            HouseFunction houseFunction = house.buildingData.facilityFunction as HouseFunction;
+            if(houseFunction != null){
+                room += houseFunction.personIDList.Length;
+            }
+        }
         List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
-        Debug.Log("집의 갯수는 "+ houseList.Count);
+        Debug.Log("room counter "+ room);
+        Debug.Log("owl counter "+ people.Count);
         
 
         // foreach (PersonBehavior person in people){
@@ -93,14 +100,7 @@ public class PeopleManager : MonoBehaviour
         // }
     }
 
-    // 매일 아침마다 구인구직활동을 한다
-    // 잘 작동 안하길래 일단 막아둠
-    public void OfferJob(){
-        // List<BuildingObject> buildingObjects = GameManager.Instance.buildingManager.wholeBuildingList();
-        // foreach (BuildingObject buildingObject in buildingObjects){
-            // buildingObject.HirePerson();
-        // }
-    }
+    
 
     // 행복위원회입니다 댁은 행복하신지요
     // 행복수치를 조사한다. 사실 조사가 아니라 결산이지만

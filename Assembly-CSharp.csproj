@@ -55,6 +55,7 @@
      <Compile Include="Assets\Script\Manager\PeopleManager.cs" />
      <Compile Include="Assets\Script\UI\TaskUIBundle.cs" />
      <Compile Include="Assets\Script\UI\SuperintendentUI.cs" />
+     <Compile Include="Assets\Script\Data\BuildingPresetOld.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Sence.cs" />
      <Compile Include="Assets\Script\Data\ChestFunction.cs" />
      <Compile Include="Assets\Script\Data\HouseFunction.cs" />
@@ -110,6 +111,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
+     <Compile Include="Assets\Script\UI\AttackLockArea.cs" />
      <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />
      <Compile Include="Assets\Script\UI\TooltipArea.cs" />
      <Compile Include="Assets\Script\UI\BuildingSlot.cs" />
@@ -148,7 +150,6 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\Data\BuildingPresetOld.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

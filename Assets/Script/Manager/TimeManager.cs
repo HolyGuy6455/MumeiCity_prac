@@ -145,7 +145,7 @@ public class TimeManager : MonoBehaviour{
     void OnTimeSlotChanged(){
         switch (_timeSlot){
             case TimeSlot.MORNING:
-                GameManager.Instance.peopleManager.OfferJob();
+                // GameManager.Instance.peopleManager.OfferJob();
                 break;
             case TimeSlot.DAY:
                 GameManager.Instance.peopleManager.ResetHouseInfomation();

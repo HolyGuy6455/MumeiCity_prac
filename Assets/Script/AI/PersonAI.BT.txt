@@ -1,12 +1,9 @@
 // 뿌리 트리
 tree("Root")
 	fallback
-		while not AmIAdult
-			sequence
-				SleepAct
-				Wait 1.0
-		// while AmIHomeless
-// 
+		sequence
+			not Grow
+			Wait 1.0
 		tree("DayWork")
 		tree("NightSleep")
 
@@ -39,26 +36,29 @@ tree("NightSleep")
 tree("DayWork")
 	while IsItDayTime // 낮이예요?
 		fallback
+			AwakeAct	// 일단 잠에서 깨어납시다
+			sequence
+				Wait 0.2
+				LookForHouse
+			sequence
+				while IsMyJob "Jobless"
+					LookForJob		// 직업이 없으니 탐색한다...
 			sequence
 				not AmIHappyToWork	// 오늘 일하기 싫은가?
-				NapAct					// zzZ
-			AwakeAct	// 일단 잠에서 깨어납시다
+				GoToHome			// 집에
+				MoveToDestination	// 가서
+				Wait 4.0			// 멍이나 때려야지
 			sequence
 				DoIHaveItemMoreThan 5 	// 아이템이 꽉차면
 				tree("PutInItem")		// 아이템을 직장에 넣는다
 			// 각 직업에 맞는 일을 한다
-			tree("ForesterHut")	// 숲지기의 일을 한다
-			tree("Forge")		// 대장간 일을 한다
-			tree("Bistro")		// 식당 일을 한다
-			tree("FarmerBarn")	// 농부 일을 한다
-			tree("Smeltery")	// 광부의 일을 한다
-			tree("Sanctum")		// 성직자 일을 한다
-			tree("PutInItem")	// 할게 없으면 아이템을 직장에 넣는다
-			sequence
-				GoToHome
-				Wait 1.0	
-				// race
-				// 	NapAct
+			tree("Forester")	// 숲지기의 일을 한다
+			tree("Blacksmith")		// 대장간 일을 한다
+			tree("Chef")		// 식당 일을 한다
+			tree("Farmer")	// 농부 일을 한다
+			tree("Miner")	// 광부의 일을 한다
+			tree("Cleric")		// 성직자 일을 한다
+			Wait 1.0
 			
 tree("PutInItem")
 	sequence
@@ -71,8 +71,8 @@ tree("PutInItem")
 			// 애니메이션 행동과 모션을 맞추려다보니 이렇게 되었음
 
 
-tree("ForesterHut")	// 숲지기
-	while IsMyWorkplace "ForesterHut"	// 직업이 맞는지 확인
+tree("Forester")	// 숲지기
+	while IsMyJob "Forester"	// 직업이 맞는지 확인
 		fallback
 			sequence	// 나무 아이템을 줍는다
 				SearchItemToPickUp "Log"	
@@ -85,16 +85,16 @@ tree("ForesterHut")	// 숲지기
 				SearchingToGathering "Log"	
 				MoveToDestination
 
-tree("Forge")			// 대장장이
-	while IsMyWorkplace "Forge"	// 직업이 맞는지 확인
+tree("Blacksmith")			// 대장장이
+	while IsMyJob "Blacksmith"	// 직업이 맞는지 확인
 		DanceAct		// 할게 없다!
 
-tree("Bistro")			// 식당 요리사
-	while IsMyWorkplace "Bistro"	// 직업이 맞는지 확인
+tree("Chef")			// 식당 요리사
+	while IsMyJob "Chef"	// 직업이 맞는지 확인
 		DanceAct		// 할게 없다!
 
-tree("FarmerBarn")		// 농부
-	while IsMyWorkplace "FarmerBarn"	// 직업이 맞는지 확인
+tree("Farmer")		// 농부
+	while IsMyJob "Farmer"	// 직업이 맞는지 확인
 		fallback
 			sequence	// 광물 아이템을 줍는다
 				SearchItemToPickUp "Crop"
@@ -104,8 +104,8 @@ tree("FarmerBarn")		// 농부
 				SearchingToGathering "Crop"
 				MoveToDestination
 
-tree("Smeltery")		// 광부
-	while IsMyWorkplace "Smeltery"	// 직업이 맞는지 확인
+tree("Miner")		// 광부
+	while IsMyJob "Miner"	// 직업이 맞는지 확인
 		fallback
 			sequence	// 광물 아이템을 줍는다
 				SearchItemToPickUp "Mining"
@@ -115,17 +115,17 @@ tree("Smeltery")		// 광부
 				SearchingToGathering "Mining"
 				MoveToDestination
 
-tree("Sanctum")			// 성직자
-	while IsMyWorkplace "Sanctum"	// 직업이 맞는지 확인
+tree("Cleric")			// 성직자
+	while IsMyJob "Cleric"	// 직업이 맞는지 확인
 		DanceAct		// 할게 없다!
 
-tree("FoodStorage")	// 식량창고지기
-	while IsMyWorkplace "FoodStorage"	// 직업이 맞는지 확인
-		fallback
-			sequence	// 음식 아이템을 줍는다
-				SearchItemToPickUp "Food"
-				MoveToDestination
-			sequence	// 캘 수 있는 과일을 찾는다
-				ChangeTool "Knife"
-				SearchingToGathering "Fruit"
-				MoveToDestination
+// tree("FoodStorage")	// 식량창고지기.....이젠 직업도 건물도 없어
+// 	while IsMyJob "FoodStorage"	// 직업이 맞는지 확인
+// 		fallback
+// 			sequence	// 음식 아이템을 줍는다
+// 				SearchItemToPickUp "Food"
+// 				MoveToDestination
+// 			sequence	// 캘 수 있는 과일을 찾는다
+// 				ChangeTool "Knife"
+// 				SearchingToGathering "Fruit"
+// 				MoveToDestination

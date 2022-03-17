@@ -413,6 +413,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void GetDebugItem(){
+        GameManager.Instance.inventory.AddItem(ItemSlotData.Create(ItemData.Instant("Wood")));
+        GameManager.Instance.inventory.AddItem(ItemSlotData.Create(ItemData.Instant("Bronze")));
+        GameManager.Instance.inventory.AddItem(ItemSlotData.Create(ItemData.Instant("Iron")));
+    }
+
 }
 
 

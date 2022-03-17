@@ -81,6 +81,12 @@ public class GridMapManager : MonoBehaviour{
         origin.y = -3.5f;
         groundParent.transform.Translate(origin);
         groundParent.transform.localScale = new Vector3(1.0f,1.0f,1.5f);
+
+        Invoke("ScanAstarPath",1);
+    }
+
+    private void ScanAstarPath(){
+        GameManager.Instance.buildingManager.astarPath.Scan();
     }
 
     private GroundLevel GetGroundLevel(int x, int y){

@@ -7,15 +7,16 @@ public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
     [SerializeField] TimeEventQueueTicket hiringEvent;
     public bool hiringPerson;
     [SerializeField] int jobID;
+    public int _jobID{get{return jobID;}}
     public List<TaskInfo> taskInfos;
     public GameManager.GameTab _gameTab{get{return gameTab;}}
-    private void Start() {
-        buildingObject = this.GetComponent<BuildingObject>();
-        if(hiringPerson){
-            string ticketName = "building_"+this.buildingObject.buildingData.id+"_hire";
-            hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, HirePerson);
-        }
-    }
+    // private void Start() {
+    //     buildingObject = this.GetComponent<BuildingObject>();
+    //     if(hiringPerson){
+    //         string ticketName = "building_"+this.buildingObject.buildingData.id+"_hire";
+    //         hiringEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, HirePerson);
+    //     }
+    // }
 
     private bool HirePerson(string ticketName){
         if(hiringPerson && buildingObject.buildingData.workerID == 0){
@@ -57,9 +58,9 @@ public class WorkPlace : MonoBehaviour, ITiemEventRebindInfo{
     public Dictionary<string, TimeManager.TimeEvent> GetDictionary(){
         Dictionary<string, TimeManager.TimeEvent> result = new Dictionary<string, TimeManager.TimeEvent>();
 
-        BuildingObject buildingObject = this.GetComponent<BuildingObject>();
-        string ticketName = "building_"+buildingObject.buildingData.id+"_hire";
-        result[ticketName] = HirePerson;
+        // BuildingObject buildingObject = this.GetComponent<BuildingObject>();
+        // string ticketName = "building_"+buildingObject.buildingData.id+"_hire";
+        // result[ticketName] = HirePerson;
 
         return result;
     }
