@@ -75,11 +75,25 @@ public class Hittable : MonoBehaviour
         Refresh();
     } 
 
+    public void Hit(string tool_name){
+        switch (tool_name){
+            case "None":
+                Hit(ToolType.NONE);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void Dead(){
         GameManager.Instance.buildingManager.astarPath.Scan();
         if(!(DeadEventHandler is null))
             DeadEventHandler.Invoke();
         Destroy(this.gameObject);
+    }
+
+    public void Sound(){
+        studioEventEmitter.EventInstance.start();
     }
 
     void EnableHit(){

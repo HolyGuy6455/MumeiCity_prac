@@ -196,6 +196,7 @@ public class GameManager : MonoBehaviour
             case GameTab.NORMAL:
                 playerMovementEnabled = true;
                 taskUIAnimator.SetInteger("SelectedUI",0);
+                MousePointer.instance.HideTooltip();
                 break;
 
             case GameTab.ITEM:

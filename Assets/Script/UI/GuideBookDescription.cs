@@ -6,6 +6,10 @@ public class GuideBookDescription : MonoBehaviour{
     [SerializeField] Sprite infoImage;
     [SerializeField] [TextArea] string infoDescription;
 
+    private void Start() {
+        GameManager.Instance.guideBookUI.AddDescription(infoTitle,this);
+    }
+
     [ContextMenu("Manual Initialize")]
     public void OnPointerClick(){
         GuideBookUI guideBookUI = GameManager.Instance.guideBookUI;

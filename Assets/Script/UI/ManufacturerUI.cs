@@ -134,6 +134,11 @@ public class ManufacturerUI : CommonTaskUI{
         itemSlotData.amount = resultItem.amount;
         buildingData.AddItem(itemSlotData);
 
+        if(workPlaceNow.hiringPerson){
+            PersonBehavior person = PeopleManager.FindPersonWithID(buildingData.workerID);
+            person.personData.stamina -= 20;
+        }
+
         // 만약 예약이 1개 이상 남아있다면, 다음 작업 이어서 하기
         manufacturerData.amount[index] -= 1;
         Debug.Log("Remain : " + manufacturerData.amount[index]);

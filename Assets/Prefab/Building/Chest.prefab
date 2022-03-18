@@ -28,6 +28,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5041921781802770511}
   m_RootOrder: 1
@@ -106,6 +107,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.749, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5041921782567252254}
   - {fileID: 5041921781413712827}
@@ -114,7 +116,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5041921781802770509
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -127,6 +129,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -148,13 +151,13 @@ MonoBehaviour:
     positionX: 0
     positionY: 0
     positionZ: 0
+    hp: 0
     code: 15
     items: []
     workerID: 0
     content: 
   spriteRenderer: {fileID: 5041921782567252253}
   shadowObject: {fileID: 0}
-  removalTool: []
   animator: {fileID: 0}
 --- !u!114 &9148355464432600900
 MonoBehaviour:
@@ -168,7 +171,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81089ee76e4a71b43a2ada0b94c0b6d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 5041921781802770509}
+  interactEventHandler:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 344425581}
+        m_TargetAssemblyTypeName: Hittable, Assembly-CSharp
+        m_MethodName: Hit
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: None
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &344425577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,9 +230,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5041921781802770509}
-  HP: 10
-  HPMax: 10
+  HP: 1
+  HPMax: 1
   hitBoxCollider: {fileID: 0}
+  effectiveTools:
+  - tool: 0
+    damage: 10
+    minHP: 0
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls:
@@ -246,7 +267,6 @@ MonoBehaviour:
   HitEventHandler:
     m_PersistentCalls:
       m_Calls: []
-  effectiveToolDictionaryLength: 0
   studioEventEmitter: {fileID: 5256679866113794843}
   dead: 7
 --- !u!114 &1762462543056677702
@@ -322,6 +342,7 @@ Transform:
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5041921781802770511}
   m_RootOrder: 0
@@ -337,6 +358,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class GuideBookUI : MonoBehaviour{
     public Text guideTitle;
@@ -7,6 +8,7 @@ public class GuideBookUI : MonoBehaviour{
     public Image guideImage;
     [SerializeField] GameObject scrollContent;
     [SerializeField] RectTransform scrollContentRect;
+    public Dictionary<string,GuideBookDescription> descriptions;
     
     private static GuideBookUI singleton;
     public static GuideBookUI Instance{
@@ -17,6 +19,14 @@ public class GuideBookUI : MonoBehaviour{
 
     private void Awake() {
         singleton = this;
+    }
+
+    public void AddDescription(string key, GuideBookDescription value){
+        if(descriptions == null){
+            descriptions = new Dictionary<string, GuideBookDescription>();
+        }
+        descriptions[key] = value;
+        Debug.Log("descriptions " + key);
     }
 
     public void UpdateUI(){

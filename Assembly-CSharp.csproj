@@ -135,6 +135,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Bullet.cs" />
      <Compile Include="Assets\Script\UI\ItemSlot.cs" />
      <Compile Include="Assets\Script\AI\PersonBehavior.cs" />
+     <Compile Include="Assets\Script\AI\Friend.cs" />
      <Compile Include="Assets\Script\Data\LaboratoryFunction.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\UnitExplosion.cs" />
      <Compile Include="Assets\SimpleNote\Scripts\SimpleNoteManager.cs" />
@@ -150,7 +151,7 @@
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\HUD.cs" />
      <Compile Include="Assets\Script\EnemyGRX.cs" />
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
-     <Compile Include="Assets\Script\AI\Friend.cs" />
+     <Compile Include="Assets\Script\ItemAndEntity\TutorialBox.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />

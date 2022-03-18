@@ -108,4 +108,25 @@ public class BuildingObject : MonoBehaviour
         GameManager.Instance.achievementManager.AddTrial("demolish",1);
     }
 
+    public void DropItemInside(){
+        Vector3 location = this.transform.position;
+        
+        foreach (ItemSlotData item in buildingData.items){
+            for (int i = 0; i < item.amount; i++){
+                Vector3 popForce = new Vector3();
+                popForce.x = Random.Range(-ItemDroper.RANGE, ItemDroper.RANGE);
+                popForce.y = ItemDroper.JUMP_POWER;
+                popForce.z = Random.Range(-ItemDroper.RANGE, ItemDroper.RANGE);
+
+                GameObject itemObject = GameObject.Instantiate(GameManager.Instance.itemManager.itemPickupPrefab,location+popForce/10,Quaternion.identity);
+                ItemPickup itemPickup = itemObject.GetComponent<ItemPickup>();
+                itemPickup.itemPickupData = ItemPickupData.create(ItemData.Instant(item.itemName));
+                itemPickup.IconSpriteUpdate();
+                
+                itemPickup.GetComponent<Rigidbody>().AddForce(popForce,ForceMode.Impulse);
+                itemObject.transform.SetParent(GameManager.Instance.itemManager.itemPickupParent.transform);
+            }
+        }
+    }
+
 }
