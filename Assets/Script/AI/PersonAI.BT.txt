@@ -2,7 +2,8 @@
 tree("Root")
 	fallback
 		sequence
-			not Grow
+			not AmIAdult
+			Grow
 			Wait 1.0
 		tree("DayWork")
 		tree("NightSleep")
@@ -14,23 +15,25 @@ tree("NightSleep")
 			sequence
 				DoIHaveItemMoreThan 0
 				tree("PutInItem") // 아이템 정리하고 마무리
-			sequence		
-				GoToHome			// 집으로 가야지
-				MoveToDestination	// 간다
-				fallback
-					sequence
-						not AmIHappyToWork
-						TakeOutByTag "Gift"
-						ConsumeItemByTag "Gift"
-						Wait 1.0
-					sequence
-						not DoIHaveStaminaMoreThan 900
-						TakeOutByTag "Food"
-						ConsumeItemByTag "Food"
-						Wait 1.0
-					sequence
-						SleepAct			// zzZ
-						Wait 1.0
+			fallback
+				sequence
+					AmISleep			// 자고있었니?
+					Wait 4.0			// 그럼 깨우지 말아줘
+					SleepAct			// zzZ
+				sequence		
+					GoToHome			// 집으로 가야지
+					not MoveToDestination // 간다
+				sequence				// 행복이 떨어졌으면 선물로 회복
+					not AmIHappyToWork
+					TakeOutByTag "Gift"
+					ConsumeItemByTag "Gift"
+				sequence				// 기력이 떨어졌으면 밥으로 회복
+					not DoIHaveStaminaMoreThan 900
+					TakeOutByTag "Food"
+					ConsumeItemByTag "Food"
+				sequence
+					SleepAct			// zzZ
+					MakeResultOfLove	// 성공하든 실패하든 기회는 하루에 한번뿐
 
 // 낮에 하는 일
 tree("DayWork")

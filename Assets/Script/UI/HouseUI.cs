@@ -18,6 +18,7 @@ public class HouseUI : CommonTaskUI{
         if(houseFunction == null){
             return;
         }
+        UpdateUI();
         for (int i = 0; i < personStatusViews.Length; i++){
             if(i >= houseFunction.personIDList.Length){
                 personStatusViews[i].SetVisible(false);
@@ -29,10 +30,11 @@ public class HouseUI : CommonTaskUI{
             if(person != null){
                 personStatusViews[i].SetVisible(true);
                 personStatusViews[i].UpdateUI(person.personData);
+            }else{
+                personStatusViews[i].SetVisible(false);
             }
             personStatusViews[i].SetVisibleBG(true);
         }
-        UpdateUI();
     }
 
     public override void UpdateUI(){

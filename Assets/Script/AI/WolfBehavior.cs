@@ -11,6 +11,7 @@ public class WolfBehavior : AnimalBehavior{
     [SerializeField] GameObject targetMarker;
     [SerializeField] bool jumpCapable;
     [SerializeField] bool moveCapable;
+    [SerializeField] bool positioning;
     [SerializeField] FMODUnity.StudioEventEmitter growlSound;
     IAstarAI ai;
     static List<string> preyList = new List<string>{"Rabbit","Reindeer"};
@@ -61,16 +62,21 @@ public class WolfBehavior : AnimalBehavior{
     // 길찾기로 도망치기
     [Task]
     public void Runaway(float distance){
-        Vector3 direction = (this.transform.position - targetObject.transform.position).normalized;
-        targetVector3 = targetObject.transform.position + direction*distance;
+        if(positioning == false){
+            Vector3 direction = (this.transform.position - targetObject.transform.position).normalized;
+            targetVector3 = targetObject.transform.position + direction*distance;
+            positioning = true;
+        }
 
-        float distanceValue = Vector3.Distance(this.transform.position,targetObject.transform.position);
+        float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
         distanceToTarget = distanceValue;
+        Debug.Log(distanceValue);
 
-        if(distanceValue > distance - 0.1){
+        if(distanceValue <= 1.0f){
             Debug.Log("Runaway : "+distanceValue);
             targetVector3 = this.transform.position;
             distanceToTarget = 0 ;
+            positioning = false;
             ThisTask.Succeed();
         }
     }
@@ -78,15 +84,19 @@ public class WolfBehavior : AnimalBehavior{
     // 목표에 접근하기
     [Task]
     public void GoCloser(float distance){
-        targetVector3 = targetObject.transform.position;
+        if(positioning == false){
+            targetVector3 = targetObject.transform.position;
+            positioning = true;
+        }
 
-        float distanceValue = Vector3.Distance(this.transform.position,targetObject.transform.position);
+        float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
         distanceToTarget = distanceValue;
         
-        if(distanceValue < distance + 0.1){
+        if(distanceValue <= distance){
             Debug.Log("GoCloser : "+distanceValue);
             targetVector3 = this.transform.position;
             distanceToTarget = 0 ;
+            positioning = false;
             ThisTask.Succeed();
         }
     }

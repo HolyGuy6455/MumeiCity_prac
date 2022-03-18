@@ -347,7 +347,7 @@ MonoBehaviour:
     positionY: 0
     positionZ: 0
     hp: 0
-    code: 7
+    code: 22
     items:
     - itemName: 
       amount: 0

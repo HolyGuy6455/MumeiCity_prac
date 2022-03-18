@@ -58,7 +58,10 @@ public class BuildingObject : MonoBehaviour
         }else{
             switch (buildingData.buildingPreset.name){
                 case "Tent":
-                    this.buildingData.facilityFunction = new HouseFunction(6);
+                    this.buildingData.facilityFunction = new HouseFunction(4);
+                    break;
+                case "House":
+                    this.buildingData.facilityFunction = new HouseFunction(9);
                     break;
                 case "Chest":
                     this.buildingData.facilityFunction = new ChestFunction();

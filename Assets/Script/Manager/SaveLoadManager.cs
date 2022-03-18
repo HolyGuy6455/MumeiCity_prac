@@ -271,10 +271,11 @@ public class SaveLoadManager : MonoBehaviour{
             location = data.position;
             // 데이터로 시민을 생성한다
             GameObject personObject = Instantiate(normalPerson,location,Quaternion.identity);
-            PersonBehavior personCommonAI = personObject.GetComponent<PersonBehavior>();
-            personCommonAI.personData = data;
-            personCommonAI.UpdateItemView();
+            PersonBehavior person = personObject.GetComponent<PersonBehavior>();
+            person.personData = data;
+            person.UpdateItemView();
             personObject.transform.SetParent(GameManager.Instance.peopleManager.theMotherOfWholePeople.transform);
+            person.UpdateHatImage();
         }
 
         // 맵에 남아있는 동물을 전부 없앤다.

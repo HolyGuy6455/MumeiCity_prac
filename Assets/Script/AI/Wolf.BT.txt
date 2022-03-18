@@ -26,11 +26,13 @@ tree("Root")
 
 tree("InCaution")
     sequence
+        race
+            Runaway 5.0
+            Wait 5.0
+        Wait 1.0
         GoCloser 3.0
         LockTarget
         Wait 0.5
         Attack
         Wait 1.0
-        Runaway 5.0
-        Wait 1.0
-        CalmDown
+        // CalmDown

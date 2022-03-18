@@ -292,13 +292,11 @@ public class PersonBehavior : MonoBehaviour{
     [Task]
     void TakeOutByTag(string itemTag){
         BuildingObject buildingObject;
-        try{
-            buildingObject = this.target.GetComponent<BuildingObject>();
-        }
-        catch (System.NullReferenceException){
+        if(this.target == null){
             ThisTask.Fail();
             return;
         }
+        buildingObject = this.target.GetComponent<BuildingObject>();
         ItemSlotData[] buildingItems = buildingObject.buildingData.items;
         ItemSlotData taken = null;
         foreach (ItemSlotData itemSlot in buildingItems){
@@ -377,7 +375,6 @@ public class PersonBehavior : MonoBehaviour{
     void SleepAct(){
         this.personData.sleep = true;
         animator.SetBool("Sleep",true);
-        
         ThisTask.Succeed();
     }
     [Task]
@@ -398,24 +395,29 @@ public class PersonBehavior : MonoBehaviour{
 
     [Task]
     void AmIHappyToWork(){
+        ThisTask.Complete(AmIHappyToWorkBool());
+    }
+    [Task]
+    void AmISleep(){
+        ThisTask.Complete(this.personData.sleep);
+    }
+    [Task]
+    void AmIAdult(){
+        ThisTask.Complete(personData.growth >= 1.0f);
+    }
+    private bool AmIHappyToWorkBool(){
         int workplaceID = this.personData.workplaceID;
         if(workplaceComponent == null){
             // 백수는 직장이 없으니 직장에 만족하지 않은걸로 취급
-            ThisTask.Fail();
-            return;
+            return false;
         }
         int workTier = PeopleManager.Instance.GetJobInfo(personData.jobID).workTier;
         if(workTier < 1){
-            ThisTask.Succeed();
-            return;
+            return true;
         } 
         int happiness = this.personData.happiness;
         int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier-1];
-        ThisTask.Complete( happiness > happinessNeeds );
-    }
-    [Task]
-    void NapAct(){
-        animator.SetInteger("ThinkCode",6);
+        return( happiness > happinessNeeds );
     }
     [Task]
     void DanceAct(){
@@ -423,14 +425,9 @@ public class PersonBehavior : MonoBehaviour{
     }
     [Task]
     void Grow(){
-        if(personData.growth < 1.0f){
-            personData.growth += 0.1f;
-            animator.SetBool("Sleep",true);
-            ThisTask.Fail();
-        }else{
-            animator.SetBool("Sleep",false);
-            ThisTask.Succeed();
-        }
+        personData.growth += 0.02f;
+        animator.SetBool("Sleep",true);
+        ThisTask.Succeed();
     }
 
     [Task]
@@ -449,7 +446,6 @@ public class PersonBehavior : MonoBehaviour{
             }
         );
 
-        Debug.Log("LookForJob-buildingObjects - " + buildingObjects.Count);
         if(buildingObjects.Count > 0){
             BuildingObject buildingObject = buildingObjects[0];
             this.personData.workplaceID = buildingObject.buildingData.id;
@@ -534,10 +530,43 @@ public class PersonBehavior : MonoBehaviour{
 
     [Task]
     public void MakeResultOfLove(){
-        // 행복하지 않다면 그만둬
-        if(this.personData.happiness < 80){
+        // 행복하지 않거나 집이 없으면 그만둬
+        if(personData.homeID == 0 || !this.AmIHappyToWorkBool()){
             ThisTask.Fail();
             return;
+        }
+        BuildingObject presentHome = GameManager.Instance.buildingManager.FindBuildingObjectWithID(personData.homeID);
+        HouseFunction houseFunction = presentHome.buildingData.facilityFunction as HouseFunction;
+
+        // 집이 꽉찼으면 그만둬
+        if(houseFunction.GetEmptyRoomIndex() == -1){
+            ThisTask.Fail();
+            return;
+        }
+
+        foreach (int famillyID in houseFunction.personIDList){
+            if(famillyID == 0){
+                continue;
+            }
+            PersonBehavior partner = PeopleManager.FindPersonWithID(famillyID);
+            if(!partner.AmIHappyToWorkBool()){
+                continue;
+            }
+            this.personData.happiness -= 50;
+            partner.personData.happiness -= 50;
+            PersonBehavior newBorn = GameManager.Instance.peopleManager.GiveBirth(presentHome.transform.position);
+            houseFunction.LiveIn(newBorn.personData.id);
+
+            GameManager.Instance.achievementManager.AddTrial("population_20",1);
+            GameManager.Instance.achievementManager.AddTrial("population_billion",1);
+            break;
+        }
+        ThisTask.Succeed();
+    }
+    
+    public void Tired(int amount){
+        if(this.personData.stamina > 0){
+            this.personData.stamina -= amount;
         }
     }
 
@@ -566,42 +595,7 @@ public class PersonBehavior : MonoBehaviour{
         }
     }
 
-    public bool SleepAndRecharging(string ticketName){
-        // PeopleManager peopleManager = GameManager.Instance.peopleManager;
-        // if(this.personData.stamina < 1000){
-        //     this.personData.stamina += 5;
-        // }
-        if(personData.homeID == 0){
-            List<BuildingObject> houseList = GameManager.Instance.buildingManager.wholeBuildingList();
-            houseList = houseList.FindAll(buildingObject => buildingObject.buildingData.facilityFunction is HouseFunction);
-
-            foreach (BuildingObject house in houseList){
-                HouseFunction houseData = house.buildingData.facilityFunction as HouseFunction;
-                for (int i = 0; i < houseData.personIDList.Length; i++){
-                    if(houseData.personIDList[i] == 0){
-                        // Debug.Log("집을 찾았어요 : " + house.buildingData.id);
-                        houseData.personIDList[i] = personData.id;
-                        personData.homeID = house.buildingData.id;
-                        break;
-                    }
-                }
-            }
-        }else{
-            if(personData.growth < 1.0f){
-                personData.growth += 0.002f;
-            }
-        }
-
-        return false;
-    }
-
     
-
-    public void Tired(int amount){
-        if(this.personData.stamina > 0){
-            this.personData.stamina -= amount;
-        }
-    }
 
     public void UpdateHatImage(){
         this.hatSprite.sprite = PeopleManager.Instance.GetJobInfo(personData.jobID).hatImage;

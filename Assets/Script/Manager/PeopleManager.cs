@@ -51,6 +51,9 @@ public class PeopleManager : MonoBehaviour
 
     public static PersonBehavior FindPersonWithID(int id){
         List<PersonBehavior> people = PeopleManager.GetWholePeopleList();
+        if(id == 0){
+            return null;
+        }
         foreach (PersonBehavior person in people){
             if(person.personData.id == id){
                 return person;
@@ -61,6 +64,15 @@ public class PeopleManager : MonoBehaviour
 
     public JobInfo GetJobInfo(int index){
         return jobInfos[index];
+    }
+
+    public PersonBehavior GiveBirth(Vector3 location){
+        GameObject personObject = Instantiate(normalPerson,location,Quaternion.identity);
+        PersonBehavior newBorn = personObject.GetComponent<PersonBehavior>();
+        newBorn.personData.id = lastID++;
+        personObject.transform.SetParent(theMotherOfWholePeople.transform);
+        newBorn.personData.growth = 0.0f;
+        return newBorn;
     }
 
     // // 행복위원회입니다 댁은 행복하신지요
