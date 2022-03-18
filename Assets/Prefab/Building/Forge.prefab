@@ -27,6 +27,7 @@ Transform:
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6557064219298774127}
   m_RootOrder: 1
@@ -44,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ShadowGroup: 0
+  m_ComponentVersion: 1
   m_HasRenderer: 0
   m_UseRendererSilhouette: 1
   m_CastsShadows: 1
@@ -88,6 +90,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6557064219298774127}
   m_RootOrder: 0
@@ -111,6 +114,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -181,6 +185,7 @@ Transform:
   m_LocalRotation: {x: 0.38268343, y: -0, z: -0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0.5, z: -0.5}
   m_LocalScale: {x: 2, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6557064219298774127}
   m_RootOrder: 4
@@ -196,6 +201,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -269,6 +275,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8, y: 0, z: -7}
   m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 653431339673186819}
   - {fileID: 7363302992751878645}
@@ -365,7 +372,7 @@ MonoBehaviour:
   dead: 6
 --- !u!95 &4777446104109645985
 Animator:
-  serializedVersion: 3
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -378,6 +385,7 @@ Animator:
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -405,7 +413,7 @@ MonoBehaviour:
   taskInfos:
   - name: Crafting Shovel
     guideSprite: {fileID: 21300000, guid: f736ea1bbd1ace84ba72ebb2bb148fae, type: 3}
-    info: 
+    info: Make a shovel. You can plant or eliminate crops.
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
@@ -419,7 +427,8 @@ MonoBehaviour:
     requiredTime: 500
   - name: Crafting Skillet
     guideSprite: {fileID: 21300000, guid: 1df3f807c105f7441aed7d58ae1022a6, type: 3}
-    info: 
+    info: Make a frying pan. You can build a restaurant that uses ingredients to
+      make more efficient food!
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
@@ -433,7 +442,8 @@ MonoBehaviour:
     requiredTime: 1000
   - name: Crafting Hammer
     guideSprite: {fileID: 21300000, guid: 6b8badf8c2f5f754fbddcf9efdd2d30e, type: 3}
-    info: 
+    info: Make a hammer. It can be used to demolish buildings or to remove useless
+      stones.
     taskType: 1
     necessaryResources:
     - itemDataName: Iron
@@ -535,6 +545,7 @@ Transform:
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6557064219298774127}
   m_RootOrder: 2
@@ -550,6 +561,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -618,6 +630,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6557064219298774127}
   m_RootOrder: 3

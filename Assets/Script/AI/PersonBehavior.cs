@@ -425,15 +425,16 @@ public class PersonBehavior : MonoBehaviour{
     void Grow(){
         if(personData.growth < 1.0f){
             personData.growth += 0.1f;
+            animator.SetBool("Sleep",true);
             ThisTask.Fail();
         }else{
-            animator.SetBool("AmIAdult",true);
+            animator.SetBool("Sleep",false);
             ThisTask.Succeed();
         }
     }
 
     [Task]
-    public void LookForJob(){
+    void LookForJob(){
         List<BuildingObject> buildingObjects = GameManager.Instance.buildingManager.wholeBuildingList();
         buildingObjects = buildingObjects.FindAll(
             delegate(BuildingObject buildingObject){
@@ -465,7 +466,7 @@ public class PersonBehavior : MonoBehaviour{
 
     // 새 집 찾기
     [Task]
-    public void LookForHouse(){
+    void LookForHouse(){
         // 집에 해당되는 건물들을 찾는다
         List<BuildingObject> otherHouses = GameManager.Instance.buildingManager.wholeBuildingList();
         otherHouses = otherHouses.FindAll(
@@ -531,11 +532,19 @@ public class PersonBehavior : MonoBehaviour{
         ThisTask.Complete(newHome != presentHome);
     }
 
+    [Task]
+    public void MakeResultOfLove(){
+        // 행복하지 않다면 그만둬
+        if(this.personData.happiness < 80){
+            ThisTask.Fail();
+            return;
+        }
+    }
+
     void LoseMyTarget() {
         target = null;
         aIDestination.target = this.transform;
         animator.SetBool("HasAGoal",false);
-        // animator.SetInteger("ThinkCode",0);
     }
 
     void LoseMyTarget(Hittable component) {

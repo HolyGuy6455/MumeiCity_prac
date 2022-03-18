@@ -148,12 +148,12 @@ public class TimeManager : MonoBehaviour{
                 // GameManager.Instance.peopleManager.OfferJob();
                 break;
             case TimeSlot.DAY:
-                GameManager.Instance.peopleManager.ResetHouseInfomation();
+                // GameManager.Instance.peopleManager.ResetHouseInfomation();
                 break;
             case TimeSlot.EVENING:
                 break;
             case TimeSlot.NIGHT:
-                GameManager.Instance.peopleManager.SurveyHappiness();
+                // GameManager.Instance.peopleManager.SurveyHappiness();
                 GameManager.Instance.mobManager.Spawn();
                 break;
             default:

@@ -12,6 +12,7 @@ public class LaboratoryTaskUI : MonoBehaviour{
     public Button cancleButton;
     public GameObject doneObject;
     public Slider processBars;
+    public TooltipArea tooltipArea;
 
     public int requiredTime;
     public int dueDate;
@@ -49,6 +50,7 @@ public class LaboratoryTaskUI : MonoBehaviour{
         }else{
             cancleButton.gameObject.SetActive(true);
         }
+        tooltipArea.content = taskInfo.info;
     }
     
 }

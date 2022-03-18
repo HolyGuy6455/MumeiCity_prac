@@ -9,6 +9,7 @@ public class SuperintendentTaskUI : MonoBehaviour{
     public ResourceView resourceView2;
     public ResourceView resourceView3;
     public Toggle toggle;
+    public TooltipArea tooltipArea;
     public void ChangeValue(bool value){
         toggle.isOn = value;
     }
@@ -26,6 +27,7 @@ public class SuperintendentTaskUI : MonoBehaviour{
         resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
         resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
         resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+        tooltipArea.content = taskInfo.info;
     }
     
 }

@@ -29,6 +29,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4029941446318070081}
   - {fileID: 3129574962184493789}
@@ -94,14 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a67c66dc93c784f8fb0d340e379194, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StorageSlotParent: {fileID: 0}
-  StorageSlots: []
   taskTitle: {fileID: 5456273327624726537}
   guideIamge: {fileID: 6545426657380683560}
   resourceView1: {fileID: 7472704230193612896}
   resourceView2: {fileID: 6218361442377231948}
   resourceView3: {fileID: 5269417929786216110}
   toggle: {fileID: 5722316918801118639}
+  tooltipArea: {fileID: 302941289839493778}
 --- !u!1 &2148275903729675125
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +130,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807711678131952492}
   m_RootOrder: 0
@@ -208,6 +209,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3201016057442920266}
   m_Father: {fileID: 1807711678131952492}
@@ -306,6 +308,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6540966933180136929}
   m_Father: {fileID: 3463871112702312220}
@@ -382,6 +385,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3201016057442920266}
   m_RootOrder: 0
@@ -440,6 +444,7 @@ GameObject:
   - component: {fileID: 3129574962184493789}
   - component: {fileID: 6956134476510273017}
   - component: {fileID: 6545426657380683560}
+  - component: {fileID: 302941289839493778}
   m_Layer: 5
   m_Name: GuideImage
   m_TagString: Untagged
@@ -457,6 +462,7 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1807711678131952492}
   m_RootOrder: 1
@@ -504,6 +510,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &302941289839493778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7221905756596642808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eb22874977bd72498283a4067845ab7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  contents: 
 --- !u!1001 &5489293938257235922
 PrefabInstance:
   m_ObjectHideFlags: 0

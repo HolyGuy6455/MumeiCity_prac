@@ -13,6 +13,7 @@ public class ManufacturerTaskUI : MonoBehaviour{
     public Slider processBars;
     public Image numberCounter;
     public List<Sprite> numberCounterSprite;
+    public TooltipArea tooltipArea;
 
     public void ChangeValue(float value){
         processBars.gameObject.SetActive( (value != 0) );
@@ -30,6 +31,7 @@ public class ManufacturerTaskUI : MonoBehaviour{
         resourceView1.UpdateResource((resources.Count > 0) ? resources[0] : null);
         resourceView2.UpdateResource((resources.Count > 1) ? resources[1] : null);
         resourceView3.UpdateResource((resources.Count > 2) ? resources[2] : null);
+        tooltipArea.content = taskInfo.info;
     }
 
     public void UpdateUI_Counter(int value){

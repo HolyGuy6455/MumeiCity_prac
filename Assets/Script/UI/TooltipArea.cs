@@ -4,9 +4,9 @@ using UnityEngine.EventSystems;
 public class TooltipArea    : MonoBehaviour
                             , IPointerEnterHandler
                             , IPointerExitHandler{
-    [SerializeField] string contents;
+    public string content;
     public void OnPointerEnter(PointerEventData eventData){
-        MousePointer.instance.ShowTooltip(contents);
+        MousePointer.instance.ShowTooltip(content);
     }
     
     public void OnPointerExit(PointerEventData eventData){

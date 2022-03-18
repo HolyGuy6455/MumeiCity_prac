@@ -21,7 +21,7 @@ public class MousePointer : MonoBehaviour {
     public void ShowTooltip(string value){
         tooltipTransform.gameObject.SetActive(true);
         tooltipText.text = value;
-        float width = tooltipText.preferredWidth;
+        float width = Mathf.Min(tooltipText.preferredWidth,240);
         float height = tooltipText.preferredHeight;
         tooltipTransform.sizeDelta = new Vector2(width+10,height+10);
     }

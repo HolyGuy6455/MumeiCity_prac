@@ -27,9 +27,12 @@ public class PersonStatusView : MonoBehaviour{
         staminaBGImage.enabled = visible;
         happinessImage.enabled = visible;
         happinessBGImage.enabled = visible;
-        backGroundImage.enabled = visible;
         personImage.enabled = visible;
         hatImage.enabled = visible;
+    }
+
+    public void SetVisibleBG(bool visible){
+        backGroundImage.enabled = visible;
     }
 
 }

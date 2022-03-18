@@ -3,7 +3,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class CommonTaskUI : MonoBehaviour{
-    [SerializeField] GameObject StorageSlotParent;
     [SerializeField] ItemSlot[] StorageSlots;
     [SerializeField] GameObject mainView;
     [SerializeField] GameObject unableView;
