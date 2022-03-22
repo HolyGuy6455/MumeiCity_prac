@@ -32,7 +32,7 @@ public class PauseUI : MonoBehaviour{
     }
 
     public void UpdateUI(){
-        SaveLoadManager.SaveMetaFile saveMetaFile = GameManager.Instance.saveLoadManager.saveMetaFile;
+        SaveLoadManager.SaveMetaFile saveMetaFile = GameManager.Instance.saveLoadManager._saveMetaFile;
         saveTitle_1.text = saveMetaFile.metaName[1];
         saveTitle_2.text = saveMetaFile.metaName[2];
         saveTitle_3.text = saveMetaFile.metaName[3];

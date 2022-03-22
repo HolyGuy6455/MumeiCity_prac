@@ -7,7 +7,6 @@ public class SaveLoadManager : MonoBehaviour{
     [TextArea] public string savefile;
     // [SerializeField] string _fileName = "01.save";
     [SerializeField] GameObject itemPickupPrefab;
-    public SaveMetaFile saveMetaFile;
     public ManufacturerUI manufacturerUI;
     public LaboratoryUI laboratoryUI;
     public PauseUI pauseUI;
@@ -25,6 +24,20 @@ public class SaveLoadManager : MonoBehaviour{
         public List<TimeEventQueueTicket> timeEventQueueTickets;
         public List<Achievement> achievements;
     }
+    SaveMetaFile saveMetaFile;
+    public SaveMetaFile _saveMetaFile{
+        get{
+            if(saveMetaFile is null){
+                saveMetaFile = new SaveMetaFile();
+                saveMetaFile.metaName = new List<string>();
+                saveMetaFile.metaName.Add( "Wait, you can't access this index.");
+                saveMetaFile.metaName.Add("None");
+                saveMetaFile.metaName.Add("None");
+                saveMetaFile.metaName.Add("None");
+            }
+            return saveMetaFile;
+        }
+    }
     [Serializable]
     public class SaveMetaFile{
         public List<string> metaName;
@@ -35,7 +48,7 @@ public class SaveLoadManager : MonoBehaviour{
     }
 
     public void SetMetaTitle(int index){
-        saveMetaFile.metaName[index] = DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"));
+        _saveMetaFile.metaName[index] = DateTime.Now.ToString(("yyyy-MM-dd HH:mm:ss"));
         SaveTheMeta();
         pauseUI.UpdateUI();
     }
@@ -123,6 +136,11 @@ public class SaveLoadManager : MonoBehaviour{
         GameObject[] animalObjects = GameObject.FindGameObjectsWithTag("Animal");
         foreach (GameObject animalObj in animalObjects){
             AnimalBehavior animalBehavior = animalObj.GetComponent<AnimalBehavior>();
+            Debug.Log("animal " + (animalBehavior));
+            Debug.Log("is it null? " + (animalBehavior is null));
+            Debug.Log("gameObj " + (animalObj));
+            Debug.Log("animalData " + (animalBehavior.animalData is null));
+            Debug.Log("position " + animalBehavior.animalData.position);
             animalBehavior.animalData.position = animalBehavior.transform.position;
             saveForm.animalsData.Add(animalBehavior.animalData);
         }

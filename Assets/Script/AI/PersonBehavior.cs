@@ -32,6 +32,14 @@ public class PersonBehavior : MonoBehaviour{
      */
 
     // 목표를 향해 이동한다
+
+    private void Update() {
+        if(this.transform.position.y < -100){
+            // ...추락하면 0,0,0 좌표로 온다
+            this.transform.position = new Vector3(-10,-1,0);
+        }    
+    }
+
     [Task]
     void MoveToDestination(){
         if(this.target == null){
@@ -563,7 +571,6 @@ public class PersonBehavior : MonoBehaviour{
         }
         ThisTask.Succeed();
     }
-    
     public void Tired(int amount){
         if(this.personData.stamina > 0){
             this.personData.stamina -= amount;
