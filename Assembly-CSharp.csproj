@@ -97,6 +97,7 @@
      <Compile Include="Assets\Script\Data\ItemSlotData.cs" />
      <Compile Include="Assets\Script\Data\ManufacturerFunction.cs" />
      <Compile Include="Assets\Script\Manager\Inventory.cs" />
+     <Compile Include="Assets\Script\Manager\GuideManager.cs" />
      <Compile Include="Assets\Script\Manager\MobManager.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\Restoration.cs" />
      <Compile Include="Assets\Script\UI\InteractUI.cs" />

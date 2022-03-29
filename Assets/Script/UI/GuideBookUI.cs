@@ -47,4 +47,7 @@ public class GuideBookUI : MonoBehaviour{
         }
         scrollContentRect.sizeDelta = newSize;
     }
+
+    // [ContextMenu("Resize")]
+    // public void scrap
 }
