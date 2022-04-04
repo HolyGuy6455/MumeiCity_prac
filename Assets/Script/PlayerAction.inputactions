@@ -348,6 +348,17 @@
                 },
                 {
                     "name": "",
+                    "id": "2ca602f4-3814-4a06-9329-11235e95ccf2",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Crouch",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "809eae0e-d9aa-4118-a897-8dc0b364c303",
                     "path": "<Gamepad>/leftTrigger",
                     "interactions": "",

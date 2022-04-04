@@ -871,7 +871,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -879,6 +879,69 @@ TextureImporter:
       bones: []
       spriteID: fda0ed4135443aa00800000000000000
       internalID: 766531485206186719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconUI_33
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4262e322e0ef8b45a7b0d05f7aeba6c
+      internalID: 1635489111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconUI_34
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c046f9a9a59cee34f9a3a9740f22dd65
+      internalID: 1063190061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IconUI_35
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8576be8f34a5fe747bffecab674b78c7
+      internalID: -921191074
       vertices: []
       indices: 
       edges: []
@@ -894,6 +957,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      IconUI_35: -921191074
       IconUI_16: -8618065991664350491
       IconUI_3: 4196286334192525150
       IconUI_30: 183378615215986141
@@ -908,6 +972,7 @@ TextureImporter:
       IconUI_14: -5816469524635257377
       IconUI_22: -8278657065798907522
       IconUI_0: 5775722566048847528
+      IconUI_34: 1063190061
       IconUI_2: 4321331926689599188
       IconUI_6: 7111912428968685358
       IconUI_23: 3469387372243532577
@@ -926,6 +991,7 @@ TextureImporter:
       IconUI_13: -6784616829707677916
       IconUI_18: -6774705419875305139
       IconUI_9: -7586569760962100613
+      IconUI_33: 1635489111
       IconUI_7: -1817561150076645041
   spritePackingTag: 
   pSDRemoveMatte: 0

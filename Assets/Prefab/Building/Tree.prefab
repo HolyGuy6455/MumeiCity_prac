@@ -273,16 +273,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Wood
-    chance: 0.5
-    itemDropType: 2
-  - itemName: Wood
-    chance: 0.5
-    itemDropType: 2
-  - itemName: Pinecone
     chance: 0.3
     itemDropType: 2
+  - itemName: Wood
+    chance: 0.3
+    itemDropType: 2
+  - itemName: Wood
+    chance: 0.3
+    itemDropType: 1
+  - itemName: Wood
+    chance: 1.2
+    itemDropType: 1
   - itemName: Pinecone
-    chance: 1
+    chance: 1.2
     itemDropType: 1
 --- !u!114 &5029584519235325197
 MonoBehaviour:

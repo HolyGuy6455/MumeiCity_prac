@@ -197,8 +197,8 @@ TextureImporter:
       name: UIIcon_4
       rect:
         serializedVersion: 2
-        x: 128
-        y: 0
+        x: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -218,8 +218,29 @@ TextureImporter:
       name: UIIcon_5
       rect:
         serializedVersion: 2
-        x: 160
-        y: 0
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a6de2744cfcdad70800000000000000
+      internalID: 9056122867626727076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIIcon_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 0
@@ -229,8 +250,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a6de2744cfcdad70800000000000000
-      internalID: 9056122867626727076
+      spriteID: 75ca007288bbbe647a7107afa8777266
+      internalID: 1633104170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UIIcon_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee04c7299b1513249990dccd2e90fa6b
+      internalID: 1365030992
       vertices: []
       indices: 
       edges: []
@@ -246,11 +288,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      UIIcon_6: 1633104170
       UIIcon_5: 9056122867626727076
       UIIcon_0: -664915128074494106
       UIIcon_2: -8810441995771871577
       UIIcon_1: -2432338389232187177
       UIIcon_3: -4065729793098734229
+      UIIcon_7: 1365030992
       UIIcon_4: 4495214580369114748
   spritePackingTag: 
   pSDRemoveMatte: 0

@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     public BuildingObject interactingBuilding;
     public Interactable nearestInteractable;
     public PersonBehavior nearestPerson;
+    bool isInteract = false;
     [SerializeField] InteractUI interactUI;
     [SerializeField] PersonInfoUI personInfoUI;
     [SerializeField] PauseUI pauseUI;
@@ -143,6 +144,12 @@ public class GameManager : MonoBehaviour
         }else{
             nearestPerson = null;
             personInfoUI.visible = false;
+        }
+
+        // interact
+        Interactable interactable = GameManager.Instance.nearestInteractable;
+        if(isInteract && interactable != null){
+            interactable.Interact();
         }
     }
 
@@ -321,12 +328,13 @@ public class GameManager : MonoBehaviour
     }
     
     public void OnInteract(InputAction.CallbackContext value){
-        if(value.performed){
-            Interactable interactable = GameManager.Instance.nearestInteractable;
-            if(interactable != null){
-                interactable.Interact();
-            }
+        if(value.started){
+            isInteract = true;
         }
+        if(value.canceled){
+            isInteract = false;
+        }
+        // isInteract가 true인동안 실행되는건 update 참고
     }
 
     public void OnInventory(InputAction.CallbackContext value){
