@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour{
     void FixedUpdate() {
         isInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
         playerHeight = GameManager.Instance.gridMapManager.amIInCave(rigidBody.transform.position);
-        if(!isInWater){saw
+        if(!isInWater){
             lastStandLand = this.transform.position;
         }
 
