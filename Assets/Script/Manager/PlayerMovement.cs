@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour{
     public int stemina = 0;
     public int steminaConsumption = 50;
     public int steminaRechargeAmount = 10;
+    public int steminaDropInDrown = 10;
     public int steminaMax = 100;
     [SerializeField] TimeEventQueueTicket steminaRechargeEvent;
     [SerializeField] Slider steminaGauge;
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] float ITEM_DROP_JUMP = 10.0f;
     Dictionary<ToolType,int> toolActionDictionary;
     [SerializeField] FMODUnity.StudioEventEmitter footstepSound;
+
+    [SerializeField] Vector3 lastStandLand;
 
     // [SerializeField] Sence sence;
 
@@ -61,6 +64,7 @@ public class PlayerMovement : MonoBehaviour{
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.SetBool("IsJumping",!IsGrounded());
+        animator.SetBool("Drown",isInWater);
 
         if(reflectCapable){
             if(movement.x <= -0.01f){
@@ -69,7 +73,6 @@ public class PlayerMovement : MonoBehaviour{
                 spriteObject.transform.localScale = new Vector3(1f,1f,1f);
             }
         }
-        
     }
 
     public void OnMovement(InputAction.CallbackContext value){
@@ -173,6 +176,9 @@ public class PlayerMovement : MonoBehaviour{
     void FixedUpdate() {
         isInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
         playerHeight = GameManager.Instance.gridMapManager.amIInCave(rigidBody.transform.position);
+        if(!isInWater){saw
+            lastStandLand = this.transform.position;
+        }
 
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
         shadow.position = hit.point + new Vector3(0,0,-0.2f);
@@ -210,10 +216,17 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public bool SteminaRecharge(string ticketName){
-        if(stemina + steminaRechargeAmount > steminaMax){
+        stemina += steminaRechargeAmount;
+        if(isInWater){
+            stemina -= steminaDropInDrown;
+        }
+
+        if(stemina > steminaMax){
             stemina = steminaMax;
-        }else{
-            stemina += steminaRechargeAmount;
+        }else if(stemina < 0){
+            stemina = 0;
+            animator.SetTrigger("Hurt");
+            this.transform.position = lastStandLand;
         }
         steminaGauge.value = (float)stemina/(float)steminaMax;
         return false;
