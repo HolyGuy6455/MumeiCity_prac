@@ -192,7 +192,33 @@ MonoBehaviour:
     idString: 
   hiringPerson: 1
   jobID: 6
-  taskInfos: []
+  taskInfos:
+  - name: Upgrade Stemina
+    guideSprite: {fileID: 21300000, guid: 1f661d4a867beaa4e9bb2332360cec7d, type: 3}
+    info: Increase the stemina maximum. It stretches enough to jump three times at
+      a time.
+    taskType: 0
+    necessaryResources:
+    - itemDataName: Parchment
+      amount: 3
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: upgradeStemina
+    requiredTime: 300
+  - name: Upgrade Range of View
+    guideSprite: {fileID: 21300000, guid: 41ba66a121e3e3c43a353cc1d6b83034, type: 3}
+    info: Increase the field of view. Zoom-in/zoom-out range expands to allow you
+      to see further.
+    taskType: 0
+    necessaryResources:
+    - itemDataName: Parchment
+      amount: 2
+    resultItem:
+      itemDataName: 
+      amount: 0
+    resultUpgrade: upgradeSight
+    requiredTime: 300
 --- !u!114 &-2578632852604692790
 MonoBehaviour:
   m_ObjectHideFlags: 0

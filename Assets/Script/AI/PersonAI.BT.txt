@@ -61,8 +61,9 @@ tree("DayWork")
 			tree("Farmer")	// 농부 일을 한다
 			tree("Miner")	// 광부의 일을 한다
 			tree("Cleric")		// 성직자 일을 한다
+			tree("Tailor")
 			Wait 1.0
-			
+
 tree("PutInItem")
 	sequence
 		GoPutInItem			// 아이템 넣으러 가야지
@@ -73,15 +74,11 @@ tree("PutInItem")
 			// 아이템 넣는 스크립트가 애니메이션 쪽에 있기 때문
 			// 애니메이션 행동과 모션을 맞추려다보니 이렇게 되었음
 
-
 tree("Forester")	// 숲지기
 	while IsMyJob "Forester"	// 직업이 맞는지 확인
 		fallback
-			sequence	// 나무 아이템을 줍는다
-				SearchItemToPickUp "Log"	
-				MoveToDestination
-			sequence	// 나무 씨앗 아이템을 줍는다
-				SearchItemToPickUp "LogSeed"	
+			sequence	// 식물관련 아이템을 줍는다
+				SearchItemToPickUp "Plant"	
 				MoveToDestination
 			sequence	// 캘 수 있는 나무를 찾는다
 				ChangeTool "Axe"
@@ -90,19 +87,23 @@ tree("Forester")	// 숲지기
 
 tree("Blacksmith")			// 대장장이
 	while IsMyJob "Blacksmith"	// 직업이 맞는지 확인
-		DanceAct		// 할게 없다!
+		sequence
+			tree("PutInItem")	// 직장으로 간다
+			DanceAct			// 할게 없다!
 
 tree("Chef")			// 식당 요리사
 	while IsMyJob "Chef"	// 직업이 맞는지 확인
-		DanceAct		// 할게 없다!
+		sequence
+			tree("PutInItem")	// 직장으로 간다
+			DanceAct			// 할게 없다!
 
 tree("Farmer")		// 농부
 	while IsMyJob "Farmer"	// 직업이 맞는지 확인
 		fallback
-			sequence	// 광물 아이템을 줍는다
+			sequence	// 작물 아이템을 줍는다
 				SearchItemToPickUp "Crop"
 				MoveToDestination
-			sequence	// 캘 수 있는 광물을 찾는다
+			sequence	// 캘 수 있는 작물을 찾는다
 				ChangeTool "Knife"
 				SearchingToGathering "Crop"
 				MoveToDestination
@@ -120,15 +121,12 @@ tree("Miner")		// 광부
 
 tree("Cleric")			// 성직자
 	while IsMyJob "Cleric"	// 직업이 맞는지 확인
-		DanceAct		// 할게 없다!
+		sequence
+			tree("PutInItem")	// 직장으로 간다
+			DanceAct			// 할게 없다!
 
-// tree("FoodStorage")	// 식량창고지기.....이젠 직업도 건물도 없어
-// 	while IsMyJob "FoodStorage"	// 직업이 맞는지 확인
-// 		fallback
-// 			sequence	// 음식 아이템을 줍는다
-// 				SearchItemToPickUp "Food"
-// 				MoveToDestination
-// 			sequence	// 캘 수 있는 과일을 찾는다
-// 				ChangeTool "Knife"
-// 				SearchingToGathering "Fruit"
-// 				MoveToDestination
+tree("Tailor")			// 성직자
+	while IsMyJob "Tailor"	// 직업이 맞는지 확인
+		sequence
+			tree("PutInItem")	// 직장으로 간다
+			DanceAct			// 할게 없다!

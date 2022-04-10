@@ -70,7 +70,6 @@ public class WolfBehavior : AnimalBehavior{
 
         float distanceValue = Vector3.Distance(this.transform.position,targetVector3);
         distanceToTarget = distanceValue;
-        Debug.Log(distanceValue);
 
         if(distanceValue <= 1.0f){
             Debug.Log("Runaway : "+distanceValue);

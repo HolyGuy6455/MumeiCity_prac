@@ -233,7 +233,7 @@ MonoBehaviour:
   - tool: 2
     damage: 8
     minHP: 9
-  - tool: 2
+  - tool: 5
     damage: 10
     minHP: 0
   DeadEventHandler:

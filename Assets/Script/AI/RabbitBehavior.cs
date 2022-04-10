@@ -36,7 +36,7 @@ public class RabbitBehavior : AnimalBehavior{
         if(!jumpCapable){
             return;
         }
-        Vector3 movement = (this.transform.position-targetVector3).normalized;
+        Vector3 movement = (targetVector3 - this.transform.position).normalized;
         this.animalRigidbody.AddForce(new Vector3(movement.x,1,movement.z)*jumpPower,ForceMode.Impulse);
         if(movement.x <= -0.01f){
             transform.localScale = new Vector3(1f,1f,1f);

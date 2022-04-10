@@ -25,7 +25,8 @@ public class PlayerMovement : MonoBehaviour{
     public Vector3 movement;
     public Transform shadow;
     [SerializeField] Animator shadowAnimator;
-    [SerializeField] bool isInWater;
+    [SerializeField] bool amIInWater;
+    [SerializeField] bool amIOnABoat;
     [SerializeField] float playerHeight;
     RaycastHit hit;
     bool isRaycastHit;
@@ -39,6 +40,20 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] Vector3 lastStandLand;
 
     // [SerializeField] Sence sence;
+    public bool _amIOnABoat{
+        get{
+            return amIOnABoat;
+        }
+        set{
+            amIOnABoat = value;
+            animator.SetBool("Boat",amIOnABoat);
+        }
+    }
+    public bool _amIInWater{
+        get{
+            return amIInWater;
+        }
+    }
 
     void Awake(){
         groundLayerMask = (1 << LayerMask.NameToLayer("Ground")) + (1 << LayerMask.NameToLayer("Building"));
@@ -64,7 +79,7 @@ public class PlayerMovement : MonoBehaviour{
         animator.SetFloat("Vertical", movement.z);
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.SetBool("IsJumping",!IsGrounded());
-        animator.SetBool("Drown",isInWater);
+        animator.SetBool("Drown",amIInWater);
 
         if(reflectCapable){
             if(movement.x <= -0.01f){
@@ -98,7 +113,11 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public void OnJump(){
-        if(jumpCapable && IsGrounded() && (stemina >= steminaConsumption)){
+        if(stemina < steminaConsumption)
+            return;
+        if(amIOnABoat)
+            return;
+        if(jumpCapable && IsGrounded()){
             isJump = true;
         }
     }
@@ -174,19 +193,19 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     void FixedUpdate() {
-        isInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
+        amIInWater = GameManager.Instance.gridMapManager.amIInWater(rigidBody.transform.position);
         playerHeight = GameManager.Instance.gridMapManager.amIInCave(rigidBody.transform.position);
-        if(!isInWater){
+        if(!amIInWater){
             lastStandLand = this.transform.position;
+            this._amIOnABoat = false;
         }
 
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
         shadow.position = hit.point + new Vector3(0,0,-0.2f);
-        if(isInWater && rigidBody.position.y < 0){
+        if(amIInWater && rigidBody.position.y < 0){
             shadow.position = new Vector3(shadow.position.x,0,shadow.position.z);
             shadowAnimator.SetBool("amIInWater",true);
             footstepSound.SetParameter("OnGround",1);
-            
         }else{
             shadowAnimator.SetBool("amIInWater",false);
             footstepSound.SetParameter("OnGround",0);
@@ -212,12 +231,11 @@ public class PlayerMovement : MonoBehaviour{
             footstepSound.SetParameter("isJump",0);
             footstepSound.SetParameter("Movement",movementSpeed);
         }
-
     }
 
     public bool SteminaRecharge(string ticketName){
         stemina += steminaRechargeAmount;
-        if(isInWater){
+        if(amIInWater && !amIOnABoat){
             stemina -= steminaDropInDrown;
         }
 

@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5134349761075195250}
   - component: {fileID: 4383521003237786031}
   m_Layer: 8
-  m_Name: Workshop
+  m_Name: ClothWorkshop
   m_TagString: Building
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     positionY: 0
     positionZ: 0
     hp: 0
-    code: 17
+    code: 25
     items:
     - itemName: 
       amount: 0
@@ -160,60 +160,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af088bb8a95aca144945477c946f6e87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameTab: 6
-  buildingObject: {fileID: 8586095433671593930}
+  gameTab: 5
+  buildingObject: {fileID: 0}
   hiringEvent:
     startTime: 0
     delay: 0
     idString: 
-  hiringPerson: 0
-  jobID: 2
+  hiringPerson: 1
+  jobID: 7
   taskInfos:
-  - name: Crafting Axe
-    guideSprite: {fileID: 21300000, guid: c8c00eb2980bb3f4f9090e1e84b62e3e, type: 3}
-    info: Make an axe. You can cut down trees, demolish wooden buildings, and have
-      owls cut down trees instead.
-    taskType: 1
+  - name: Making Thread
+    guideSprite: {fileID: 21300000, guid: 343a89eb945c995459ec29a4faaea74a, type: 3}
+    info: It makes thread. This is necessary when making fishing rods.
+    taskType: 2
     necessaryResources:
-    - itemDataName: Bronze
-      amount: 12
-    - itemDataName: Wood
+    - itemDataName: Stem and Leaf
       amount: 1
     resultItem:
-      itemDataName: 
-      amount: 0
-    resultUpgrade: unlockAxe
-    requiredTime: 50
-  - name: Crafting Pickaxe
-    guideSprite: {fileID: 21300000, guid: dc9d5f685d6bd374e90440196087a209, type: 3}
-    info: It produces pickaxes. It will be able to dig minerals that will develop
-      civilization and supply the stones needed to build buildings.
-    taskType: 1
+      itemDataName: Thread
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 100
+  - name: Making Parchment
+    guideSprite: {fileID: 21300000, guid: a07605702a5077349b74a2b82bcb628e, type: 3}
+    info: It produces parchment. Parchment is needed for upgrades that enhance Mumei's
+      ability.
+    taskType: 2
     necessaryResources:
-    - itemDataName: Bronze
-      amount: 20
-    - itemDataName: Wood
+    - itemDataName: Leather
       amount: 1
     resultItem:
-      itemDataName: 
-      amount: 0
-    resultUpgrade: unlockPickaxe
-    requiredTime: 50
-  - name: Crafting Fishingrod
-    guideSprite: {fileID: 21300000, guid: 23ea26d2b5481834ea15f9af502c5014, type: 3}
-    info: I'm really sorry, but you can't fish in this game yet...That's why you
-      can't make a fishing rod.
-    taskType: 1
-    necessaryResources:
-    - itemDataName: Thread
-      amount: 5
-    - itemDataName: Wood
-      amount: 10
-    resultItem:
-      itemDataName: 
-      amount: 0
-    resultUpgrade: unlockFishingrod
-    requiredTime: 50
+      itemDataName: Parchment
+      amount: 1
+    resultUpgrade: 
+    requiredTime: 200
 --- !u!114 &-7151346969498729040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -511,7 +491,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5941a6c5ccca9f045a7c254f0a557355, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 02ad845034053c449afc71780994591f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -585,7 +565,7 @@ MonoBehaviour:
   - {x: -0.28054768, y: 0.13032162, z: -0.000000080608864}
   m_ShapePathHash: -933109051
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1987820
+  m_InstanceId: 53042
 --- !u!1 &7850884964902981902
 GameObject:
   m_ObjectHideFlags: 0

@@ -49,6 +49,7 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
 
     [Task]
     public virtual void RandomMove(){
+        int count = 0;
         while(walkAround == false){
             targetVector3 = new Vector3();
             targetVector3.x = this.transform.position.x 
@@ -56,7 +57,12 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
             targetVector3.y = this.transform.position.y;
             targetVector3.z = this.transform.position.z 
                                 + Random.Range(walkAroundRangeMin, walkAroundRangeMax) * ((Random.Range(0,2)>0)?1:-1);
+            targetVector3 *= (float)(100 + count)/100;
             if(!GameManager.Instance.gridMapManager.amIInWater(targetVector3)){
+                walkAround = true;
+            }
+            count++;
+            if(count > 1000){
                 walkAround = true;
             }
         }

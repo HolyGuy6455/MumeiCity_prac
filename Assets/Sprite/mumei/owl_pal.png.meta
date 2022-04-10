@@ -859,6 +859,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: owl_pal_hat_6
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 0
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd00483580b1ef74caaece9180fde5aa
+      internalID: 338638419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -882,6 +903,7 @@ TextureImporter:
       owl_pal_egg_2: 7392627397933847979
       owl_pal_work_3: 2533988531019252988
       owl_pal_hat_3: 2796902265556822881
+      owl_pal_hat_6: 338638419
       owl_pal_sleep_0: 4743885268570871626
       owl_pal_work_4: 4562712677519354216
       owl_pal_egg_4: 8228472690543256637

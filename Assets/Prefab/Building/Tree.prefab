@@ -278,6 +278,9 @@ MonoBehaviour:
   - itemName: Wood
     chance: 0.3
     itemDropType: 2
+  - itemName: Stem and Leaf
+    chance: 0.3
+    itemDropType: 2
   - itemName: Wood
     chance: 0.3
     itemDropType: 1

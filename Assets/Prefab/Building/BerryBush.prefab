@@ -435,6 +435,12 @@ MonoBehaviour:
   - itemName: Berry
     chance: 1
     itemDropType: 2
+  - itemName: Stem and Leaf
+    chance: 0.5
+    itemDropType: 2
+  - itemName: Stem and Leaf
+    chance: 0.5
+    itemDropType: 2
   - itemName: Berry
     chance: 1
     itemDropType: 1

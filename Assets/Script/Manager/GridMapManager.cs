@@ -140,6 +140,8 @@ public class GridMapManager : MonoBehaviour{
                 
                 break;
             case GroundLevel.WATER:
+                result = 0.7f;
+            /*
                 if(recurrence){
                     Vector2Int[] neighbor = new Vector2Int[]{
                         new Vector2Int(-1,-1),
@@ -158,6 +160,7 @@ public class GridMapManager : MonoBehaviour{
                 }else{
                     result = 0.4f;
                 }
+            */
                 break;
             default:
                 break;
