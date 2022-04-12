@@ -19,7 +19,7 @@ public class RabbitBehavior : AnimalBehavior{
         if(!jumpCapable){
             return;
         }
-        Vector3 direction = -1*(this.transform.position - targetObject.transform.position);
+        Vector3 direction = (this.transform.position - targetObject.transform.position);
         targetVector3 = this.transform.position + direction;
         Jump();
         ThisTask.Succeed();

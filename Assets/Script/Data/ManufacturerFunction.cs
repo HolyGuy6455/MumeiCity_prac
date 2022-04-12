@@ -1,5 +1,5 @@
 using System;
-
+[Serializable]
 public class ManufacturerFunction : IFacilityFunction{
     // 아이템 생산하는곳 추가정보
     public int[] amount;

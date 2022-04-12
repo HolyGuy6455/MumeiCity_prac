@@ -465,9 +465,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropAmounts:
   - itemName: Stone
-    chance: 0.8
+    chance: 0.3
     itemDropType: 2
-  - itemName: Stone
+  - itemName: Iron
     chance: 1.2
     itemDropType: 2
   - itemName: Stone

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.Events;
 
 public class AchievementManager : MonoBehaviour {
     public List<Achievement> achievements;
@@ -23,11 +24,19 @@ public class AchievementManager : MonoBehaviour {
     public void AddTrial(string achievementName, int value){
         achievementsDictionary[achievementName].trialNumber += value;
         GameManager.Instance.taskUIBundle.LoadTaskUIData("Achievement");
+        InvokeCompleteEvent(achievementName);
     }
 
     public void SetTrial(string achievementName, int value){
         achievementsDictionary[achievementName].trialNumber = value;
         GameManager.Instance.taskUIBundle.LoadTaskUIData("Achievement");
+        InvokeCompleteEvent(achievementName);
+    }
+
+    public void InvokeCompleteEvent(string achievementName){
+        if(isDone(achievementName)){
+            achievementsDictionary[achievementName].complateEvent.Invoke();
+        }
     }
 
     public bool isDone(string achievementName){
@@ -52,6 +61,7 @@ public class AchievementManager : MonoBehaviour {
         achievementsDictionary = new Dictionary<string, Achievement>();
         foreach (Achievement achievement in list){
             achievementsDictionary[achievement.name] = achievement;
+            InvokeCompleteEvent(achievement.name);
         }
     }
 
@@ -62,6 +72,7 @@ public class Achievement{
     public string name;
     public int trialNumber;
     public int goalNumber;
+    public UnityEvent complateEvent = new UnityEvent();
 }
 
 

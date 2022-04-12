@@ -21723,7 +21723,7 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Early Access
 
-    ver 0.5 - 22y11w'
+    ver 0.5 - 22y15w'
 --- !u!222 &563307652
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21803,7 +21803,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u266C Build Up! in Mumei's City"
+  m_Text: "\u266C Build Up!"
 --- !u!222 &564557833
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -23909,7 +23909,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u266C Shiney Day in Mumei's City"
+  m_Text: "\u266C Shiney Day"
 --- !u!222 &1583100079
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24931,7 +24931,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u266C Starry Night in Mumei's City"
+  m_Text: "\u266C Starry Night"
 --- !u!222 &2056388935
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -6,7 +6,7 @@ public class CameraManager : MonoBehaviour {
 
     [SerializeField] float zoom = 6.0f;
     [SerializeField] float zoomMin = 4.0f;
-    [SerializeField] float zoomMax = 12.0f;
+    [SerializeField] float zoomMax = 10.0f;
     [SerializeField] float zoomSpeed = 1.0f;
     [SerializeField] float zoomAmount = 1.0f;
     [SerializeField] CinemachineVirtualCamera virtualCamera;
@@ -26,7 +26,7 @@ public class CameraManager : MonoBehaviour {
         zoom += value;
     }
 
-    public void test(InputAction.CallbackContext value){
-        Debug.Log(value.ReadValue<float>());
+    public void SetZoomMax(float value){
+        zoomMax = value;
     }
 }

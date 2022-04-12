@@ -116,6 +116,7 @@
      <Compile Include="Assets\Script\ItemAndEntity\DockInteract.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\Computer.cs" />
      <Compile Include="Assets\Panda.BT.free\Samples\03_Shooter\Assets\Unit.cs" />
+     <Compile Include="Assets\Script\UI\SteminaGauge.cs" />
      <Compile Include="Assets\Script\UI\ManufacturerUI.cs" />
      <Compile Include="Assets\Script\UI\AttackLockArea.cs" />
      <Compile Include="Assets\Script\UI\CommonTaskUI.cs" />

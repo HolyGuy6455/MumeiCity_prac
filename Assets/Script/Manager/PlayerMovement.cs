@@ -8,13 +8,8 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] float slowSpeed = 1.0f;
     [SerializeField] float jumpPower = 7.0f;
     [SerializeField] float jumpRange = 3.0f;
-    public int stemina = 0;
-    public int steminaConsumption = 50;
-    public int steminaRechargeAmount = 10;
-    public int steminaDropInDrown = 10;
-    public int steminaMax = 100;
+    [SerializeField] SteminaGauge steminaGauge;
     [SerializeField] TimeEventQueueTicket steminaRechargeEvent;
-    [SerializeField] Slider steminaGauge;
     [SerializeField] Rigidbody rigidBody;
     [SerializeField] Animator animator;
     [SerializeField] bool isJump = false;
@@ -38,6 +33,7 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] FMODUnity.StudioEventEmitter footstepSound;
 
     [SerializeField] Vector3 lastStandLand;
+    
 
     // [SerializeField] Sence sence;
     public bool _amIOnABoat{
@@ -88,6 +84,8 @@ public class PlayerMovement : MonoBehaviour{
                 spriteObject.transform.localScale = new Vector3(1f,1f,1f);
             }
         }
+
+        steminaGauge.MoveUIPositionFromTransform();
     }
 
     public void OnMovement(InputAction.CallbackContext value){
@@ -113,7 +111,7 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public void OnJump(){
-        if(stemina < steminaConsumption)
+        if(steminaGauge.value < steminaGauge.consumption)
             return;
         if(amIOnABoat)
             return;
@@ -225,7 +223,7 @@ public class PlayerMovement : MonoBehaviour{
             isJump = false;
             footstepSound.SetParameter("isJump",1);
             footstepSound.SetParameter("Movement",1);
-            stemina -= steminaConsumption;
+            steminaGauge.value -= steminaGauge.consumption;
         }else if(rigidBody.velocity.y <= 0 && IsGrounded()){
             float movementSpeed = movementTemp.magnitude / slowSpeed;
             footstepSound.SetParameter("isJump",0);
@@ -234,19 +232,14 @@ public class PlayerMovement : MonoBehaviour{
     }
 
     public bool SteminaRecharge(string ticketName){
-        stemina += steminaRechargeAmount;
+        steminaGauge.value += steminaGauge.recharge;
         if(amIInWater && !amIOnABoat){
-            stemina -= steminaDropInDrown;
+            steminaGauge.value -= steminaGauge.exhaustionInDrown;
         }
-
-        if(stemina > steminaMax){
-            stemina = steminaMax;
-        }else if(stemina < 0){
-            stemina = 0;
+        if(!steminaGauge.Update()){
             animator.SetTrigger("Hurt");
             this.transform.position = lastStandLand;
         }
-        steminaGauge.value = (float)stemina/(float)steminaMax;
         return false;
     }
 

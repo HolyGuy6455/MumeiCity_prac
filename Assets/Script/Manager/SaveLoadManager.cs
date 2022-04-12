@@ -227,6 +227,8 @@ public class SaveLoadManager : MonoBehaviour{
             BuildingObject buildingObject = Built.GetComponent<BuildingObject>();
             
             buildingObject.Initialize(buildingData);
+            if(buildingData.facilityFunction != null)
+                buildingData.facilityFunction.ReloadMediocrityData(buildingData);
 
             AddRebindInfo<Restoration>(Built);
             AddRebindInfo<WorkPlace>(Built);
