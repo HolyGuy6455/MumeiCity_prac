@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour{
     [SerializeField] FMODUnity.StudioEventEmitter footstepSound;
 
     [SerializeField] Vector3 lastStandLand;
-    
+    [SerializeField] FishingBait fishingBait;
 
     // [SerializeField] Sence sence;
     public bool _amIOnABoat{
@@ -60,6 +60,7 @@ public class PlayerMovement : MonoBehaviour{
         toolActionDictionary[ToolType.PICKAXE] = 4;
         toolActionDictionary[ToolType.SHOVEL] = 5;
         toolActionDictionary[ToolType.HAMMER] = 6;
+        toolActionDictionary[ToolType.FISHINGROD] = 7;
 
         string ticketName = "Player_Stemina_Recharge";
         steminaRechargeEvent = GameManager.Instance.timeManager.AddTimeEventQueueTicket(1, ticketName, SteminaRecharge);
@@ -92,6 +93,8 @@ public class PlayerMovement : MonoBehaviour{
         Vector2 inputMovement = value.ReadValue<Vector2>();
         movement.x = inputMovement.x;
         movement.z = inputMovement.y;
+
+        fishingBait.SetLastMovement(movement.x,movement.z);
 
         if(movement.z <= -0.01f){
             animator.SetFloat("Backward",1);
@@ -199,9 +202,9 @@ public class PlayerMovement : MonoBehaviour{
         }
 
         isRaycastHit = Physics.Raycast(rigidBody.position, new Vector3(0,-1, 0), out hit, 20, groundLayerMask);
-        shadow.position = hit.point + new Vector3(0,0,-0.2f);
+        shadow.position = hit.point;
         if(amIInWater && rigidBody.position.y < 0){
-            shadow.position = new Vector3(shadow.position.x,0,shadow.position.z);
+            // shadow.position = new Vector3(shadow.position.x,0,shadow.position.z);
             shadowAnimator.SetBool("amIInWater",true);
             footstepSound.SetParameter("OnGround",1);
         }else{
@@ -264,6 +267,22 @@ public class PlayerMovement : MonoBehaviour{
     }
     void LookAtMonitor(){
         animator.SetFloat("Backward",1);
+    }
+
+    public void ThrowBait(){
+        fishingBait.ThrowBait();
+    }
+
+    public void TakeBackBait(){
+        fishingBait.TakeBackBait();
+    }
+
+    public void RemoveBait(){
+        fishingBait.RemoveBait();
+    }
+
+    public void LockLastMovement(string value){
+        fishingBait.LockLastMovement((value.CompareTo("True") == 0 ) ? true : false);
     }
 
 }

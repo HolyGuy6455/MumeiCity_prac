@@ -12,6 +12,7 @@ TagManager:
   - Animal
   - Ground
   - GameManager
+  - Bait
   layers:
   - Default
   - TransparentFX

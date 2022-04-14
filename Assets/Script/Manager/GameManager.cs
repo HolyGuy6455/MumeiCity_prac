@@ -289,6 +289,8 @@ public class GameManager : MonoBehaviour
         if(buildingManager.onToolChangedCallback != null){
             buildingManager.onToolChangedCallback.Invoke();
         }
+
+        playerMovement.RemoveBait();
     }
 
     public void OnNextTool(InputAction.CallbackContext value){

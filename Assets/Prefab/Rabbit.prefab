@@ -376,7 +376,7 @@ MonoBehaviour:
   repathRateCompatibility: NaN
   canSearchCompability: 0
   orientation: 0
-  enableRotation: 1
+  enableRotation: 0
   autoRepath:
     mode: 2
     interval: 0.5
@@ -445,6 +445,9 @@ MonoBehaviour:
   distanceToTarget: 0
   removalTool:
   - tool: 2
+    damage: 3
+    minHP: 0
+  - tool: 10
     damage: 3
     minHP: 0
   - tool: 10

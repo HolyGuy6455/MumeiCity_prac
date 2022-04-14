@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 330069636}
   - component: {fileID: 330069637}
+  - component: {fileID: 8371264234623141189}
   m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &330069636
 Transform:
   m_ObjectHideFlags: 0
@@ -94,6 +95,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &8371264234623141189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330069635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &1092304993
 GameObject:
   m_ObjectHideFlags: 0
@@ -302,6 +323,7 @@ Transform:
   - {fileID: 5767582070921791382}
   - {fileID: 4997134557700410853}
   - {fileID: 3669415161928660408}
+  - {fileID: 3390551107446525101}
   m_Father: {fileID: 8371264234526702356}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
@@ -1342,6 +1364,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &7900629924727518849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3390551107446525101}
+  m_Layer: 0
+  m_Name: FishingRodPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3390551107446525101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900629924727518849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1342202580}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8371264234526702352
 GameObject:
   m_ObjectHideFlags: 0
@@ -1403,16 +1456,11 @@ MonoBehaviour:
   slowSpeed: 1
   jumpPower: 8
   jumpRange: 8
-  stemina: 100
-  steminaConsumption: 40
-  steminaRechargeAmount: 2
-  steminaDropInDrown: 5
-  steminaMax: 100
+  steminaGauge: {fileID: 0}
   steminaRechargeEvent:
     startTime: 0
     delay: 0
     idString: 
-  steminaGauge: {fileID: 0}
   rigidBody: {fileID: 1750695400}
   animator: {fileID: 8371264234526702357}
   isJump: 0
@@ -1423,12 +1471,20 @@ MonoBehaviour:
   movement: {x: 0, y: 0, z: 0}
   shadow: {fileID: 0}
   shadowAnimator: {fileID: 0}
-  isInWater: 0
+  amIInWater: 0
+  amIOnABoat: 0
   playerHeight: 0
   stop: 0
   ITEM_DROP_RANGE: 10
   ITEM_DROP_JUMP: 10
   footstepSound: {fileID: 1092304995}
+  lastStandLand: {x: 0, y: 0, z: 0}
+  bait: {fileID: 0}
+  baitRigidbody: {fileID: 0}
+  fishingBaitLine: {fileID: 0}
+  lastMovement: {x: 0, y: 0, z: 0}
+  lastMovementLock: 0
+  ThrowPower: 11
 --- !u!95 &8371264234526702357
 Animator:
   serializedVersion: 4

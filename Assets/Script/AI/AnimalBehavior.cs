@@ -20,7 +20,7 @@ public class AnimalBehavior : MonoBehaviour, IHeraingEar{
     static int groundLayerMask;
     public float walkAroundRangeMin = 3;
     public float walkAroundRangeMax = 5;
-    bool walkAround = false;
+    protected bool walkAround = false;
 
     /*
     경계상태 구분
