@@ -156,6 +156,7 @@
      <Compile Include="Assets\Script\Manager\PlayerMovement.cs" />
      <Compile Include="Assets\Script\AI\FishBehavior.cs" />
      <Compile Include="Assets\Script\ItemAndEntity\FishingBait.cs" />
+     <Compile Include="Assets\Script\UI\Compass.cs" />
      <None Include="Assets\Panda.BT.free\Samples\02_PlayTag\Assets\TagDialogue.BT.txt" />
      <None Include="Assets\Script\AI\PersonAI.BT.txt" />
      <None Include="Assets\Script\AI\Wolf.BT.txt" />
