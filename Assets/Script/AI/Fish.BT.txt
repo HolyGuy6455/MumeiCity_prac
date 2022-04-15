@@ -9,9 +9,17 @@ tree("Root")
                 SetCautionLevel 0
                 SetSpeed 1.0
         sequence
+            SetSpeed 1.0
             race 
                 RandomMove
                 Wait 3.0
             Idle
             GoToBait
             Wait 3.0
+            while Intense
+                repeat 1000
+                    sequence
+                        race 
+                            RandomMove
+                            Wait 1.0
+                        Idle

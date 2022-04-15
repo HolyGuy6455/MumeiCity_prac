@@ -142,10 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropAmounts:
-  - itemName: Meat
-    chance: 0.8
-    itemDropType: 1
-  - itemName: Rabbit Foot
+  - itemName: Salmon
     chance: 1
     itemDropType: 1
 --- !u!114 &621949295430933743
@@ -622,6 +619,10 @@ PrefabInstance:
     - target: {fileID: 8271327562206071852, guid: 38e97c691caa79d49b7a923ecef04112, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271327562206071854, guid: 38e97c691caa79d49b7a923ecef04112, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38e97c691caa79d49b7a923ecef04112, type: 3}

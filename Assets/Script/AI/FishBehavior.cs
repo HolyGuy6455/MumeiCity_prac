@@ -6,6 +6,17 @@ using Pathfinding;
 
 public class FishBehavior : AnimalBehavior{
     IAstarAI ai;
+    bool intense;
+
+    private void Awake() {
+        sence.filter = delegate(GameObject value){
+            if(value == null)
+                return false;
+            if(value.tag != "Bait")
+                return false;
+            return true;
+        };
+    }
 
     public override void Start() {
         base.Start();
@@ -24,6 +35,9 @@ public class FishBehavior : AnimalBehavior{
         animator.SetFloat("DIstanceToTarget",distanceToTarget);
     }
 
+    public void SetIntense(bool value){
+        this.intense = value;
+    }
 
     [Task]
     public override void RandomMove(){
@@ -58,16 +72,13 @@ public class FishBehavior : AnimalBehavior{
 
     [Task]
     public void GoToBait(){
-        sence.filter = delegate(GameObject value){
-            if(value == null)
-                return false;
-            if(value.tag != "Bait")
-                return false;
-            return true;
-        };
         GameObject nearestItem = sence.FindNearest();
         if(nearestItem != null){
             targetVector3 = nearestItem.transform.position;
+            float distance = Vector3.Distance(targetVector3,this.transform.position);
+            if(distance < 1){
+                ThisTask.Succeed();    
+            }
         }else{
             targetObject = null;
             ThisTask.Fail();
@@ -96,6 +107,12 @@ public class FishBehavior : AnimalBehavior{
         }
     }
 
+    [Task]
+    public void Intense(){
+        ThisTask.Complete(this.intense);
+    }
+
+    [Task]
     public override void Hear(string soundSource){
         if(animalData.cautionLevel < 1){
             animator.SetTrigger("Notice");

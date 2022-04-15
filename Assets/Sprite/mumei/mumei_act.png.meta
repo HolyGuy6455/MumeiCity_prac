@@ -484,7 +484,7 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -505,7 +505,7 @@ TextureImporter:
         width: 128
         height: 128
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -513,6 +513,27 @@ TextureImporter:
       bones: []
       spriteID: 7acfe664905e93944a91eac249aa560f
       internalID: 298094210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mumei_act_fishing_4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4104996b8955996479d7570b25d56318
+      internalID: 1511533037
       vertices: []
       indices: 
       edges: []
@@ -539,6 +560,7 @@ TextureImporter:
       mumei_act_pick_1: -5209226193436181544
       mumei_act_pan_1: 4571675981589174859
       mumei_act_knife_1: 6730586229491544104
+      mumei_act_fishing_4: 1511533037
       mumei_act_hurt: 1817384060956403649
       mumei_act_axe_1: -1708959957443510224
       mumei_act_fishing_1: -1210100116882013561

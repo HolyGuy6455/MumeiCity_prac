@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using System;
 
 public class Sence : MonoBehaviour
 {
     [SerializeField] List<GameObject> _whatTheySee = new List<GameObject>();
+    public UnityEvent listChangeListener = new UnityEvent();
     public List<GameObject> whatTheySee{
         get{
             Clean();
@@ -68,6 +70,7 @@ public class Sence : MonoBehaviour
         }
         _whatTheySee.Add(other.gameObject);
         Clean();
+        listChangeListener.Invoke();
     }
 
     private void OnTriggerExit(Collider other) {
@@ -76,6 +79,7 @@ public class Sence : MonoBehaviour
         }
         _whatTheySee.Remove(other.gameObject);
         Clean();
+        listChangeListener.Invoke();
     }
 
     

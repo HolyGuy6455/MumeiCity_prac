@@ -131,6 +131,9 @@ public class PlayerMovement : MonoBehaviour{
                 animator.SetInteger("ActCode",0);
             }else if(toolActionDictionary.ContainsKey(toolNowHold.toolType)){
                 animator.SetInteger("ActCode",toolActionDictionary[toolNowHold.toolType]);
+                if(toolActionDictionary[toolNowHold.toolType] == 7){
+                    animator.SetTrigger("FishingTrigger");
+                }
             }
         }else if(value.canceled){
             animator.SetInteger("ActCode",0);
@@ -281,6 +284,10 @@ public class PlayerMovement : MonoBehaviour{
         fishingBait.RemoveBait();
     }
 
+    public void IntenseFishing(){
+        fishingBait.Intense();
+    }
+    
     public void LockLastMovement(string value){
         fishingBait.LockLastMovement((value.CompareTo("True") == 0 ) ? true : false);
     }
