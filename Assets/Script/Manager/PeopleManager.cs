@@ -15,6 +15,7 @@ public class PeopleManager : MonoBehaviour
     [SerializeField] int staminaEnough;
     [SerializeField] int staminaHunger;
     [SerializeField] int[] happinessStep;
+    public Sprite heartSprite;
     public List<JobInfo> jobInfos;
     public int _staminaMax{get{return staminaMax;}}
     public int _staminaEnough{get{return staminaEnough;}}

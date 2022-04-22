@@ -939,25 +939,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="AstarPathfindingProject.csproj">
-      <Project>{358f43dc-995a-776d-2a74-deafc0cba750}</Project>
-      <Name>AstarPathfindingProject</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.UI.csproj">
       <Project>{aa2bf7e9-861e-d9f8-f1de-49479bdc3382}</Project>
       <Name>UnityEditor.UI</Name>
     </ProjectReference>
-    <ProjectReference Include="UnityEngine.UI.csproj">
-      <Project>{b42e240b-c436-872d-0249-243cb2688b90}</Project>
-      <Name>UnityEngine.UI</Name>
-    </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
       <Project>{d804eb63-4307-7f92-b25c-f924dd3c04c6}</Project>
       <Name>UnityEditor.TestRunner</Name>
-    </ProjectReference>
-    <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{00a390ac-bdd9-1537-c730-d92fbcfec12e}</Project>
-      <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -23,7 +23,7 @@ MonoBehaviour:
       \uC774\uB3D9\r\n\uC544\uC774\uD15C \uB098\uB204\uAE30\n\n\nv \uC67C\uCABD \uC544\uB798
       \uBCF4\uBB3C\uC0C1\uC790\uC5D0 \uB3C5 \uC124\uCE58\r\n\uC774\uBAA8\uC158\r\n\uD29C\uD1A0\uB9AC\uC5BC\r\n\uB3C4\uC804\uACFC\uC81C\uC54C\uB9BC\r\nv
       \uB3C4\uAC10\r\nv \uCCA0\uAD11\uC11D\uC5D0\uC11C \uB3CC\uB9CC \uB098\uC628\uB2E4....\r\nv
-      \uBB3C\uACB0(\uBC1C\uC790\uAD6D)\r\n\uB09A\uC2DC\r\n\uC0C1\uC790\uC5D0\uC11C
+      \uBB3C\uACB0(\uBC1C\uC790\uAD6D)\r\nv \uB09A\uC2DC\r\n\uC0C1\uC790\uC5D0\uC11C
       \uB098\uC624\uB294 \uC544\uC774\uD15C \uC800\uC7A5\r\n\uBD80\uC5C9\uC774 \uB530\uB77C\uC624\uAE30\r\nv
       \uB098\uCE68\uBC18"
   - title: Bug Report
@@ -41,17 +41,21 @@ MonoBehaviour:
       \uCE7C\n\uD14C\uD06C 2 - \uB3C4\uB07C, \uD6C4\uB77C\uC774\uD32C, \uC0BD, \uB9DD\uCE58\n\n[\uC131\uC18C]\n\uC2A4\uD14C\uBBF8\uB108
       \uC99D\uAC00 \uC5C5\uADF8\uB808\uC774\uB4DC\n\uBA40\uB9AC\uBCF4\uAE30 \uC5C5\uADF8\uB808\uC774\uB4DC\n"
   - title: Report
-    note: "\uB9AC\uBC38\uB7F0\uC2A4\n\uB098\uBB34 \uC2EC\uC744\uB54C \uC18C\uBAA8\uB418\uB294
-      \uC194\uBC29\uC6B8\uC758 \uC218 0 -> 1\n\uB098\uBB34 \uACF5\uACA9\uD588\uC744\uB54C
-      \uB4DC\uB78D\uB418\uB294 \uC544\uC774\uD15C\n\uB098\uBB34 2\uAC1C(0.25) 1\uAC1C
-      (0.50) 0\uAC1C (0.25) -> 2\uAC1C(0.09) 1\uAC1C (0.42) 0\uAC1C (0.49)\n\uC194\uBC29\uC6B8
-      1\uAC1C(0.30) -> \uB4DC\uB78D \uC548\uB428\n\uB098\uBB47\uC78E \uC5C6\uC5C8\uC74C
-      -> 2\uAC1C(0.25) 1\uAC1C (0.50) 0\uAC1C (0.25)\n\uD30C\uAD34\uB418\uC5C8\uC744\uB54C\n\uB098\uBB34
-      \uB4DC\uB78D \uC548\uB428 -> 3\uAC1C(0.06) 2\uAC1C (0.38) 1\uAC1C(0.56)\n\uC194\uBC29\uC6B8
-      1\uAC1C (1.00) -> 2\uAC1C (0.20) 1\uAC1C (0.80)\n\n\uC544\uC774\uD15C \uC90D\uAE30
-      \uAC1C\uC120\n\uC774\uC81C \uC5F0\uD0C0 \uC548\uD574\uB3C4 \n\n\uBB3C\uC5D0
-      \uBE60\uC9C0\uB294\uAC83\n\n\uC624\uD0C0 \uC218\uC815\nmakeing -> making\n\n\uC544\uC774\uD15C
-      \uCD94\uAC00 thread, stem and leaf, parchment,  leather\n\uAC74\uBB3C \uCD94\uAC00
-      dock, cloth workshop\n\uC5C5\uBB34 \uCD94\uAC00 \uC131\uC18C upgrade Stemina,
-      upgrade Range of View\n\n\uB098\uB8E8\uD130 \uCD94\uAC00\n\nUI \uAD6C\uC870
-      \uBCC0\uACBD"
+    note: "\uC5BC\uC74C \uB179\uB294 \uC774\uD399\uD2B8 \uBCC0\uACBD\n\uB3C4\uAC10\uC5D0
+      \uCD94\uAC00\n\uC544\uC774\uD15C \uBB34\uD55C\uBCF5\uC0AC\uBC84\uADF8 \uACE0\uCE68\n"
+  - title: Title
+    note: "Owls get stuck on buildings and natural structures like rocks and crops\r\nOwls
+      cannot complete a task. In my instance my harvester owl was stuck trying to
+      harvest a cabbage crop.\r\nMumei can walk on water if you walk along the invisible
+      barriers that limit the world.\r\nThe House is called a tent in the Houses
+      own menu\r\nTrying to remove a structure with the Hammer tool (in my case a
+      Sanctum) causes the structure to break infinitely and spew out materials without
+      ending.\r\nSometimes Mumei starts to swim while it appears she is still standing
+      on land.\r\nWhen placing buildings, the material counters do not update to
+      show how many you have remaining unless you deselect and reselect whatever
+      you were placing\r\nIt appears you can hold items beyond the allotted inventory
+      space, as i had a full inventory and was able to pick up gold, and use it to
+      place a sanctum while having an apparently full inventory.\r\n\r\n\uBB34\uBA54\uC774\uC758
+      \uAC10\uC815\uD45C\uD604\r\n\uBD80\uC5C9\uC774\uC758 \uD544\uC694\uD55C \uBB3C\uAC74
+      \uCCAD\uAD6C\r\n\uD504\uB79C\uC988\uC758 \uD78C\uD2B8\r\n\uB3CC \uBD80\uC11C\uC9C4\uAC70
+      \uD45C\uD604"

@@ -23,17 +23,34 @@ tree("NightSleep")
 				sequence		
 					GoToHome			// 집으로 가야지
 					not MoveToDestination // 간다
-				sequence				// 행복이 떨어졌으면 선물로 회복
-					not AmIHappyToWork
-					TakeOutByTag "Gift"
-					ConsumeItemByTag "Gift"
 				sequence				// 기력이 떨어졌으면 밥으로 회복
 					not DoIHaveStaminaMoreThan 900
-					TakeOutByTag "Food"
+					fallback
+						TakeOutByTag "Food"			// 만약 아이템이 하나도 없으면
+						Wait 0.5
+						RequestItem "Berry"			// 아이템좀 채워줘
+						SleepAct					// 그냥 잠이나 자야지
+					Wait 1.0
 					ConsumeItemByTag "Food"
+					Wait 1.0
+				sequence				// 행복이 떨어졌으면 선물로 회복
+					not AmIHappyToWork
+					fallback
+						TakeOutByTag "Gift"			// 만약 아이템이 하나도 없으면
+						Wait 0.5
+						RequestItem "Rabbit Foot"	// 아이템좀 채워줘
+						SleepAct					// 그냥 잠이나 자야지
+					Wait 1.0
+					ConsumeItemByTag "Gift"
+					Wait 1.0
 				sequence
 					SleepAct			// zzZ
 					MakeResultOfLove	// 성공하든 실패하든 기회는 하루에 한번뿐
+					Wait 2.0
+					RequestItem "Heart"
+				sequence
+					TakeOutByTag "Gift"	// 혹시 실패했니?
+					ConsumeItemByTag "Gift"	// 재충전하고 내일을 노려보자
 
 // 낮에 하는 일
 tree("DayWork")
@@ -43,13 +60,16 @@ tree("DayWork")
 			sequence
 				Wait 0.2
 				LookForHouse
+				Wait 5.0
 			sequence
 				while IsMyJob "Jobless"
 					LookForJob		// 직업이 없으니 탐색한다...
 			sequence
-				not AmIHappyToWork	// 오늘 일하기 싫은가?
+				not DoIHaveStaminaMoreThan 100	// 오늘 일할 기력이 없는가?
 				GoToHome			// 집에
-				MoveToDestination	// 가서
+				race				// 가서
+					MoveToDestination	
+					Wait 10.0		
 				Wait 4.0			// 멍이나 때려야지
 			sequence
 				DoIHaveItemMoreThan 5 	// 아이템이 꽉차면
@@ -125,7 +145,7 @@ tree("Cleric")			// 성직자
 			tree("PutInItem")	// 직장으로 간다
 			DanceAct			// 할게 없다!
 
-tree("Tailor")			// 성직자
+tree("Tailor")			// 재단사
 	while IsMyJob "Tailor"	// 직업이 맞는지 확인
 		sequence
 			tree("PutInItem")	// 직장으로 간다

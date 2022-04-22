@@ -91,6 +91,8 @@ public class LaboratoryUI : CommonTaskUI{
         laboratoryTaskUIArray[index].taskInfo = taskInfo;
         laboratoryTaskUIArray[index].ChangeValue(0.0f);
         laboratoryTaskUIArray[index].UpdateUI();
+
+        GameManager.Instance.achievementManager.SetTrial(taskInfo.resultUpgrade,0);
     }
 
     public bool Researching(string ticketName){

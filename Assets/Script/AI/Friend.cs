@@ -14,7 +14,9 @@ public class Friend : MonoBehaviour{
         freindAnimator.SetFloat("MoveY",direction.z);
         freindAnimator.SetFloat("Distance",distance);
 
-        if(distance > 3.0f){
+        if(distance > 25.0f){
+            this.transform.position = Vector3.Lerp(targetObject.transform.position,this.transform.position,0.95f);
+        }else if(distance > 3.0f){
             aIDestination.target = targetObject.transform;
         }else{
             aIDestination.target = null;

@@ -44,7 +44,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &465074836887832428
 MonoBehaviour:
@@ -613,7 +613,7 @@ MonoBehaviour:
   - {x: -0.009836197, y: 0.40825912, z: -0.00000498081}
   m_ShapePathHash: -177651129
   m_Mesh: {fileID: 0}
-  m_InstanceId: 228888
+  m_InstanceId: 761100
 --- !u!1 &7458169046356105762
 GameObject:
   m_ObjectHideFlags: 0

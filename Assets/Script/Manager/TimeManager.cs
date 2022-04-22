@@ -30,6 +30,7 @@ public class TimeManager : MonoBehaviour{
     public float _blendValue{get{return blendValue;}}
     public int _timeInDay{get{return timeInDay;}}
     public int _timeValue{get{return timeValue;}set{timeValue=value;}}
+    public int _elapsedDate{get{return elapsedDate;}}
     public enum TimeSlot{
         NONE,
         MORNING,

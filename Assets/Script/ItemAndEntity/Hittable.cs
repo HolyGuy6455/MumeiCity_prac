@@ -26,7 +26,9 @@ public class Hittable : MonoBehaviour
         CHEST   = 7,
         WHINE   = 8,
         PLAYER  = 9,
-        BANG    = 10
+        BANG    = 10,
+        ICE_MELT= 11,
+        HOT_IRON= 12
     }
 
     private void Awake() {

@@ -126,7 +126,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   studioEventEmitter: {fileID: 2946876567330126969}
-  dead: 3
+  dead: 12
 --- !u!95 &1851223875007615171
 Animator:
   serializedVersion: 4
@@ -223,7 +223,7 @@ MonoBehaviour:
   - Name: Distance
     Value: 1
   - Name: HitTarget
-    Value: 3
+    Value: 11
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
@@ -300,7 +300,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4675704845424019652, guid: 183c1f69ce4254e4c8918307f90e4472, type: 3}
+  m_Sprite: {fileID: -7763960021335770751, guid: 2679addb3faba654d9e23b89392bab56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -544,7 +544,7 @@ MonoBehaviour:
   - {x: -0.3772831, y: -0.35476846, z: 0.00000920436}
   m_ShapePathHash: 930238005
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1547274
+  m_InstanceId: 47334
 --- !u!1 &7649821552451015508
 GameObject:
   m_ObjectHideFlags: 0

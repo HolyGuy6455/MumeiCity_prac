@@ -307,6 +307,69 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: speechbubble_owl_01
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ea5cc2a7e98c194998683799ff313a8
+      internalID: 759687715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: speechbubble_owl_02
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1edc89c07a0fdf947b16a8485ed5d1f4
+      internalID: -791063916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Happiness_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72286aa2aaff3514290609c4e1b14f2b
+      internalID: 1407703517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -318,12 +381,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      speechbubble_owl_02: -791063916
       stamina_3: 4675704845424019652
+      Happiness_5: 1407703517
       Happiness_0: 9011468886100489234
       Happiness_4: -3467352974942800114
       stamina_2: -4331662134072871732
       Happiness_1: -834187685074818996
       stamina_1: 6222030837186859262
+      speechbubble_owl_01: 759687715
       Happiness_3: -2909357578335793868
       stamina_0: 2169241967756648456
       Happiness_2: 8342739502479295179

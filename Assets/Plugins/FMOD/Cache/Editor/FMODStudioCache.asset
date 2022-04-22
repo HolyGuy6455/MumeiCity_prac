@@ -143,10 +143,10 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 637847248022212815
+  lastModified: 637860160442069163
   FileSizes:
   - Name: Desktop
-    Value: 398592
+    Value: 463872
   Exists: 1
 --- !u!114 &-5263301791662459293
 MonoBehaviour:
@@ -237,7 +237,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/BGM.bank
   Name: BGM
   StudioPath: bank:/BGM
-  lastModified: 637847248021275003
+  lastModified: 637860160441082870
   FileSizes:
   - Name: Desktop
     Value: 6054720
@@ -484,7 +484,7 @@ MonoBehaviour:
   - {fileID: 8720329037629250828}
   StringsBanks:
   - {fileID: 3242873661414235142}
-  cacheTime: 637847248022422258
+  cacheTime: 637860160442278607
   cacheVersion: 10
 --- !u!114 &739709346965894061
 MonoBehaviour:
@@ -583,7 +583,7 @@ MonoBehaviour:
   Name: HitTarget
   StudioPath: 
   Min: 0
-  Max: 10
+  Max: 12
   Default: 0
   ID:
     data1: 2459149060
@@ -602,6 +602,8 @@ MonoBehaviour:
   - Whine
   - Player
   - Bang
+  - Ice Melt
+  - Hot Iron
   Exists: 1
 --- !u!114 &2977721817974072148
 MonoBehaviour:
@@ -646,7 +648,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637847248021594155
+  lastModified: 637860160441392318
   FileSizes:
   - Name: Desktop
     Value: 1720
@@ -792,7 +794,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Entity.bank
   Name: Entity
   StudioPath: bank:/Entity
-  lastModified: 637847248021544564
+  lastModified: 637860160441342170
   FileSizes:
   - Name: Desktop
     Value: 57184
@@ -812,7 +814,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/UI.bank
   Name: UI
   StudioPath: bank:/UI
-  lastModified: 637847248022422258
+  lastModified: 637860160442278607
   FileSizes:
   - Name: Desktop
     Value: 16992
@@ -832,7 +834,7 @@ MonoBehaviour:
   Path: ../../FMOD Studio/test/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637847248021584164
+  lastModified: 637860160441372094
   FileSizes:
   - Name: Desktop
     Value: 1384

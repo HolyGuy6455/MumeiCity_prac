@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameTab: 4
-  buildingObject: {fileID: 0}
+  buildingObject: {fileID: 8225276331069384819}
   hiringEvent:
     startTime: 0
     delay: 0
@@ -311,7 +311,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4022817360158375605
 MonoBehaviour:
@@ -584,7 +584,7 @@ MonoBehaviour:
   - {x: -0.48273754, y: -0.30011702, z: 0.000000025882226}
   m_ShapePathHash: 1247074776
   m_Mesh: {fileID: 0}
-  m_InstanceId: 1985840
+  m_InstanceId: 761006
 --- !u!1 &7634181049630045879
 GameObject:
   m_ObjectHideFlags: 0

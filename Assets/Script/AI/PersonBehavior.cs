@@ -18,7 +18,10 @@ public class PersonBehavior : MonoBehaviour{
     [SerializeField] string think;
     [SerializeField] HitCollision hitCollision;
     [SerializeField] SpriteRenderer hatSprite;
+    [SerializeField] string fuckWhatTheHackIsGoingOn;
+    [SerializeField] SpriteRenderer requestBalloon;
     public PersonData personData = new PersonData();
+    int lastMovingDay = -1;
     
     /*
      ThinkCode 각각 무엇을 의미하는지 적어두기
@@ -383,6 +386,7 @@ public class PersonBehavior : MonoBehaviour{
     void SleepAct(){
         this.personData.sleep = true;
         animator.SetBool("Sleep",true);
+        this.personData.happiness += 1;
         ThisTask.Succeed();
     }
     [Task]
@@ -415,17 +419,15 @@ public class PersonBehavior : MonoBehaviour{
     }
     private bool AmIHappyToWorkBool(){
         int workplaceID = this.personData.workplaceID;
-        if(workplaceComponent == null){
-            // 백수는 직장이 없으니 직장에 만족하지 않은걸로 취급
+        JobInfo jobInfo = PeopleManager.Instance.GetJobInfo(personData.jobID);
+        if(jobInfo.name.CompareTo("Jobless") == 0){
             return false;
         }
-        int workTier = PeopleManager.Instance.GetJobInfo(personData.jobID).workTier;
-        if(workTier < 1){
-            return true;
-        } 
+        int workTier = jobInfo.workTier;
         int happiness = this.personData.happiness;
-        int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier-1];
-        return( happiness > happinessNeeds );
+        int happinessNeeds = GameManager.Instance.peopleManager._happinessStep[workTier];
+        fuckWhatTheHackIsGoingOn = happiness + " , " + happinessNeeds;
+        return( happiness >= happinessNeeds );
     }
     [Task]
     void DanceAct(){
@@ -471,6 +473,11 @@ public class PersonBehavior : MonoBehaviour{
     // 새 집 찾기
     [Task]
     void LookForHouse(){
+        if(lastMovingDay == GameManager.Instance.timeManager._elapsedDate){
+            // 오늘 이미 이사 했다고?
+            ThisTask.Fail(); //그럼 이사 안할래
+            return;
+        }
         // 집에 해당되는 건물들을 찾는다
         List<BuildingObject> otherHouses = GameManager.Instance.buildingManager.wholeBuildingList();
         otherHouses = otherHouses.FindAll(
@@ -531,6 +538,7 @@ public class PersonBehavior : MonoBehaviour{
                 presentHomeFunc.LiveOut(this.personData.id);
                 newHomeFunc.LiveIn(this.personData.id);
             }
+            lastMovingDay = GameManager.Instance.timeManager._elapsedDate;
         }
         
         ThisTask.Complete(newHome != presentHome);
@@ -552,9 +560,14 @@ public class PersonBehavior : MonoBehaviour{
             return;
         }
 
+        bool successed = false;
+
         foreach (int famillyID in houseFunction.personIDList){
             if(famillyID == 0){
                 continue;
+            }
+            if(famillyID == this.personData.id){
+                continue;   // 나 자신과 사랑할 수 는 없잖아
             }
             PersonBehavior partner = PeopleManager.FindPersonWithID(famillyID);
             if(!partner.AmIHappyToWorkBool()){
@@ -567,9 +580,10 @@ public class PersonBehavior : MonoBehaviour{
 
             GameManager.Instance.achievementManager.AddTrial("population_20",1);
             GameManager.Instance.achievementManager.AddTrial("population_billion",1);
+            successed = true;
             break;
         }
-        ThisTask.Succeed();
+        ThisTask.Complete(successed);
     }
     public void Tired(int amount){
         if(this.personData.stamina > 0){
@@ -602,7 +616,36 @@ public class PersonBehavior : MonoBehaviour{
         }
     }
 
-    
+    [Task]
+    void RequestItem(string item){
+        Sprite sprite = null;
+        switch (item)
+        {
+            case "Heart":
+                sprite = GameManager.Instance.peopleManager.heartSprite;
+                break;
+            default:
+                ItemData itemData = GameManager.Instance.itemManager.GetItemData(item);
+                sprite = itemData.itemSprite;
+                break;
+        }
+        requestBalloon.sprite = sprite;
+
+
+        animator.SetTrigger("SaySomting");
+        ThisTask.Fail();
+    }
+
+    void StopGravity(){
+        Rigidbody rigidbody = this.GetComponent<Rigidbody>();
+        rigidbody.velocity = new Vector3();
+        Debug.Log("asdasdas");
+    }
+
+    // [Task]
+    // void ConsumeItemByTag(string itemTag){
+
+    // }
 
     public void UpdateHatImage(){
         this.hatSprite.sprite = PeopleManager.Instance.GetJobInfo(personData.jobID).hatImage;
