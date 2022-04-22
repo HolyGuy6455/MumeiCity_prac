@@ -35,7 +35,7 @@ public class AchievementManager : MonoBehaviour {
 
     public void InvokeCompleteEvent(string achievementName){
         if(isDone(achievementName)){
-            achievementsDictionary[achievementName].complateEvent.Invoke();
+            achievementsDictionary[achievementName].completeEvent.Invoke();
         }
     }
 
@@ -61,7 +61,10 @@ public class AchievementManager : MonoBehaviour {
         achievementsDictionary = new Dictionary<string, Achievement>();
         foreach (Achievement achievement in list){
             achievementsDictionary[achievement.name] = achievement;
-            InvokeCompleteEvent(achievement.name);
+            if(achievement.loadEvent != null){
+                achievement.loadEvent.Invoke();
+            }
+            
         }
     }
 
@@ -72,7 +75,8 @@ public class Achievement{
     public string name;
     public int trialNumber;
     public int goalNumber;
-    public UnityEvent complateEvent = new UnityEvent();
+    public UnityEvent loadEvent = new UnityEvent();
+    public UnityEvent completeEvent = new UnityEvent();
 }
 
 

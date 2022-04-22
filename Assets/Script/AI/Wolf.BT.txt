@@ -6,6 +6,7 @@ tree("Root")
                 SetTarget "Player"
                 tree("InCaution")
         sequence
+            Wait 3.0
             race 
                 RandomMove
                 Wait 3.0
@@ -16,18 +17,17 @@ tree("Root")
                     sequence
                         GoCloser 1.0
                         PickItemUp
-                        
                 while SearchPreyToHunt
                     tree("InCaution")
                 sequence
                     Idle
-                    Wait 3.0
+                    
 
 
 tree("InCaution")
     sequence
         race
-            Runaway 5.0
+            Runaway 8.0
             Wait 5.0
         Wait 1.0
         GoCloser 3.0
@@ -35,4 +35,4 @@ tree("InCaution")
         Wait 0.5
         Attack
         Wait 1.0
-        // CalmDown
+        CalmDown

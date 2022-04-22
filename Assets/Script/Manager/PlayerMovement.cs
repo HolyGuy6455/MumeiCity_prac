@@ -34,6 +34,7 @@ public class PlayerMovement : MonoBehaviour{
 
     [SerializeField] Vector3 lastStandLand;
     [SerializeField] FishingBait fishingBait;
+    [SerializeField] EmotionScript emotion;
 
     // [SerializeField] Sence sence;
     public bool _amIOnABoat{
@@ -158,6 +159,16 @@ public class PlayerMovement : MonoBehaviour{
 
     public void Hurt(){
         animator.SetTrigger("Hurt");
+
+        // 표정짓기
+        string[] dialogue = new string[1];
+        dialogue[0] = "You little....!!";
+        emotion.SetFace(7);
+        emotion.SetText(dialogue[0]);
+        emotion.SetTrigger();
+        // 대충 만들었다 ㅎㅎ
+
+        // 아이템 잃기
         List<ItemSlotData> inventoryItems = GameManager.Instance.inventory.GetDataList();
         for (int i = 0; i < 3; i++){
             if(Random.Range(0.0f,1.0f)>0.8f){
@@ -286,6 +297,10 @@ public class PlayerMovement : MonoBehaviour{
 
     public void IntenseFishing(){
         fishingBait.Intense();
+    }
+
+    public void ResetFace(){
+        emotion.SetFace(0);
     }
     
     public void LockLastMovement(string value){

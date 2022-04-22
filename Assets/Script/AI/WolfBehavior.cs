@@ -65,6 +65,7 @@ public class WolfBehavior : AnimalBehavior{
         if(positioning == false){
             Vector3 direction = (this.transform.position - targetObject.transform.position).normalized;
             targetVector3 = targetObject.transform.position + direction*distance;
+            targetVector3.y = this.transform.position.y;
             positioning = true;
         }
 
@@ -215,6 +216,11 @@ public class WolfBehavior : AnimalBehavior{
             aIPath.maxSpeed = 5;
             animator.SetFloat("Speed", 5 );
         }
+    }
+
+    public override void CalmDown(){
+        base.CalmDown();
+        aIPath.maxSpeed = 3;
     }
 
     void OnEnable () {
