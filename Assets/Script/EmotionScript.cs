@@ -51,6 +51,12 @@ public class EmotionScript : MonoBehaviour{
         Debug.Log("SetTrigger");
     }
 
+    public void Upgrade(string value){
+        SetFace(8);
+        SetText(value+" is Complete!");
+        SetTrigger();
+    }
+
     IEnumerator CountTime(float delayTime) {
         index++;
         if(index >= sprites.Count){

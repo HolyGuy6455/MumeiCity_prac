@@ -43,6 +43,24 @@ public class PersonBehavior : MonoBehaviour{
         }    
     }
 
+    private void Awake() {
+        if(personData.name.CompareTo("") == 0){
+            string[] names = new string[9];
+            names[0] = "Monty";
+            names[1] = "Buddy";
+            names[2] = "Timmy";
+            names[3] = "Buffy";
+            names[4] = "Butch";
+            names[5] = "Fluffy";
+            names[6] = "George";
+            names[7] = "Peter";
+            names[8] = "hoodie";
+
+            float rollDice = Random.Range(0.0f,9.0f);
+            personData.name = names[((int)rollDice)];
+        }
+    }
+
     [Task]
     void MoveToDestination(){
         if(this.target == null){

@@ -396,7 +396,7 @@ MonoBehaviour:
       amount: 1
     - itemDataName: Cabbage
       amount: 1
-    - itemDataName: Beetroot
+    - itemDataName: Tomato
       amount: 1
     resultItem:
       itemDataName: VegetableSoup

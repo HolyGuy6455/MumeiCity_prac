@@ -1,9 +1,18 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HouseUI : CommonTaskUI{
     [SerializeField] PersonStatusView[] personStatusViews;
     [SerializeField] GameObject PersonStatusViewParent;
     [SerializeField] HouseFunction houseFunction;
+    [SerializeField] Text titleText;
+
+    public PersonStatusView[] _personStatusViews{
+        get{
+            return personStatusViews;
+        }
+    }
+
     // Start is called before the first frame update
     protected override void Start(){
         base.Start();
@@ -39,7 +48,9 @@ public class HouseUI : CommonTaskUI{
 
     public override void UpdateUI(){
         base.UpdateUI();
-        houseFunction = GameManager.Instance.interactingBuilding.buildingData.facilityFunction as HouseFunction;
+        BuildingObject buildingObj = GameManager.Instance.interactingBuilding;
+        houseFunction = buildingObj.buildingData.facilityFunction as HouseFunction;
+        titleText.text = buildingObj.buildingData.buildingPreset.name;
         // Debug.Log("houseData "+houseData);
     }
 }

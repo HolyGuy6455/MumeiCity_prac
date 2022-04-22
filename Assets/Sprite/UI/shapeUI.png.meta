@@ -202,7 +202,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -229,8 +229,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be7c4c745543247a0800000000000000
+      spriteID: 40f46c080da97c04a9f4d8d1419320f1
       internalID: -6394490980031739925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shapeUI_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59a6d51cdb2dfea48b1080b40378a1f4
+      internalID: 1045809412
       vertices: []
       indices: 
       edges: []
@@ -250,6 +271,7 @@ TextureImporter:
       shapeUI_3: 8483230111651727208
       shapeUI_4: -7871033492413968568
       shapeUI_2: 3371526994438414989
+      shapeUI_6: 1045809412
       shapeUI_1: 4742782805782824827
       shapeUI_0: 6895970751038484715
   spritePackingTag: 

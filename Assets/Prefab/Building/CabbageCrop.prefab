@@ -176,11 +176,11 @@ MonoBehaviour:
   hitBoxCollider: {fileID: 5916100122663877609}
   effectiveTools:
   - tool: 2
-    damage: 7
-    minHP: 8
-  - tool: 5
     damage: 10
     minHP: 0
+  - tool: 5
+    damage: 7
+    minHP: 8
   DeadEventHandler:
     m_PersistentCalls:
       m_Calls: []
